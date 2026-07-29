@@ -423,6 +423,11 @@
   .sw-melt-top{transform-origin:50% 0%}
   .sw-drag{cursor:grabbing;z-index:70;position:relative}
   #sw-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+  /* Mobile Safari can briefly drop filtered layers while momentum-scrolling.
+     Keep the movement, but never apply the paint-only distortion on touch. */
+  @media (pointer:coarse){
+    .sw-melt{filter:none!important;text-shadow:none!important}
+  }
 </style>
 <canvas id="sw-water" aria-hidden="true"></canvas>
 <script>
@@ -430,6 +435,7 @@
   /* Reduced-motion (incl. Windows "animation effects off") tones the layer
      down instead of killing it, so the page still answers to the cursor. */
   var CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TOUCH = matchMedia('(pointer: coarse)').matches;
   var K    = CALM ? 0.28 : 0.68;
 
   var cv = document.getElementById('sw-water');
@@ -510,6 +516,7 @@
   var flowNodes = [], flow = 0;
 
   (function buildFilters(){
+    if (TOUCH) return;
     var NS = 'http://www.w3.org/2000/svg';
     var svg = document.createElementNS(NS, 'svg');
     svg.id = 'sw-defs'; svg.setAttribute('aria-hidden', 'true');
@@ -558,6 +565,13 @@
   }
 
   function paintWet(el, s){
+    if (TOUCH){
+      el.style.filter = '';
+      el.style.textShadow = '';
+      s.wlv = 0;
+      s.hadSh = 0;
+      return;
+    }
     if (!wetSafe(el)) return;
     var a = s.wet;
     var lv = a < 0.10 ? 0 : a < 0.30 ? 1 : a < 0.55 ? 2 : a < 0.80 ? 3 : 4;
