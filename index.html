@@ -424,9 +424,25 @@
   .sw-melt-top{transform-origin:50% 0%}
   .sw-drag{cursor:grabbing;z-index:70;position:relative}
   #sw-defs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+  section,footer{position:relative;isolation:isolate}
+  section::after,footer::after{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;
+    background:
+      radial-gradient(circle at var(--sw-x,50%) var(--sw-y,50%),
+        rgba(255,255,255,.20) 0,rgba(255,255,255,.08) 14%,transparent 34%),
+      repeating-radial-gradient(ellipse at var(--sw-x,50%) var(--sw-y,50%),
+        rgba(255,255,255,.055) 0 1px,transparent 2px 13px);
+    mix-blend-mode:soft-light;
+    transition:opacity .7s ease;
+  }
+  section.sw-water-section::after,footer.sw-water-section::after{
+    opacity:var(--sw-a,.07);
+    transition-duration:.16s;
+  }
+  section>.wrap,footer>.wrap{position:relative;z-index:1}
   /* Mobile Safari can briefly drop filtered layers while momentum-scrolling.
      Keep the movement, but never apply the paint-only distortion on touch. */
-  @media (pointer:coarse){
+  @media (pointer:coarse),(hover:none),(max-width:900px){
     .sw-melt{filter:none!important;text-shadow:none!important}
   }
 </style>
@@ -436,7 +452,9 @@
   /* Reduced-motion (incl. Windows "animation effects off") tones the layer
      down instead of killing it, so the page still answers to the cursor. */
   var CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var TOUCH = matchMedia('(pointer: coarse)').matches;
+  var TOUCH = matchMedia('(pointer: coarse)').matches ||
+              matchMedia('(hover: none)').matches ||
+              ((navigator.maxTouchPoints || 0) > 0 && Math.min(innerWidth, innerHeight) < 900);
   var K    = CALM ? 0.28 : 0.68;
 
   var cv = document.getElementById('sw-water');
@@ -672,6 +690,30 @@
     return c ? transformable(c) : null;
   }
 
+  var waterSection = null, waterTimer = 0;
+  function waterSectionAt(x, y, power){
+    var stack = document.elementsFromPoint ? document.elementsFromPoint(x, y) : [];
+    var sec = null;
+    for (var i = 0; i < stack.length; i++){
+      sec = stack[i].closest ? stack[i].closest('section,footer') : null;
+      if (sec) break;
+    }
+    if (!sec) return;
+    if (waterSection && waterSection !== sec) waterSection.classList.remove('sw-water-section');
+    waterSection = sec;
+    var r = sec.getBoundingClientRect();
+    if (r.width && r.height){
+      sec.style.setProperty('--sw-x', Math.max(0, Math.min(100, (x-r.left)/r.width*100)).toFixed(1)+'%');
+      sec.style.setProperty('--sw-y', Math.max(0, Math.min(100, (y-r.top)/r.height*100)).toFixed(1)+'%');
+    }
+    sec.style.setProperty('--sw-a', Math.min(0.09, 0.035+(power||0)*0.045).toFixed(3));
+    sec.classList.add('sw-water-section');
+    clearTimeout(waterTimer);
+    waterTimer = setTimeout(function(){
+      if (waterSection) waterSection.classList.remove('sw-water-section');
+    }, 720);
+  }
+
   /* set window.swProbe = 1 in the console, move the mouse, and it reports
      what is under the cursor and what (if anything) it matched */
   function probe(x, y){
@@ -687,6 +729,8 @@
   }
 
   function meltAt(x, y, power){
+    waterSectionAt(x, y, power);
+    if (TOUCH) return;
     var el = pickAt(x, y);
     if (el) melt(el, power);
   }
@@ -779,6 +823,8 @@
     ring(e.clientX, e.clientY, 1.65, 1.1);
     ring(e.clientX, e.clientY, 0.75, 0.8);
     droplets(e.clientX, e.clientY, 4, 0.65);
+    waterSectionAt(e.clientX, e.clientY, 0.45);
+    if (TOUCH) return;
 
     var el = pickAt(e.clientX, e.clientY);
     if (el){
