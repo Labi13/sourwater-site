@@ -242,7 +242,7 @@
     <div class="col" style="aspect-ratio:auto">
       <div class="browser">
         <div class="bar"><i></i><i></i><i></i></div>
-        <div class="frame"><img src="/assets/escape-shop-social.jpg" alt="Escape Shop lake-fishing e-shop" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top"></div>
+        <div class="frame"><iframe src="https://escapeshop-gr.labrakex.workers.dev/" title="Ζωντανή προεπισκόπηση του Escape Shop" loading="lazy"></iframe></div>
       </div>
     </div>
   </div>
@@ -394,6 +394,8 @@
      Keep the movement, but never apply the paint-only distortion on touch. */
   @media (pointer:coarse),(hover:none),(max-width:900px){
     .sw-melt{filter:none!important;text-shadow:none!important}
+    section,footer{isolation:auto}
+    section::after,footer::after{display:none!important}
   }
 </style>
 <canvas id="sw-water" aria-hidden="true"></canvas>
@@ -405,7 +407,7 @@
   var TOUCH = matchMedia('(pointer: coarse)').matches ||
               matchMedia('(hover: none)').matches ||
               ((navigator.maxTouchPoints || 0) > 0 && Math.min(innerWidth, innerHeight) < 900);
-  var K    = CALM ? 0.18 : 0.38;
+  var K    = CALM ? 0.12 : 0.22;
 
   var cv = document.getElementById('sw-water');
   if (!cv || !cv.getContext) return;
@@ -422,7 +424,7 @@
   var rt; addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(resize,150); }, {passive:true});
 
   /* ============ ripples + droplets, only where you touch ============ */
-  var rings = [], parts = [], MAXR = 60, MAXP = 120;
+  var rings = [], parts = [], wash = null, MAXR = 60, MAXP = 120;
 
   /* a pebble dropped in, not a pond-wide wave */
   function ring(x, y, power, wobble){
@@ -443,6 +445,25 @@
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.clearRect(0,0,W,H);
     var i, g, p, k, ang, rr;
+
+    /* On touch devices the water lives entirely on this fixed canvas. It
+       never filters, transforms or recomposites page content, so products
+       and sections stay continuously visible during momentum scrolling. */
+    if (wash && wash.life > 0){
+      var wh = Math.max(0, wash.bottom - wash.top);
+      if (wh > 0){
+        ctx.save();
+        ctx.beginPath(); ctx.rect(0, wash.top, W, wh); ctx.clip();
+        var wg = ctx.createRadialGradient(wash.x, wash.y, 0, wash.x, wash.y, Math.max(W,H)*0.58);
+        wg.addColorStop(0, 'rgba(255,255,255,' + (wash.life*0.070).toFixed(3) + ')');
+        wg.addColorStop(0.38, 'rgba(142,190,198,' + (wash.life*0.028).toFixed(3) + ')');
+        wg.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = wg; ctx.fillRect(0, wash.top, W, wh);
+        ctx.restore();
+      }
+      wash.life -= 0.032;
+      if (wash.life <= 0) wash = null;
+    }
 
     for (i = rings.length - 1; i >= 0; i--){
       g = rings[i];
@@ -481,7 +502,7 @@
   /* The melt bends the whole block. This bends the letterforms themselves:
      a turbulence displacement map plus a wet sheen. Both are paint-only, so
      nothing here touches transform, transform-origin or layout. */
-  var WET = [0, 2, 4, 7, 11];      /* displacement px per level */
+  var WET = [0, 1, 2, 3, 5];       /* deliberately subtle displacement */
   var flowNodes = [], flow = 0;
 
   (function buildFilters(){
@@ -509,7 +530,7 @@
   /* the noise drifts downward, so the distortion runs like water rather than
      sitting there like static grain */
   function advanceFlow(){
-    flow = (flow + 0.6) % 512;
+    flow = (flow + 0.14) % 512;
     for (var i = 0; i < flowNodes.length; i++) flowNodes[i].setAttribute('dy', flow.toFixed(1));
   }
 
@@ -589,13 +610,13 @@
     if (s.drag) return;
     if (power > 1) power = 1;
     power *= K;
-    var direction = s.tsk < 0 ? -1 : s.tsk > 0 ? 1 : (Math.random() < 0.5 ? -1 : 1);
-    var lean = direction * (0.55 + Math.random()*0.20);
-    s.tsk = lean * power * 7;
-    s.tty = power * 11;
-    s.tsy = 1 + power * 0.12;
-    s.tsx = 1 - power * 0.025;
-    s.twet = Math.min(0.7, power * 0.55);
+    var r = el.getBoundingClientRect();
+    var lean = Math.sin(performance.now()*0.0011 + r.top*0.0022);
+    s.tsk = lean * power * 3.2;
+    s.tty = power * 5.5;
+    s.tsy = 1 + power * 0.055;
+    s.tsx = 1 - power * 0.012;
+    s.twet = Math.min(0.38, power * 0.32);
     el.style.transition = 'none';
     melting.add(el);
   }
@@ -650,6 +671,14 @@
       if (sec) break;
     }
     if (!sec) return;
+    if (TOUCH){
+      var tr = sec.getBoundingClientRect();
+      wash = {
+        top:Math.max(0,tr.top), bottom:Math.min(H,tr.bottom),
+        x:x, y:y, life:Math.min(1,0.52+(power||0)*0.35)
+      };
+      return;
+    }
     if (waterSection && waterSection !== sec) waterSection.classList.remove('sw-water-section');
     waterSection = sec;
     var r = sec.getBoundingClientRect();
@@ -657,9 +686,7 @@
       sec.style.setProperty('--sw-x', Math.max(0, Math.min(100, (x-r.left)/r.width*100)).toFixed(1)+'%');
       sec.style.setProperty('--sw-y', Math.max(0, Math.min(100, (y-r.top)/r.height*100)).toFixed(1)+'%');
     }
-    var alpha = TOUCH
-      ? Math.min(0.14, 0.055+(power||0)*0.070)
-      : Math.min(0.06, 0.022+(power||0)*0.035);
+    var alpha = Math.min(0.035, 0.014+(power||0)*0.020);
     sec.style.setProperty('--sw-a', alpha.toFixed(3));
     sec.classList.add('sw-water-section');
     clearTimeout(waterTimer);
@@ -843,7 +870,7 @@
   (function frame(){
     requestAnimationFrame(frame);
     if (document.hidden) return;
-    if (!rings.length && !parts.length && !melting.size) return;
+    if (!rings.length && !parts.length && !melting.size && !wash) return;
     drawWater();
     settleEls();
     if (melting.size) advanceFlow();
