@@ -141,6 +141,20 @@
   .strategy .c h3{font-family:'Fraunces';font-weight:600;font-size:23px;margin:13px 0 11px}
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
+  /* IMMEDIATE BRAND DIAGNOSIS CTA */
+  .diagnosis{padding:88px 0;background:#DA9A28;color:var(--ink)}
+  .diagnosis .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:52px;align-items:end}
+  .diagnosis h2{font-size:clamp(38px,5.4vw,78px);max-width:11ch}
+  .diagnosis .lead{color:#4a3520}
+  .diagnosis .options{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border-top:1px solid rgba(36,31,26,.28);border-left:1px solid rgba(36,31,26,.28)}
+  .diagnosis .option{display:flex;flex-direction:column;min-height:210px;padding:27px 26px;color:inherit;text-decoration:none;border-right:1px solid rgba(36,31,26,.28);border-bottom:1px solid rgba(36,31,26,.28);transition:background .25s ease,transform .25s ease}
+  .diagnosis .option:hover{background:rgba(245,240,228,.28);transform:translateY(-3px)}
+  .diagnosis .time{font-family:'Fraunces';font-size:30px;font-weight:600}
+  .diagnosis .price{font-family:'Fraunces';font-size:21px;color:#7d351e;margin-top:3px}
+  .diagnosis .desc{font-size:13.5px;margin-top:auto;max-width:29ch}
+  .diagnosis .arrow{margin-top:19px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  @media(max-width:760px){.diagnosis{padding:68px 0}.diagnosis .intro{grid-template-columns:1fr;gap:20px}.diagnosis .options{grid-template-columns:1fr}.diagnosis .option{min-height:0}.diagnosis .desc{margin-top:18px}}
+
   /* SERVICES & PRICING */
   .services{padding:112px 0;background:var(--paper)}
   .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
@@ -201,6 +215,19 @@
     <a class="ghost" href="#contact">Start a project</a>
   </div>
   <p class="hero-note serif">One person listens to your vision, reviews your project, and builds your plan.</p>
+</div></section>
+
+<!-- BRAND DIAGNOSIS -->
+<section class="diagnosis" id="diagnosis"><div class="wrap">
+  <div class="intro">
+    <div><div class="kick">Start here</div><h2 class="disp" style="margin-top:12px">See the brand clearly.</h2></div>
+    <p class="lead">Bring the question, the offer or the part that is not working. Leave with a sharper diagnosis and a concrete next move.</p>
+  </div>
+  <div class="options">
+    <a class="option" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span class="time">30 minutes</span><span class="price">$90</span><span class="desc">A focused, working diagnosis.</span><span class="arrow">Book the session &rarr;</span></a>
+    <a class="option" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span class="time">60 minutes</span><span class="price">$150</span><span class="desc">A deeper diagnostic session.</span><span class="arrow">Book the session &rarr;</span></a>
+    <a class="option" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span class="time">90 minutes</span><span class="price">$200</span><span class="desc">A complete Brand Diagnostic with a written action plan, sent within 48 hours.</span><span class="arrow">Book the session &rarr;</span></a>
+  </div>
 </div></section>
 
 <!-- PHILOSOPHY -->
@@ -334,7 +361,7 @@
   </div>
   <div class="grid">
     <div class="txt">
-      <p class="lead">A complete editorial ecosystem built end to end: a 22-essay Substack bank split into two colour-coded content lines, a daily Instagram design language, and a funnel from free essay to signature service.</p>
+      <p class="lead">A complete editorial ecosystem built end to end: two books, a 22-essay Substack bank split into two colour-coded content lines, a daily Instagram design language, and a funnel from free essay to signature service.</p>
       <blockquote>Imitation performs from memory; presence performs from now.<span class="a">Brand voice, aphoristic register</span></blockquote>
       <div class="tags"><span class="tag">Substack system</span><span class="tag">"The Gap" IG format</span><span class="tag">Funnel design</span><span class="tag">Daily content engine</span><span class="tag">Faceless short-form</span><span class="tag">AI podcast persona</span><span class="tag">Book launch</span><span class="tag">Email sequences</span><span class="tag">Paid-tier strategy</span><span class="tag">AI audiobook narration</span></div>
     </div>
@@ -352,13 +379,6 @@
   <h2 class="disp" style="margin:14px 0 16px">What we can do for you.</h2>
   <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a whole content operation. Prices in USD ($); payment accepted in USD ($) or EUR (&euro;).</p>
   <div class="pricegrid">
-
-    <div class="pcard"><h3>1:1 Brand Diagnosis</h3><span class="sub">Book direct on Cal.com</span><ul>
-      <li><a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block"><div class="row"><span>30 minutes &rarr;</span><b>$90</b></div><em>A focused, working diagnosis</em></a></li>
-      <li><a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block"><div class="row"><span>60 minutes &rarr;</span><b>$150</b></div><em>A deeper diagnostic session</em></a></li>
-      <li><a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:block"><div class="row"><span>90 minutes &rarr;</span><b>$200</b></div><em>90-minute Brand Diagnostic + written action plan, sent within 48 hours</em></a></li>
-    </ul>
-    <a href="https://cal.eu/sourwater" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#F5F0E4;background:var(--terra);padding:12px 22px;border-radius:40px">Book on Cal.com</a></div>
 
     <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
       <li><div class="row"><span>Essentials</span><b>from $500/mo</b></div><em>1 platform · ~12 posts · captions · design · 2 platforms, same content: $650/mo</em></li>
@@ -455,7 +475,7 @@
   var TOUCH = matchMedia('(pointer: coarse)').matches ||
               matchMedia('(hover: none)').matches ||
               ((navigator.maxTouchPoints || 0) > 0 && Math.min(innerWidth, innerHeight) < 900);
-  var K    = CALM ? 0.28 : 0.68;
+  var K    = CALM ? 0.18 : 0.38;
 
   var cv = document.getElementById('sw-water');
   if (!cv || !cv.getContext) return;
@@ -632,19 +652,20 @@
     return el._sw;
   }
 
-  /* heavy Dali sag: stretches tall, drips down, leans, narrows */
+  /* A restrained underwater wave: small, slow and directionally stable. */
   function melt(el, power){
     if (!el) return;
     var s = mstate(el);
     if (s.drag) return;
     if (power > 1) power = 1;
     power *= K;
-    var lean = (Math.random() < 0.5 ? -1 : 1) * (0.5 + Math.random()*0.5);
-    s.tsk = lean * power * 11;             /* lean  */
-    s.tty = power * 20;                    /* drip  */
-    s.tsy = 1 + power * 0.24;              /* stretch tall */
-    s.tsx = 1 - power * 0.05;              /* narrow as it stretches */
-    s.twet = Math.min(1, power * 0.85);    /* the glyphs go liquid too */
+    var direction = s.tsk < 0 ? -1 : s.tsk > 0 ? 1 : (Math.random() < 0.5 ? -1 : 1);
+    var lean = direction * (0.55 + Math.random()*0.20);
+    s.tsk = lean * power * 7;
+    s.tty = power * 11;
+    s.tsy = 1 + power * 0.12;
+    s.tsx = 1 - power * 0.025;
+    s.twet = Math.min(0.7, power * 0.55);
     el.style.transition = 'none';
     melting.add(el);
   }
@@ -706,7 +727,10 @@
       sec.style.setProperty('--sw-x', Math.max(0, Math.min(100, (x-r.left)/r.width*100)).toFixed(1)+'%');
       sec.style.setProperty('--sw-y', Math.max(0, Math.min(100, (y-r.top)/r.height*100)).toFixed(1)+'%');
     }
-    sec.style.setProperty('--sw-a', Math.min(0.09, 0.035+(power||0)*0.045).toFixed(3));
+    var alpha = TOUCH
+      ? Math.min(0.14, 0.055+(power||0)*0.070)
+      : Math.min(0.06, 0.022+(power||0)*0.035);
+    sec.style.setProperty('--sw-a', alpha.toFixed(3));
     sec.classList.add('sw-water-section');
     clearTimeout(waterTimer);
     waterTimer = setTimeout(function(){
@@ -751,14 +775,14 @@
         s.tsx = 1 + (s.tsx - 1) * 0.945;
         s.twet *= 0.940;                    /* wetness dries a touch faster */
       }
-      /* damped spring: it overshoots slightly and rebounds, like something
-         elastic coming back to shape rather than easing politely home */
-      var ST = 0.15, DM = 0.80;
-      s.vsk = s.vsk*DM + (s.tsk - s.sk)*ST; s.sk += s.vsk;
-      s.vty = s.vty*DM + (s.tty - s.ty)*ST; s.ty += s.vty;
-      s.vsy = s.vsy*DM + (s.tsy - s.sy)*ST; s.sy += s.vsy;
-      s.vsx = s.vsx*DM + (s.tsx - s.sx)*ST; s.sx += s.vsx;
-      s.wet += (s.twet - s.wet) * 0.22;     /* rides the same clock, no overshoot */
+      /* Ease toward the wave without spring overshoot, which can read as
+         trembling on a trackpad or high-refresh desktop display. */
+      s.vsk = s.vty = s.vsy = s.vsx = 0;
+      s.sk += (s.tsk - s.sk) * 0.08;
+      s.ty += (s.tty - s.ty) * 0.08;
+      s.sy += (s.tsy - s.sy) * 0.07;
+      s.sx += (s.tsx - s.sx) * 0.07;
+      s.wet += (s.twet - s.wet) * 0.12;
       paintEl(el);
       paintWet(el, s);
       if (!s.drag && Math.abs(s.sk) < 0.06 && Math.abs(s.ty) < 0.2 &&
@@ -790,7 +814,7 @@
           ring(x, y, 0.42 + sp*0.7, 0.8);
         }
         if (sp > 1.4 && Math.random() < 0.07) droplets(x, y, 1, 0.12);
-        meltAt(x, y, Math.min(0.72, 0.18 + sp*0.75));
+        meltAt(x, y, Math.min(0.42, 0.12 + sp*0.38));
       }
     }
     lx = x; ly = y; lt = now;
@@ -828,7 +852,7 @@
 
     var el = pickAt(e.clientX, e.clientY);
     if (el){
-      melt(el, 0.44);
+      melt(el, 0.28);
       var p = { x:e.clientX, y:e.clientY, grabbed:false };
       p.timer = setTimeout(function(){
         p.grabbed = true;
@@ -881,7 +905,7 @@
     /* wheel/trackpad scrolling before the mouse has ever moved: use the
        middle of the viewport so the page still reacts from a cold load */
     var px = lx !== null ? lx : W/2, py = ly !== null ? ly : H/2;
-    meltAt(px, py, Math.min(0.7, 0.22 + mag*0.5));
+    meltAt(px, py, Math.min(0.38, 0.14 + mag*0.24));
     if (Math.random() < 0.2) ring(px, py, 0.48 + mag*0.7, 0.8);
   }, {passive:true});
 
