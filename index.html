@@ -141,9 +141,11 @@
   .strategy .c h3{font-family:'Fraunces';font-weight:600;font-size:23px;margin:13px 0 11px}
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
-  /* COMPACT FIRST-SCROLL BRAND DIAGNOSIS CTA */\n  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
+  /* COMPACT FIRST-SCROLL BRAND DIAGNOSIS CTA */
+  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
   .diagnosis-strip{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(3,minmax(130px,.65fr));
     max-width:900px;margin-top:28px;border-top:1px solid rgba(36,31,26,.26);border-bottom:1px solid rgba(36,31,26,.26)}
+  .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
   .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:11px 18px 11px 0}
   .diagnosis-strip .label strong{font-family:'Fraunces';font-size:17px;font-weight:600}
   .diagnosis-strip .label span{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50}
@@ -203,13 +205,19 @@
     <a class="ghost" href="#contact">Start a project</a>
   </div>
   <p class="hero-note serif">One person listens to your vision, reviews your project, and builds your plan.</p>
+</div></section>
+
+<!-- IMMEDIATE DIAGNOSIS CTA: its own thin band between hero and philosophy -->
+<aside class="diagnosis-band">
+  <div class="wrap">
   <div class="diagnosis-strip" aria-label="Book a one-to-one Brand Diagnosis">
     <div class="label"><strong>1:1 Brand Diagnosis</strong><span>Book direct on Cal.com</span></div>
     <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 min</span><b>$90</b></a>
     <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 min</span><b>$150</b></a>
     <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 min</span><b>$200</b></a>
   </div>
-</div></section>
+  </div>
+</aside>
 
 <!-- PHILOSOPHY -->
 <section class="approach"><div class="wrap">
