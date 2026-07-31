@@ -141,9 +141,11 @@
   .strategy .c h3{font-family:'Fraunces','Spectral';font-weight:600;font-size:23px;margin:13px 0 11px}
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
-  /* ΣΥΜΠΑΓΕΣ CTA ΔΙΑΓΝΩΣΗΣ ΣΤΟ ΠΡΩΤΟ SCROLL */\n  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
+  /* ΣΥΜΠΑΓΕΣ CTA ΔΙΑΓΝΩΣΗΣ ΣΤΟ ΠΡΩΤΟ SCROLL */
+  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
   .diagnosis-strip{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(3,minmax(130px,.65fr));
     max-width:900px;margin-top:28px;border-top:1px solid rgba(36,31,26,.26);border-bottom:1px solid rgba(36,31,26,.26)}
+  .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
   .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:11px 18px 11px 0}
   .diagnosis-strip .label strong{font-family:'Fraunces','Spectral';font-size:17px;font-weight:600}
   .diagnosis-strip .label span{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50}
@@ -202,13 +204,19 @@
     <a class="ghost" href="#contact">Ξεκινήστε ένα project</a>
   </div>
   <p class="hero-note serif">Κάποιος από την ομάδα μας ακούει το όραμα και τους στόχους σας, αξιολογεί το project σας, και φτιάχνει το πλάνο.</p>
+</div></section>
+
+<!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ξεχωριστή λεπτή ζώνη ανάμεσα στο hero και τη φιλοσοφία -->
+<aside class="diagnosis-band">
+  <div class="wrap">
   <div class="diagnosis-strip" aria-label="Κλείστε ατομική Διάγνωση Brand">
     <div class="label"><strong>1:1 Διάγνωση Brand</strong><span>Άμεση κράτηση στο Cal.com</span></div>
     <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 λεπτά</span><b>&euro;85</b></a>
     <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 λεπτά</span><b>&euro;140</b></a>
     <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 λεπτά</span><b>&euro;185</b></a>
   </div>
-</div></section>
+  </div>
+</aside>
 
 <!-- PHILOSOPHY -->
 <section class="approach"><div class="wrap">
