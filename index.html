@@ -152,23 +152,45 @@
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
   /* COMPACT FIRST-SCROLL BRAND DIAGNOSIS CTA */
-  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
-  .diagnosis-strip{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(3,minmax(130px,.65fr));
+  .diagnosis-band{padding:24px 0 26px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
+  .diagnosis-strip{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(140px,.65fr));
     max-width:900px;margin-top:28px;border-top:1px solid rgba(36,31,26,.26);border-bottom:1px solid rgba(36,31,26,.26)}
   .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
-  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:11px 18px 11px 0}
-  .diagnosis-strip .label strong{font-family:'Fraunces';font-size:17px;font-weight:600}
-  .diagnosis-strip .label span{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50}
-  .diagnosis-strip a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:52px;padding:10px 14px;
-    border-left:1px solid rgba(36,31,26,.2);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease}
-  .diagnosis-strip a:hover{background:rgba(193,92,52,.1)}
-  .diagnosis-strip a b{font-family:'Fraunces';font-size:16px;color:var(--terra);white-space:nowrap}
+  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:17px 22px 17px 0}
+  .diagnosis-strip .label strong{font-family:'Fraunces';font-size:19px;font-weight:600}
+  .diagnosis-strip .label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50;margin-top:3px}
+  .diagnosis-strip a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:78px;padding:12px 14px;
+    border-left:1px solid rgba(36,31,26,.2);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,transform .25s ease}
+  .diagnosis-strip a:hover{background:rgba(193,92,52,.1);transform:translateY(-2px)}
+  .diagnosis-strip a b{font-family:'Fraunces';font-size:17px;color:var(--terra);white-space:nowrap}
+  .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:var(--terra);color:#fff;
+    font-size:9px;font-weight:700;letter-spacing:.14em;line-height:1.2}
   @media(max-width:700px){
+    .diagnosis-band{padding:20px 0 22px}
     .diagnosis-strip{grid-template-columns:repeat(3,1fr);margin-top:22px}
-    .diagnosis-strip .label{grid-column:1/-1;padding:9px 0;border-bottom:1px solid rgba(36,31,26,.2)}
-    .diagnosis-strip .label strong{font-size:15px}.diagnosis-strip a{min-height:44px;padding:8px 5px;font-size:10px;letter-spacing:.03em}
-    .diagnosis-strip a:first-of-type{border-left:0}.diagnosis-strip a b{font-size:14px}
+    .diagnosis-strip .label{grid-column:1/-1;padding:13px 0;border-bottom:1px solid rgba(36,31,26,.2)}
+    .diagnosis-strip .label strong{font-size:17px}
+    .diagnosis-strip a{min-height:66px;padding:10px 4px;font-size:10px;letter-spacing:.03em}
+    .diagnosis-strip a:first-of-type{border-left:0}
+    .diagnosis-strip a b{font-size:15px}
+    .diagnosis-strip .book{font-size:8px;padding:4px 8px}
   }
+
+  /* SERVICES & PRICING */
+  .services{padding:112px 0;background:var(--paper)}
+  .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
+    background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
+  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
+  .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--ink)}
+  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+  .pcard ul{list-style:none;margin-top:16px}
+  .pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
+  .pcard li:first-child{border-top:none}
+  .pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
+  .pcard li .row b{font-family:'Fraunces';font-weight:600;color:var(--terra);white-space:nowrap;font-size:15px}
+  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#6b6155;margin-top:5px;line-height:1.45}
+  @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* FOOTER / CONTACT */
   footer{padding:120px 0;text-align:center;background:var(--ink);color:#EFE6D5}
@@ -217,14 +239,14 @@
   <p class="hero-note serif">One person listens to your vision, reviews your project, and builds your plan.</p>
 </div></section>
 
-<!-- IMMEDIATE DIAGNOSIS CTA: its own thin band between hero and philosophy -->
+<!-- IMMEDIATE DIAGNOSIS CTA: a substantial first-scroll band between hero and philosophy -->
 <aside class="diagnosis-band">
   <div class="wrap">
   <div class="diagnosis-strip" aria-label="Book a one-to-one Brand Diagnosis">
-    <div class="label"><strong>1:1 Brand Diagnosis</strong><span>Book direct on Cal.com</span></div>
-    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 min</span><b>$90</b></a>
-    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 min</span><b>$150</b></a>
-    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 min</span><b>$200</b></a>
+    <div class="label"><strong>1:1 Brand Diagnosis</strong><span>Choose a working session</span></div>
+    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 min</span><b>$90</b><span class="book">Book →</span></a>
+    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 min</span><b>$150</b><span class="book">Book →</span></a>
+    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 min</span><b>$200</b><span class="book">Book →</span></a>
   </div>
   </div>
 </aside>
@@ -377,6 +399,57 @@
       <img src="/assets/ata-gap-cream.png" style="width:45%;top:34%;left:50%;transform:rotate(3deg)">
     </div>
   </div>
+</div></section>
+
+<!-- SERVICES & PRICING -->
+<section class="services"><div class="wrap">
+  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">07 · Services &amp; Pricing</div>
+  <h2 class="disp" style="margin:14px 0 16px">What we can do for you.</h2>
+  <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation. Prices are starting points; payment is accepted in USD ($) or EUR (&euro;).</p>
+  <div class="pricegrid">
+
+    <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
+      <li><div class="row"><span>Essentials</span><b>from $500/mo</b></div><em>1 platform · ~12 posts · captions · design · 2 platforms, same content: $650/mo</em></li>
+      <li><div class="row"><span>Growth</span><b>from $950/mo</b></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
+      <li><div class="row"><span>Full Engine</span><b>from $1,400/mo</b></div><em>Multi-platform · automated daily content engine · reel/TikTok editing · community management · monthly strategy</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Brand Systems</h3><span class="sub">One-time</span><ul>
+      <li><div class="row"><span>Brand doctrine / brand book</span><b>from $1,400</b></div><em>Voice, palette, forbidden words, pillars and growth ladder</em></li>
+      <li><div class="row"><span>Visual identity &amp; card system</span><b>from $900</b></div><em>Logo lockups, templates and a repeatable post design system</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Websites &amp; E-commerce</h3><span class="sub">One-time</span><ul>
+      <li><div class="row"><span>Landing page / microsite + SEO</span><b>from $650</b></div><em>Single-page funnel or campaign site</em></li>
+      <li><div class="row"><span>Website design + SEO + GEO</span><b>from $1,150</b></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
+      <li><div class="row"><span>Interactive site + SEO + GEO</span><b>from $1,400</b></div><em>Motion, cursor-reactive canvas and scroll-driven scenes, built to be remembered</em></li>
+      <li><div class="row"><span>Custom e-commerce website</span><b>from &euro;2,200</b></div><em>Mobile-first storefront, catalogue migration, payments, shipping, SEO/GEO and 301-redirect launch</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Content Engine</h3><span class="sub">Setup + retainer</span><ul>
+      <li><div class="row"><span>Automated daily pipeline</span><b>from $900</b></div><em>Setup, then $300/mo · one brief in, a complete pack of finished assets out</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Video Production</h3><span class="sub">Per piece &amp; monthly</span><ul>
+      <li><div class="row"><span>Reel / TikTok edit</span><b>from $120</b></div><em>Each · 8-pack from $800</em></li>
+      <li><div class="row"><span>Faceless short-form series</span><b>from $600/mo</b></div><em>Fixed character, complete AI pipeline, no shoot</em></li>
+      <li><div class="row"><span>Product motion film</span><b>from $1,200</b></div><em>3-minute cinematic video, product in motion and motion-tracked AI visuals</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>AI Studio</h3><span class="sub">Generative production</span><ul>
+      <li><div class="row"><span>AI voice cloning</span><b>from $900</b></div><em>Custom voice model for narration or song</em></li>
+      <li><div class="row"><span>AI persona / podcast</span><b>from $900</b></div><em>Written voice bible + in-character production</em></li>
+      <li><div class="row"><span>AI visual / image sets</span><b>from $280</b></div><em>10-image set, generated from scratch and on brand</em></li>
+      <li><div class="row"><span>Photo editing / retouching</span><b>from $350</b></div><em>Background removal, cleanup and AI-assisted touch-ups</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Strategy</h3><span class="sub">Sprints &amp; testing</span><ul>
+      <li><div class="row"><span>Strategy sprint / content audit</span><b>from $600</b></div><em>Doctrine, funnel map and 90-day plan</em></li>
+      <li><div class="row"><span>Ad testing &amp; audience research</span><b>from $300/mo</b></div><em>Plus ad spend · small budgets, measured honestly, scaling only the winner</em></li>
+    </ul></div>
+
+  </div>
+  <p style="margin-top:26px;font-size:13px;color:var(--soft)">Every engagement is scoped to the brand. Bundles and ongoing retainers are quoted separately and may be discounted.</p>
 </div></section>
 
 <!-- CONTACT -->
