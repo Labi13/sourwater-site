@@ -16,6 +16,7 @@ dashboard-only site reproducible from GitHub.
 
 ## Cloudflare
 
+- Production branch: `main` (automatic deployment)
 - Build command: `npm run build`
 - Deploy command: `npx wrangler deploy`
 - Root directory: `/`
