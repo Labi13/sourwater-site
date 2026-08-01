@@ -196,38 +196,48 @@
   /* PROJECT SERVICE DRAWERS */
   .project-offer{position:absolute;top:72px;right:0;z-index:8;display:flex;align-items:stretch;
     transform:translateX(calc(100% - 46px));transition:transform .38s cubic-bezier(.2,.7,.2,1)}
-  .project-offer:hover,.project-offer:focus-within,.project-offer.is-open{transform:translateX(0)}
+  .project-offer.is-open{transform:translateX(0)}
   .project-offer-tab{width:46px;min-height:152px;border:1px solid rgba(255,255,255,.35);background:var(--accent);color:var(--bg);cursor:pointer;
     display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 11px;font:600 10px/1 'Space Grotesk',sans-serif;
     letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
   .project-offer-tab b{font:500 19px/1 'Space Grotesk',sans-serif;transition:transform .28s ease}
-  .project-offer.is-open .project-offer-tab b,.project-offer:hover .project-offer-tab b{transform:rotate(45deg)}
-  .project-offer-panel{width:min(360px,calc(100vw - 46px));padding:24px 25px;background:rgba(245,240,228,.98);color:var(--ink);
-    border:1px solid rgba(36,31,26,.18);box-shadow:-22px 24px 52px rgba(0,0,0,.2)}
-  .project-offer-panel .offer-label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+  .project-offer.is-open .project-offer-tab b{transform:rotate(45deg)}
+  .project-offer-panel{width:min(360px,calc(100vw - 46px));padding:24px 25px;background:var(--bg);color:var(--fg);
+    background:color-mix(in srgb,var(--bg) 92%,white 8%);border:1px solid color-mix(in srgb,var(--fg) 24%,transparent);box-shadow:-22px 24px 52px rgba(0,0,0,.2)}
+  .project-offer-panel .offer-label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
   .project-offer-panel h3{font-family:'Fraunces';font-size:24px;line-height:1.08;margin:8px 0 2px}
-  .project-offer-panel .offer-price{font-family:'Fraunces';font-size:20px;color:var(--terra);margin-bottom:10px}
-  .project-offer-panel p{font-size:13px;line-height:1.5;color:#51483f}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
-  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid rgba(36,31,26,.1)}
-  .project-offer-panel li::before{content:"— ";color:var(--terra)}
-  .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;border-bottom:1px solid var(--terra);padding-bottom:3px}
-  @media(max-width:700px){.project-offer{top:22px}.project-offer-panel{padding:20px}.project-offer-tab{min-height:132px}}
+  .project-offer-panel .offer-price{font-family:'Fraunces';font-size:20px;color:var(--accent);margin-bottom:10px}
+  .project-offer-panel p{font-size:13px;line-height:1.5;color:var(--fg);opacity:.82}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
+  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid color-mix(in srgb,var(--fg) 18%,transparent)}
+  .project-offer-panel li::before{content:"— ";color:var(--accent)}
+  .project-offer-panel a{display:inline-block;color:var(--fg);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px}
+  @media(max-width:700px){
+    .project-offer,.project-offer.is-open{position:relative;top:auto;right:auto;width:100%;display:block;margin:0 0 28px;transform:none}
+    .project-offer-tab{width:100%;min-height:48px;padding:12px 16px;writing-mode:horizontal-tb;flex-direction:row;border-color:color-mix(in srgb,var(--fg) 28%,transparent)}
+    .project-offer-panel{width:100%;max-height:0;padding:0 18px;overflow:hidden;visibility:hidden;opacity:0;transform:translateY(-6px);
+      border-width:0 1px;box-shadow:none;transition:max-height .42s cubic-bezier(.2,.7,.2,1),padding .32s ease,opacity .24s ease,transform .32s ease,visibility 0s linear .42s}
+    .project-offer.is-open .project-offer-panel{max-height:620px;padding:20px 18px;visibility:visible;opacity:1;transform:none;border-width:0 1px 1px;
+      box-shadow:0 18px 34px rgba(0,0,0,.16);transition-delay:0s}
+    .project-offer.is-open .project-offer-tab{border-bottom-color:transparent}
+  }
 
   /* BUILD YOUR PLAN */
-  .plan-builder{padding:108px 0;background:#E9DFCE;color:var(--ink)}
-  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#5c5145;max-width:58ch}
-  .plan-form{margin-top:42px;border:1px solid rgba(36,31,26,.18);background:rgba(245,240,228,.52)}
-  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid rgba(36,31,26,.14)}
+  .plan-builder{padding:108px 0;background:#142431;color:#F5F7F8;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px}
+  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#C1CBD1;max-width:58ch}
+  .plan-builder .intro .kick{color:#8FB6C9!important}.plan-builder .intro h2{color:#fff}
+  .plan-form{margin-top:42px;border:1px solid #8D9BA5;background:#F4F7F8;color:#15232E;box-shadow:0 26px 70px rgba(0,0,0,.24)}
+  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #CDD5DA}
   .plan-question legend{font-family:'Fraunces';font-size:20px;font-weight:600;margin-bottom:14px}
   .plan-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}.plan-option{position:relative}
   .plan-option input{position:absolute;opacity:0;pointer-events:none}.plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;
-    border:1px solid rgba(36,31,26,.18);background:rgba(255,255,255,.35);font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
-  .plan-option input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:inset 4px 0 0 var(--terra)}
-  .plan-option input:focus-visible+span{outline:2px solid var(--terra);outline-offset:2px}
-  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:var(--ink);color:#fff}
-  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#d8ccbb;margin-top:5px;max-width:72ch}
-  .plan-result .estimate{color:#DA9A28;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:var(--terra);color:#fff;
+    border:1px solid #B6C1C8;background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
+  .plan-option input:checked+span{background:#183247;border-color:#183247;color:#fff;box-shadow:inset 4px 0 0 #8FB6C9}
+  .plan-option input:focus-visible+span{outline:2px solid #5F89A0;outline-offset:2px}
+  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#0B171F;color:#fff}
+  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#C1CBD1;margin-top:5px;max-width:72ch}
+  .plan-result .estimate{color:#A9CAD9;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#C15C34;color:#fff;
     padding:13px 20px;border-radius:40px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
   @media(max-width:760px){.plan-builder{padding:76px 0}.plan-builder .intro{grid-template-columns:1fr;gap:14px}.plan-question{padding:21px 18px}
     .plan-options{grid-template-columns:1fr 1fr}.plan-result{grid-template-columns:1fr}.plan-result a{justify-self:start}}
@@ -307,19 +317,12 @@
   <p style="margin-top:42px;color:#c8bda9;font-size:14.5px;max-width:62ch">Every asset carries one line built to be screenshotted with the logo cropped off, because the quote travels further than the post.</p>
 </div></section>
 
-<!-- COMPACT SERVICE OFFER -->
-<section class="commerce-offer"><div class="wrap inner">
-  <div><div class="eyebrow">Websites &amp; commerce</div><h2>Custom e-commerce websites</h2></div>
-  <p>Mobile-first storefront design, catalogue migration, payments, shipping and an SEO-safe launch—built around how the shop actually operates.</p>
-  <div class="price"><small>Projects from</small>&euro;2,200</div>
-</div></section>
-
 <!-- ESCAPE SHOP, lake-green palette, website design case -->
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Custom e-commerce website</h3><div class="offer-price">From €2,200</div>
+      <h3>Custom e-commerce website</h3><div class="offer-price">From $2,500</div>
       <p>A complete, independent storefront—not a project-specific Escape Shop price.</p>
       <ul><li>Mobile-first custom storefront</li><li>Catalogue migration, payments and shipping</li><li>SEO/GEO and an SEO-safe launch, including URL redirects when replacing an existing shop</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Custom%20e-commerce%20website%20enquiry">Discuss this service →</a>
@@ -351,7 +354,7 @@
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Social Media Growth</h3><div class="offer-price">From $950/month</div>
+      <h3>Social Media Growth</h3><div class="offer-price">From $800/month</div>
       <p>A two-platform system for brands that need consistent original content and a clear publishing rhythm.</p>
       <ul><li>About 20 unique posts and reels</li><li>Stories, calendar and light strategy</li><li>Platform-aware edits and campaign support</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Social%20Media%20Growth%20enquiry">Discuss this service →</a>
@@ -379,9 +382,9 @@
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Social Media Essentials</h3><div class="offer-price">From $500/month</div>
+      <h3>Social Media Essentials</h3><div class="offer-price">From $400/month</div>
       <p>A focused starting system for one platform, with the voice and visual discipline kept consistent.</p>
-      <ul><li>About 12 posts</li><li>Captions and design</li><li>Second platform with the same content from $650/month</li></ul>
+      <ul><li>About 12 posts</li><li>Captions and design</li><li>Two accounts with the same content from $500/month</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Social%20Media%20Essentials%20enquiry">Discuss this service →</a>
     </div>
   </aside>
@@ -507,7 +510,7 @@
       <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite" data-usd="650"><span>Landing page / microsite</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Full website" data-usd="1150"><span>Full website</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Interactive website" data-usd="1400"><span>Interactive full site</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="E-commerce" data-eur="2200"><span>E-commerce</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="E-commerce" data-usd="2500"><span>E-commerce</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Not sure yet"><span>Not sure yet</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>2. What does the brand need?</legend><div class="plan-options">
@@ -516,7 +519,7 @@
       <label class="plan-option"><input type="radio" name="brand" value="Brand is ready"><span>Brand is ready</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>3. How should content run?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="content" value="Social media management" data-monthly="500"><span>Social media management</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Social media management" data-monthly="400"><span>Social media management</span></label>
       <label class="plan-option"><input type="radio" name="content" value="Content Engine" data-usd="900" data-monthly="300"><span>Content Engine setup + retainer</span></label>
       <label class="plan-option"><input type="radio" name="content" value="One campaign" data-usd="600"><span>One campaign</span></label>
       <label class="plan-option"><input type="radio" name="content" value="No content service"><span>None for now</span></label>
@@ -536,13 +539,13 @@
 
 <!-- SERVICES & PRICING -->
 <section class="services"><div class="wrap">
-  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">07 · Services &amp; Pricing</div>
+  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Services &amp; Pricing</div>
   <h2 class="disp" style="margin:14px 0 16px">What we can do for you.</h2>
   <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation. Prices are starting points; payment is accepted in USD ($) or EUR (&euro;).</p>
   <div class="pricegrid">
     <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
-      <li><div class="row"><span>Essentials</span><b>from $500/mo</b></div><em>1 platform · ~12 posts · captions · design · 2 platforms, same content: $650/mo</em></li>
-      <li data-badge="Recommended"><div class="row"><span>Growth</span><b>from $950/mo</b></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
+      <li><div class="row"><span>Essentials</span><b>from $400/mo</b></div><em>1 account · ~12 posts · captions · design · 2 accounts, same content: $500/mo</em></li>
+      <li data-badge="Recommended"><div class="row"><span>Growth</span><b>from $800/mo</b></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
       <li data-badge="Premium"><div class="row"><span>Full Engine</span><b>from $1,400/mo</b></div><em>Multi-platform · automated daily content engine · reel/TikTok editing · community management · monthly strategy</em></li>
     </ul></div>
     <div class="pcard"><h3>Brand Systems</h3><span class="sub">One-time</span><ul>
@@ -553,7 +556,7 @@
       <li><div class="row"><span>Landing page / microsite + SEO</span><b>from $650</b></div><em>Single-page funnel or campaign site</em></li>
       <li data-badge="Recommended"><div class="row"><span>Website design + SEO + GEO</span><b>from $1,150</b></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
       <li><div class="row"><span>Interactive site + SEO + GEO</span><b>from $1,400</b></div><em>Motion, cursor-reactive canvas and scroll-driven scenes, built to be remembered</em></li>
-      <li data-badge="Premium"><div class="row"><span>Custom e-commerce website</span><b>from &euro;2,200</b></div><em>Mobile-first storefront, catalogue migration, payments, shipping, SEO/GEO and an SEO-safe launch—including URL redirects when replacing an existing shop</em></li>
+      <li data-badge="Premium"><div class="row"><span>Custom e-commerce website</span><b>from $2,500</b></div><em>Mobile-first storefront, catalogue migration, payments, shipping, SEO/GEO and an SEO-safe launch—including URL redirects when replacing an existing shop</em></li>
     </ul></div>
     <div class="pcard"><h3>Content Engine</h3><span class="sub">Setup + retainer</span><ul>
       <li data-badge="Recommended"><div class="row"><span>Automated daily pipeline</span><b>from $900</b></div><em>Setup, then $300/mo · one brief in, a complete pack of finished assets out</em></li>
@@ -982,7 +985,6 @@
 
   function meltAt(x, y, power){
     waterSectionAt(x, y, power);
-    if (TOUCH) return;
     var el = pickAt(x, y);
     if (el) melt(el, power);
   }
@@ -1076,7 +1078,11 @@
     ring(e.clientX, e.clientY, 0.75, 0.8);
     droplets(e.clientX, e.clientY, 4, 0.65);
     waterSectionAt(e.clientX, e.clientY, 0.45);
-    if (TOUCH) return;
+    if (TOUCH){
+      var touchEl = pickAt(e.clientX, e.clientY);
+      if (touchEl) melt(touchEl, 0.20);
+      return;
+    }
 
     var el = pickAt(e.clientX, e.clientY);
     if (el){
