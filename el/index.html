@@ -903,12 +903,14 @@
     if (document.elementsFromPoint){
       stack = document.elementsFromPoint(x, y);
       for (i = 0; i < stack.length; i++){
+        if (stack[i].closest && stack[i].closest('[data-no-wet]')) continue;
         c = stack[i].closest ? stack[i].closest(MSEL) : null;
         if (c) return transformable(c);
       }
       return null;
     }
     var n = document.elementFromPoint(x, y);
+    if (n && n.closest && n.closest('[data-no-wet]')) return null;
     var c = n && n.closest ? n.closest(MSEL) : null;
     return c ? transformable(c) : null;
   }
