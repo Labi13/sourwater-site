@@ -154,9 +154,9 @@
   /* ΣΥΜΠΑΓΕΣ CTA ΔΙΑΓΝΩΣΗΣ ΣΤΟ ΠΡΩΤΟ SCROLL */
   .diagnosis-band{padding:24px 0 26px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
   .diagnosis-strip{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(140px,.65fr));
-    max-width:900px;margin-top:28px;border-top:1px solid rgba(36,31,26,.26);border-bottom:1px solid rgba(36,31,26,.26)}
+    max-width:900px;margin-top:28px;border:1px solid rgba(36,31,26,.26)}
   .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
-  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:17px 22px 17px 0}
+  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:17px 22px}
   .diagnosis-strip .label strong{font-family:'Fraunces','Spectral';font-size:19px;font-weight:600}
   .diagnosis-strip .label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50;margin-top:3px}
   .diagnosis-strip a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:78px;padding:12px 14px;
@@ -166,31 +166,69 @@
   .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:var(--terra);color:#fff;
     font-size:9px;font-weight:700;letter-spacing:.12em;line-height:1.2}
   @media(max-width:700px){
-    .diagnosis-band{padding:20px 0 22px}
     .diagnosis-strip{grid-template-columns:repeat(3,1fr);margin-top:22px}
-    .diagnosis-strip .label{grid-column:1/-1;padding:13px 0;border-bottom:1px solid rgba(36,31,26,.2)}
-    .diagnosis-strip .label strong{font-size:17px}
-    .diagnosis-strip a{min-height:66px;padding:10px 4px;font-size:10px;letter-spacing:.02em}
-    .diagnosis-strip a:first-of-type{border-left:0}
-    .diagnosis-strip a b{font-size:15px}
+    .diagnosis-band{padding:20px 0 22px}
+    .diagnosis-strip .label{grid-column:1/-1;padding:13px 12px;border-bottom:1px solid rgba(36,31,26,.2)}
+    .diagnosis-strip .label strong{font-size:17px}.diagnosis-strip a{min-height:66px;padding:10px 4px;font-size:10px;letter-spacing:.02em}
+    .diagnosis-strip a:first-of-type{border-left:0}.diagnosis-strip a b{font-size:15px}
     .diagnosis-strip .book{font-size:8px;padding:4px 7px}
   }
 
   /* ΥΠΗΡΕΣΙΕΣ & ΤΙΜΕΣ */
   .services{padding:112px 0;background:var(--paper)}
-  .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
-    background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
+  .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;background:var(--paper);
+    border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
   .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
   .pcard h3{font-family:'Fraunces','Spectral';font-weight:600;font-size:23px;color:var(--ink)}
   .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
-  .pcard ul{list-style:none;margin-top:16px}
-  .pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
-  .pcard li:first-child{border-top:none}
-  .pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
+  .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
   .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
   .pcard li .row b{font-family:'Fraunces','Spectral';font-weight:600;color:var(--terra);white-space:nowrap;font-size:15px}
   .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#6b6155;margin-top:5px;line-height:1.45}
+  .pcard li[data-badge]{position:relative;padding-top:34px}
+  .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
+    background:rgba(193,92,52,.1);color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+  .pcard li[data-badge="Premium"]::before{background:var(--ink);color:#F5F0E4}
+  .pcard .book-line{text-decoration:none;color:inherit;display:block}.pcard .book-line .row span::after{content:"  →";color:var(--terra)}
   @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
+
+  /* PROJECT SERVICE DRAWERS */
+  .project-offer{position:absolute;top:72px;right:0;z-index:8;display:flex;align-items:stretch;transform:translateX(calc(100% - 46px));transition:transform .38s cubic-bezier(.2,.7,.2,1)}
+  .project-offer:hover,.project-offer:focus-within,.project-offer.is-open{transform:translateX(0)}
+  .project-offer-tab{width:46px;min-height:152px;border:1px solid rgba(255,255,255,.35);background:var(--accent);color:var(--bg);cursor:pointer;
+    display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 11px;font:600 10px/1 'Space Grotesk',sans-serif;
+    letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
+  .project-offer-tab b{font:500 19px/1 'Space Grotesk',sans-serif;transition:transform .28s ease}
+  .project-offer.is-open .project-offer-tab b,.project-offer:hover .project-offer-tab b{transform:rotate(45deg)}
+  .project-offer-panel{width:min(360px,calc(100vw - 46px));padding:24px 25px;background:rgba(245,240,228,.98);color:var(--ink);
+    border:1px solid rgba(36,31,26,.18);box-shadow:-22px 24px 52px rgba(0,0,0,.2)}
+  .project-offer-panel .offer-label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+  .project-offer-panel h3{font-family:'Fraunces','Spectral';font-size:24px;line-height:1.08;margin:8px 0 2px}
+  .project-offer-panel .offer-price{font-family:'Fraunces','Spectral';font-size:20px;color:var(--terra);margin-bottom:10px}
+  .project-offer-panel p{font-size:13px;line-height:1.5;color:#51483f}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
+  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid rgba(36,31,26,.1)}.project-offer-panel li::before{content:"— ";color:var(--terra)}
+  .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;border-bottom:1px solid var(--terra);padding-bottom:3px}
+  @media(max-width:700px){.project-offer{top:22px}.project-offer-panel{padding:20px}.project-offer-tab{min-height:132px}}
+
+  /* BUILD YOUR PLAN */
+  .plan-builder{padding:108px 0;background:#E9DFCE;color:var(--ink)}
+  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#5c5145;max-width:58ch}
+  .plan-form{margin-top:42px;border:1px solid rgba(36,31,26,.18);background:rgba(245,240,228,.52)}
+  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid rgba(36,31,26,.14)}.plan-question legend{font-family:'Fraunces','Spectral';font-size:20px;font-weight:600;margin-bottom:14px}
+  .plan-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}.plan-option{position:relative}.plan-option input{position:absolute;opacity:0;pointer-events:none}
+  .plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;border:1px solid rgba(36,31,26,.18);
+    background:rgba(255,255,255,.35);font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
+  .plan-option input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:inset 4px 0 0 var(--terra)}
+  .plan-option input:focus-visible+span{outline:2px solid var(--terra);outline-offset:2px}
+  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:var(--ink);color:#fff}
+  .plan-result h3{font-family:'Fraunces','Spectral';font-size:24px}.plan-result p{font-size:13px;color:#d8ccbb;margin-top:5px;max-width:72ch}
+  .plan-result .estimate{color:#DA9A28;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:var(--terra);color:#fff;
+    padding:13px 20px;border-radius:40px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+  @media(max-width:760px){.plan-builder{padding:76px 0}.plan-builder .intro{grid-template-columns:1fr;gap:14px}.plan-question{padding:21px 18px}
+    .plan-options{grid-template-columns:1fr 1fr}.plan-result{grid-template-columns:1fr}.plan-result a{justify-self:start}}
+  @media(max-width:430px){.plan-options{grid-template-columns:1fr}}
 
   /* FOOTER / CONTACT */
   footer{padding:120px 0;text-align:center;background:var(--ink);color:#EFE6D5}
@@ -238,7 +276,7 @@
   <p class="hero-note serif">Κάποιος από την ομάδα μας ακούει το όραμα και τους στόχους σας, αξιολογεί το project σας, και φτιάχνει το πλάνο.</p>
 </div></section>
 
-<!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ουσιαστική ζώνη ανάμεσα στο hero και τη φιλοσοφία -->
+<!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ξεχωριστή λεπτή ζώνη ανάμεσα στο hero και τη φιλοσοφία -->
 <aside class="diagnosis-band">
   <div class="wrap">
   <div class="diagnosis-strip" aria-label="Κλείστε ατομική Διάγνωση Brand">
@@ -274,6 +312,13 @@
 
 <!-- ESCAPE SHOP -->
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Custom κατασκευή e-shop</h3><div class="offer-price">Από €2.200</div>
+      <p>Πλήρες και ανεξάρτητο e-shop. Η τιμή είναι γενική υπηρεσία και όχι η ειδική προσφορά για το Escape Shop.</p>
+      <ul><li>Custom mobile-first storefront</li><li>Μεταφορά καταλόγου, πληρωμές και αποστολές</li><li>SEO/GEO και ασφαλές SEO launch, με redirects όταν αντικαθίσταται υπάρχον e-shop</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20custom%20e-shop">Συζητήστε αυτή την υπηρεσία →</a></div>
+  </aside>
   <div class="head">
     <div class="mark">ES</div>
     <div class="meta"><div class="kick">01 · Καρδίτσα, Ελλάδα</div><h2 class="disp">Escape Shop</h2></div>
@@ -297,6 +342,13 @@
 
 <!-- WDV -->
 <section class="band" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Growth</h3><div class="offer-price">Από €880/μήνα</div>
+      <p>Σύστημα δύο πλατφορμών για brands που χρειάζονται σταθερό πρωτότυπο content και καθαρό ρυθμό δημοσίευσης.</p>
+      <ul><li>Περίπου 20 μοναδικά posts και reels</li><li>Stories, ημερολόγιο και ελαφριά στρατηγική</li><li>Edits ανά πλατφόρμα και υποστήριξη καμπάνιας</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Social%20Media%20Growth">Συζητήστε αυτή την υπηρεσία →</a></div>
+  </aside>
   <div class="head">
     <img src="/assets/logo_wdv.png" alt="Wedding Dance Vows">
     <div class="meta"><div class="kick">02 · Νέα Υόρκη, Η.Π.Α.</div><h2 class="disp">Wedding Dance Vows</h2></div>
@@ -316,6 +368,13 @@
 
 <!-- ZEIBEKIKO -->
 <section class="band flip" style="--bg:#E7EAF1;--fg:#1C2740;--accent:#284A9C"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Essentials</h3><div class="offer-price">Από €460/μήνα</div>
+      <p>Εστιασμένο σύστημα εκκίνησης για μία πλατφόρμα, με σταθερή φωνή και οπτική πειθαρχία.</p>
+      <ul><li>Περίπου 12 posts</li><li>Captions και σχεδιασμός</li><li>Δεύτερη πλατφόρμα με ίδιο content από €600/μήνα</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Social%20Media%20Essentials">Συζητήστε αυτή την υπηρεσία →</a></div>
+  </aside>
   <div class="head">
     <img src="/assets/logo_zeibekiko.png" alt="Zeibekiko NYC">
     <div class="meta"><div class="kick">03 · Νέα Υόρκη, Η.Π.Α.</div><h2 class="disp">Zeibekiko NYC</h2></div>
@@ -335,6 +394,13 @@
 
 <!-- FLAOUER -->
 <section class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="flaouer-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Ιστοσελίδα + SEO + GEO</h3><div class="offer-price">Από €1.060</div>
+      <p>Custom mobile-first site υπηρεσιών, σχεδιασμένο ώστε να βρίσκεται, να γίνεται κατανοητό και να οδηγεί εύκολα σε κράτηση.</p>
+      <ul><li>Custom responsive design</li><li>Structured data, sitemap και llms.txt</li><li>SEO/GEO δομή και booking integration</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20website%20design">Συζητήστε αυτή την υπηρεσία →</a></div>
+  </aside>
   <div class="head">
     <img src="/assets/logo_flaouer.png" alt="Flaouer Hub">
     <div class="meta"><div class="kick">04 · Αθήνα, Ελλάδα</div><h2 class="disp">Flaouer Hub</h2></div>
@@ -362,6 +428,13 @@
 
 <!-- MERMAID -->
 <section class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="mermaid-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>AI Studio visual system</h3><div class="offer-price">Από €260</div>
+      <p>Συνεπής, on-brand οπτικός κόσμος από το μηδέν για καμπάνιες, launches ή επαναχρησιμοποιήσιμο σύστημα content.</p>
+      <ul><li>Αρχικό σετ 10 εικόνων</li><li>Art direction και οπτική συνέπεια</li><li>Ρετούς ή μεγαλύτερα συστήματα κοστολογούνται ξεχωριστά</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20AI%20Studio%20visuals">Συζητήστε αυτή την υπηρεσία →</a></div>
+  </aside>
   <div class="head">
     <img src="/assets/logo_mermaid.jpg" alt="Become a Mermaid" style="border-radius:4px;height:96px">
     <div class="meta"><div class="kick">05 · Αθήνα, Ελλάδα</div><h2 class="disp">Mermaid Experience</h2></div>
@@ -382,6 +455,13 @@
 
 <!-- ATA -->
 <section class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
+  <aside class="project-offer" data-no-wet>
+    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="ata-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
+    <div class="project-offer-panel" id="ata-offer"><span class="offer-label">Οι υπηρεσίες πίσω από το project</span><h3>Brand system + AI publishing</h3><div class="offer-price">Από €1.290 + €830</div>
+      <p>Πλήρες doctrine και φωνή δημοσίευσης που επεκτείνεται σε AI persona ή podcast με σταθερό χαρακτήρα.</p>
+      <ul><li>Brand doctrine / book από €1.290</li><li>AI persona / podcast από €830</li><li>Voice bible, θεματικοί άξονες και σύστημα παραγωγής</li></ul>
+      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Brand%20system%20και%20AI%20publishing">Συζητήστε αυτές τις υπηρεσίες →</a></div>
+  </aside>
   <div class="head">
     <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy">
     <div class="meta"><div class="kick">06 · Ναυαρχίδα · Εκδόσεις &amp; Παιδαγωγική</div><h2 class="disp">Acting Truth Academy</h2></div>
@@ -400,53 +480,89 @@
   </div>
 </div></section>
 
+<!-- ΦΤΙΑΞΤΕ ΤΟ ΠΛΑΝΟ ΣΑΣ -->
+<section class="plan-builder" id="build-your-plan"><div class="wrap">
+  <div class="intro">
+    <div><div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Build your plan</div><h2 class="disp" style="margin-top:12px">Φτιάξτε το πλάνο σας.</h2></div>
+    <p>Διαλέξτε τι χρειάζεστε. Ο configurator συνδυάζει τις κατάλληλες υπηρεσίες, δείχνει ένα διαφανές σημείο εκκίνησης και ετοιμάζει ένα email που μπορείτε να ελέγξετε πριν το στείλετε. Τίποτα δεν αποστέλλεται αυτόματα.</p>
+  </div>
+  <form class="plan-form" data-lang="el">
+    <fieldset class="plan-question"><legend>1. Τι χτίζουμε;</legend><div class="plan-options">
+      <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite" data-eur="600"><span>Landing page / microsite</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Πλήρης ιστοσελίδα" data-eur="1060"><span>Πλήρης ιστοσελίδα</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Interactive ιστοσελίδα" data-eur="1290"><span>Interactive full site</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="E-commerce" data-eur="2200"><span>E-commerce</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Δεν είμαι ακόμη σίγουρος"><span>Δεν είμαι ακόμη σίγουρος</span></label>
+    </div></fieldset>
+    <fieldset class="plan-question"><legend>2. Τι χρειάζεται το brand;</legend><div class="plan-options">
+      <label class="plan-option"><input type="radio" name="brand" value="Πλήρες brand system" data-eur="1290"><span>Πλήρης ταυτότητα brand</span></label>
+      <label class="plan-option"><input type="radio" name="brand" value="Ανανέωση εικόνας" data-eur="830"><span>Ανανέωση εικόνας</span></label>
+      <label class="plan-option"><input type="radio" name="brand" value="Το brand είναι έτοιμο"><span>Το brand είναι έτοιμο</span></label>
+    </div></fieldset>
+    <fieldset class="plan-question"><legend>3. Πώς θα λειτουργεί το content;</legend><div class="plan-options">
+      <label class="plan-option"><input type="radio" name="content" value="Διαχείριση social media" data-monthly-eur="460"><span>Διαχείριση social media</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Content Engine" data-eur="830" data-monthly-eur="280"><span>Content Engine setup + retainer</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Μία καμπάνια" data-eur="550"><span>Μία καμπάνια</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Χωρίς content υπηρεσία"><span>Όχι για την ώρα</span></label>
+    </div></fieldset>
+    <fieldset class="plan-question"><legend>4. Χρειάζεστε ειδική παραγωγή;</legend><div class="plan-options">
+      <label class="plan-option"><input type="radio" name="production" value="AI persona / podcast" data-eur="830"><span>AI persona / podcast</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI σετ εικόνων" data-eur="260"><span>AI visual sets</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="Product motion film" data-eur="1100"><span>Product motion film</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="Χωρίς ειδική παραγωγή"><span>Όχι για την ώρα</span></label>
+    </div></fieldset>
+    <div class="plan-result" aria-live="polite">
+      <div><h3>Το πλάνο εργασίας σας</h3><p class="plan-copy">Διαλέξτε μία απάντηση σε κάθε σειρά για να δημιουργηθεί η πρόταση.</p></div>
+      <a class="plan-email" href="mailto:hello@sourwater.space?subject=Το%20πλάνο%20μου%20στη%20Sourwater">Στείλτε το πλάνο →</a>
+    </div>
+  </form>
+</div></section>
+
 <!-- ΥΠΗΡΕΣΙΕΣ & ΤΙΜΕΣ -->
 <section class="services"><div class="wrap">
   <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">07 · Υπηρεσίες &amp; Τιμές</div>
   <h2 class="disp" style="margin:14px 0 16px">Τι μπορούμε να κάνουμε για εσάς.</h2>
-  <p class="lead" style="max-width:60ch">Διαλέξτε μία κατεύθυνση ή χτίστε ένα πλήρες σύστημα. Κάθε υπηρεσία προσαρμόζεται στο δικό σας brand, από ένα reel μέχρι μια ολοκληρωμένη λειτουργία content και e-commerce. Οι τιμές είναι σημεία εκκίνησης και η πληρωμή γίνεται σε EUR (&euro;) ή USD ($).</p>
+  <p class="lead" style="max-width:60ch">Διαλέξτε μία κατεύθυνση ή χτίστε ένα πλήρες σύστημα. Κάθε υπηρεσία προσαρμόζεται στο δικό σας brand, από ένα reel μέχρι μια ολοκληρωμένη λειτουργία content και e-commerce. Οι τιμές είναι σημεία εκκίνησης.</p>
   <div class="pricegrid">
-
     <div class="pcard"><h3>Διαχείριση Social Media</h3><span class="sub">Μηνιαία συνεργασία</span><ul>
       <li><div class="row"><span>Βασικό</span><b>από &euro;460/μήνα</b></div><em>1 πλατφόρμα · ~12 posts · captions · σχεδιασμός · 2 πλατφόρμες με ίδιο περιεχόμενο: &euro;600/μήνα</em></li>
-      <li><div class="row"><span>Ανάπτυξη</span><b>από &euro;880/μήνα</b></div><em>2 πλατφόρμες · ~20 μοναδικά posts + reels · stories · ημερολόγιο · ελαφριά στρατηγική</em></li>
-      <li><div class="row"><span>Πλήρης Μηχανή</span><b>από &euro;1.290/μήνα</b></div><em>Πολλαπλές πλατφόρμες · καθημερινή μηχανή περιεχομένου · reel/TikTok editing · community management · μηνιαία στρατηγική</em></li>
+      <li data-badge="Προτεινόμενο"><div class="row"><span>Ανάπτυξη</span><b>από &euro;880/μήνα</b></div><em>2 πλατφόρμες · ~20 μοναδικά posts + reels · stories · ημερολόγιο · ελαφριά στρατηγική</em></li>
+      <li data-badge="Premium"><div class="row"><span>Πλήρης Μηχανή</span><b>από &euro;1.290/μήνα</b></div><em>Πολλαπλές πλατφόρμες · καθημερινή μηχανή περιεχομένου · editing · community management · μηνιαία στρατηγική</em></li>
     </ul></div>
-
     <div class="pcard"><h3>Συστήματα Brand</h3><span class="sub">Εφάπαξ</span><ul>
-      <li><div class="row"><span>Brand doctrine / brand book</span><b>από &euro;1.290</b></div><em>Φωνή, παλέτα, απαγορευμένες λέξεις, θεματικοί άξονες και σκάλα ανάπτυξης</em></li>
+      <li data-badge="Premium"><div class="row"><span>Brand doctrine / brand book</span><b>από &euro;1.290</b></div><em>Φωνή, παλέτα, απαγορευμένες λέξεις, θεματικοί άξονες και σκάλα ανάπτυξης</em></li>
       <li><div class="row"><span>Οπτική ταυτότητα &amp; σύστημα καρτών</span><b>από &euro;830</b></div><em>Logo lockups, templates και επαναχρησιμοποιήσιμο σύστημα σχεδιασμού posts</em></li>
     </ul></div>
-
     <div class="pcard"><h3>Ιστοσελίδες &amp; E-commerce</h3><span class="sub">Εφάπαξ</span><ul>
       <li><div class="row"><span>Landing page / microsite + SEO</span><b>από &euro;600</b></div><em>Μονοσέλιδο funnel ή campaign site</em></li>
-      <li><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span><b>από &euro;1.060</b></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
+      <li data-badge="Προτεινόμενο"><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span><b>από &euro;1.060</b></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
       <li><div class="row"><span>Interactive site + SEO + GEO</span><b>από &euro;1.290</b></div><em>Κίνηση, canvas που αντιδρά στον κέρσορα και σκηνές που εξελίσσονται με το scroll</em></li>
-      <li><div class="row"><span>Custom κατασκευή e-shop</span><b>από &euro;2.200</b></div><em>Mobile-first storefront, μεταφορά καταλόγου, πληρωμές, αποστολές, SEO/GEO και launch με 301 redirects</em></li>
+      <li data-badge="Premium"><div class="row"><span>Custom κατασκευή e-shop</span><b>από &euro;2.200</b></div><em>Mobile-first storefront, μεταφορά καταλόγου, πληρωμές, αποστολές, SEO/GEO και ασφαλές SEO launch—με redirects όταν αντικαθίσταται υπάρχον e-shop</em></li>
     </ul></div>
-
     <div class="pcard"><h3>Μηχανή Περιεχομένου</h3><span class="sub">Ρύθμιση + συνδρομή</span><ul>
-      <li><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span><b>από &euro;830</b></div><em>Ρύθμιση, μετά &euro;280/μήνα · ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
+      <li data-badge="Προτεινόμενο"><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span><b>από &euro;830</b></div><em>Ρύθμιση, μετά &euro;280/μήνα · ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
+      <li data-badge="Premium"><div class="row"><span>Managed Content Engine</span><b>από &euro;1.660</b></div><em>Ρύθμιση, μετά &euro;600/μήνα · στρατηγική, intake πηγών, προσαρμογή ανά πλατφόρμα, approvals, scheduling, asset library, analytics και μηνιαία βελτιστοποίηση</em></li>
     </ul></div>
-
     <div class="pcard"><h3>Παραγωγή Βίντεο</h3><span class="sub">Ανά κομμάτι &amp; μηνιαία</span><ul>
       <li><div class="row"><span>Μοντάζ Reel / TikTok</span><b>από &euro;110</b></div><em>Έκαστο · πακέτο των 8 από &euro;740</em></li>
       <li><div class="row"><span>Σειρά faceless short-form</span><b>από &euro;550/μήνα</b></div><em>Σταθερός χαρακτήρας, πλήρες AI pipeline, χωρίς γύρισμα</em></li>
-      <li><div class="row"><span>Βίντεο προϊόντος σε κίνηση</span><b>από &euro;1.100</b></div><em>Κινηματογραφικό βίντεο 3 λεπτών με motion-tracked AI visuals</em></li>
+      <li data-badge="Premium"><div class="row"><span>Βίντεο προϊόντος σε κίνηση</span><b>από &euro;1.100</b></div><em>Κινηματογραφικό βίντεο 3 λεπτών με motion-tracked AI visuals</em></li>
     </ul></div>
-
     <div class="pcard"><h3>AI Studio</h3><span class="sub">Generative production</span><ul>
       <li><div class="row"><span>AI κλωνοποίηση φωνής</span><b>από &euro;830</b></div><em>Custom μοντέλο φωνής για αφήγηση ή τραγούδι</em></li>
-      <li><div class="row"><span>AI persona / podcast</span><b>από &euro;830</b></div><em>Γραπτή βίβλος φωνής + in-character παραγωγή</em></li>
+      <li data-badge="Προτεινόμενο"><div class="row"><span>AI persona / podcast</span><b>από &euro;830</b></div><em>Γραπτή βίβλος φωνής + in-character παραγωγή</em></li>
       <li><div class="row"><span>AI σετ εικόνων</span><b>από &euro;260</b></div><em>Σετ 10 εικόνων, δημιουργημένο από το μηδέν και on brand</em></li>
       <li><div class="row"><span>Επεξεργασία / ρετούς φωτογραφιών</span><b>από &euro;320</b></div><em>Αφαίρεση φόντου, καθαρισμός και AI-assisted ρετούς</em></li>
     </ul></div>
-
     <div class="pcard"><h3>Στρατηγική</h3><span class="sub">Sprints &amp; δοκιμές</span><ul>
-      <li><div class="row"><span>Sprint στρατηγικής / audit περιεχομένου</span><b>από &euro;550</b></div><em>Brand doctrine, χάρτης funnel και πλάνο 90 ημερών</em></li>
+      <li data-badge="Προτεινόμενο"><div class="row"><span>Sprint στρατηγικής / audit περιεχομένου</span><b>από &euro;550</b></div><em>Brand doctrine, χάρτης funnel και πλάνο 90 ημερών</em></li>
       <li><div class="row"><span>Δοκιμές διαφημίσεων &amp; έρευνα κοινού</span><b>από &euro;280/μήνα</b></div><em>Συν διαφημιστικό budget · μικρές δοκιμές, μέτρηση και κλιμάκωση μόνο του νικητή</em></li>
     </ul></div>
-
+    <div class="pcard"><h3>1:1 Διάγνωση Brand</h3><span class="sub">Απευθείας κράτηση στο Cal.com</span><ul>
+      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30 λεπτά · focused diagnosis</span><b>&euro;85</b></div><em>Συγκεκριμένος έλεγχος και καθαρό επόμενο βήμα</em></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60 λεπτά · deeper diagnosis</span><b>&euro;140</b></div><em>Βαθύτερος έλεγχος brand, προσφοράς ή project</em></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90 λεπτά + γραπτό πλάνο</span><b>&euro;185</b></div><em>Action plan που αποστέλλεται μέσα σε 48 ώρες</em></a></li>
+    </ul></div>
   </div>
   <p style="margin-top:26px;font-size:13px;color:var(--soft)">Κάθε συνεργασία κοστολογείται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες μπορούν να έχουν έκπτωση.</p>
 </div></section>
@@ -462,6 +578,39 @@
   </div>
   <div class="studioline">Sourwater · Concepts for Culture &amp; Commerce</div>
 </div></footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.project-offer-tab').forEach(function(button){
+    button.addEventListener('click',function(){
+      var box=button.closest('.project-offer'),open=!box.classList.contains('is-open');
+      document.querySelectorAll('.project-offer.is-open').forEach(function(other){
+        if(other!==box){other.classList.remove('is-open');other.querySelector('.project-offer-tab').setAttribute('aria-expanded','false');}
+      });
+      box.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));
+    });
+  });
+  document.addEventListener('click',function(event){
+    if(event.target.closest('.project-offer'))return;
+    document.querySelectorAll('.project-offer.is-open').forEach(function(box){box.classList.remove('is-open');box.querySelector('.project-offer-tab').setAttribute('aria-expanded','false');});
+  });
+  document.querySelectorAll('.plan-form').forEach(function(form){
+    var groups=['build','brand','content','production'],copy=form.querySelector('.plan-copy'),email=form.querySelector('.plan-email');
+    form.addEventListener('change',function(){
+      var picks=groups.map(function(name){return form.querySelector('input[name="'+name+'"]:checked');});
+      if(picks.some(function(item){return !item;})){copy.textContent='Διαλέξτε μία απάντηση σε κάθε σειρά για να δημιουργηθεί η πρόταση.';return;}
+      var eur=0,monthly=0;
+      picks.forEach(function(item){eur+=Number(item.getAttribute('data-eur')||0);monthly+=Number(item.getAttribute('data-monthly-eur')||0);});
+      var labels=picks.map(function(item){return item.value;}),costs=[];
+      if(eur)costs.push('€'+eur.toLocaleString('el-GR')+' εφάπαξ');if(monthly)costs.push('€'+monthly.toLocaleString('el-GR')+'/μήνα');
+      if(!costs.length)costs.push('Κοστολόγηση μετά από σύντομο scope');
+      copy.innerHTML='Πρόταση: '+labels.join(' + ')+' · Εκκίνηση από <span class="estimate">'+costs.join(' + ')+'</span>';
+      var body='Γεια σας,\n\nΘα ήθελα να συζητήσουμε το παρακάτω πλάνο:\n- '+labels.join('\n- ')+'\n\nΕνδεικτική εκκίνηση: '+costs.join(' + ');
+      email.href='mailto:hello@sourwater.space?subject='+encodeURIComponent('Το πλάνο μου στη Sourwater')+'&body='+encodeURIComponent(body);
+    });
+  });
+})();
+</script>
 
 <!-- === Sourwater melt + splash layer === -->
 <style>
@@ -502,10 +651,11 @@
   /* Reduced-motion (incl. Windows "animation effects off") tones the layer
      down instead of killing it, so the page still answers to the cursor. */
   var CALM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var TOUCH = matchMedia('(pointer: coarse)').matches ||
-              matchMedia('(hover: none)').matches ||
-              ((navigator.maxTouchPoints || 0) > 0 && Math.min(innerWidth, innerHeight) < 900);
-  var K    = CALM ? 0.12 : 0.22;
+  /* Ένα laptop με touch screen εξακολουθεί να έχει ακριβή δείκτη και hover.
+     Το κρατάμε σε desktop mode ώστε η ήπια κίνηση να παραμένει ενεργή. */
+  var TOUCH = matchMedia('(pointer: coarse)').matches &&
+              matchMedia('(hover: none)').matches;
+  var K    = CALM ? 0.14 : 0.30;
 
   var cv = document.getElementById('sw-water');
   if (!cv || !cv.getContext) return;
