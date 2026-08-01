@@ -152,23 +152,45 @@
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
   /* ΣΥΜΠΑΓΕΣ CTA ΔΙΑΓΝΩΣΗΣ ΣΤΟ ΠΡΩΤΟ SCROLL */
-  .diagnosis-band{padding:16px 0 18px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
-  .diagnosis-strip{display:grid;grid-template-columns:minmax(220px,1.35fr) repeat(3,minmax(130px,.65fr));
+  .diagnosis-band{padding:24px 0 26px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
+  .diagnosis-strip{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(140px,.65fr));
     max-width:900px;margin-top:28px;border-top:1px solid rgba(36,31,26,.26);border-bottom:1px solid rgba(36,31,26,.26)}
   .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
-  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:11px 18px 11px 0}
-  .diagnosis-strip .label strong{font-family:'Fraunces','Spectral';font-size:17px;font-weight:600}
-  .diagnosis-strip .label span{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50}
-  .diagnosis-strip a{display:flex;align-items:center;justify-content:center;gap:7px;min-height:52px;padding:10px 14px;
-    border-left:1px solid rgba(36,31,26,.2);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease}
-  .diagnosis-strip a:hover{background:rgba(193,92,52,.1)}
-  .diagnosis-strip a b{font-family:'Fraunces','Spectral';font-size:16px;color:var(--terra);white-space:nowrap}
+  .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:17px 22px 17px 0}
+  .diagnosis-strip .label strong{font-family:'Fraunces','Spectral';font-size:19px;font-weight:600}
+  .diagnosis-strip .label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50;margin-top:3px}
+  .diagnosis-strip a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:78px;padding:12px 14px;
+    border-left:1px solid rgba(36,31,26,.2);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,transform .25s ease}
+  .diagnosis-strip a:hover{background:rgba(193,92,52,.1);transform:translateY(-2px)}
+  .diagnosis-strip a b{font-family:'Fraunces','Spectral';font-size:17px;color:var(--terra);white-space:nowrap}
+  .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:var(--terra);color:#fff;
+    font-size:9px;font-weight:700;letter-spacing:.12em;line-height:1.2}
   @media(max-width:700px){
+    .diagnosis-band{padding:20px 0 22px}
     .diagnosis-strip{grid-template-columns:repeat(3,1fr);margin-top:22px}
-    .diagnosis-strip .label{grid-column:1/-1;padding:9px 0;border-bottom:1px solid rgba(36,31,26,.2)}
-    .diagnosis-strip .label strong{font-size:15px}.diagnosis-strip a{min-height:44px;padding:8px 5px;font-size:10px;letter-spacing:.03em}
-    .diagnosis-strip a:first-of-type{border-left:0}.diagnosis-strip a b{font-size:14px}
+    .diagnosis-strip .label{grid-column:1/-1;padding:13px 0;border-bottom:1px solid rgba(36,31,26,.2)}
+    .diagnosis-strip .label strong{font-size:17px}
+    .diagnosis-strip a{min-height:66px;padding:10px 4px;font-size:10px;letter-spacing:.02em}
+    .diagnosis-strip a:first-of-type{border-left:0}
+    .diagnosis-strip a b{font-size:15px}
+    .diagnosis-strip .book{font-size:8px;padding:4px 7px}
   }
+
+  /* ΥΠΗΡΕΣΙΕΣ & ΤΙΜΕΣ */
+  .services{padding:112px 0;background:var(--paper)}
+  .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
+    background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
+  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
+  .pcard h3{font-family:'Fraunces','Spectral';font-weight:600;font-size:23px;color:var(--ink)}
+  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+  .pcard ul{list-style:none;margin-top:16px}
+  .pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
+  .pcard li:first-child{border-top:none}
+  .pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
+  .pcard li .row b{font-family:'Fraunces','Spectral';font-weight:600;color:var(--terra);white-space:nowrap;font-size:15px}
+  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#6b6155;margin-top:5px;line-height:1.45}
+  @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* FOOTER / CONTACT */
   footer{padding:120px 0;text-align:center;background:var(--ink);color:#EFE6D5}
@@ -216,14 +238,14 @@
   <p class="hero-note serif">Κάποιος από την ομάδα μας ακούει το όραμα και τους στόχους σας, αξιολογεί το project σας, και φτιάχνει το πλάνο.</p>
 </div></section>
 
-<!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ξεχωριστή λεπτή ζώνη ανάμεσα στο hero και τη φιλοσοφία -->
+<!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ουσιαστική ζώνη ανάμεσα στο hero και τη φιλοσοφία -->
 <aside class="diagnosis-band">
   <div class="wrap">
   <div class="diagnosis-strip" aria-label="Κλείστε ατομική Διάγνωση Brand">
-    <div class="label"><strong>1:1 Διάγνωση Brand</strong><span>Άμεση κράτηση στο Cal.com</span></div>
-    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 λεπτά</span><b>&euro;85</b></a>
-    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 λεπτά</span><b>&euro;140</b></a>
-    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 λεπτά</span><b>&euro;185</b></a>
+    <div class="label"><strong>1:1 Διάγνωση Brand</strong><span>Διαλέξτε συνεδρία εργασίας</span></div>
+    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 λεπτά</span><b>&euro;85</b><span class="book">Κράτηση →</span></a>
+    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 λεπτά</span><b>&euro;140</b><span class="book">Κράτηση →</span></a>
+    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 λεπτά</span><b>&euro;185</b><span class="book">Κράτηση →</span></a>
   </div>
   </div>
 </aside>
@@ -376,6 +398,57 @@
       <img src="/assets/ata-gap-cream.png" style="width:45%;top:34%;left:50%;transform:rotate(3deg)">
     </div>
   </div>
+</div></section>
+
+<!-- ΥΠΗΡΕΣΙΕΣ & ΤΙΜΕΣ -->
+<section class="services"><div class="wrap">
+  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">07 · Υπηρεσίες &amp; Τιμές</div>
+  <h2 class="disp" style="margin:14px 0 16px">Τι μπορούμε να κάνουμε για εσάς.</h2>
+  <p class="lead" style="max-width:60ch">Διαλέξτε μία κατεύθυνση ή χτίστε ένα πλήρες σύστημα. Κάθε υπηρεσία προσαρμόζεται στο δικό σας brand, από ένα reel μέχρι μια ολοκληρωμένη λειτουργία content και e-commerce. Οι τιμές είναι σημεία εκκίνησης και η πληρωμή γίνεται σε EUR (&euro;) ή USD ($).</p>
+  <div class="pricegrid">
+
+    <div class="pcard"><h3>Διαχείριση Social Media</h3><span class="sub">Μηνιαία συνεργασία</span><ul>
+      <li><div class="row"><span>Βασικό</span><b>από &euro;460/μήνα</b></div><em>1 πλατφόρμα · ~12 posts · captions · σχεδιασμός · 2 πλατφόρμες με ίδιο περιεχόμενο: &euro;600/μήνα</em></li>
+      <li><div class="row"><span>Ανάπτυξη</span><b>από &euro;880/μήνα</b></div><em>2 πλατφόρμες · ~20 μοναδικά posts + reels · stories · ημερολόγιο · ελαφριά στρατηγική</em></li>
+      <li><div class="row"><span>Πλήρης Μηχανή</span><b>από &euro;1.290/μήνα</b></div><em>Πολλαπλές πλατφόρμες · καθημερινή μηχανή περιεχομένου · reel/TikTok editing · community management · μηνιαία στρατηγική</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Συστήματα Brand</h3><span class="sub">Εφάπαξ</span><ul>
+      <li><div class="row"><span>Brand doctrine / brand book</span><b>από &euro;1.290</b></div><em>Φωνή, παλέτα, απαγορευμένες λέξεις, θεματικοί άξονες και σκάλα ανάπτυξης</em></li>
+      <li><div class="row"><span>Οπτική ταυτότητα &amp; σύστημα καρτών</span><b>από &euro;830</b></div><em>Logo lockups, templates και επαναχρησιμοποιήσιμο σύστημα σχεδιασμού posts</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Ιστοσελίδες &amp; E-commerce</h3><span class="sub">Εφάπαξ</span><ul>
+      <li><div class="row"><span>Landing page / microsite + SEO</span><b>από &euro;600</b></div><em>Μονοσέλιδο funnel ή campaign site</em></li>
+      <li><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span><b>από &euro;1.060</b></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
+      <li><div class="row"><span>Interactive site + SEO + GEO</span><b>από &euro;1.290</b></div><em>Κίνηση, canvas που αντιδρά στον κέρσορα και σκηνές που εξελίσσονται με το scroll</em></li>
+      <li><div class="row"><span>Custom κατασκευή e-shop</span><b>από &euro;2.200</b></div><em>Mobile-first storefront, μεταφορά καταλόγου, πληρωμές, αποστολές, SEO/GEO και launch με 301 redirects</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Μηχανή Περιεχομένου</h3><span class="sub">Ρύθμιση + συνδρομή</span><ul>
+      <li><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span><b>από &euro;830</b></div><em>Ρύθμιση, μετά &euro;280/μήνα · ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Παραγωγή Βίντεο</h3><span class="sub">Ανά κομμάτι &amp; μηνιαία</span><ul>
+      <li><div class="row"><span>Μοντάζ Reel / TikTok</span><b>από &euro;110</b></div><em>Έκαστο · πακέτο των 8 από &euro;740</em></li>
+      <li><div class="row"><span>Σειρά faceless short-form</span><b>από &euro;550/μήνα</b></div><em>Σταθερός χαρακτήρας, πλήρες AI pipeline, χωρίς γύρισμα</em></li>
+      <li><div class="row"><span>Βίντεο προϊόντος σε κίνηση</span><b>από &euro;1.100</b></div><em>Κινηματογραφικό βίντεο 3 λεπτών με motion-tracked AI visuals</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>AI Studio</h3><span class="sub">Generative production</span><ul>
+      <li><div class="row"><span>AI κλωνοποίηση φωνής</span><b>από &euro;830</b></div><em>Custom μοντέλο φωνής για αφήγηση ή τραγούδι</em></li>
+      <li><div class="row"><span>AI persona / podcast</span><b>από &euro;830</b></div><em>Γραπτή βίβλος φωνής + in-character παραγωγή</em></li>
+      <li><div class="row"><span>AI σετ εικόνων</span><b>από &euro;260</b></div><em>Σετ 10 εικόνων, δημιουργημένο από το μηδέν και on brand</em></li>
+      <li><div class="row"><span>Επεξεργασία / ρετούς φωτογραφιών</span><b>από &euro;320</b></div><em>Αφαίρεση φόντου, καθαρισμός και AI-assisted ρετούς</em></li>
+    </ul></div>
+
+    <div class="pcard"><h3>Στρατηγική</h3><span class="sub">Sprints &amp; δοκιμές</span><ul>
+      <li><div class="row"><span>Sprint στρατηγικής / audit περιεχομένου</span><b>από &euro;550</b></div><em>Brand doctrine, χάρτης funnel και πλάνο 90 ημερών</em></li>
+      <li><div class="row"><span>Δοκιμές διαφημίσεων &amp; έρευνα κοινού</span><b>από &euro;280/μήνα</b></div><em>Συν διαφημιστικό budget · μικρές δοκιμές, μέτρηση και κλιμάκωση μόνο του νικητή</em></li>
+    </ul></div>
+
+  </div>
+  <p style="margin-top:26px;font-size:13px;color:var(--soft)">Κάθε συνεργασία κοστολογείται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες μπορούν να έχουν έκπτωση.</p>
 </div></section>
 
 <!-- CONTACT -->
