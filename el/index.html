@@ -201,44 +201,53 @@
     letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
   .project-offer-tab b{font:500 19px/1 'Space Grotesk',sans-serif;transition:transform .28s ease}
   .project-offer.is-open .project-offer-tab b{transform:rotate(45deg)}
-  .project-offer-panel{width:min(360px,calc(100vw - 46px));padding:24px 25px;background:var(--bg);color:var(--fg);
-    background:color-mix(in srgb,var(--bg) 92%,white 8%);border:1px solid color-mix(in srgb,var(--fg) 24%,transparent);box-shadow:-22px 24px 52px rgba(0,0,0,.2)}
-  .project-offer-panel .offer-label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .project-offer-panel{width:min(360px,calc(100vw - 46px));padding:24px 25px;background:rgba(245,240,228,.98);color:var(--ink);
+    border:1px solid rgba(36,31,26,.18);box-shadow:-22px 24px 52px rgba(0,0,0,.2)}
+  .project-offer-panel .offer-label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
   .project-offer-panel h3{font-family:'Fraunces','Spectral';font-size:24px;line-height:1.08;margin:8px 0 2px}
-  .project-offer-panel .offer-price{font-family:'Fraunces','Spectral';font-size:20px;color:var(--accent);margin-bottom:10px}
-  .project-offer-panel p{font-size:13px;line-height:1.5;color:var(--fg);opacity:.82}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
-  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid color-mix(in srgb,var(--fg) 18%,transparent)}.project-offer-panel li::before{content:"— ";color:var(--accent)}
-  .project-offer-panel a{display:inline-block;color:var(--fg);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px}
+  .project-offer-panel .offer-price{font-family:'Fraunces','Spectral';font-size:20px;color:var(--terra);margin-bottom:10px}
+  .project-offer-panel p{font-size:13px;line-height:1.5;color:#51483f}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
+  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid rgba(36,31,26,.1)}.project-offer-panel li::before{content:"— ";color:var(--terra)}
+  .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;border-bottom:1px solid var(--terra);padding-bottom:3px}
+  .project-offer--ata .project-offer-tab{background:#F04B93;color:#142330;border-color:rgba(20,35,48,.35)}
+  .project-offer--ata .project-offer-panel{width:min(560px,calc(100vw - 46px));padding:0;background:#F6EEDC;color:#142330;border:1px solid #142330;box-shadow:-26px 28px 0 rgba(240,75,147,.42)}
+  .ata-offer-head{display:flex;justify-content:space-between;gap:20px;padding:14px 20px;border-bottom:1px solid rgba(20,35,48,.28);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .ata-offer-body{padding:22px 22px 20px}.project-offer--ata .ata-offer-body h3{font-size:30px;max-width:12ch;margin:0 0 14px}.project-offer--ata .ata-offer-body h3 em{color:#D52F7A;font-weight:500}
+  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:grid;grid-template-columns:1fr 1fr;margin:18px 0;border:1px solid rgba(20,35,48,.25)}
+  .ata-offer-module{padding:14px 15px}.ata-offer-module+.ata-offer-module{border-left:1px solid rgba(20,35,48,.25)}.ata-offer-module small{display:block;color:#D52F7A;font-weight:700;letter-spacing:.14em}
+  .ata-offer-module strong{display:block;font-family:'Fraunces','Spectral';font-size:17px;margin:4px 0}.ata-offer-module span{font-size:12px;color:#33434e}
+  .project-offer--ata .ata-offer-body a{border-color:#D52F7A}.project-offer--ata .ata-offer-body a::after{content:"  ↗";color:#D52F7A}
   @media(max-width:700px){
-    .project-offer,.project-offer.is-open{position:relative;top:auto;right:auto;width:100%;display:block;margin:0 0 28px;transform:none}
-    .project-offer-tab{width:100%;min-height:48px;padding:12px 16px;writing-mode:horizontal-tb;flex-direction:row;border-color:color-mix(in srgb,var(--fg) 28%,transparent)}
-    .project-offer-panel{width:100%;max-height:0;padding:0 18px;overflow:hidden;visibility:hidden;opacity:0;transform:translateY(-6px);
-      border-width:0 1px;box-shadow:none;transition:max-height .42s cubic-bezier(.2,.7,.2,1),padding .32s ease,opacity .24s ease,transform .32s ease,visibility 0s linear .42s}
-    .project-offer.is-open .project-offer-panel{max-height:620px;padding:20px 18px;visibility:visible;opacity:1;transform:none;border-width:0 1px 1px;
-      box-shadow:0 18px 34px rgba(0,0,0,.16);transition-delay:0s}
-    .project-offer.is-open .project-offer-tab{border-bottom-color:transparent}
+    .project-offer{top:22px;right:-22px}.project-offer,.project-offer.is-open{position:absolute;display:flex;width:auto;margin:0;transform:translateX(calc(100% - 44px))}
+    .project-offer.is-open{transform:translateX(0)}.project-offer-tab{width:44px;min-height:132px;padding:12px 10px;writing-mode:vertical-rl;flex-direction:row;border-color:rgba(255,255,255,.35)}
+    .project-offer-panel{width:calc(100vw - 72px);max-height:min(72vh,560px);padding:20px;overflow-y:auto;overscroll-behavior:contain}
+    .project-offer--ata .project-offer-panel{width:calc(100vw - 72px);padding:0;box-shadow:-14px 18px 0 rgba(240,75,147,.36)}
+    .ata-offer-body{padding:19px 18px}.project-offer--ata .ata-offer-body h3{font-size:25px}.ata-offer-modules{grid-template-columns:1fr}.ata-offer-module+.ata-offer-module{border-left:0;border-top:1px solid rgba(20,35,48,.25)}
   }
 
   /* BUILD YOUR PLAN */
-  .plan-builder{padding:108px 0;background:#142431;color:#F5F7F8;
-    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px}
-  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#C1CBD1;max-width:58ch}
-  .plan-builder .intro .kick{color:#8FB6C9!important}.plan-builder .intro h2{color:#fff}
-  .plan-form{margin-top:42px;border:1px solid #8D9BA5;background:#F4F7F8;color:#15232E;box-shadow:0 26px 70px rgba(0,0,0,.24)}
-  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #CDD5DA}.plan-question legend{font-family:'Fraunces','Spectral';font-size:20px;font-weight:600;margin-bottom:14px}
+  .plan-builder{padding:108px 0;background:#DDE2DC;color:#17231E;
+    background-image:linear-gradient(rgba(36,71,58,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(36,71,58,.09) 1px,transparent 1px);background-size:32px 32px}
+  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#405149;max-width:58ch}
+  .plan-builder .intro .kick{color:#526D2C!important}.plan-builder .intro h2{color:#17231E}
+  .plan-form{margin-top:42px;border:1px solid #7E8F85;background:#F8FAF7;color:#17231E;box-shadow:14px 14px 0 rgba(36,71,58,.16)}
+  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #C7D0CA}.plan-question legend{font-family:'Fraunces','Spectral';font-size:20px;font-weight:600;margin-bottom:14px}
   .plan-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}.plan-option{position:relative}.plan-option input{position:absolute;opacity:0;pointer-events:none}
-  .plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;border:1px solid rgba(36,31,26,.18);
+  .plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;border:1px solid #B8C4BC;
     background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
-  .plan-option input:checked+span{background:#183247;border-color:#183247;color:#fff;box-shadow:inset 4px 0 0 #8FB6C9}
-  .plan-option input:focus-visible+span{outline:2px solid #5F89A0;outline-offset:2px}
-  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#0B171F;color:#fff}
-  .plan-result h3{font-family:'Fraunces','Spectral';font-size:24px}.plan-result p{font-size:13px;color:#C1CBD1;margin-top:5px;max-width:72ch}
-  .plan-result .estimate{color:#A9CAD9;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#C15C34;color:#fff;
+  .plan-option input:checked+span{background:#24473A;border-color:#24473A;color:#fff;box-shadow:inset 4px 0 0 #B8CE52}
+  .plan-option input:focus-visible+span{outline:2px solid #526D2C;outline-offset:2px}
+  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#17231E;color:#fff}
+  .plan-result h3{font-family:'Fraunces','Spectral';font-size:24px}.plan-result p{font-size:13px;color:#CAD3CD;margin-top:5px;max-width:72ch}
+  .plan-result .estimate{color:#D7E98B;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#B8CE52;color:#17231E;
     padding:13px 20px;border-radius:40px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
   @media(max-width:760px){.plan-builder{padding:76px 0}.plan-builder .intro{grid-template-columns:1fr;gap:14px}.plan-question{padding:21px 18px}
     .plan-options{grid-template-columns:1fr 1fr}.plan-result{grid-template-columns:1fr}.plan-result a{justify-self:start}}
   @media(max-width:430px){.plan-options{grid-template-columns:1fr}}
+
+  .services-note{margin-top:26px;padding:12px 15px;border-left:3px solid var(--terra);background:rgba(193,92,52,.075);color:#5B5046!important;font-size:13px;max-width:76ch}
+  .sw-reactive{will-change:transform;transform:translate3d(var(--sw-rx,0px),calc(var(--sw-ry,0px) + var(--sw-sy,0px)),0);transition:transform .65s cubic-bezier(.2,.7,.2,1)}
 
   /* FOOTER / CONTACT */
   footer{padding:120px 0;text-align:center;background:var(--ink);color:#EFE6D5}
@@ -317,7 +326,7 @@
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Custom κατασκευή e-shop</h3><div class="offer-price">Από $2,500</div>
+    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Custom κατασκευή e-shop</h3><div class="offer-price">Από €2.500</div>
       <p>Πλήρες και ανεξάρτητο e-shop. Η τιμή είναι γενική υπηρεσία και όχι η ειδική προσφορά για το Escape Shop.</p>
       <ul><li>Custom mobile-first storefront</li><li>Μεταφορά καταλόγου, πληρωμές και αποστολές</li><li>SEO/GEO και ασφαλές SEO launch, με redirects όταν αντικαθίσταται υπάρχον e-shop</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20custom%20e-shop">Συζητήστε αυτή την υπηρεσία →</a></div>
@@ -347,7 +356,7 @@
 <section class="band" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Growth</h3><div class="offer-price">Από $800/μήνα</div>
+    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Growth</h3><div class="offer-price">Από €800/μήνα</div>
       <p>Σύστημα δύο πλατφορμών για brands που χρειάζονται σταθερό πρωτότυπο content και καθαρό ρυθμό δημοσίευσης.</p>
       <ul><li>Περίπου 20 μοναδικά posts και reels</li><li>Stories, ημερολόγιο και ελαφριά στρατηγική</li><li>Edits ανά πλατφόρμα και υποστήριξη καμπάνιας</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Social%20Media%20Growth">Συζητήστε αυτή την υπηρεσία →</a></div>
@@ -373,9 +382,9 @@
 <section class="band flip" style="--bg:#E7EAF1;--fg:#1C2740;--accent:#284A9C"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Essentials</h3><div class="offer-price">Από $400/μήνα</div>
+    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">Η υπηρεσία πίσω από το project</span><h3>Social Media Essentials</h3><div class="offer-price">Από €400/μήνα</div>
       <p>Εστιασμένο σύστημα εκκίνησης για μία πλατφόρμα, με σταθερή φωνή και οπτική πειθαρχία.</p>
-      <ul><li>Περίπου 12 posts</li><li>Captions και σχεδιασμός</li><li>Δύο λογαριασμοί με ίδιο content από $500/μήνα</li></ul>
+      <ul><li>Περίπου 12 posts</li><li>Captions και σχεδιασμός</li><li>Δύο λογαριασμοί με ίδιο content από €500/μήνα</li></ul>
       <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Social%20Media%20Essentials">Συζητήστε αυτή την υπηρεσία →</a></div>
   </aside>
   <div class="head">
@@ -458,12 +467,20 @@
 
 <!-- ATA -->
 <section class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer project-offer--ata" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="ata-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="ata-offer"><span class="offer-label">Οι υπηρεσίες πίσω από το project</span><h3>Brand system + AI publishing</h3><div class="offer-price">Από €1.290 + €830</div>
-      <p>Πλήρες doctrine και φωνή δημοσίευσης που επεκτείνεται σε AI persona ή podcast με σταθερό χαρακτήρα.</p>
-      <ul><li>Brand doctrine / book από €1.290</li><li>AI persona / podcast από €830</li><li>Voice bible, θεματικοί άξονες και σύστημα παραγωγής</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Brand%20system%20και%20AI%20publishing">Συζητήστε αυτές τις υπηρεσίες →</a></div>
+    <div class="project-offer-panel" id="ata-offer">
+      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship system · 01/02</span></div>
+      <div class="ata-offer-body">
+        <h3>Χτίστε το doctrine. <em>Δώστε του φωνή.</em></h3>
+        <p>Πλήρης πνευματική αρχιτεκτονική brand που επεκτείνεται σε μια AI εκδοτική παρουσία, ικανή να μιλά, να διδάσκει και να δημοσιεύει με σταθερό χαρακτήρα.</p>
+        <div class="ata-offer-modules">
+          <div class="ata-offer-module"><small>01 · ΘΕΜΕΛΙΟ</small><strong>Brand doctrine</strong><span>Φωνή, φιλοσοφία, οπτικοί κανόνες και brand book · από €1.290</span></div>
+          <div class="ata-offer-module"><small>02 · ΕΠΕΚΤΑΣΗ</small><strong>AI publishing persona</strong><span>Λογική podcast, φωνή χαρακτήρα και σύστημα παραγωγής · από €830</span></div>
+        </div>
+        <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Brand%20system%20και%20AI%20publishing">Σχεδιάστε αυτό το σύστημα</a>
+      </div>
+    </div>
   </aside>
   <div class="head">
     <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy">
@@ -567,7 +584,7 @@
       <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90 λεπτά + γραπτό πλάνο</span><b>&euro;185</b></div><em>Action plan που αποστέλλεται μέσα σε 48 ώρες</em></a></li>
     </ul></div>
   </div>
-  <p style="margin-top:26px;font-size:13px;color:var(--soft)">Κάθε συνεργασία κοστολογείται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες μπορούν να έχουν έκπτωση.</p>
+  <p class="services-note">Κάθε συνεργασία κοστολογείται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες μπορούν να έχουν έκπτωση.</p>
 </div></section>
 
 <!-- CONTACT -->
@@ -612,6 +629,60 @@
       email.href='mailto:hello@sourwater.space?subject='+encodeURIComponent('Το πλάνο μου στη Sourwater')+'&body='+encodeURIComponent(body);
     });
   });
+})();
+</script>
++<script>
+(function(){
+  var nodes=Array.prototype.slice.call(document.querySelectorAll(
+    '.band .head,.band .txt,.band .col,.services .pcard,.plan-builder .plan-question'
+  ));
+  if(!nodes.length)return;
+  nodes.forEach(function(node){node.classList.add('sw-reactive');});
+  var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var scale=calm ? .35 : 1,queued=false,active=null;
+
+  function scrollMotion(){
+    queued=false;
+    var vh=innerHeight||800;
+    nodes.forEach(function(node,index){
+      var r=node.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      var relation=(vh*.5-(r.top+r.height*.5))/vh;
+      var strength=6+(index%3)*2;
+      var y=Math.max(-10,Math.min(10,relation*strength))*scale;
+      node.style.setProperty('--sw-sy',y.toFixed(2)+'px');
+    });
+  }
+  function requestScrollMotion(){
+    if(!queued){queued=true;requestAnimationFrame(scrollMotion);}
+  }
+  addEventListener('scroll',requestScrollMotion,{passive:true});
+  addEventListener('resize',requestScrollMotion,{passive:true});
+
+  function reset(section){
+    if(!section)return;
+    section.querySelectorAll('.sw-reactive').forEach(function(node){
+      node.style.setProperty('--sw-rx','0px');
+      node.style.setProperty('--sw-ry','0px');
+    });
+  }
+  addEventListener('pointermove',function(event){
+    if(event.pointerType==='touch')return;
+    var section=event.target.closest&&event.target.closest('.band,.plan-builder,.services');
+    if(section!==active){reset(active);active=section;}
+    if(!section)return;
+    var r=section.getBoundingClientRect();
+    if(!r.width||!r.height)return;
+    var nx=(event.clientX-r.left)/r.width-.5;
+    var ny=(event.clientY-r.top)/r.height-.5;
+    section.querySelectorAll('.sw-reactive').forEach(function(node,index){
+      var direction=index%2?1:-1;
+      node.style.setProperty('--sw-rx',(nx*8*direction*scale).toFixed(2)+'px');
+      node.style.setProperty('--sw-ry',(ny*5*direction*scale).toFixed(2)+'px');
+    });
+  },{passive:true});
+  document.documentElement.addEventListener('pointerleave',function(){reset(active);active=null;},{passive:true});
+  scrollMotion();
 })();
 </script>
 
