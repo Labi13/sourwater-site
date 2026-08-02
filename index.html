@@ -157,13 +157,13 @@
   /* COMPACT FIRST-SCROLL BRAND DIAGNOSIS CTA */
   .diagnosis-band{padding:24px 0 26px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
   .diagnosis-strip{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(140px,.65fr));
-    max-width:900px;margin-top:28px;border:1px solid rgba(36,31,26,.26)}
+    max-width:900px;margin-top:28px;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--terra);background:#F5F0E4}
   .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
   .diagnosis-strip .label{display:flex;flex-direction:column;justify-content:center;padding:17px 22px}
   .diagnosis-strip .label strong{font-family:'Fraunces';font-size:19px;font-weight:600}
   .diagnosis-strip .label span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#6c5f50;margin-top:3px}
   .diagnosis-strip a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:78px;padding:12px 14px;
-    border-left:1px solid rgba(36,31,26,.2);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,transform .25s ease}
+    border-left:2px solid var(--ink);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,transform .25s ease}
   .diagnosis-strip a:hover{background:rgba(193,92,52,.1);transform:translateY(-2px)}
   .diagnosis-strip a b{font-family:'Fraunces';font-size:17px;color:var(--terra);white-space:nowrap}
   .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:var(--terra);color:#fff;
@@ -193,81 +193,86 @@
   .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
     background:rgba(193,92,52,.1);color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
   .pcard li[data-badge="Premium"]::before{background:var(--ink);color:#F5F0E4}
-  .pcard .book-line{text-decoration:none;color:inherit;display:block}.pcard .book-line .row span::after{content:"  →";color:var(--terra)}
+  .pcard .book-line{position:relative;display:block;padding:14px 88px 14px 14px;border:1.5px solid rgba(36,31,26,.48);background:#FAF6EC;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:#fff;outline:none}
+  .pcard .book-line .row span::after{content:"  →";color:var(--terra)}
+  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:5px 8px;border-radius:30px;background:var(--ink);color:#fff;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* PROJECT SERVICE DRAWERS */
-  .project-offer{position:absolute;top:72px;right:0;z-index:8;display:flex;align-items:stretch;max-width:100vw;touch-action:pan-y;
+  .project-offer{--drawer-line:#145CFF;--drawer-tab:#145CFF;--drawer-tab-ink:#fff;--drawer-shadow:#111;position:absolute;top:72px;right:0;z-index:8;display:flex;align-items:stretch;max-width:100vw;touch-action:pan-y;
     transform:translateX(calc(100% - 46px));transition:transform .38s cubic-bezier(.2,.7,.2,1)}
   .project-offer.is-open{transform:translateX(0)}
-  .project-offer-tab{width:46px;min-height:152px;border:1px solid var(--ink);background:var(--accent);color:var(--bg);cursor:pointer;
+  .project-offer-tab{width:46px;min-height:152px;border:2px solid var(--drawer-line);background:var(--drawer-tab);color:var(--drawer-tab-ink);cursor:pointer;
     display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 11px;font:600 10px/1 'Space Grotesk',sans-serif;
     letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
   .project-offer-tab b{font:500 19px/1 'Space Grotesk',sans-serif;transition:transform .28s ease}
   .project-offer.is-open .project-offer-tab b{transform:rotate(45deg)}
-  .project-offer-panel{width:min(560px,calc(100vw - 46px));max-height:calc(100dvh - 110px);padding:24px 25px;background:rgba(245,240,228,.985);color:var(--ink);
-    border:1px solid var(--ink);box-shadow:-18px 20px 0 rgba(36,31,26,.22);overflow-y:auto;overscroll-behavior:contain}
-  .project-offer-panel .offer-label{display:block;margin:-24px -25px 20px;padding:14px 20px;border-bottom:1px solid rgba(36,31,26,.28);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--terra)}
+  .project-offer-panel{width:min(560px,calc(100vw - 46px));max-height:calc(100dvh - 110px);padding:24px 25px;background:rgba(247,243,234,.988);color:var(--ink);
+    border:2px solid var(--drawer-line);box-shadow:-14px 16px 0 var(--drawer-shadow);overflow-y:auto;overscroll-behavior:contain}
+  .project-offer-panel .offer-label{display:block;margin:-24px -25px 20px;padding:14px 20px;border-bottom:2px solid var(--drawer-line);background:#FFFAF0;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--drawer-line)}
   .project-offer-panel h3{font-family:'Fraunces';font-size:24px;line-height:1.08;margin:8px 0 2px}
   .project-offer-panel .offer-price{font-family:'Fraunces';font-size:20px;color:var(--terra);margin-bottom:10px}
   .project-offer-panel p{font-size:13px;line-height:1.5;color:#51483f}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
   .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid rgba(36,31,26,.1)}
   .project-offer-panel li::before{content:"— ";color:var(--terra)}
   .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;border-bottom:1px solid var(--terra);padding-bottom:3px}
+    text-decoration:none;border-bottom:2px solid var(--drawer-line);padding-bottom:3px}
   .offer-plan-intro h3{font-size:28px;margin:0 0 9px}.offer-plan-intro p{max-width:48ch}
-  .offer-plan-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:18px 0;border:1px solid rgba(36,31,26,.28)}
-  .offer-plan-stack--two{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .offer-plan-card{padding:14px 14px 15px;min-width:0}.offer-plan-card+.offer-plan-card{border-left:1px solid rgba(36,31,26,.22)}
-  .offer-plan-card small{display:block;color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-  .offer-plan-card strong{display:block;font-family:'Fraunces';font-size:16px;line-height:1.08;margin:6px 0}
-  .offer-plan-card span{display:block;color:#51483f;font-size:11px;line-height:1.42}
-  .project-offer--ata .project-offer-tab{background:#F04B93;color:#142330;border-color:rgba(20,35,48,.35)}
-  .project-offer--ata .project-offer-panel{width:min(560px,calc(100vw - 46px));padding:0;background:#F6EEDC;color:#142330;border:1px solid #142330;box-shadow:-18px 20px 0 rgba(240,75,147,.42)}
-  .ata-offer-head{display:flex;justify-content:space-between;gap:20px;padding:14px 20px;border-bottom:1px solid rgba(20,35,48,.28);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  .offer-plan-stack,.offer-plan-stack--two{display:block;margin:18px 0;border-top:2px solid var(--drawer-line);border-bottom:2px solid var(--drawer-line)}
+  .offer-plan-card{position:relative;padding:15px 12px 16px 31px;min-width:0}.offer-plan-card+.offer-plan-card{border-top:1px solid rgba(36,31,26,.22)}
+  .offer-plan-card::before{content:"";position:absolute;left:9px;top:21px;width:8px;height:8px;background:var(--drawer-line);transform:rotate(45deg)}
+  .offer-plan-card small{display:block;color:var(--drawer-line);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+  .offer-plan-card strong{display:block;font-family:'Fraunces';font-size:17px;line-height:1.08;margin:5px 0}
+  .offer-plan-card span{display:block;color:#51483f;font-size:11px;line-height:1.45}
+  .project-offer--ata .project-offer-tab{background:var(--drawer-tab);color:var(--drawer-tab-ink);border-color:var(--drawer-line)}
+  .project-offer--ata .project-offer-panel{width:min(560px,calc(100vw - 46px));padding:0;background:#F6EEDC;color:#142330;border:2px solid var(--drawer-line);box-shadow:-14px 16px 0 var(--drawer-shadow)}
+  .ata-offer-head{display:flex;justify-content:space-between;gap:20px;padding:14px 20px;border-bottom:2px solid var(--drawer-line);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
   .ata-offer-body{padding:22px 22px 20px}.project-offer--ata .ata-offer-body h3{font-size:30px;max-width:12ch;margin:0 0 14px}.project-offer--ata .ata-offer-body h3 em{color:#D52F7A;font-weight:500}
-  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:18px 0;border:1px solid rgba(20,35,48,.25)}
-  .ata-offer-module{padding:14px 15px}.ata-offer-module+.ata-offer-module{border-left:1px solid rgba(20,35,48,.25)}.ata-offer-module small{display:block;color:#D52F7A;font-weight:700;letter-spacing:.14em}
+  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:block;margin:18px 0;border-top:2px solid var(--drawer-line);border-bottom:2px solid var(--drawer-line)}
+  .ata-offer-module{position:relative;padding:14px 15px 15px 31px}.ata-offer-module+.ata-offer-module{border-top:1px solid rgba(20,35,48,.25)}.ata-offer-module::before{content:"";position:absolute;left:10px;top:21px;width:8px;height:8px;background:var(--drawer-line);transform:rotate(45deg)}.ata-offer-module small{display:block;color:var(--drawer-line);font-weight:700;letter-spacing:.14em}
   .ata-offer-module strong{display:block;font-family:'Fraunces';font-size:17px;margin:4px 0}.ata-offer-module span{font-size:12px;color:#33434e}
-  .project-offer--ata .ata-offer-body a{border-color:#D52F7A}.project-offer--ata .ata-offer-body a::after{content:"  ↗";color:#D52F7A}
+  .project-offer--ata .ata-offer-body a{border-color:var(--drawer-line)}.project-offer--ata .ata-offer-body a::after{content:"  ↗";color:var(--drawer-line)}
   @media(max-width:700px){
     .project-offer{top:22px;right:0}.project-offer,.project-offer.is-open{position:absolute;display:flex;width:auto;max-width:none;margin:0;transform:translateX(calc(100% - 44px))}
-    .project-offer.is-open{transform:translateX(0)}.project-offer-tab{width:44px;min-height:132px;padding:12px 10px;writing-mode:vertical-rl;flex-direction:row;border-color:var(--ink)}
-    .project-offer-panel{width:calc(100dvw - 52px);max-height:min(76dvh,620px);padding:20px;box-shadow:-8px 12px 0 rgba(36,31,26,.2)}
+    .project-offer.is-open{transform:translateX(0)}.project-offer-tab{width:44px;min-height:132px;padding:12px 10px;writing-mode:vertical-rl;flex-direction:row;border-color:var(--drawer-line)}
+    .project-offer-panel{width:calc(100dvw - 52px);max-height:min(76dvh,620px);padding:20px;box-shadow:-7px 10px 0 var(--drawer-shadow)}
     .project-offer-panel .offer-label{margin:-20px -20px 18px;padding:13px 17px}
-    .project-offer--ata .project-offer-panel{width:calc(100dvw - 52px);padding:0;box-shadow:-8px 12px 0 rgba(240,75,147,.36)}
-    .offer-plan-intro h3{font-size:24px}.offer-plan-stack,.offer-plan-stack--two{grid-template-columns:1fr}.offer-plan-card+.offer-plan-card{border-left:0;border-top:1px solid rgba(36,31,26,.22)}
-    .ata-offer-body{padding:19px 18px}.project-offer--ata .ata-offer-body h3{font-size:25px}.ata-offer-modules{grid-template-columns:1fr}.ata-offer-module+.ata-offer-module{border-left:0;border-top:1px solid rgba(20,35,48,.25)}
+    .project-offer--ata .project-offer-panel{width:calc(100dvw - 52px);padding:0;box-shadow:-7px 10px 0 var(--drawer-shadow)}
+    .offer-plan-intro h3{font-size:24px}
+    .ata-offer-body{padding:19px 18px}.project-offer--ata .ata-offer-body h3{font-size:25px}
   }
 
   /* BUILD YOUR PLAN */
-  .plan-builder{padding:108px 0;background:#E9E0EF;color:#2D2035;
-    background-image:linear-gradient(rgba(89,62,104,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(89,62,104,.09) 1px,transparent 1px);background-size:32px 32px}
-  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#5F4F67;max-width:58ch}
-  .plan-builder .intro .kick{color:#7A4B7D!important}.plan-builder .intro h2{color:#2D2035}
-  .plan-form{margin-top:42px;border:1px solid #9E8AA8;background:#FCF8FD;color:#2D2035;box-shadow:14px 14px 0 rgba(89,62,104,.16)}
-  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #D8C9DF}
+  .plan-builder{padding:108px 0;background:#C8E4F2;color:#172B3A;
+    background-image:linear-gradient(rgba(20,73,110,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(20,73,110,.12) 1px,transparent 1px);background-size:32px 32px}
+  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#35566D;max-width:58ch}
+  .plan-builder .intro .kick{color:#005E9A!important}.plan-builder .intro h2{color:#172B3A}
+  .plan-form{margin-top:42px;border:2px solid #1B536F;background:#F8FCFE;color:#172B3A;box-shadow:14px 14px 0 rgba(21,92,132,.22)}
+  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #A8CADC}
   .plan-question legend{font-family:'Fraunces';font-size:20px;font-weight:600;margin-bottom:14px}
   .plan-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}.plan-option{position:relative}
   .plan-option input{position:absolute;opacity:0;pointer-events:none}.plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;
-    border:1px solid #C5B5CC;background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
-  .plan-option input:checked+span{background:#593E68;border-color:#593E68;color:#fff;box-shadow:inset 4px 0 0 #D7E36C}
-  .plan-option input:focus-visible+span{outline:2px solid #7A4B7D;outline-offset:2px}
-  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#2D2035;color:#fff}
-  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#DED1E3;margin-top:5px;max-width:72ch}
+    border:1px solid #89AEC2;background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
+  .plan-option input:checked+span{background:#0E5E8A;border-color:#0E5E8A;color:#fff;box-shadow:inset 4px 0 0 #F4DD63}
+  .plan-option input:focus-visible+span{outline:2px solid #005E9A;outline-offset:2px}
+  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#17384B;color:#fff}
+  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#D9EAF2;margin-top:5px;max-width:72ch}
   .plan-result .estimate{color:#E4EF85;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#EF5B4B;color:#FFF8F2;
     padding:13px 20px;border-radius:40px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
   @media(max-width:760px){.plan-builder{padding:76px 0}.plan-builder .intro{grid-template-columns:1fr;gap:14px}.plan-question{padding:21px 18px}
     .plan-options{grid-template-columns:1fr 1fr}.plan-result{grid-template-columns:1fr}.plan-result a{justify-self:start}}
   @media(max-width:430px){.plan-options{grid-template-columns:1fr}}
 
-  .services-note{margin-top:26px;padding:12px 15px;border-left:3px solid var(--terra);background:rgba(193,92,52,.075);color:#5B5046!important;font-size:13px;max-width:76ch}
+  .services-note{margin-top:30px;padding:18px 20px;border:2px solid var(--ink);background:#F4DD63;color:var(--ink)!important;font-size:14px;font-weight:650;line-height:1.45;max-width:82ch;box-shadow:7px 7px 0 var(--terra)}
   .sw-reactive{will-change:transform,translate;transform:translate3d(calc(var(--sw-rx,0px) + var(--sw-tx,0px)),calc(var(--sw-ry,0px) + var(--sw-sy,0px) + var(--sw-ty,0px)),0);
     animation:swBuoyancy var(--sw-float-duration,8s) ease-in-out infinite;animation-delay:var(--sw-float-delay,0s);transition:transform 1.05s cubic-bezier(.2,.7,.2,1)}
   .sw-reactive.sw-contact{transition-duration:.24s}
-  .band .col img{will-change:translate;animation:swImageDrift 9s ease-in-out infinite}.band .col img:nth-child(2){animation-duration:10.5s;animation-delay:-3.2s;animation-direction:reverse}.band .col img:nth-child(3){animation-duration:12s;animation-delay:-6.1s}
+  .sw-local-reactive{will-change:translate,clip-path;translate:var(--sw-lx,0px) var(--sw-ly,0px);transition:translate .24s cubic-bezier(.2,.7,.2,1),clip-path .32s ease,scale .32s ease}
+  .sw-local-reactive.sw-local-hit{scale:1.006}.band .col img.sw-local-hit{clip-path:polygon(0 0,100% 0,calc(100% - 4px) 35%,100% 70%,calc(100% - 2px) 100%,2px 100%,0 66%,3px 34%)}
+  .band .col img{will-change:translate,clip-path;animation:swImageDrift 9s ease-in-out infinite}.band .col img:nth-child(2){animation-duration:10.5s;animation-delay:-3.2s;animation-direction:reverse}.band .col img:nth-child(3){animation-duration:12s;animation-delay:-6.1s}
   @keyframes swBuoyancy{0%,100%{translate:0 var(--sw-float-up,-4px)}35%{translate:var(--sw-float-side,3px) 0}68%{translate:var(--sw-float-opposite,-2px) var(--sw-float-down,5px)}}
-  @keyframes swImageDrift{0%,100%{translate:-2px -5px}33%{translate:4px -1px}67%{translate:-1px 6px}}
+  @keyframes swImageDrift{0%,100%{translate:calc(var(--sw-lx,0px) - 2px) calc(var(--sw-ly,0px) - 5px)}33%{translate:calc(var(--sw-lx,0px) + 4px) calc(var(--sw-ly,0px) - 1px)}67%{translate:calc(var(--sw-lx,0px) - 1px) calc(var(--sw-ly,0px) + 6px)}}
   @media(max-width:700px){.sw-reactive{animation-duration:10s}.band .col img{animation-duration:11s}}
   @media(prefers-reduced-motion:reduce){.sw-reactive,.band .col img{animation-duration:18s}.sw-reactive{transition-duration:1.8s}}
 
@@ -347,14 +352,14 @@
 
 <!-- ESCAPE SHOP, lake-green palette, website design case -->
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer" style="--drawer-line:#145CFF;--drawer-tab:#145CFF;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#0B1735" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Commerce discovery system</h3><p>A premium store build, a discovery strategy and an ongoing publishing engine—covering the storefront and the reasons people find it.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Custom e-commerce website</strong><span>Storefront, migration, payments, shipping and SEO-safe launch · from $2,500</span></div>
-        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, product bundles, local search and seasonal plan · from $600</span></div>
-        <div class="offer-plan-card"><small>03 · PREMIUM</small><strong>Managed Content Engine</strong><span>Bilingual guides, blogging and repeatable campaign production · from $1,800 setup + $650/mo</span></div>
+        <div class="offer-plan-card"><small>Core build</small><strong>Custom e-commerce website</strong><span>Storefront, migration, payments, shipping and an SEO-safe launch.</span></div>
+        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, product bundles, local search and a seasonal plan.</span></div>
+        <div class="offer-plan-card"><small>Publishing engine</small><strong>Managed Content Engine</strong><span>Bilingual guides, blogging and repeatable campaign production.</span></div>
       </div>
       <a href="mailto:hello@sourwater.space?subject=Escape%20Shop%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
@@ -382,14 +387,14 @@
 
 <!-- WDV, orange, its own palette -->
 <section class="band" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer" style="--drawer-line:#6D3DFF;--drawer-tab:#6D3DFF;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#FF6B35" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Always-on growth system</h3><p>Premium social production, funnel strategy and measured audience testing for a high-consideration wedding service.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Full Engine</strong><span>Multi-platform originals, reels, editing, community and monthly strategy · from $1,400/mo</span></div>
-        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Course launch, testimonial system and booking-funnel map · from $600</span></div>
-        <div class="offer-plan-card"><small>03 · GROWTH</small><strong>Ad testing &amp; audience research</strong><span>Small-budget campaign tests and measured scaling · from $300/mo + spend</span></div>
+        <div class="offer-plan-card"><small>Full-service retainer</small><strong>Full Engine</strong><span>Multi-platform originals, reels, editing, community and monthly strategy.</span></div>
+        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Course launch, testimonial system and a clear booking-funnel map.</span></div>
+        <div class="offer-plan-card"><small>Measured growth</small><strong>Ad testing &amp; audience research</strong><span>Focused campaign tests, honest measurement and deliberate scaling.</span></div>
       </div>
       <a href="mailto:hello@sourwater.space?subject=Wedding%20Dance%20Vows%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
@@ -413,13 +418,13 @@
 
 <!-- ZEIBEKIKO, logo colors: royal blue on off-white -->
 <section class="band flip" style="--bg:#E7EAF1;--fg:#1C2740;--accent:#284A9C"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer" style="--drawer-line:#FF3D2E;--drawer-tab:#FF3D2E;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#1939A8" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The case plan behind this project · 02 services</span>
+    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Cultural growth system</h3><p>A two-platform publishing rhythm built on research, direct voice and a booking path that protects the form from cliché.</p></div>
       <div class="offer-plan-stack offer-plan-stack--two">
-        <div class="offer-plan-card"><small>01 · RECOMMENDED</small><strong>Growth</strong><span>Original posts, reels, stories, community and platform-aware production · from $800/mo</span></div>
-        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Cultural pillars, event promotion, private-class offers and booking funnel · from $600</span></div>
+        <div class="offer-plan-card"><small>Ongoing growth</small><strong>Growth</strong><span>Original posts, reels, stories, community and platform-aware production.</span></div>
+        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Cultural pillars, event promotion, private-class offers and a booking funnel.</span></div>
       </div>
       <a href="mailto:hello@sourwater.space?subject=Zeibekiko%20NYC%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
@@ -443,14 +448,14 @@
 
 <!-- FLAOUER, warm ochre/maroon palette -->
 <section class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer" style="--drawer-line:#006E6A;--drawer-tab:#006E6A;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#FF5A76" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="flaouer-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Studio launch system</h3><p>The website, the offer architecture and the ongoing campaign language operate as one launch-ready system.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>01 · RECOMMENDED</small><strong>Website design + SEO + GEO</strong><span>Mobile-first site, bilingual structure, search, scheduling and booking · from $1,150</span></div>
-        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, class spotlights, launch calendar and artistic direction · from $600</span></div>
-        <div class="offer-plan-card"><small>03 · GROWTH</small><strong>Growth</strong><span>Workshop campaigns and original IG/TikTok publishing · from $800/mo</span></div>
+        <div class="offer-plan-card"><small>Digital foundation</small><strong>Website design + SEO + GEO</strong><span>Mobile-first site, bilingual structure, search, scheduling and booking.</span></div>
+        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, class spotlights, launch calendar and artistic direction.</span></div>
+        <div class="offer-plan-card"><small>Ongoing growth</small><strong>Growth</strong><span>Workshop campaigns and original IG/TikTok publishing.</span></div>
       </div>
       <a href="mailto:hello@sourwater.space?subject=Flaouer%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
@@ -482,14 +487,14 @@
 
 <!-- MERMAID, sea + sand palette -->
 <section class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
-  <aside class="project-offer" data-no-wet>
+  <aside class="project-offer" style="--drawer-line:#CB2E70;--drawer-tab:#CB2E70;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#165C54" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="mermaid-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Experience brand system</h3><p>A premium doctrine, commercial strategy and coherent image world for an experience that must feel transformed before it is booked.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Brand doctrine / brand book</strong><span>Voice, visual law, content pillars and dual-audience growth ladder · from $1,400</span></div>
-        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Rate card, launch calendar, testimonial system and booking funnel · from $600</span></div>
-        <div class="offer-plan-card"><small>03 · AI STUDIO</small><strong>AI visual / image sets</strong><span>On-brand image world and photographic art direction · from $280</span></div>
+        <div class="offer-plan-card"><small>Brand foundation</small><strong>Brand doctrine / brand book</strong><span>Voice, visual law, content pillars and a dual-audience growth ladder.</span></div>
+        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Rate card, launch calendar, testimonial system and booking funnel.</span></div>
+        <div class="offer-plan-card"><small>Visual world</small><strong>AI visual / image sets</strong><span>On-brand imagery and photographic art direction.</span></div>
       </div>
       <a href="mailto:hello@sourwater.space?subject=Mermaid%20Experience%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
@@ -514,17 +519,17 @@
 
 <!-- ATA, deep blue, real ATA assets (no name) -->
 <section class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
-  <aside class="project-offer project-offer--ata" data-no-wet>
+  <aside class="project-offer project-offer--ata" style="--drawer-line:#F04B93;--drawer-tab:#F04B93;--drawer-tab-ink:#142330;--drawer-shadow:#F4A62A" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="ata-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="ata-offer">
-      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship system · 03 services</span></div>
+      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship publishing system</span></div>
       <div class="ata-offer-body">
         <h3>Build the doctrine. <em>Give it a voice.</em></h3>
         <p>A complete intellectual brand architecture, an ongoing publishing engine and an AI presence that can speak, teach and release work in character.</p>
         <div class="ata-offer-modules">
-          <div class="ata-offer-module"><small>01 · FOUNDATION</small><strong>Brand doctrine / brand book</strong><span>Voice, philosophy, visual law and brand architecture · from $1,400</span></div>
-          <div class="ata-offer-module"><small>02 · PREMIUM</small><strong>Managed Content Engine</strong><span>Substack, daily content, funnels, email and release flow · from $1,800 setup + $650/mo</span></div>
-          <div class="ata-offer-module"><small>03 · EXPANSION</small><strong>AI publishing persona</strong><span>Podcast logic, character voice, narration and production system · from $900</span></div>
+          <div class="ata-offer-module"><small>Foundation</small><strong>Brand doctrine / brand book</strong><span>Voice, philosophy, visual law and brand architecture.</span></div>
+          <div class="ata-offer-module"><small>Publishing engine</small><strong>Managed Content Engine</strong><span>Substack, daily content, funnels, email and release flow.</span></div>
+          <div class="ata-offer-module"><small>AI expansion</small><strong>AI publishing persona</strong><span>Podcast logic, character voice, narration and production system.</span></div>
         </div>
         <a href="mailto:hello@sourwater.space?subject=Brand%20system%20and%20AI%20publishing%20enquiry">Design this system</a>
       </div>
@@ -628,9 +633,9 @@
       <li><div class="row"><span>Ad testing &amp; audience research</span><b>from $300/mo</b></div><em>Plus ad spend · small budgets, measured honestly, scaling only the winner</em></li>
     </ul></div>
     <div class="pcard"><h3>1:1 Brand Diagnosis</h3><span class="sub">Book direct on Cal.com</span><ul>
-      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30-minute working diagnosis</span><b>$90</b></div><em>Focused review and a clear next move</em></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60-minute diagnosis</span><b>$150</b></div><em>Deeper review of brand, offer or project</em></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90-minute diagnosis + plan</span><b>$200</b></div><em>Written action plan delivered within 48 hours</em></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30-minute working diagnosis</span><b>$90</b></div><em>Focused review and a clear next move</em><span class="book-now">Book ↗</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60-minute diagnosis</span><b>$150</b></div><em>Deeper review of brand, offer or project</em><span class="book-now">Book ↗</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90-minute diagnosis + plan</span><b>$200</b></div><em>Written action plan delivered within 48 hours</em><span class="book-now">Book ↗</span></a></li>
     </ul></div>
   </div>
   <p class="services-note">Every engagement is scoped to the brand. Bundles and ongoing retainers are quoted separately and may be discounted.</p>
@@ -700,9 +705,12 @@
 <script>
 (function(){
   var nodes=Array.prototype.slice.call(document.querySelectorAll(
-    '.band .head,.band .txt,.band .col,.services .pcard,.plan-builder .plan-question'
+    '.hero .wrap,.approach .item,.commerce-offer .inner,.diagnosis-strip,.band .head,.band .txt,.band .col,.strategy .c,.services .pcard,.plan-builder .plan-question,footer .wrap'
   ));
-  if(!nodes.length)return;
+  var localTargets=Array.prototype.slice.call(document.querySelectorAll(
+    '.band .col img,.band .browser,.band .tag,.diagnosis-strip a,.pcard .book-line,.hero-cta a,.btn,.plan-option span,.services-note'
+  ));
+  if(!nodes.length&&!localTargets.length)return;
   nodes.forEach(function(node,index){
     node.classList.add('sw-reactive');
     var size=3+(index%4);
@@ -713,8 +721,10 @@
     node.style.setProperty('--sw-float-duration',(7.2+(index%5)*.85)+'s');
     node.style.setProperty('--sw-float-delay',(-(index%7)*.83)+'s');
   });
+  localTargets.forEach(function(node){node.classList.add('sw-local-reactive');});
   var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var scale=calm ? .35 : 1,queued=false,active=null;
+  var scale=calm ? .35 : 1,queued=false;
+  function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
 
   function scrollMotion(){
     queued=false;
@@ -734,63 +744,93 @@
   addEventListener('scroll',requestScrollMotion,{passive:true});
   addEventListener('resize',requestScrollMotion,{passive:true});
 
-  function reset(section){
-    if(!section)return;
-    section.querySelectorAll('.sw-reactive').forEach(function(node){
+  function resetAll(){
+    nodes.forEach(function(node){
       node.style.setProperty('--sw-rx','0px');
       node.style.setProperty('--sw-ry','0px');
       node.classList.remove('sw-contact');
     });
+    localTargets.forEach(function(node){
+      node.style.setProperty('--sw-lx','0px');
+      node.style.setProperty('--sw-ly','0px');
+      node.classList.remove('sw-local-hit');
+    });
+  }
+
+  var pointer={x:-9999,y:-9999,mx:0,my:0},pointerQueued=false;
+  function pointerMotion(){
+    pointerQueued=false;
+    var vh=innerHeight||800;
+    nodes.forEach(function(node,index){
+      var r=node.getBoundingClientRect();
+      if(r.bottom<-80||r.top>vh+80)return;
+      var dx=pointer.x-(r.left+r.width*.5),dy=pointer.y-(r.top+r.height*.5);
+      var distance=Math.sqrt(dx*dx+dy*dy),influence=clamp(1-distance/430,0,1);
+      if(influence<=0){
+        node.style.setProperty('--sw-rx','0px');node.style.setProperty('--sw-ry','0px');node.classList.remove('sw-contact');return;
+      }
+      var direction=index%2?1:-1;
+      var x=clamp(pointer.mx*.72+dx/Math.max(90,r.width)*7,-11,11)*influence*direction*scale;
+      var y=clamp(pointer.my*.46+dy/Math.max(90,r.height)*5,-8,8)*influence*direction*scale;
+      node.classList.add('sw-contact');
+      node.style.setProperty('--sw-rx',x.toFixed(2)+'px');node.style.setProperty('--sw-ry',y.toFixed(2)+'px');
+    });
+    localTargets.forEach(function(node){
+      var r=node.getBoundingClientRect();
+      var edgeX=Math.max(r.left-pointer.x,0,pointer.x-r.right),edgeY=Math.max(r.top-pointer.y,0,pointer.y-r.bottom);
+      var distance=Math.sqrt(edgeX*edgeX+edgeY*edgeY),influence=clamp(1-distance/145,0,1);
+      if(influence<=0){
+        node.style.setProperty('--sw-lx','0px');node.style.setProperty('--sw-ly','0px');node.classList.remove('sw-local-hit');return;
+      }
+      var relX=(pointer.x-(r.left+r.width*.5))/Math.max(50,r.width);
+      var relY=(pointer.y-(r.top+r.height*.5))/Math.max(50,r.height);
+      var x=clamp(pointer.mx*.92+relX*7,-12,12)*influence*scale;
+      var y=clamp(pointer.my*.62+relY*6,-10,10)*influence*scale;
+      node.style.setProperty('--sw-lx',x.toFixed(2)+'px');node.style.setProperty('--sw-ly',y.toFixed(2)+'px');
+      node.classList.toggle('sw-local-hit',distance===0);
+    });
+    pointer.mx*=.58;pointer.my*=.58;
   }
   addEventListener('pointermove',function(event){
     if(event.pointerType==='touch')return;
-    var section=event.target.closest&&event.target.closest('.band,.plan-builder,.services');
-    if(section!==active){reset(active);active=section;}
-    if(!section)return;
-    var r=section.getBoundingClientRect();
-    if(!r.width||!r.height)return;
-    var nx=(event.clientX-r.left)/r.width-.5;
-    var ny=(event.clientY-r.top)/r.height-.5;
-    section.querySelectorAll('.sw-reactive').forEach(function(node,index){
-      var direction=index%2?1:-1;
-      node.classList.add('sw-contact');
-      node.style.setProperty('--sw-rx',(nx*14*direction*scale).toFixed(2)+'px');
-      node.style.setProperty('--sw-ry',(ny*9*direction*scale).toFixed(2)+'px');
-    });
+    pointer.x=event.clientX;pointer.y=event.clientY;
+    pointer.mx=clamp(event.movementX||0,-18,18);pointer.my=clamp(event.movementY||0,-18,18);
+    if(!pointerQueued){pointerQueued=true;requestAnimationFrame(pointerMotion);}
   },{passive:true});
-  document.documentElement.addEventListener('pointerleave',function(){reset(active);active=null;},{passive:true});
+  document.documentElement.addEventListener('pointerleave',resetAll,{passive:true});
 
-  var touchSection=null,touchX=0,touchY=0,touchTimer=0;
+  var touchBase=null,touchLocal=null,touchX=0,touchY=0,touchTimer=0;
   function clearTouch(){
-    if(!touchSection)return;
-    touchSection.querySelectorAll('.sw-reactive').forEach(function(node){
+    if(touchBase){
+      var node=touchBase;
       node.style.setProperty('--sw-tx','0px');node.style.setProperty('--sw-ty','0px');
       node.classList.remove('sw-contact');
-    });
-    touchSection=null;
+    }
+    if(touchLocal){
+      touchLocal.style.setProperty('--sw-lx','0px');touchLocal.style.setProperty('--sw-ly','0px');
+      touchLocal.classList.remove('sw-local-hit');
+    }
+    touchBase=touchLocal=null;
   }
   addEventListener('touchstart',function(event){
     var touch=event.touches[0];if(!touch)return;
-    var hit=document.elementFromPoint(touch.clientX,touch.clientY);
-    touchSection=hit&&hit.closest('.band,.plan-builder,.services');
     touchX=touch.clientX;touchY=touch.clientY;clearTimeout(touchTimer);
   },{passive:true});
   addEventListener('touchmove',function(event){
     var touch=event.touches[0];if(!touch)return;
     var hit=document.elementFromPoint(touch.clientX,touch.clientY);
-    var section=hit&&hit.closest('.band,.plan-builder,.services');
-    if(section&&section!==touchSection){clearTouch();touchSection=section;touchX=touch.clientX;touchY=touch.clientY;}
-    if(!touchSection)return;
-    var dx=Math.max(-6,Math.min(6,(touch.clientX-touchX)*.7))*scale;
-    var dy=Math.max(-7,Math.min(7,(touch.clientY-touchY)*.55))*scale;
-    touchSection.querySelectorAll('.sw-reactive').forEach(function(node,index){
-      var direction=index%2?1:-1;node.classList.add('sw-contact');
-      node.style.setProperty('--sw-tx',(dx*direction).toFixed(2)+'px');
-      node.style.setProperty('--sw-ty',(dy*(index%3===0?-.7:1)).toFixed(2)+'px');
-    });
+    var nextLocal=hit&&hit.closest&&hit.closest('.sw-local-reactive');
+    var nextBase=hit&&hit.closest&&hit.closest('.sw-reactive');
+    var dx=clamp((touch.clientX-touchX)*.78,-9,9)*scale;
+    var dy=clamp((touch.clientY-touchY)*.58,-10,10)*scale;
+    if(touchLocal&&touchLocal!==nextLocal){touchLocal.style.setProperty('--sw-lx','0px');touchLocal.style.setProperty('--sw-ly','0px');touchLocal.classList.remove('sw-local-hit');}
+    if(touchBase&&touchBase!==nextBase){touchBase.style.setProperty('--sw-tx','0px');touchBase.style.setProperty('--sw-ty','0px');touchBase.classList.remove('sw-contact');}
+    touchLocal=nextLocal;touchBase=nextBase;
+    if(touchLocal){touchLocal.classList.add('sw-local-hit');touchLocal.style.setProperty('--sw-lx',dx.toFixed(2)+'px');touchLocal.style.setProperty('--sw-ly',dy.toFixed(2)+'px');}
+    if(touchBase){touchBase.classList.add('sw-contact');touchBase.style.setProperty('--sw-tx',(dx*.42).toFixed(2)+'px');touchBase.style.setProperty('--sw-ty',(dy*.34).toFixed(2)+'px');}
     touchX=touch.clientX;touchY=touch.clientY;
   },{passive:true});
-  function releaseTouch(){clearTimeout(touchTimer);touchTimer=setTimeout(clearTouch,90);}
+  function releaseTouch(){clearTimeout(touchTimer);touchTimer=setTimeout(clearTouch,140);}
   addEventListener('touchend',releaseTouch,{passive:true});
   addEventListener('touchcancel',releaseTouch,{passive:true});
   scrollMotion();
