@@ -115,7 +115,8 @@
   @media(max-width:800px){.commerce-offer .inner{grid-template-columns:1fr;gap:12px}.commerce-offer .price{padding-top:3px}}
 
   /* PROJECT BAND */
-  .band{padding:118px 0;background:var(--bg);color:var(--fg)}
+  .band{padding:118px 0;background:var(--bg);color:var(--fg);overflow-x:hidden}
+  @supports(overflow:clip){.band{overflow-x:clip}}
   .band .head{display:flex;align-items:center;gap:22px;margin-bottom:26px}
   .band .head img{height:74px;width:auto;object-fit:contain}
   .band .head .meta .kick{color:var(--accent)}
