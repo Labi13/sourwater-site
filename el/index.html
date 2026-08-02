@@ -193,10 +193,9 @@
   .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
     background:rgba(193,92,52,.1);color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
   .pcard li[data-badge="Premium"]::before{background:var(--ink);color:#F5F0E4}
-  .pcard .book-line{position:relative;display:block;padding:14px 88px 14px 14px;border:1.5px solid rgba(36,31,26,.48);background:#FAF6EC;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(36,31,26,.48);background:#FAF6EC;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
   .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:#fff;outline:none}
-  .pcard .book-line .row span::after{content:"  →";color:var(--terra)}
-  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:5px 8px;border-radius:30px;background:var(--ink);color:#fff;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--terra);color:#fff;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* PROJECT SERVICE DRAWERS */
@@ -647,9 +646,9 @@
       <li><div class="row"><span>Δοκιμές διαφημίσεων &amp; έρευνα κοινού</span><b>από &euro;280/μήνα</b></div><em>Συν διαφημιστικό budget · μικρές δοκιμές, μέτρηση και κλιμάκωση μόνο του νικητή</em></li>
     </ul></div>
     <div class="pcard"><h3>1:1 Διάγνωση Brand</h3><span class="sub">Απευθείας κράτηση στο Cal.com</span><ul>
-      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30 λεπτά · focused diagnosis</span><b>&euro;85</b></div><em>Συγκεκριμένος έλεγχος και καθαρό επόμενο βήμα</em><span class="book-now">Κράτηση ↗</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60 λεπτά · deeper diagnosis</span><b>&euro;140</b></div><em>Βαθύτερος έλεγχος brand, προσφοράς ή project</em><span class="book-now">Κράτηση ↗</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90 λεπτά + γραπτό πλάνο</span><b>&euro;185</b></div><em>Action plan που αποστέλλεται μέσα σε 48 ώρες</em><span class="book-now">Κράτηση ↗</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30 λεπτά · focused diagnosis</span><b>&euro;85</b></div><em>Συγκεκριμένος έλεγχος και καθαρό επόμενο βήμα</em><span class="book-now">Κράτηση</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60 λεπτά · deeper diagnosis</span><b>&euro;140</b></div><em>Βαθύτερος έλεγχος brand, προσφοράς ή project</em><span class="book-now">Κράτηση</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90 λεπτά + γραπτό πλάνο</span><b>&euro;185</b></div><em>Action plan που αποστέλλεται μέσα σε 48 ώρες</em><span class="book-now">Κράτηση</span></a></li>
     </ul></div>
   </div>
   <p class="services-note">Κάθε συνεργασία κοστολογείται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες μπορούν να έχουν έκπτωση.</p>
@@ -758,7 +757,7 @@
   });
   localTargets.forEach(function(node){node.classList.add('sw-local-reactive');});
   var calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var scale=calm ? .72 : 1,queued=false;
+  var scale=calm ? .72 : 1,sensitivity=1.1,queued=false;
   function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
 
   function scrollMotion(){
@@ -857,7 +856,7 @@
     var speed=Math.hypot(mouseVX,mouseVY);
     if(hit&&speed>.08){
       var force=clamp(10+speed*.78,10,22)*scale,nx=mouseVX/speed,ny=mouseVY/speed;
-      hoverState=aimMotion(hit,clamp(nx*force-ny*2.4,-24,24),clamp(ny*force+nx*2.4,-24,24),false,460);
+      hoverState=aimMotion(hit,clamp((nx*force-ny*2.4)*sensitivity,-26.4,26.4),clamp((ny*force+nx*2.4)*sensitivity,-26.4,26.4),false,460);
     }
   },{passive:false});
   addEventListener('pointerdown',function(event){
@@ -909,7 +908,7 @@
       var hit=directHitAt(touch.clientX,touch.clientY);
       if(hit){
         var force=clamp(11+travel*.82,11,24)*scale,nx=touchVX/travel,ny=touchVY/travel;
-        aimMotion(hit,clamp(nx*force-ny*2.6,-26,26),clamp(ny*force+nx*2.6,-26,26),false,620);
+        aimMotion(hit,clamp((nx*force-ny*2.6)*sensitivity,-28.6,28.6),clamp((ny*force+nx*2.6)*sensitivity,-28.6,28.6),false,620);
       }
     }
     touchLastX=touch.clientX;touchLastY=touch.clientY;
