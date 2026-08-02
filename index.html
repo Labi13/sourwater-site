@@ -215,53 +215,56 @@
   .project-offer-panel li::before{content:"— ";color:var(--terra)}
   .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
     text-decoration:none;border-bottom:1px solid var(--terra);padding-bottom:3px}
-  .offer-work-services{margin:17px 0 19px;padding-top:15px;border-top:1px solid rgba(36,31,26,.2)}
-  .offer-work-services>small{display:block;color:var(--terra);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-  .offer-work-service-grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-  .offer-work-service{display:inline-flex;padding:5px 8px;border:1px solid rgba(36,31,26,.28);border-radius:30px;font-size:9px;line-height:1.25;color:#51483f}
+  .offer-plan-intro h3{font-size:28px;margin:0 0 9px}.offer-plan-intro p{max-width:48ch}
+  .offer-plan-stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:18px 0;border:1px solid rgba(36,31,26,.28)}
+  .offer-plan-stack--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .offer-plan-card{padding:14px 14px 15px;min-width:0}.offer-plan-card+.offer-plan-card{border-left:1px solid rgba(36,31,26,.22)}
+  .offer-plan-card small{display:block;color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+  .offer-plan-card strong{display:block;font-family:'Fraunces';font-size:16px;line-height:1.08;margin:6px 0}
+  .offer-plan-card span{display:block;color:#51483f;font-size:11px;line-height:1.42}
   .project-offer--ata .project-offer-tab{background:#F04B93;color:#142330;border-color:rgba(20,35,48,.35)}
   .project-offer--ata .project-offer-panel{width:min(560px,calc(100vw - 46px));padding:0;background:#F6EEDC;color:#142330;border:1px solid #142330;box-shadow:-18px 20px 0 rgba(240,75,147,.42)}
   .ata-offer-head{display:flex;justify-content:space-between;gap:20px;padding:14px 20px;border-bottom:1px solid rgba(20,35,48,.28);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
   .ata-offer-body{padding:22px 22px 20px}.project-offer--ata .ata-offer-body h3{font-size:30px;max-width:12ch;margin:0 0 14px}.project-offer--ata .ata-offer-body h3 em{color:#D52F7A;font-weight:500}
-  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:grid;grid-template-columns:1fr 1fr;margin:18px 0;border:1px solid rgba(20,35,48,.25)}
+  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:18px 0;border:1px solid rgba(20,35,48,.25)}
   .ata-offer-module{padding:14px 15px}.ata-offer-module+.ata-offer-module{border-left:1px solid rgba(20,35,48,.25)}.ata-offer-module small{display:block;color:#D52F7A;font-weight:700;letter-spacing:.14em}
   .ata-offer-module strong{display:block;font-family:'Fraunces';font-size:17px;margin:4px 0}.ata-offer-module span{font-size:12px;color:#33434e}
   .project-offer--ata .ata-offer-body a{border-color:#D52F7A}.project-offer--ata .ata-offer-body a::after{content:"  ↗";color:#D52F7A}
-  .project-offer--ata .offer-work-services{border-color:rgba(20,35,48,.25)}.project-offer--ata .offer-work-services>small{color:#D52F7A}
-  .project-offer--ata .offer-work-service{border-color:rgba(20,35,48,.3);color:#33434e}
   @media(max-width:700px){
     .project-offer{top:22px;right:0}.project-offer,.project-offer.is-open{position:absolute;display:flex;width:auto;max-width:none;margin:0;transform:translateX(calc(100% - 44px))}
     .project-offer.is-open{transform:translateX(0)}.project-offer-tab{width:44px;min-height:132px;padding:12px 10px;writing-mode:vertical-rl;flex-direction:row;border-color:var(--ink)}
     .project-offer-panel{width:calc(100dvw - 52px);max-height:min(76dvh,620px);padding:20px;box-shadow:-8px 12px 0 rgba(36,31,26,.2)}
     .project-offer-panel .offer-label{margin:-20px -20px 18px;padding:13px 17px}
     .project-offer--ata .project-offer-panel{width:calc(100dvw - 52px);padding:0;box-shadow:-8px 12px 0 rgba(240,75,147,.36)}
+    .offer-plan-intro h3{font-size:24px}.offer-plan-stack,.offer-plan-stack--two{grid-template-columns:1fr}.offer-plan-card+.offer-plan-card{border-left:0;border-top:1px solid rgba(36,31,26,.22)}
     .ata-offer-body{padding:19px 18px}.project-offer--ata .ata-offer-body h3{font-size:25px}.ata-offer-modules{grid-template-columns:1fr}.ata-offer-module+.ata-offer-module{border-left:0;border-top:1px solid rgba(20,35,48,.25)}
   }
 
   /* BUILD YOUR PLAN */
-  .plan-builder{padding:108px 0;background:#DDE2DC;color:#17231E;
-    background-image:linear-gradient(rgba(36,71,58,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(36,71,58,.09) 1px,transparent 1px);background-size:32px 32px}
-  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#405149;max-width:58ch}
-  .plan-builder .intro .kick{color:#526D2C!important}.plan-builder .intro h2{color:#17231E}
-  .plan-form{margin-top:42px;border:1px solid #7E8F85;background:#F8FAF7;color:#17231E;box-shadow:14px 14px 0 rgba(36,71,58,.16)}
-  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #C7D0CA}
+  .plan-builder{padding:108px 0;background:#E9E0EF;color:#2D2035;
+    background-image:linear-gradient(rgba(89,62,104,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(89,62,104,.09) 1px,transparent 1px);background-size:32px 32px}
+  .plan-builder .intro{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:end}.plan-builder .intro p{font-size:15px;color:#5F4F67;max-width:58ch}
+  .plan-builder .intro .kick{color:#7A4B7D!important}.plan-builder .intro h2{color:#2D2035}
+  .plan-form{margin-top:42px;border:1px solid #9E8AA8;background:#FCF8FD;color:#2D2035;box-shadow:14px 14px 0 rgba(89,62,104,.16)}
+  .plan-question{padding:25px 26px;border:0;border-bottom:1px solid #D8C9DF}
   .plan-question legend{font-family:'Fraunces';font-size:20px;font-weight:600;margin-bottom:14px}
   .plan-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:8px}.plan-option{position:relative}
   .plan-option input{position:absolute;opacity:0;pointer-events:none}.plan-option span{display:flex;align-items:center;min-height:54px;padding:11px 13px;
-    border:1px solid #B8C4BC;background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
-  .plan-option input:checked+span{background:#24473A;border-color:#24473A;color:#fff;box-shadow:inset 4px 0 0 #B8CE52}
-  .plan-option input:focus-visible+span{outline:2px solid #526D2C;outline-offset:2px}
-  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#17231E;color:#fff}
-  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#CAD3CD;margin-top:5px;max-width:72ch}
-  .plan-result .estimate{color:#D7E98B;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#B8CE52;color:#17231E;
+    border:1px solid #C5B5CC;background:#fff;font-size:12px;line-height:1.35;cursor:pointer;transition:.22s ease}
+  .plan-option input:checked+span{background:#593E68;border-color:#593E68;color:#fff;box-shadow:inset 4px 0 0 #D7E36C}
+  .plan-option input:focus-visible+span{outline:2px solid #7A4B7D;outline-offset:2px}
+  .plan-result{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;padding:26px;background:#2D2035;color:#fff}
+  .plan-result h3{font-family:'Fraunces';font-size:24px}.plan-result p{font-size:13px;color:#DED1E3;margin-top:5px;max-width:72ch}
+  .plan-result .estimate{color:#E4EF85;font-weight:600}.plan-result a{display:inline-block;text-decoration:none;background:#EF5B4B;color:#FFF8F2;
     padding:13px 20px;border-radius:40px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
   @media(max-width:760px){.plan-builder{padding:76px 0}.plan-builder .intro{grid-template-columns:1fr;gap:14px}.plan-question{padding:21px 18px}
     .plan-options{grid-template-columns:1fr 1fr}.plan-result{grid-template-columns:1fr}.plan-result a{justify-self:start}}
   @media(max-width:430px){.plan-options{grid-template-columns:1fr}}
 
   .services-note{margin-top:26px;padding:12px 15px;border-left:3px solid var(--terra);background:rgba(193,92,52,.075);color:#5B5046!important;font-size:13px;max-width:76ch}
-  .sw-reactive{will-change:transform,translate;transform:translate3d(var(--sw-rx,0px),calc(var(--sw-ry,0px) + var(--sw-sy,0px)),0);
+  .sw-reactive{will-change:transform,translate;transform:translate3d(calc(var(--sw-rx,0px) + var(--sw-tx,0px)),calc(var(--sw-ry,0px) + var(--sw-sy,0px) + var(--sw-ty,0px)),0);
     animation:swBuoyancy var(--sw-float-duration,8s) ease-in-out infinite;animation-delay:var(--sw-float-delay,0s);transition:transform 1.05s cubic-bezier(.2,.7,.2,1)}
+  .sw-reactive.sw-contact{transition-duration:.24s}
   .band .col img{will-change:translate;animation:swImageDrift 9s ease-in-out infinite}.band .col img:nth-child(2){animation-duration:10.5s;animation-delay:-3.2s;animation-direction:reverse}.band .col img:nth-child(3){animation-duration:12s;animation-delay:-6.1s}
   @keyframes swBuoyancy{0%,100%{translate:0 var(--sw-float-up,-4px)}35%{translate:var(--sw-float-side,3px) 0}68%{translate:var(--sw-float-opposite,-2px) var(--sw-float-down,5px)}}
   @keyframes swImageDrift{0%,100%{translate:-2px -5px}33%{translate:4px -1px}67%{translate:-1px 6px}}
@@ -346,11 +349,14 @@
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Custom e-commerce website</h3><div class="offer-price">From $2,500</div>
-      <p>A complete, independent storefront—not a project-specific Escape Shop price.</p>
-      <ul><li>Mobile-first custom storefront</li><li>Catalogue migration, payments and shipping</li><li>SEO/GEO and an SEO-safe launch, including URL redirects when replacing an existing shop</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=Custom%20e-commerce%20website%20enquiry">Discuss this service →</a>
+    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+      <div class="offer-plan-intro"><h3>Commerce discovery system</h3><p>A premium store build, a discovery strategy and an ongoing publishing engine—covering the storefront and the reasons people find it.</p></div>
+      <div class="offer-plan-stack">
+        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Custom e-commerce website</strong><span>Storefront, migration, payments, shipping and SEO-safe launch · from $2,500</span></div>
+        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, product bundles, local search and seasonal plan · from $600</span></div>
+        <div class="offer-plan-card"><small>03 · PREMIUM</small><strong>Managed Content Engine</strong><span>Bilingual guides, blogging and repeatable campaign production · from $1,800 setup + $650/mo</span></div>
+      </div>
+      <a href="mailto:hello@sourwater.space?subject=Escape%20Shop%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -378,11 +384,14 @@
 <section class="band" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Social Media Growth</h3><div class="offer-price">From $800/month</div>
-      <p>A two-platform system for brands that need consistent original content and a clear publishing rhythm.</p>
-      <ul><li>About 20 unique posts and reels</li><li>Stories, calendar and light strategy</li><li>Platform-aware edits and campaign support</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=Social%20Media%20Growth%20enquiry">Discuss this service →</a>
+    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+      <div class="offer-plan-intro"><h3>Always-on growth system</h3><p>Premium social production, funnel strategy and measured audience testing for a high-consideration wedding service.</p></div>
+      <div class="offer-plan-stack">
+        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Full Engine</strong><span>Multi-platform originals, reels, editing, community and monthly strategy · from $1,400/mo</span></div>
+        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Course launch, testimonial system and booking-funnel map · from $600</span></div>
+        <div class="offer-plan-card"><small>03 · GROWTH</small><strong>Ad testing &amp; audience research</strong><span>Small-budget campaign tests and measured scaling · from $300/mo + spend</span></div>
+      </div>
+      <a href="mailto:hello@sourwater.space?subject=Wedding%20Dance%20Vows%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -406,11 +415,13 @@
 <section class="band flip" style="--bg:#E7EAF1;--fg:#1C2740;--accent:#284A9C"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Social Media Essentials</h3><div class="offer-price">From $400/month</div>
-      <p>A focused starting system for one platform, with the voice and visual discipline kept consistent.</p>
-      <ul><li>About 12 posts</li><li>Captions and design</li><li>Two accounts with the same content from $500/month</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=Social%20Media%20Essentials%20enquiry">Discuss this service →</a>
+    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The case plan behind this project · 02 services</span>
+      <div class="offer-plan-intro"><h3>Cultural growth system</h3><p>A two-platform publishing rhythm built on research, direct voice and a booking path that protects the form from cliché.</p></div>
+      <div class="offer-plan-stack offer-plan-stack--two">
+        <div class="offer-plan-card"><small>01 · RECOMMENDED</small><strong>Growth</strong><span>Original posts, reels, stories, community and platform-aware production · from $800/mo</span></div>
+        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Cultural pillars, event promotion, private-class offers and booking funnel · from $600</span></div>
+      </div>
+      <a href="mailto:hello@sourwater.space?subject=Zeibekiko%20NYC%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -434,11 +445,14 @@
 <section class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="flaouer-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">The service behind this project</span>
-      <h3>Website design + SEO + GEO</h3><div class="offer-price">From $1,150</div>
-      <p>A custom mobile-first service website designed to be found, understood and easy to book.</p>
-      <ul><li>Custom responsive design</li><li>Structured data, sitemap and llms.txt</li><li>SEO/GEO structure and booking integration</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=Website%20design%20enquiry">Discuss this service →</a>
+    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+      <div class="offer-plan-intro"><h3>Studio launch system</h3><p>The website, the offer architecture and the ongoing campaign language operate as one launch-ready system.</p></div>
+      <div class="offer-plan-stack">
+        <div class="offer-plan-card"><small>01 · RECOMMENDED</small><strong>Website design + SEO + GEO</strong><span>Mobile-first site, bilingual structure, search, scheduling and booking · from $1,150</span></div>
+        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, class spotlights, launch calendar and artistic direction · from $600</span></div>
+        <div class="offer-plan-card"><small>03 · GROWTH</small><strong>Growth</strong><span>Workshop campaigns and original IG/TikTok publishing · from $800/mo</span></div>
+      </div>
+      <a href="mailto:hello@sourwater.space?subject=Flaouer%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -470,11 +484,14 @@
 <section class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
   <aside class="project-offer" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="mermaid-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">The service behind this project</span>
-      <h3>AI Studio visual system</h3><div class="offer-price">From $280</div>
-      <p>A coherent on-brand image world, created from scratch for campaigns, launches or a repeatable content system.</p>
-      <ul><li>10-image starting set</li><li>Art direction and visual consistency</li><li>Retouching or larger systems quoted separately</li></ul>
-      <a href="mailto:hello@sourwater.space?subject=AI%20Studio%20visual%20system%20enquiry">Discuss this service →</a>
+    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">The case plan behind this project · 03 services</span>
+      <div class="offer-plan-intro"><h3>Experience brand system</h3><p>A premium doctrine, commercial strategy and coherent image world for an experience that must feel transformed before it is booked.</p></div>
+      <div class="offer-plan-stack">
+        <div class="offer-plan-card"><small>01 · PREMIUM</small><strong>Brand doctrine / brand book</strong><span>Voice, visual law, content pillars and dual-audience growth ladder · from $1,400</span></div>
+        <div class="offer-plan-card"><small>02 · STRATEGY</small><strong>Strategy sprint / content audit</strong><span>Rate card, launch calendar, testimonial system and booking funnel · from $600</span></div>
+        <div class="offer-plan-card"><small>03 · AI STUDIO</small><strong>AI visual / image sets</strong><span>On-brand image world and photographic art direction · from $280</span></div>
+      </div>
+      <a href="mailto:hello@sourwater.space?subject=Mermaid%20Experience%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -500,13 +517,14 @@
   <aside class="project-offer project-offer--ata" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="ata-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="ata-offer">
-      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship system · 01/02</span></div>
+      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship system · 03 services</span></div>
       <div class="ata-offer-body">
         <h3>Build the doctrine. <em>Give it a voice.</em></h3>
-        <p>A complete intellectual brand architecture, extended into an AI publishing presence that can speak, teach and release work in character.</p>
+        <p>A complete intellectual brand architecture, an ongoing publishing engine and an AI presence that can speak, teach and release work in character.</p>
         <div class="ata-offer-modules">
-          <div class="ata-offer-module"><small>01 · FOUNDATION</small><strong>Brand doctrine</strong><span>Voice, philosophy, visual law and brand book · from $1,400</span></div>
-          <div class="ata-offer-module"><small>02 · EXPANSION</small><strong>AI publishing persona</strong><span>Podcast logic, character voice and production system · from $900</span></div>
+          <div class="ata-offer-module"><small>01 · FOUNDATION</small><strong>Brand doctrine / brand book</strong><span>Voice, philosophy, visual law and brand architecture · from $1,400</span></div>
+          <div class="ata-offer-module"><small>02 · PREMIUM</small><strong>Managed Content Engine</strong><span>Substack, daily content, funnels, email and release flow · from $1,800 setup + $650/mo</span></div>
+          <div class="ata-offer-module"><small>03 · EXPANSION</small><strong>AI publishing persona</strong><span>Podcast logic, character voice, narration and production system · from $900</span></div>
         </div>
         <a href="mailto:hello@sourwater.space?subject=Brand%20system%20and%20AI%20publishing%20enquiry">Design this system</a>
       </div>
@@ -520,7 +538,7 @@
     <div class="txt">
       <p class="lead">A complete editorial ecosystem built end to end: two books, a 22-essay Substack bank split into two colour-coded content lines, a daily Instagram design language, and a funnel from free essay to signature service.</p>
       <blockquote>Imitation performs from memory; presence performs from now.<span class="a">Brand voice, aphoristic register</span></blockquote>
-      <div class="tags"><span class="tag">Substack system</span><span class="tag">"The Gap" IG format</span><span class="tag">Funnel design</span><span class="tag">Daily content engine</span><span class="tag">Faceless short-form</span><span class="tag">AI podcast persona</span><span class="tag">Book launch</span><span class="tag">Email sequences</span><span class="tag">Paid-tier strategy</span><span class="tag">AI audiobook narration</span></div>
+      <div class="tags"><span class="tag">Substack system</span><span class="tag">"The Gap" IG format</span><span class="tag">Funnel design</span><span class="tag">Daily content engine</span><span class="tag">Faceless short-form</span><span class="tag">AI publishing persona</span><span class="tag">Book launch</span><span class="tag">Email sequences</span><span class="tag">Paid-tier strategy</span><span class="tag">AI audiobook narration</span></div>
     </div>
     <div class="col">
       <img src="/assets/banner-wim-clean.png" style="width:98%;top:0;left:1%;transform:rotate(-1deg)">
@@ -556,8 +574,8 @@
       <label class="plan-option"><input type="radio" name="content" value="No content service"><span>None for now</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>4. Add specialist production?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="production" value="AI persona / podcast" data-usd="900"><span>AI persona / podcast</span></label>
-      <label class="plan-option"><input type="radio" name="production" value="AI visual sets" data-usd="280"><span>AI visual sets</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI publishing persona" data-usd="900"><span>AI publishing persona</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI visual / image sets" data-usd="280"><span>AI visual / image sets</span></label>
       <label class="plan-option"><input type="radio" name="production" value="Product motion film" data-usd="1200"><span>Product motion film</span></label>
       <label class="plan-option"><input type="radio" name="production" value="No specialist production"><span>None for now</span></label>
     </div></fieldset>
@@ -575,7 +593,8 @@
   <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation. Prices are starting points; payment is accepted in USD ($) or EUR (&euro;).</p>
   <div class="pricegrid">
     <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
-      <li><div class="row"><span>Essentials</span><b>from $400/mo</b></div><em>1 account · ~12 posts · captions · design · 2 accounts, same content: $500/mo</em></li>
+      <li><div class="row"><span>Essentials</span><b>from $400/mo</b></div><em>1 account · ~12 posts · captions · design</em></li>
+      <li><div class="row"><span>Two Accounts</span><b>from $500/mo</b></div><em>2 accounts · one shared direction · platform-aware adaptations of the same core content</em></li>
       <li data-badge="Recommended"><div class="row"><span>Growth</span><b>from $800/mo</b></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
       <li data-badge="Premium"><div class="row"><span>Full Engine</span><b>from $1,400/mo</b></div><em>Multi-platform · automated daily content engine · reel/TikTok editing · community management · monthly strategy</em></li>
     </ul></div>
@@ -600,12 +619,12 @@
     </ul></div>
     <div class="pcard"><h3>AI Studio</h3><span class="sub">Generative production</span><ul>
       <li><div class="row"><span>AI voice cloning</span><b>from $900</b></div><em>Custom voice model for narration or song</em></li>
-      <li data-badge="Recommended"><div class="row"><span>AI persona / podcast</span><b>from $900</b></div><em>Written voice bible + in-character production</em></li>
+      <li data-badge="Recommended"><div class="row"><span>AI publishing persona</span><b>from $900</b></div><em>Written voice bible + in-character publishing and production</em></li>
       <li><div class="row"><span>AI visual / image sets</span><b>from $280</b></div><em>10-image set, generated from scratch and on brand</em></li>
       <li><div class="row"><span>Photo editing / retouching</span><b>from $350</b></div><em>Background removal, cleanup and AI-assisted touch-ups</em></li>
     </ul></div>
     <div class="pcard"><h3>Strategy</h3><span class="sub">Sprints &amp; testing</span><ul>
-      <li data-badge="Recommended"><div class="row"><span>Strategy sprint / content audit</span><b>from $600</b></div><em>Doctrine, funnel map and 90-day plan</em></li>
+      <li data-badge="Recommended"><div class="row"><span>Strategy sprint / content audit</span><b>from $600</b></div><em>Offer architecture, audience, funnel map, launch and 90-day plan</em></li>
       <li><div class="row"><span>Ad testing &amp; audience research</span><b>from $300/mo</b></div><em>Plus ad spend · small budgets, measured honestly, scaling only the winner</em></li>
     </ul></div>
     <div class="pcard"><h3>1:1 Brand Diagnosis</h3><span class="sub">Book direct on Cal.com</span><ul>
@@ -639,22 +658,6 @@
     var tab=box.querySelector('.project-offer-tab');
     if(tab)tab.setAttribute('aria-expanded','false');
   }
-  document.querySelectorAll('.band').forEach(function(band){
-    var panel=band.querySelector('.project-offer-panel'),tags=band.querySelectorAll('.txt .tags .tag');
-    if(!panel||!tags.length||panel.querySelector('.offer-work-services'))return;
-    var services=document.createElement('div');
-    services.className='offer-work-services';
-    var label=document.createElement('small');
-    label.textContent=document.documentElement.lang==='el'?'Υπηρεσίες που περιλαμβάνονται σε αυτό το έργο':'Services included in this work';
-    var grid=document.createElement('div');
-    grid.className='offer-work-service-grid';
-    tags.forEach(function(tag){
-      var item=document.createElement('span');item.className='offer-work-service';item.textContent=tag.textContent;grid.appendChild(item);
-    });
-    services.appendChild(label);services.appendChild(grid);
-    var body=panel.querySelector('.ata-offer-body')||panel,cta=body.querySelector('a');
-    body.insertBefore(services,cta||null);
-  });
   document.querySelectorAll('.project-offer-tab').forEach(function(button){
     button.addEventListener('click',function(){
       var box=button.closest('.project-offer');
@@ -736,6 +739,7 @@
     section.querySelectorAll('.sw-reactive').forEach(function(node){
       node.style.setProperty('--sw-rx','0px');
       node.style.setProperty('--sw-ry','0px');
+      node.classList.remove('sw-contact');
     });
   }
   addEventListener('pointermove',function(event){
@@ -749,11 +753,46 @@
     var ny=(event.clientY-r.top)/r.height-.5;
     section.querySelectorAll('.sw-reactive').forEach(function(node,index){
       var direction=index%2?1:-1;
-      node.style.setProperty('--sw-rx',(nx*18*direction*scale).toFixed(2)+'px');
-      node.style.setProperty('--sw-ry',(ny*12*direction*scale).toFixed(2)+'px');
+      node.classList.add('sw-contact');
+      node.style.setProperty('--sw-rx',(nx*14*direction*scale).toFixed(2)+'px');
+      node.style.setProperty('--sw-ry',(ny*9*direction*scale).toFixed(2)+'px');
     });
   },{passive:true});
   document.documentElement.addEventListener('pointerleave',function(){reset(active);active=null;},{passive:true});
+
+  var touchSection=null,touchX=0,touchY=0,touchTimer=0;
+  function clearTouch(){
+    if(!touchSection)return;
+    touchSection.querySelectorAll('.sw-reactive').forEach(function(node){
+      node.style.setProperty('--sw-tx','0px');node.style.setProperty('--sw-ty','0px');
+      node.classList.remove('sw-contact');
+    });
+    touchSection=null;
+  }
+  addEventListener('touchstart',function(event){
+    var touch=event.touches[0];if(!touch)return;
+    var hit=document.elementFromPoint(touch.clientX,touch.clientY);
+    touchSection=hit&&hit.closest('.band,.plan-builder,.services');
+    touchX=touch.clientX;touchY=touch.clientY;clearTimeout(touchTimer);
+  },{passive:true});
+  addEventListener('touchmove',function(event){
+    var touch=event.touches[0];if(!touch)return;
+    var hit=document.elementFromPoint(touch.clientX,touch.clientY);
+    var section=hit&&hit.closest('.band,.plan-builder,.services');
+    if(section&&section!==touchSection){clearTouch();touchSection=section;touchX=touch.clientX;touchY=touch.clientY;}
+    if(!touchSection)return;
+    var dx=Math.max(-6,Math.min(6,(touch.clientX-touchX)*.7))*scale;
+    var dy=Math.max(-7,Math.min(7,(touch.clientY-touchY)*.55))*scale;
+    touchSection.querySelectorAll('.sw-reactive').forEach(function(node,index){
+      var direction=index%2?1:-1;node.classList.add('sw-contact');
+      node.style.setProperty('--sw-tx',(dx*direction).toFixed(2)+'px');
+      node.style.setProperty('--sw-ty',(dy*(index%3===0?-.7:1)).toFixed(2)+'px');
+    });
+    touchX=touch.clientX;touchY=touch.clientY;
+  },{passive:true});
+  function releaseTouch(){clearTimeout(touchTimer);touchTimer=setTimeout(clearTouch,90);}
+  addEventListener('touchend',releaseTouch,{passive:true});
+  addEventListener('touchcancel',releaseTouch,{passive:true});
   scrollMotion();
 })();
 </script>
