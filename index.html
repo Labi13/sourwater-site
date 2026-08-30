@@ -31,11 +31,11 @@
   "name": "Sourwater",
   "description": "A branding studio for culture and commerce. We take a firm from low, and move it high. Social media concepts, brand systems, content engines, SEO and GEO, creative direction.",
   "url": "https://sourwater.space",
-  "email": "hello@sourwater.space",
+  "email": "sourwater.space@gmail.com",
   "telephone": "+30 697 177 9530",
   "slogan": "We find what should not change. Then we change everything around it.",
   "areaServed": ["New York", "United States", "Athens", "Greece"],
-  "knowsAbout": ["Social media management", "Brand systems", "Content strategy", "Creative direction", "SEO", "Generative Engine Optimization", "Video strategy"],
+  "knowsAbout": ["Social media management", "Brand systems", "Content strategy", "Creative direction", "AI film production", "SEO", "Generative Engine Optimization", "Video strategy"],
   "makesOffer": [
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Concepts"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand Systems"}},
@@ -43,7 +43,7 @@
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Creative Direction"}},
     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO and GEO"}}
   ],
-  "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "hello@sourwater.space", "telephone": "+30 697 177 9530"}
+  "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": "sourwater.space@gmail.com", "telephone": "+30 697 177 9530"}
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +56,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;overflow-x:hidden;overscroll-behavior-x:none;max-width:100%}
   body{background:var(--sand);color:var(--ink);
-    font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;line-height:1.55;overflow-x:hidden;overscroll-behavior-x:none;max-width:100%}
+    font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;line-height:1.55;overflow-x:hidden;overscroll-behavior-x:none;max-width:100%;user-select:text;-webkit-user-select:text}
   @supports(overflow:clip){html,body{overflow-x:clip}}
   body.drawer-open{touch-action:pan-y}
   .serif{font-family:'Fraunces',Georgia,serif}
@@ -128,6 +128,9 @@
     font-family:'Fraunces';font-style:italic;font-size:clamp(18px,1.9vw,25px)}
   .band blockquote .a{display:block;font-family:'Space Grotesk';font-style:normal;font-size:11px;
     letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-top:12px;opacity:.85}
+  .film-credit{margin:24px 0 0;padding:18px 20px;border:1px solid var(--accent);display:grid;gap:4px;max-width:560px}
+  .film-credit strong{font-family:'Fraunces';font-size:clamp(22px,2.2vw,31px);font-weight:600;line-height:1.05}
+  .film-credit span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
   .band .tags{margin-top:24px}
   .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
     border:1px solid var(--accent);color:var(--accent);padding:6px 13px;margin:0 7px 8px 0;border-radius:40px;opacity:.9}
@@ -267,7 +270,7 @@
   .sw-reactive{will-change:transform,translate;transform:translate3d(calc(var(--sw-rx,0px) + var(--sw-sx,0px) + var(--sw-tx,0px)),calc(var(--sw-ry,0px) + var(--sw-sy,0px) + var(--sw-ty,0px)),0);
     animation:swBuoyancy var(--sw-float-duration,8s) linear infinite;animation-delay:var(--sw-float-delay,0s);transition:transform 1.05s cubic-bezier(.2,.7,.2,1)}
   .sw-reactive.sw-contact{transition-duration:.34s}
-  .sw-word-reactive{display:inline-block;position:relative;cursor:default}
+  .sw-word-reactive{display:inline-block;position:relative;cursor:text;user-select:text;-webkit-user-select:text}
   .sw-local-reactive{translate:var(--sw-lx,0px) var(--sw-ly,0px);transition:translate 1.2s cubic-bezier(.16,.78,.18,1),scale .8s ease}
   .sw-local-reactive.sw-local-hit{scale:1}.sw-local-reactive.sw-direct-active{scale:1}
   .sw-local-reactive.sw-direct-grabbed{scale:1.006}
@@ -327,7 +330,7 @@
   <div class="links">
     <a href="https://wa.me/14243351142">WhatsApp</a>
     <a href="tel:+306971779530">Call</a>
-    <a href="mailto:hello@sourwater.space">Email</a>
+    <a href="mailto:sourwater.space@gmail.com">Email</a>
     <a href="/el/">ΕΛ</a>
   </div>
 </nav>
@@ -383,7 +386,7 @@
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, product bundles, local search and a seasonal plan.</span></div>
         <div class="offer-plan-card"><small>Publishing engine</small><strong>Managed Content Engine</strong><span>Bilingual guides, blogging and repeatable campaign production.</span></div>
       </div>
-      <a href="mailto:hello@sourwater.space?subject=Escape%20Shop%20case%20plan%20enquiry">Discuss this case plan →</a>
+      <a href="mailto:sourwater.space@gmail.com?subject=Escape%20Shop%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -418,7 +421,7 @@
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Course launch, testimonial system and a clear booking-funnel map.</span></div>
         <div class="offer-plan-card"><small>Measured growth</small><strong>Ad testing &amp; audience research</strong><span>Focused campaign tests, honest measurement and deliberate scaling.</span></div>
       </div>
-      <a href="mailto:hello@sourwater.space?subject=Wedding%20Dance%20Vows%20case%20plan%20enquiry">Discuss this case plan →</a>
+      <a href="mailto:sourwater.space@gmail.com?subject=Wedding%20Dance%20Vows%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -448,7 +451,7 @@
         <div class="offer-plan-card"><small>Ongoing growth</small><strong>Growth</strong><span>Original posts, reels, stories, community and platform-aware production.</span></div>
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Cultural pillars, event promotion, private-class offers and a booking funnel.</span></div>
       </div>
-      <a href="mailto:hello@sourwater.space?subject=Zeibekiko%20NYC%20case%20plan%20enquiry">Discuss this case plan →</a>
+      <a href="mailto:sourwater.space@gmail.com?subject=Zeibekiko%20NYC%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -479,7 +482,7 @@
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, class spotlights, launch calendar and artistic direction.</span></div>
         <div class="offer-plan-card"><small>Ongoing growth</small><strong>Growth</strong><span>Workshop campaigns and original IG/TikTok publishing.</span></div>
       </div>
-      <a href="mailto:hello@sourwater.space?subject=Flaouer%20case%20plan%20enquiry">Discuss this case plan →</a>
+      <a href="mailto:sourwater.space@gmail.com?subject=Flaouer%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -516,9 +519,9 @@
       <div class="offer-plan-stack">
         <div class="offer-plan-card"><small>Brand foundation</small><strong>Brand doctrine / brand book</strong><span>Voice, visual law, content pillars and a dual-audience growth ladder.</span></div>
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Rate card, launch calendar, testimonial system and booking funnel.</span></div>
-        <div class="offer-plan-card"><small>Visual world</small><strong>AI visual / image sets</strong><span>On-brand imagery and photographic art direction.</span></div>
+        <div class="offer-plan-card"><small>Moving-image world</small><strong>AI Brand Film — Short</strong><span>Concept, artistic direction, AI video production, colour, sound design and final vertical masters.</span></div>
       </div>
-      <a href="mailto:hello@sourwater.space?subject=Mermaid%20Experience%20case%20plan%20enquiry">Discuss this case plan →</a>
+      <a href="mailto:sourwater.space@gmail.com?subject=Mermaid%20Experience%20case%20plan%20enquiry">Discuss this case plan →</a>
     </div>
   </aside>
   <div class="head">
@@ -534,7 +537,8 @@
     <div class="txt">
       <p class="lead">Luxury experiential positioning, an Aman Resorts register, never costume play. A four-volume brand book, six content pillars, dual audience tracks, and a launch week mapped day by day.</p>
       <blockquote>By the time the tail touches the water, most guests aren't posing anymore. They're somewhere else entirely.<span class="a">Launch calendar, Transformation pillar</span></blockquote>
-      <div class="tags"><span class="tag">Brand book</span><span class="tag">Content-pillar strategy</span><span class="tag">Launch calendar</span><span class="tag">Rate-card strategy</span><span class="tag">Photographic art direction</span><span class="tag">Reels/short-form</span><span class="tag">Testimonial system</span><span class="tag">Dual-audience strategy</span><span class="tag">Booking funnel</span></div>
+      <div class="film-credit" aria-label="Mermaids Need Space film credits"><strong>Mermaids need space.</strong><span>Artistic direction · Arturo Gui</span><span>AI video production · AI Synthetics</span></div>
+      <div class="tags"><span class="tag">Brand book</span><span class="tag">Content-pillar strategy</span><span class="tag">Launch calendar</span><span class="tag">Rate-card strategy</span><span class="tag">Photographic art direction</span><span class="tag">AI Brand Film</span><span class="tag">Artistic direction</span><span class="tag">AI video production</span><span class="tag">Reels/short-form</span><span class="tag">Testimonial system</span><span class="tag">Dual-audience strategy</span><span class="tag">Booking funnel</span></div>
     </div>
   </div>
 </div></section>
@@ -551,9 +555,9 @@
         <div class="ata-offer-modules">
           <div class="ata-offer-module"><small>Foundation</small><strong>Brand doctrine / brand book</strong><span>Voice, philosophy, visual law and brand architecture.</span></div>
           <div class="ata-offer-module"><small>Publishing engine</small><strong>Managed Content Engine</strong><span>Substack, daily content, funnels, email and release flow.</span></div>
-          <div class="ata-offer-module"><small>AI expansion</small><strong>AI publishing persona</strong><span>Podcast logic, character voice, narration and production system.</span></div>
+          <div class="ata-offer-module"><small>AI expansion</small><strong>AI publishing persona</strong><span>Voice guide, reusable prompt system and launch-ready sample posts.</span></div>
         </div>
-        <a href="mailto:hello@sourwater.space?subject=Brand%20system%20and%20AI%20publishing%20enquiry">Design this system</a>
+        <a href="mailto:sourwater.space@gmail.com?subject=Brand%20system%20and%20AI%20publishing%20enquiry">Design this system</a>
       </div>
     </div>
   </aside>
@@ -601,14 +605,14 @@
       <label class="plan-option"><input type="radio" name="content" value="No content service"><span>None for now</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>4. Add specialist production?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="production" value="AI publishing persona" data-usd="900"><span>AI publishing persona</span></label>
-      <label class="plan-option"><input type="radio" name="production" value="AI visual / image sets" data-usd="280"><span>AI visual / image sets</span></label>
-      <label class="plan-option"><input type="radio" name="production" value="Product motion film" data-usd="1200"><span>Product motion film</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI publishing persona" data-usd="450"><span>AI publishing persona</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="Synthetic Campaign" data-usd="380"><span>Synthetic Campaign</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI Brand Film" data-usd="550"><span>AI Brand Film</span></label>
       <label class="plan-option"><input type="radio" name="production" value="No specialist production"><span>None for now</span></label>
     </div></fieldset>
     <div class="plan-result" aria-live="polite">
       <div><h3>Your working plan</h3><p class="plan-copy">Choose one answer in each row to build a recommendation.</p></div>
-      <a class="plan-email" href="mailto:hello@sourwater.space?subject=My%20Sourwater%20plan">Email my plan →</a>
+      <a class="plan-email" href="mailto:sourwater.space@gmail.com?subject=My%20Sourwater%20plan">Email my plan →</a>
     </div>
   </form>
 </div></section>
@@ -629,6 +633,17 @@
       <li data-badge="Premium"><div class="row"><span>Brand doctrine / brand book</span><b>from $1,400</b></div><em>Voice, palette, forbidden words, pillars and growth ladder</em></li>
       <li><div class="row"><span>Visual identity &amp; card system</span><b>from $900</b></div><em>Logo lockups, templates and a repeatable post design system</em></li>
     </ul></div>
+    <div class="pcard"><h3>Creative Direction · AI Film</h3><span class="sub">Concept and creative direction, produced with AI as a finished film.</span><ul>
+      <li><div class="row"><span>Social Cut</span><b>from $180</b></div><em>Up to 20 sec, cut from the same shoot for Reels/TikTok/Stories.</em></li>
+      <li data-badge="Recommended"><div class="row"><span>AI Brand Film — Short</span><b>from $550</b></div><em>Up to 60 sec. Concept + creative direction + AI production.</em></li>
+      <li data-badge="Premium"><div class="row"><span>AI Brand Film — Full</span><b>from $1,100</b></div><em>Up to 3 min. Concept + creative direction + AI production.</em></li>
+    </ul></div>
+    <div class="pcard"><h3>Synthetic Media · AI Publishing</h3><span class="sub">On-brand images, publishing personas, voice and retouching.</span><ul>
+      <li data-badge="Recommended"><div class="row"><span>Synthetic Campaign</span><b>from $380</b></div><em>10–15 image set, concept + creative direction + generation, on brand.</em></li>
+      <li><div class="row"><span>AI publishing persona</span><b>from $450</b></div><em>Voice guide, reusable prompt system and 5 launch-ready sample posts.</em></li>
+      <li><div class="row"><span>AI voice setup + narration</span><b>from $200</b></div><em>Consent-verified voice setup + up to 5 finished minutes of narration.</em></li>
+      <li><div class="row"><span>Photo editing / retouching</span><b>from $220</b></div><em>Up to 10 images · background removal, cleanup and AI-assisted touch-ups.</em></li>
+    </ul></div>
     <div class="pcard"><h3>Websites &amp; E-commerce</h3><span class="sub">One-time</span><ul>
       <li><div class="row"><span>Landing page / microsite + SEO</span><b>from $650</b></div><em>Single-page funnel or campaign site</em></li>
       <li data-badge="Recommended"><div class="row"><span>Website design + SEO + GEO</span><b>from $1,150</b></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
@@ -642,13 +657,6 @@
     <div class="pcard"><h3>Video Production</h3><span class="sub">Per piece &amp; monthly</span><ul>
       <li><div class="row"><span>Reel / TikTok edit</span><b>from $120</b></div><em>Each · 8-pack from $800</em></li>
       <li><div class="row"><span>Faceless short-form series</span><b>from $600/mo</b></div><em>Fixed character, complete AI pipeline, no shoot</em></li>
-      <li data-badge="Premium"><div class="row"><span>Product motion film</span><b>from $1,200</b></div><em>3-minute cinematic video, product in motion and motion-tracked AI visuals</em></li>
-    </ul></div>
-    <div class="pcard"><h3>AI Studio</h3><span class="sub">Generative production</span><ul>
-      <li><div class="row"><span>AI voice cloning</span><b>from $900</b></div><em>Custom voice model for narration or song</em></li>
-      <li data-badge="Recommended"><div class="row"><span>AI publishing persona</span><b>from $900</b></div><em>Written voice bible + in-character publishing and production</em></li>
-      <li><div class="row"><span>AI visual / image sets</span><b>from $280</b></div><em>10-image set, generated from scratch and on brand</em></li>
-      <li><div class="row"><span>Photo editing / retouching</span><b>from $350</b></div><em>Background removal, cleanup and AI-assisted touch-ups</em></li>
     </ul></div>
     <div class="pcard"><h3>Strategy</h3><span class="sub">Sprints &amp; testing</span><ul>
       <li data-badge="Recommended"><div class="row"><span>Strategy sprint / content audit</span><b>from $600</b></div><em>Offer architecture, audience, funnel map, launch and 90-day plan</em></li>
@@ -670,7 +678,7 @@
   <div class="contact">
     <a href="https://wa.me/14243351142">WhatsApp · +1 424 335 1142</a>
     <a class="ghost" href="tel:+306971779530">Call · +30 697 177 9530</a>
-    <a class="ghost" href="mailto:hello@sourwater.space">hello@sourwater.space</a>
+    <a class="ghost" href="mailto:sourwater.space@gmail.com">sourwater.space@gmail.com</a>
   </div>
   <div class="studioline">Sourwater · Concepts for Culture &amp; Commerce</div>
 </div></footer>
@@ -684,7 +692,10 @@
     box.classList.remove('is-open');
     var tab=box.querySelector('.project-offer-tab');
     if(tab)tab.setAttribute('aria-expanded','false');
+    var panel=box.querySelector('.project-offer-panel');
+    if(panel){panel.setAttribute('aria-hidden','true');panel.inert=true;}
   }
+  document.querySelectorAll('.project-offer').forEach(function(box){closeDrawer(box);});
   document.querySelectorAll('.project-offer-tab').forEach(function(button){
     button.addEventListener('click',function(){
       var box=button.closest('.project-offer');
@@ -694,6 +705,8 @@
       });
       box.classList.toggle('is-open',open);
       button.setAttribute('aria-expanded',String(open));
+      var panel=box.querySelector('.project-offer-panel');
+      if(panel){panel.setAttribute('aria-hidden',String(!open));panel.inert=!open;}
       syncDrawerLock();
     });
   });
@@ -703,6 +716,13 @@
       closeDrawer(box);
     });
     syncDrawerLock();
+  });
+  document.addEventListener('keydown',function(event){
+    if(event.key!=='Escape')return;
+    var box=document.querySelector('.project-offer.is-open');
+    if(!box)return;
+    var tab=box.querySelector('.project-offer-tab');
+    closeDrawer(box);syncDrawerLock();if(tab)tab.focus();
   });
   document.querySelectorAll('.plan-form').forEach(function(form){
     var lang=form.getAttribute('data-lang')||'en',groups=['build','brand','content','production'];
@@ -719,7 +739,7 @@
       if(!costs.length)costs.push('Scoped after a short consultation');
       copy.innerHTML='Recommendation: '+labels.join(' + ')+' · Starting from <span class="estimate">'+costs.join(' + ')+'</span>';
       var body='Hello,\n\nI would like to discuss this plan:\n- '+labels.join('\n- ')+'\n\nIndicative starting point: '+costs.join(' + ');
-      email.href='mailto:hello@sourwater.space?subject='+encodeURIComponent('My Sourwater plan')+'&body='+encodeURIComponent(body);
+      email.href='mailto:sourwater.space@gmail.com?subject='+encodeURIComponent('My Sourwater plan')+'&body='+encodeURIComponent(body);
     });
   });
 })();
@@ -797,6 +817,9 @@
   addEventListener('resize',requestScrollMotion,{passive:true});
 
   var motionStates=[],motionRunning=false,motionLast=0;
+  function isSelectableTextTarget(node){
+    return !!(node&&node.closest&&node.closest('.sw-word-reactive,.pcard li,.project-offer-panel,.plan-result,.services-note,p,h1,h2,h3,h4,h5,h6,blockquote'));
+  }
   function directHitAt(x,y){
     var stack=document.elementsFromPoint?document.elementsFromPoint(x,y):[document.elementFromPoint(x,y)];
     for(var i=0;i<stack.length;i++){
@@ -859,6 +882,7 @@
   var hoverState=null,mouseDrag=null,mouseVX=0,mouseVY=0,mouseLastX=null,mouseLastY=null,suppressClick=null;
   addEventListener('pointermove',function(event){
     if(event.pointerType==='touch')return;
+    if(event.buttons===1||(getSelection&&getSelection().type==='Range')){if(hoverState){releaseMotion(hoverState,0);hoverState=null;}return;}
     var rawX=mouseLastX===null?(event.movementX||0):event.clientX-mouseLastX;
     var rawY=mouseLastY===null?(event.movementY||0):event.clientY-mouseLastY;
     mouseLastX=event.clientX;mouseLastY=event.clientY;
@@ -877,6 +901,7 @@
   },{passive:false});
   addEventListener('pointerdown',function(event){
     if(event.pointerType==='touch'||(event.button!==undefined&&event.button!==0))return;
+    if(isSelectableTextTarget(event.target))return;
     mouseLastX=event.clientX;mouseLastY=event.clientY;
     var hit=directHitAt(event.clientX,event.clientY);if(!hit)return;
     if(hoverState){releaseMotion(hoverState,0);hoverState=null;}
@@ -897,6 +922,7 @@
   }
   addEventListener('touchstart',function(event){
     if(event.touches.length!==1)return;
+    if(isSelectableTextTarget(event.target)){touchCandidate=null;return;}
     var touch=event.touches[0],hit=directHitAt(touch.clientX,touch.clientY);
     touchStartX=touchLastX=touch.clientX;touchStartY=touchLastY=touch.clientY;touchVX=touchVY=0;
     if(!hit){touchCandidate=null;return;}
