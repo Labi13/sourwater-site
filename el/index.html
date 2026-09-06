@@ -186,6 +186,8 @@
     border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
   .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
   .pcard h3{font-family:'Fraunces','Spectral';font-weight:600;font-size:23px;color:var(--ink)}
+  .pcard-premium{box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard-premium li em{font-size:14px;line-height:1.55}
   .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
   .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
   .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
@@ -378,7 +380,7 @@
     <div class="project-offer-panel" id="escape-offer"><span class="offer-label">Το case plan πίσω από το project</span>
       <div class="offer-plan-intro"><h3>Σύστημα commerce &amp; discovery</h3><p>Το e-shop, η εμπορική στρατηγική και η εκδοτική μηχανή λειτουργούν ως ένα σύστημα που μετατρέπει την αναζήτηση σε αγορά.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Βασική κατασκευή</small><strong>Custom κατασκευή e-shop</strong><span>Storefront, μεταφορά, πληρωμές, αποστολές και SEO-safe launch.</span></div>
+        <div class="offer-plan-card"><small>Βασική κατασκευή</small><strong>Σχεδιασμός ιστοσελίδας + SEO + GEO</strong><span>Custom design, πλοήγηση προϊόντων, structured data και περιεχόμενο έτοιμο για αναζήτηση.</span></div>
         <div class="offer-plan-card"><small>Στρατηγικό επίπεδο</small><strong>Sprint στρατηγικής / audit περιεχομένου</strong><span>Αρχιτεκτονική προσφοράς, bundles, τοπική αναζήτηση και εποχικό πλάνο.</span></div>
         <div class="offer-plan-card"><small>Μηχανή περιεχομένου</small><strong>Managed Content Engine</strong><span>Δίγλωσσοι οδηγοί, blogging και επαναλαμβανόμενη παραγωγή καμπανιών.</span></div>
       </div>
@@ -580,8 +582,7 @@
     <fieldset class="plan-question"><legend>1. Τι χτίζουμε;</legend><div class="plan-options">
       <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite" data-eur="600"><span>Landing page / microsite</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Πλήρης ιστοσελίδα" data-eur="1060"><span>Πλήρης ιστοσελίδα</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="Interactive ιστοσελίδα" data-eur="1290"><span>Interactive full site</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="E-commerce" data-eur="2500"><span>E-commerce</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Premium interactive site + SEO + GEO + AI visuals" data-usd="2400"><span>Premium interactive site + AI visuals</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Δεν είμαι ακόμη σίγουρος"><span>Δεν είμαι ακόμη σίγουρος</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>2. Τι χρειάζεται το brand;</legend><div class="plan-options">
@@ -635,11 +636,12 @@
       <li><div class="row"><span>AI voice setup + narration</span><b>από &euro;170</b></div><em>Consent-verified voice setup + έως 5 τελικά λεπτά αφήγησης.</em></li>
       <li><div class="row"><span>Photo editing / retouching</span><b>από &euro;190</b></div><em>Έως 10 εικόνες · αφαίρεση φόντου, καθαρισμός και ρετούς με βοήθεια AI.</em></li>
     </ul></div>
-    <div class="pcard"><h3>Ιστοσελίδες &amp; E-commerce</h3><span class="sub">Εφάπαξ</span><ul>
+    <div class="pcard"><h3>Ιστοσελίδες</h3><span class="sub">Εφάπαξ</span><ul>
       <li><div class="row"><span>Landing page / microsite + SEO</span><b>από &euro;600</b></div><em>Μονοσέλιδο funnel ή campaign site</em></li>
       <li data-badge="Προτεινόμενο"><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span><b>από &euro;1.060</b></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
-      <li><div class="row"><span>Interactive site + SEO + GEO</span><b>από &euro;1.290</b></div><em>Κίνηση, canvas που αντιδρά στον κέρσορα και σκηνές που εξελίσσονται με το scroll</em></li>
-      <li data-badge="Premium"><div class="row"><span>Custom κατασκευή e-shop</span><b>από &euro;2.500</b></div><em>Mobile-first storefront, μεταφορά καταλόγου, πληρωμές, αποστολές, SEO/GEO και ασφαλές SEO launch—με redirects όταν αντικαθίσταται υπάρχον e-shop</em></li>
+    </ul></div>
+    <div class="pcard pcard-premium"><h3>Premium Διαδραστικές Ιστοσελίδες</h3><span class="sub">Εφάπαξ · AI visuals &amp; δημιουργική σκηνοθεσία</span><ul>
+      <li data-badge="Premium"><div class="row"><span>Interactive Site + SEO + GEO</span><b>από $2.400</b></div><em>Εικόνες και βίντεο που δημιουργούνται με AI και ζωντανεύουν με scroll, κέρσορα και αφή. Custom design, κινηματογραφική κίνηση και mobile-first κατασκευή, με τεχνικό SEO, structured data και σαφές περιεχόμενο για μηχανές αναζήτησης και AI αναζήτηση.</em><em>Η ζωντανή παραγωγή με AI και η συνεχιζόμενη χρήση API κοστολογούνται ξεχωριστά.</em></li>
     </ul></div>
     <div class="pcard"><h3>Μηχανή Περιεχομένου</h3><span class="sub">Ρύθμιση + συνδρομή</span><ul>
       <li data-badge="Προτεινόμενο"><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span><b>από &euro;830</b></div><em>Ρύθμιση, μετά &euro;280/μήνα · ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
@@ -704,10 +706,10 @@
     form.addEventListener('change',function(){
       var picks=groups.map(function(name){return form.querySelector('input[name="'+name+'"]:checked');});
       if(picks.some(function(item){return !item;})){copy.textContent='Διαλέξτε μία απάντηση σε κάθε σειρά για να δημιουργηθεί η πρόταση.';return;}
-      var eur=0,monthly=0;
-      picks.forEach(function(item){eur+=Number(item.getAttribute('data-eur')||0);monthly+=Number(item.getAttribute('data-monthly-eur')||0);});
+      var eur=0,usd=0,monthly=0;
+      picks.forEach(function(item){eur+=Number(item.getAttribute('data-eur')||0);usd+=Number(item.getAttribute('data-usd')||0);monthly+=Number(item.getAttribute('data-monthly-eur')||0);});
       var labels=picks.map(function(item){return item.value;}),costs=[];
-      if(eur)costs.push('€'+eur.toLocaleString('el-GR')+' εφάπαξ');if(monthly)costs.push('€'+monthly.toLocaleString('el-GR')+'/μήνα');
+      if(eur)costs.push('€'+eur.toLocaleString('el-GR')+' εφάπαξ');if(usd)costs.push('$'+usd.toLocaleString('el-GR')+' εφάπαξ');if(monthly)costs.push('€'+monthly.toLocaleString('el-GR')+'/μήνα');
       if(!costs.length)costs.push('Κοστολόγηση μετά από σύντομο scope');
       copy.innerHTML='Πρόταση: '+labels.join(' + ')+' · Εκκίνηση από <span class="estimate">'+costs.join(' + ')+'</span>';
       var body='Γεια σας,\n\nΘα ήθελα να συζητήσουμε το παρακάτω πλάνο:\n- '+labels.join('\n- ')+'\n\nΕνδεικτική εκκίνηση: '+costs.join(' + ');

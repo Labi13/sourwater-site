@@ -186,6 +186,8 @@
     background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
   .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
   .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--ink)}
+  .pcard-premium{box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard-premium li em{font-size:14px;line-height:1.55}
   .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
   .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
   .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
@@ -382,7 +384,7 @@
     <div class="project-offer-panel" id="escape-offer"><span class="offer-label">The case plan behind this project</span>
       <div class="offer-plan-intro"><h3>Commerce discovery system</h3><p>A premium store build, a discovery strategy and an ongoing publishing engine—covering the storefront and the reasons people find it.</p></div>
       <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Core build</small><strong>Custom e-commerce website</strong><span>Storefront, migration, payments, shipping and an SEO-safe launch.</span></div>
+        <div class="offer-plan-card"><small>Core build</small><strong>Website design + SEO + GEO</strong><span>Custom design, product navigation, structured data and search-ready content.</span></div>
         <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Offer architecture, product bundles, local search and a seasonal plan.</span></div>
         <div class="offer-plan-card"><small>Publishing engine</small><strong>Managed Content Engine</strong><span>Bilingual guides, blogging and repeatable campaign production.</span></div>
       </div>
@@ -589,8 +591,7 @@
     <fieldset class="plan-question"><legend>1. What are we building?</legend><div class="plan-options">
       <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite" data-usd="650"><span>Landing page / microsite</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Full website" data-usd="1150"><span>Full website</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="Interactive website" data-usd="1400"><span>Interactive full site</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="E-commerce" data-usd="2500"><span>E-commerce</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Premium interactive site + SEO + GEO + AI visuals" data-usd="2400"><span>Premium interactive site + AI visuals</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Not sure yet"><span>Not sure yet</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>2. What does the brand need?</legend><div class="plan-options">
@@ -644,11 +645,12 @@
       <li><div class="row"><span>AI voice setup + narration</span><b>from $200</b></div><em>Consent-verified voice setup + up to 5 finished minutes of narration.</em></li>
       <li><div class="row"><span>Photo editing / retouching</span><b>from $220</b></div><em>Up to 10 images · background removal, cleanup and AI-assisted touch-ups.</em></li>
     </ul></div>
-    <div class="pcard"><h3>Websites &amp; E-commerce</h3><span class="sub">One-time</span><ul>
+    <div class="pcard"><h3>Websites</h3><span class="sub">One-time</span><ul>
       <li><div class="row"><span>Landing page / microsite + SEO</span><b>from $650</b></div><em>Single-page funnel or campaign site</em></li>
       <li data-badge="Recommended"><div class="row"><span>Website design + SEO + GEO</span><b>from $1,150</b></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
-      <li><div class="row"><span>Interactive site + SEO + GEO</span><b>from $1,400</b></div><em>Motion, cursor-reactive canvas and scroll-driven scenes, built to be remembered</em></li>
-      <li data-badge="Premium"><div class="row"><span>Custom e-commerce website</span><b>from $2,500</b></div><em>Mobile-first storefront, catalogue migration, payments, shipping, SEO/GEO and an SEO-safe launch—including URL redirects when replacing an existing shop</em></li>
+    </ul></div>
+    <div class="pcard pcard-premium"><h3>Premium Interactive Websites</h3><span class="sub">One-time · AI visuals &amp; creative direction</span><ul>
+      <li data-badge="Premium"><div class="row"><span>Interactive Site + SEO + GEO</span><b>from $2,400</b></div><em>AI-generated imagery and video brought to life through scroll, cursor and touch. Custom design, cinematic motion and a mobile-first build, with technical SEO, structured data and clear, indexable content for search and AI discovery.</em><em>Live AI generation and ongoing API usage are scoped separately.</em></li>
     </ul></div>
     <div class="pcard"><h3>Content Engine</h3><span class="sub">Setup + retainer</span><ul>
       <li data-badge="Recommended"><div class="row"><span>Automated daily pipeline</span><b>from $900</b></div><em>Setup, then $300/mo · one brief in, a complete pack of finished assets out</em></li>
