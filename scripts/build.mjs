@@ -51,7 +51,7 @@ await Promise.all([
     )
   ),
   download(
-    "https://escapeshop-gr.labrakex.workers.dev/escape-shop-social.jpg",
+    "https://sourwater.space/assets/escape-shop-social.jpg",
     join(new URL("assets/", dist).pathname, "escape-shop-social.jpg")
   )
 ]);
