@@ -180,13 +180,12 @@
     .diagnosis-strip .book{font-size:8px;padding:4px 8px}
   }
 
-  /* SERVICES & PRICING */
+  /* SERVICES */
   .services{padding:112px 0;background:var(--paper)}
   .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
     background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
-  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14)}
+  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14);box-shadow:inset 0 3px 0 var(--terra)}
   .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--ink)}
-  .pcard-premium{box-shadow:inset 0 3px 0 var(--terra)}
   .pcard-premium li em{font-size:14px;line-height:1.55}
   .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
   .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
@@ -355,9 +354,9 @@
   <div class="wrap">
   <div class="diagnosis-strip" aria-label="Book a one-to-one Brand Diagnosis">
     <div class="label"><strong>1:1 Brand Diagnosis</strong><span>Choose a working session</span></div>
-    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 min</span><b>$90</b><span class="book">Book →</span></a>
-    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 min</span><b>$150</b><span class="book">Book →</span></a>
-    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 min</span><b>$200</b><span class="book">Book →</span></a>
+    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 min</span><span class="book">Book →</span></a>
+    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 min</span><span class="book">Book →</span></a>
+    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 min</span><span class="book">Book →</span></a>
   </div>
   </div>
 </aside>
@@ -585,30 +584,30 @@
 <section class="plan-builder" id="build-your-plan"><div class="wrap">
   <div class="intro">
     <div><div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Make your plan</div><h2 class="disp" style="margin-top:12px">Choose what you need.</h2></div>
-    <p>Select the services that fit. The planner combines them, shows a transparent starting point, and prepares an email you can edit before sending. Nothing is submitted automatically.</p>
+    <p>Select the services that fit. The planner combines them into a working recommendation and prepares an email you can edit before sending. Nothing is submitted automatically.</p>
   </div>
   <form class="plan-form" data-lang="en">
     <fieldset class="plan-question"><legend>1. What are we building?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite" data-usd="650"><span>Landing page / microsite</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="Full website" data-usd="1150"><span>Full website</span></label>
-      <label class="plan-option"><input type="radio" name="build" value="Premium interactive site + SEO + GEO + AI visuals" data-usd="2400"><span>Premium interactive site + AI visuals</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Landing page / microsite"><span>Landing page / microsite</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Full website"><span>Full website</span></label>
+      <label class="plan-option"><input type="radio" name="build" value="Premium interactive site + SEO + GEO + AI visuals"><span>Premium interactive site + AI visuals</span></label>
       <label class="plan-option"><input type="radio" name="build" value="Not sure yet"><span>Not sure yet</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>2. What does the brand need?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="brand" value="Complete brand system" data-usd="1400"><span>Complete brand identity</span></label>
-      <label class="plan-option"><input type="radio" name="brand" value="Visual refresh" data-usd="900"><span>Visual refresh</span></label>
+      <label class="plan-option"><input type="radio" name="brand" value="Complete brand system"><span>Complete brand identity</span></label>
+      <label class="plan-option"><input type="radio" name="brand" value="Visual refresh"><span>Visual refresh</span></label>
       <label class="plan-option"><input type="radio" name="brand" value="Brand is ready"><span>Brand is ready</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>3. How should content run?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="content" value="Social media management" data-monthly="400"><span>Social media management</span></label>
-      <label class="plan-option"><input type="radio" name="content" value="Content Engine" data-usd="900" data-monthly="300"><span>Content Engine setup + retainer</span></label>
-      <label class="plan-option"><input type="radio" name="content" value="One campaign" data-usd="600"><span>One campaign</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Social media management"><span>Social media management</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="Content Engine"><span>Content Engine setup + retainer</span></label>
+      <label class="plan-option"><input type="radio" name="content" value="One campaign"><span>One campaign</span></label>
       <label class="plan-option"><input type="radio" name="content" value="No content service"><span>None for now</span></label>
     </div></fieldset>
     <fieldset class="plan-question"><legend>4. Add specialist production?</legend><div class="plan-options">
-      <label class="plan-option"><input type="radio" name="production" value="AI publishing persona" data-usd="450"><span>AI publishing persona</span></label>
-      <label class="plan-option"><input type="radio" name="production" value="Synthetic Campaign" data-usd="380"><span>Synthetic Campaign</span></label>
-      <label class="plan-option"><input type="radio" name="production" value="AI Brand Film" data-usd="550"><span>AI Brand Film</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI publishing persona"><span>AI publishing persona</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="Synthetic Campaign"><span>Synthetic Campaign</span></label>
+      <label class="plan-option"><input type="radio" name="production" value="AI Brand Film"><span>AI Brand Film</span></label>
       <label class="plan-option"><input type="radio" name="production" value="No specialist production"><span>None for now</span></label>
     </div></fieldset>
     <div class="plan-result" aria-live="polite">
@@ -618,59 +617,59 @@
   </form>
 </div></section>
 
-<!-- SERVICES & PRICING -->
+<!-- SERVICES -->
 <section class="services"><div class="wrap">
-  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Services &amp; Pricing</div>
+  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Services</div>
   <h2 class="disp" style="margin:14px 0 16px">What we can do for you.</h2>
-  <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation. Prices are starting points; payment is accepted in USD ($) or EUR (&euro;).</p>
+  <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation.</p>
   <div class="pricegrid">
-    <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
-      <li><div class="row"><span>Essentials</span><b>from $400/mo</b></div><em>1 account · ~12 posts · captions · design</em></li>
-      <li><div class="row"><span>Two Accounts</span><b>from $500/mo</b></div><em>2 accounts · one shared direction · platform-aware adaptations of the same core content</em></li>
-      <li data-badge="Recommended"><div class="row"><span>Growth</span><b>from $800/mo</b></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
-      <li data-badge="Premium"><div class="row"><span>Full Engine</span><b>from $1,400/mo</b></div><em>Multi-platform · automated daily content engine · reel/TikTok editing · community management · monthly strategy</em></li>
-    </ul></div>
     <div class="pcard"><h3>Brand Systems</h3><span class="sub">One-time</span><ul>
-      <li data-badge="Premium"><div class="row"><span>Brand doctrine / brand book</span><b>from $1,400</b></div><em>Voice, palette, forbidden words, pillars and growth ladder</em></li>
-      <li><div class="row"><span>Visual identity &amp; card system</span><b>from $900</b></div><em>Logo lockups, templates and a repeatable post design system</em></li>
+      <li data-badge="Premium"><div class="row"><span>Brand doctrine / brand book</span></div><em>Voice, palette, forbidden words, pillars and growth ladder</em></li>
+      <li><div class="row"><span>Visual identity &amp; card system</span></div><em>Logo lockups, templates and a repeatable post design system</em></li>
     </ul></div>
     <div class="pcard"><h3>Creative Direction · AI Film</h3><span class="sub">Concept and creative direction, produced with AI as a finished film.</span><ul>
-      <li><div class="row"><span>Social Cut</span><b>from $180</b></div><em>Up to 20 sec, cut from the same shoot for Reels/TikTok/Stories.</em></li>
-      <li data-badge="Recommended"><div class="row"><span>AI Brand Film — Short</span><b>from $550</b></div><em>Up to 60 sec. Concept + creative direction + AI production.</em></li>
-      <li data-badge="Premium"><div class="row"><span>AI Brand Film — Full</span><b>from $1,100</b></div><em>Up to 3 min. Concept + creative direction + AI production.</em></li>
-    </ul></div>
-    <div class="pcard"><h3>Synthetic Media · AI Publishing</h3><span class="sub">On-brand images, publishing personas, voice and retouching.</span><ul>
-      <li data-badge="Recommended"><div class="row"><span>Synthetic Campaign</span><b>from $380</b></div><em>10–15 image set, concept + creative direction + generation, on brand.</em></li>
-      <li><div class="row"><span>AI publishing persona</span><b>from $450</b></div><em>Voice guide, reusable prompt system and 5 launch-ready sample posts.</em></li>
-      <li><div class="row"><span>AI voice setup + narration</span><b>from $200</b></div><em>Consent-verified voice setup + up to 5 finished minutes of narration.</em></li>
-      <li><div class="row"><span>Photo editing / retouching</span><b>from $220</b></div><em>Up to 10 images · background removal, cleanup and AI-assisted touch-ups.</em></li>
+      <li><div class="row"><span>Social Cut</span></div><em>Up to 20 sec, cut from the same shoot for Reels/TikTok/Stories.</em></li>
+      <li data-badge="Recommended"><div class="row"><span>AI Brand Film — Short</span></div><em>Up to 60 sec. Concept + creative direction + AI production.</em></li>
+      <li data-badge="Premium"><div class="row"><span>AI Brand Film — Full</span></div><em>Up to 3 min. Concept + creative direction + AI production.</em></li>
     </ul></div>
     <div class="pcard"><h3>Websites</h3><span class="sub">One-time</span><ul>
-      <li><div class="row"><span>Landing page / microsite + SEO</span><b>from $650</b></div><em>Single-page funnel or campaign site</em></li>
-      <li data-badge="Recommended"><div class="row"><span>Website design + SEO + GEO</span><b>from $1,150</b></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
+      <li><div class="row"><span>Landing page / microsite + SEO</span></div><em>Single-page funnel or campaign site</em></li>
+      <li data-badge="Recommended"><div class="row"><span>Website design + SEO + GEO</span></div><em>Custom design, structured data, llms.txt, sitemap and mobile-first build</em></li>
     </ul></div>
     <div class="pcard pcard-premium"><h3>Premium Interactive Websites</h3><span class="sub">One-time · AI visuals &amp; creative direction</span><ul>
-      <li data-badge="Premium"><div class="row"><span>Interactive Site + SEO + GEO</span><b>from $2,400</b></div><em>AI-generated imagery and video brought to life through scroll, cursor and touch. Custom design, cinematic motion and a mobile-first build, with technical SEO, structured data and clear, indexable content for search and AI discovery.</em><em>Live AI generation and ongoing API usage are scoped separately.</em></li>
+      <li data-badge="Premium"><div class="row"><span>Interactive Site + SEO + GEO</span></div><em>AI-generated imagery and video brought to life through scroll, cursor and touch. Custom design, cinematic motion and a mobile-first build, with technical SEO, structured data and clear, indexable content for search and AI discovery.</em><em>Live AI generation and ongoing API usage are scoped separately.</em></li>
     </ul></div>
-    <div class="pcard"><h3>Content Engine</h3><span class="sub">Setup + retainer</span><ul>
-      <li data-badge="Recommended"><div class="row"><span>Automated daily pipeline</span><b>from $900</b></div><em>Setup, then $300/mo · one brief in, a complete pack of finished assets out</em></li>
-      <li data-badge="Premium"><div class="row"><span>Managed Content Engine</span><b>from $1,800</b></div><em>Setup, then $650/mo · strategy, source intake, cross-platform adaptation, approval flow, scheduling, asset library, analytics and monthly optimization</em></li>
+    <div class="pcard"><h3>Social Media Management</h3><span class="sub">Monthly retainer</span><ul>
+      <li><div class="row"><span>Essentials</span></div><em>1 account · ~12 posts · captions · design</em></li>
+      <li><div class="row"><span>Two Accounts</span></div><em>2 accounts · one shared direction · platform-aware adaptations of the same core content</em></li>
+      <li data-badge="Recommended"><div class="row"><span>Growth</span></div><em>2 platforms · ~20 unique posts + reels · stories · calendar · light strategy</em></li>
+      <li data-badge="Premium"><div class="row"><span>Full Engine</span></div><em>Multi-platform · automated daily content engine · reel/TikTok editing · community management · monthly strategy</em></li>
+    </ul></div>
+    <div class="pcard"><h3>Synthetic Media · AI Publishing</h3><span class="sub">On-brand images, publishing personas, voice and retouching.</span><ul>
+      <li data-badge="Recommended"><div class="row"><span>Synthetic Campaign</span></div><em>10–15 image set, concept + creative direction + generation, on brand.</em></li>
+      <li><div class="row"><span>AI publishing persona</span></div><em>Voice guide, reusable prompt system and 5 launch-ready sample posts.</em></li>
+      <li><div class="row"><span>AI voice setup + narration</span></div><em>Consent-verified voice setup + up to 5 finished minutes of narration.</em></li>
+      <li><div class="row"><span>Photo editing / retouching</span></div><em>Up to 10 images · background removal, cleanup and AI-assisted touch-ups.</em></li>
     </ul></div>
     <div class="pcard"><h3>Video Production</h3><span class="sub">Per piece &amp; monthly</span><ul>
-      <li><div class="row"><span>Reel / TikTok edit</span><b>from $120</b></div><em>Each · 8-pack from $800</em></li>
-      <li><div class="row"><span>Faceless short-form series</span><b>from $600/mo</b></div><em>Fixed character, complete AI pipeline, no shoot</em></li>
+      <li><div class="row"><span>Reel / TikTok edit</span></div><em>Single edits or multi-video packages</em></li>
+      <li><div class="row"><span>Faceless short-form series</span></div><em>Fixed character, complete AI pipeline, no shoot</em></li>
+    </ul></div>
+    <div class="pcard"><h3>Content Engine</h3><span class="sub">Setup + retainer</span><ul>
+      <li data-badge="Recommended"><div class="row"><span>Automated daily pipeline</span></div><em>One brief in, a complete pack of finished assets out</em></li>
+      <li data-badge="Premium"><div class="row"><span>Managed Content Engine</span></div><em>Strategy, source intake, cross-platform adaptation, approval flow, scheduling, asset library, analytics and monthly optimization</em></li>
     </ul></div>
     <div class="pcard"><h3>Strategy</h3><span class="sub">Sprints &amp; testing</span><ul>
-      <li data-badge="Recommended"><div class="row"><span>Strategy sprint / content audit</span><b>from $600</b></div><em>Offer architecture, audience, funnel map, launch and 90-day plan</em></li>
-      <li><div class="row"><span>Ad testing &amp; audience research</span><b>from $300/mo</b></div><em>Plus ad spend · small budgets, measured honestly, scaling only the winner</em></li>
+      <li data-badge="Recommended"><div class="row"><span>Strategy sprint / content audit</span></div><em>Offer architecture, audience, funnel map, launch and 90-day plan</em></li>
+      <li><div class="row"><span>Ad testing &amp; audience research</span></div><em>Small budgets, measured honestly, scaling only the winner</em></li>
     </ul></div>
     <div class="pcard"><h3>1:1 Brand Diagnosis</h3><span class="sub">Book direct on Cal.com</span><ul>
-      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30-minute working diagnosis</span><b>$90</b></div><em>Focused review and a clear next move</em><span class="book-now">Book</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60-minute diagnosis</span><b>$150</b></div><em>Deeper review of brand, offer or project</em><span class="book-now">Book</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90-minute diagnosis + plan</span><b>$200</b></div><em>Written action plan delivered within 48 hours</em><span class="book-now">Book</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30-minute working diagnosis</span></div><em>Focused review and a clear next move</em><span class="book-now">Book</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60-minute diagnosis</span></div><em>Deeper review of brand, offer or project</em><span class="book-now">Book</span></a></li>
+      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90-minute diagnosis + plan</span></div><em>Written action plan delivered within 48 hours</em><span class="book-now">Book</span></a></li>
     </ul></div>
   </div>
-  <p class="services-note">Every engagement is scoped to the brand. Bundles and ongoing retainers are quoted separately and may be discounted.</p>
+  <p class="services-note">Every engagement is scoped to the brand. Bundles and ongoing retainers are shaped around the work required.</p>
 </div></section>
 
 <!-- CONTACT -->
@@ -732,15 +731,9 @@
     form.addEventListener('change',function(){
       var picks=groups.map(function(name){return form.querySelector('input[name="'+name+'"]:checked');});
       if(picks.some(function(item){return !item;})){copy.textContent='Choose one answer in each row to build a recommendation.';return;}
-      var usd=0,eur=0,monthly=0;
-      picks.forEach(function(item){usd+=Number(item.getAttribute('data-usd')||0);eur+=Number(item.getAttribute('data-eur')||0);monthly+=Number(item.getAttribute('data-monthly')||0);});
-      var labels=picks.map(function(item){return item.value;}),costs=[];
-      if(eur)costs.push('€'+eur.toLocaleString('en-US'));
-      if(usd)costs.push('$'+usd.toLocaleString('en-US')+' setup');
-      if(monthly)costs.push('$'+monthly.toLocaleString('en-US')+'/month');
-      if(!costs.length)costs.push('Scoped after a short consultation');
-      copy.innerHTML='Recommendation: '+labels.join(' + ')+' · Starting from <span class="estimate">'+costs.join(' + ')+'</span>';
-      var body='Hello,\n\nI would like to discuss this plan:\n- '+labels.join('\n- ')+'\n\nIndicative starting point: '+costs.join(' + ');
+      var labels=picks.map(function(item){return item.value;});
+      copy.textContent='Recommendation: '+labels.join(' + ');
+      var body='Hello,\n\nI would like to discuss this plan:\n- '+labels.join('\n- ');
       email.href='mailto:sourwater.space@gmail.com?subject='+encodeURIComponent('My Sourwater plan')+'&body='+encodeURIComponent(body);
     });
   });
