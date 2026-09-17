@@ -136,6 +136,43 @@
   .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
     border:1px solid var(--accent);color:var(--accent);padding:6px 13px;margin:0 7px 8px 0;border-radius:40px;opacity:.9}
 
+
+
+  /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
+  .mermaid-film{--film-progress:0;height:260vh;margin-top:82px;position:relative;color:#F5F0E4}
+  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#102827;border:1px solid rgba(245,240,228,.24);box-shadow:0 34px 80px rgba(23,59,58,.22)}
+  .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 74% 45%,rgba(115,187,180,.2),transparent 34%),radial-gradient(circle at 18% 80%,rgba(214,173,106,.15),transparent 30%);transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
+  .mermaid-film-copy{position:relative;z-index:2;align-self:center}
+  .mermaid-film-copy .kick{color:#86C4BD;margin-bottom:22px}
+  .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
+  .mermaid-film-copy h3 em{color:#D6AD6A;font-weight:300}
+  .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#D7E5E2;font-size:clamp(15px,1.35vw,18px)}
+  .mermaid-film-button{margin-top:30px;border:1px solid rgba(245,240,228,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+  .mermaid-film-button:hover{background:#F5F0E4;color:#173B3A;transform:translateY(-2px)}
+  .mermaid-film-stage{position:relative;z-index:1;height:min(74vh,720px);aspect-ratio:9/16;justify-self:end;overflow:hidden;background:#081312;box-shadow:0 28px 64px rgba(0,0,0,.34)}
+  .mermaid-film-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#081312}
+  .mermaid-film:not(.is-playing) .mermaid-film-stage video{pointer-events:none}
+  .mermaid-film-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(245,240,228,.22);z-index:3}
+  .mermaid-film-progress span{display:block;width:100%;height:100%;background:#D6AD6A;transform:scaleX(var(--film-progress));transform-origin:left center}
+  .mermaid-film-status{position:absolute;left:16px;right:16px;bottom:17px;z-index:3;display:flex;justify-content:space-between;gap:14px;color:#F5F0E4;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 8px #000}
+  .mermaid-film.is-playing .mermaid-film-progress,.mermaid-film.is-playing .mermaid-film-status{opacity:0}
+  @media(max-width:760px){
+    .mermaid-film{height:230vh;margin:60px -20px 0}
+    .mermaid-film-sticky{top:0;height:100svh;min-height:600px;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:20px;padding:76px 20px 18px}
+    .mermaid-film-copy h3{font-size:clamp(48px,14vw,72px);max-width:none}
+    .mermaid-film-copy p{font-size:14px;margin-top:16px;max-width:42ch}
+    .mermaid-film-button{margin-top:18px;padding:11px 16px}
+    .mermaid-film-stage{width:min(100%,360px);height:auto;min-height:0;align-self:stretch;justify-self:center;aspect-ratio:auto}
+    .mermaid-film-stage video{object-fit:cover;object-position:center 52%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .mermaid-film{height:auto}
+    .mermaid-film-sticky{position:relative;top:auto;height:auto;min-height:0}
+    .mermaid-film-sticky:before{transform:none}
+    .mermaid-film-progress,.mermaid-film-status{display:none}
+    .mermaid-film-stage{height:min(70vh,720px)}
+  }
+
   .col{position:relative;width:100%;aspect-ratio:1/1}
   .col img{position:absolute;border-radius:3px;box-shadow:0 26px 60px rgba(0,0,0,.22)}
   @media(max-width:920px){
@@ -504,7 +541,7 @@
 </div></section>
 
 <!-- MERMAID -->
-<section class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
+<section id="mermaid" class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
   <aside class="project-offer" style="--drawer-line:#2E7C77;--drawer-tab:#2E7C77;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#D6AD6A" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="mermaid-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">Το case plan πίσω από το project</span>
@@ -531,6 +568,24 @@
       <blockquote>Το πρώτο πράγμα που κάνει ο καθένας μέσα στην ουρά είναι να πανικοβληθεί λίγο. Το δεύτερο είναι να γελάσει. Το τρίτο είναι να σωπάσει. Γιατί το σώμα καταλαβαίνει το κύμα πριν το καταλάβει το μυαλό.<span class="a">Απόσπασμα από το ημερολόγιο launch</span></blockquote>
       <div class="film-credit" aria-label="Συντελεστές της ταινίας Mermaids Need Space"><strong>Mermaids need space.</strong><span>Καλλιτεχνική διεύθυνση · Arturo Gui</span><span>AI παραγωγή βίντεο · AI Synthetics</span></div>
       <div class="tags"><span class="tag">Brand book</span><span class="tag">Στρατηγική θεματικών αξόνων</span><span class="tag">Ημερολόγιο launch</span><span class="tag">Στρατηγική τιμολόγησης</span><span class="tag">Φωτογραφική art direction</span><span class="tag">AI Brand Film</span><span class="tag">Καλλιτεχνική διεύθυνση</span><span class="tag">AI παραγωγή βίντεο</span><span class="tag">Reels/short-form</span><span class="tag">Σύστημα μαρτυριών</span><span class="tag">Στρατηγική διπλού κοινού</span><span class="tag">Funnel κρατήσεων</span></div>
+    </div>
+  </div>
+
+  <div class="mermaid-film" data-mermaid-film data-no-wet aria-label="Διαδραστική ταινία Mermaids Need Space">
+    <div class="mermaid-film-sticky">
+      <div class="mermaid-film-copy">
+        <div class="kick">SOURwater Films · 001</div>
+        <h3>Mermaids<br>need <em>space.</em></h3>
+        <p>Κάντε scroll για να κινηθείτε μέσα στην ταινία. Πατήστε play για να δείτε ολόκληρο το film των 44 δευτερολέπτων με ήχο.</p>
+        <button class="mermaid-film-button" type="button" data-play="Δείτε ολόκληρη την ταινία με ήχο" data-pause="Παύση ταινίας" data-resume="Συνέχεια ταινίας">Δείτε ολόκληρη την ταινία με ήχο</button>
+      </div>
+      <div class="mermaid-film-stage">
+        <video muted playsinline preload="metadata" poster="/assets/mermaids-need-space-poster.jpg" aria-label="Mermaids Need Space από τη SOURwater Films">
+          <source src="/assets/mermaids-need-space-web.mp4" type="video/mp4">
+        </video>
+        <div class="mermaid-film-status" aria-hidden="true"><span>Το scroll ελέγχει την ταινία</span><span>44 δευτ.</span></div>
+        <div class="mermaid-film-progress" aria-hidden="true"><span></span></div>
+      </div>
     </div>
   </div>
 </div></section>
@@ -1458,6 +1513,52 @@
     settleEls();
     if (melting.size) advanceFlow();
   })();
+})();
+</script>
+
+<script>
+(function(){
+  var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-mermaid-film]').forEach(function(box){
+    var sticky=box.querySelector('.mermaid-film-sticky');
+    var video=box.querySelector('video');
+    var button=box.querySelector('.mermaid-film-button');
+    var playing=false,queued=false,duration=44;
+    function clamp(value){return Math.max(0,Math.min(1,value));}
+    function progress(){
+      var rect=box.getBoundingClientRect();
+      return clamp(-rect.top/Math.max(1,box.offsetHeight-window.innerHeight));
+    }
+    function update(){
+      queued=false;
+      if(playing||reduced)return;
+      var p=progress();
+      box.style.setProperty('--film-progress',p.toFixed(4));
+      if(video.readyState>=1&&isFinite(video.duration)){
+        var target=Math.min(video.duration-.08,video.duration*p);
+        if(Math.abs(video.currentTime-target)>.08)video.currentTime=target;
+      }
+    }
+    function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update);}}
+    video.addEventListener('loadedmetadata',function(){duration=video.duration||44;update();});
+    button.addEventListener('click',function(){
+      if(!playing){
+        playing=true;box.classList.add('is-playing');video.muted=false;video.controls=true;video.currentTime=0;
+        button.textContent=button.getAttribute('data-pause');
+        video.play().catch(function(){playing=false;box.classList.remove('is-playing');video.muted=true;video.controls=false;button.textContent=button.getAttribute('data-play');});
+      }else if(video.paused){video.play();button.textContent=button.getAttribute('data-pause');}
+      else{video.pause();button.textContent=button.getAttribute('data-resume');}
+    });
+    video.addEventListener('play',function(){if(playing)button.textContent=button.getAttribute('data-pause');});
+    video.addEventListener('pause',function(){if(playing&&!video.ended)button.textContent=button.getAttribute('data-resume');});
+    video.addEventListener('ended',function(){
+      playing=false;box.classList.remove('is-playing');video.controls=false;video.muted=true;button.textContent=button.getAttribute('data-play');update();
+    });
+    addEventListener('scroll',requestUpdate,{passive:true});
+    addEventListener('resize',requestUpdate,{passive:true});
+    document.addEventListener('visibilitychange',function(){if(document.hidden&&playing)video.pause();});
+    if(!reduced)requestUpdate();
+  });
 })();
 </script>
 

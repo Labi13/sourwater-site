@@ -1,4 +1,4 @@
-import { copyFile, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 
 const root = new URL("../", import.meta.url);
@@ -27,6 +27,11 @@ const sourceAssets = [
   "zeibekiko-music.png"
 ];
 
+const authoredAssets = [
+  ["mermaids-need-space-poster-jpg-", "mermaids-need-space-poster.jpg"],
+  ["mermaids-need-space-web-mp4-", "mermaids-need-space-web.mp4"]
+];
+
 async function download(url, destination) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -36,12 +41,32 @@ async function download(url, destination) {
   await writeFile(destination, Buffer.from(await response.arrayBuffer()));
 }
 
+async function decodeAuthoredAsset(prefix, filename) {
+  const partsDirectory = new URL("../asset-parts/", import.meta.url);
+  const partNames = (await readdir(partsDirectory))
+    .filter((name) => name.startsWith(prefix) && name.endsWith(".b64"))
+    .sort();
+  if (!partNames.length) {
+    throw new Error(`Missing encoded source for ${filename}`);
+  }
+  const encodedParts = await Promise.all(
+    partNames.map((name) => readFile(new URL(name, partsDirectory), "utf8"))
+  );
+  await writeFile(
+    join(new URL("assets/", dist).pathname, filename),
+    Buffer.from(encodedParts.join(""), "base64")
+  );
+}
+
 await rm(dist, { recursive: true, force: true });
 await mkdir(new URL("assets/", dist), { recursive: true });
 await mkdir(new URL("el/", dist), { recursive: true });
 
 await copyFile(new URL("index.html", root), new URL("index.html", dist));
 await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+await Promise.all(
+  authoredAssets.map(([prefix, filename]) => decodeAuthoredAsset(prefix, filename))
+);
 
 await Promise.all([
   ...sourceAssets.map((asset) =>
@@ -61,4 +86,4 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + 1} local assets.`);
+console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + 1} local assets.`);
