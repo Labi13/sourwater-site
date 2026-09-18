@@ -29,7 +29,9 @@ const sourceAssets = [
 
 const authoredAssets = [
   ["mermaids-need-space-poster-jpg-", "mermaids-need-space-poster.jpg"],
-  ["mermaids-need-space-web-mp4-", "mermaids-need-space-web.mp4"]
+  ["mermaids-need-space-web-mp4-", "mermaids-need-space-web.mp4"],
+  ["sourwater-film-002-poster-jpg-", "sourwater-film-002-poster.jpg"],
+  ["sourwater-film-002-web-mp4-", "sourwater-film-002-web.mp4"]
 ];
 
 async function download(url, destination) {
@@ -67,7 +69,6 @@ await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
 await Promise.all(
   authoredAssets.map(([prefix, filename]) => decodeAuthoredAsset(prefix, filename))
 );
-
 await Promise.all([
   ...sourceAssets.map((asset) =>
     download(
