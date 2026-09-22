@@ -32,6 +32,12 @@ const authoredAssets = [
   ["mermaids-need-space-web-mp4-", "mermaids-need-space-web.mp4"]
 ];
 
+const localVideoAssets = [
+  "mermaids-need-space-720.mp4",
+  "mermaids-need-space-1080.mp4",
+  "mermaids-need-space-2k.mp4"
+];
+
 async function download(url, destination) {
   const response = await fetch(url);
   if (!response.ok) {
@@ -67,6 +73,14 @@ await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
 await Promise.all(
   authoredAssets.map(([prefix, filename]) => decodeAuthoredAsset(prefix, filename))
 );
+await Promise.all(
+  localVideoAssets.map((asset) =>
+    copyFile(
+      new URL(`assets/${asset}`, root),
+      new URL(`assets/${asset}`, dist)
+    )
+  )
+);
 
 await Promise.all([
   ...sourceAssets.map((asset) =>
@@ -86,4 +100,4 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + 1} local assets.`);
+console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localVideoAssets.length + 1} local assets.`);
