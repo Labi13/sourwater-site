@@ -601,7 +601,7 @@
         </div>
       </div>
       <div class="mermaid-film-stage">
-        <video src="/assets/mermaids-need-space-720.mp4" muted playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture poster="/assets/mermaids-need-space-poster.jpg" aria-label="Mermaids Need Space by SOURwater Films"></video>
+        <video src="/assets/mermaids-need-space-1080.mp4" muted playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture poster="/assets/mermaids-need-space-poster.jpg" aria-label="Mermaids Need Space by SOURwater Films"></video>
         <div class="mermaid-film-status" aria-hidden="true"><span>Scroll controls the film</span><span>44 sec</span></div>
         <div class="mermaid-film-progress" aria-hidden="true"><span></span></div>
       </div>
@@ -1603,7 +1603,11 @@
       if(!playing){
         playing=true;box.classList.add('is-playing');video.muted=false;video.controls=true;
         button.textContent=button.getAttribute('data-pause');
-        changeSource(chosenSource(),0,true);
+        video.currentTime=0;
+        video.play().catch(function(){
+          playing=false;box.classList.remove('is-playing');video.controls=false;video.muted=true;
+          button.textContent=button.getAttribute('data-play');
+        });
       }else if(video.paused){video.play();button.textContent=button.getAttribute('data-pause');}
       else{video.pause();button.textContent=button.getAttribute('data-resume');}
     });

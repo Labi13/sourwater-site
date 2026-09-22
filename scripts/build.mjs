@@ -1,8 +1,10 @@
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const dist = new URL("../dist/", import.meta.url);
+const distAssets = fileURLToPath(new URL("assets/", dist));
 
 const sourceAssets = [
   "ata-gap-cream.png",
@@ -56,7 +58,7 @@ async function decodeAuthoredAsset(prefix, filename) {
     partNames.map((name) => readFile(new URL(name, partsDirectory), "utf8"))
   );
   await writeFile(
-    join(new URL("assets/", dist).pathname, filename),
+    join(distAssets, filename),
     Buffer.from(encodedParts.join(""), "base64")
   );
 }
@@ -74,12 +76,12 @@ await Promise.all([
   ...sourceAssets.map((asset) =>
     download(
       `https://sourwater.space/assets/${asset}`,
-      join(new URL("assets/", dist).pathname, asset)
+      join(distAssets, asset)
     )
   ),
   download(
     "https://sourwater.space/assets/escape-shop-social.jpg",
-    join(new URL("assets/", dist).pathname, "escape-shop-social.jpg")
+    join(distAssets, "escape-shop-social.jpg")
   )
 ]);
 
