@@ -147,8 +147,11 @@
   .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
   .mermaid-film-copy h3 em{color:#D6AD6A;font-weight:300}
   .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#D7E5E2;font-size:clamp(15px,1.35vw,18px)}
-  .mermaid-film-button{margin-top:30px;border:1px solid rgba(245,240,228,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+  .mermaid-film-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .mermaid-film-button{border:1px solid rgba(245,240,228,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
   .mermaid-film-button:hover{background:#F5F0E4;color:#173B3A;transform:translateY(-2px)}
+  .mermaid-film-quality{display:flex;align-items:center;gap:9px;color:#B9D6D2;font:600 10px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .mermaid-film-quality select{appearance:none;border:1px solid rgba(245,240,228,.42);border-radius:40px;padding:12px 32px 12px 14px;background:linear-gradient(45deg,transparent 50%,#F5F0E4 50%) calc(100% - 15px) 50%/6px 6px no-repeat,linear-gradient(135deg,#F5F0E4 50%,transparent 50%) calc(100% - 11px) 50%/6px 6px no-repeat,rgba(8,19,18,.34);color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.08em;color-scheme:dark}
   .mermaid-film-stage{position:relative;z-index:1;height:min(74vh,720px);aspect-ratio:9/16;justify-self:end;overflow:hidden;background:#081312;box-shadow:0 28px 64px rgba(0,0,0,.34)}
   .mermaid-film-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#081312}
   .mermaid-film:not(.is-playing) .mermaid-film-stage video{pointer-events:none}
@@ -161,7 +164,7 @@
     .mermaid-film-sticky{top:0;height:100svh;min-height:600px;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:20px;padding:76px 20px 18px}
     .mermaid-film-copy h3{font-size:clamp(48px,14vw,72px);max-width:none}
     .mermaid-film-copy p{font-size:14px;margin-top:16px;max-width:42ch}
-    .mermaid-film-button{margin-top:18px;padding:11px 16px}
+    .mermaid-film-actions{margin-top:18px;gap:9px}.mermaid-film-button{padding:11px 16px}.mermaid-film-quality select{padding-top:10px;padding-bottom:10px}
     .mermaid-film-stage{width:min(100%,360px);height:auto;min-height:0;align-self:stretch;justify-self:center;aspect-ratio:auto}
     .mermaid-film-stage video{object-fit:cover;object-position:center 52%}
   }
@@ -577,12 +580,19 @@
         <div class="kick">SOURwater Films · 001</div>
         <h3>Mermaids<br>need <em>space.</em></h3>
         <p>Κάντε scroll για να κινηθείτε μέσα στην ταινία. Πατήστε play για να δείτε ολόκληρο το film των 44 δευτερολέπτων με ήχο.</p>
-        <button class="mermaid-film-button" type="button" data-play="Δείτε ολόκληρη την ταινία με ήχο" data-pause="Παύση ταινίας" data-resume="Συνέχεια ταινίας">Δείτε ολόκληρη την ταινία με ήχο</button>
+        <div class="mermaid-film-actions">
+          <button class="mermaid-film-button" type="button" data-play="Δείτε ολόκληρη την ταινία με ήχο" data-pause="Παύση ταινίας" data-resume="Συνέχεια ταινίας">Δείτε ολόκληρη την ταινία με ήχο</button>
+          <label class="mermaid-film-quality">Ποιότητα
+            <select aria-label="Ποιότητα ταινίας">
+              <option value="720" data-src="https://drive.google.com/uc?export=download&amp;id=1I8eX3LxCoysaoz8VAvVUDD_AJn2FORG_">720p</option>
+              <option value="1080" data-src="https://drive.google.com/uc?export=download&amp;id=1qGQM2P_9vG5E2S77Whz8-l-zJuEEdv-G" selected>1080p</option>
+              <option value="2k" data-src="https://drive.google.com/uc?export=download&amp;id=1HTc2WSCJVky_f_b3FkNgXumpRXTMZvIf">2K</option>
+            </select>
+          </label>
+        </div>
       </div>
       <div class="mermaid-film-stage">
-        <video muted playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture oncontextmenu="return false" poster="/assets/mermaids-need-space-poster.jpg" aria-label="Mermaids Need Space από τη SOURwater Films">
-          <source src="/assets/mermaids-need-space-web.mp4" type="video/mp4">
-        </video>
+        <video src="https://drive.google.com/uc?export=download&amp;id=1I8eX3LxCoysaoz8VAvVUDD_AJn2FORG_" muted playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture poster="/assets/mermaids-need-space-poster.jpg" aria-label="Mermaids Need Space από τη SOURwater Films"></video>
         <div class="mermaid-film-status" aria-hidden="true"><span>Το scroll ελέγχει την ταινία</span><span>44 δευτ.</span></div>
         <div class="mermaid-film-progress" aria-hidden="true"><span></span></div>
       </div>
@@ -1523,6 +1533,7 @@
     var sticky=box.querySelector('.mermaid-film-sticky');
     var video=box.querySelector('video');
     var button=box.querySelector('.mermaid-film-button');
+    var quality=box.querySelector('.mermaid-film-quality select');
     var playing=false,queued=false,duration=44;
     function clamp(value){return Math.max(0,Math.min(1,value));}
     function progress(){
@@ -1540,12 +1551,27 @@
       }
     }
     function requestUpdate(){if(!queued){queued=true;requestAnimationFrame(update);}}
+    function chosenSource(){return quality.options[quality.selectedIndex].getAttribute('data-src');}
+    function changeSource(source,time,shouldPlay){
+      var target=Math.max(0,time||0);
+      video.src=source;video.load();
+      video.addEventListener('loadedmetadata',function ready(){
+        video.removeEventListener('loadedmetadata',ready);
+        video.currentTime=Math.min(target,Math.max(0,video.duration-.08));
+        if(shouldPlay)video.play().catch(function(){button.textContent=button.getAttribute('data-resume');});
+      });
+    }
     video.addEventListener('loadedmetadata',function(){duration=video.duration||44;update();});
+    video.addEventListener('contextmenu',function(event){event.preventDefault();});
+    quality.addEventListener('change',function(){
+      var time=video.currentTime||0,shouldPlay=playing&&!video.paused;
+      changeSource(chosenSource(),time,shouldPlay);
+    });
     button.addEventListener('click',function(){
       if(!playing){
-        playing=true;box.classList.add('is-playing');video.muted=false;video.controls=true;video.currentTime=0;
+        playing=true;box.classList.add('is-playing');video.muted=false;video.controls=true;
         button.textContent=button.getAttribute('data-pause');
-        video.play().catch(function(){playing=false;box.classList.remove('is-playing');video.muted=true;video.controls=false;button.textContent=button.getAttribute('data-play');});
+        changeSource(chosenSource(),0,true);
       }else if(video.paused){video.play();button.textContent=button.getAttribute('data-pause');}
       else{video.pause();button.textContent=button.getAttribute('data-resume');}
     });
