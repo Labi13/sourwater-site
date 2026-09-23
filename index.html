@@ -138,19 +138,19 @@
 
 
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
-  .mermaid-film{--film-progress:0;height:260vh;margin-top:82px;position:relative;color:#F5F0E4}
-  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#102827;border:1px solid rgba(245,240,228,.24);box-shadow:0 34px 80px rgba(23,59,58,.22)}
-  .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:radial-gradient(circle at 74% 45%,rgba(115,187,180,.2),transparent 34%),radial-gradient(circle at 18% 80%,rgba(214,173,106,.15),transparent 30%);transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
+  .mermaid-film{--film-progress:0;height:260vh;margin-top:82px;position:relative;color:var(--fg)}
+  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:var(--bg);border:1px solid rgba(23,59,58,.18);box-shadow:0 34px 80px rgba(23,59,58,.12)}
+  .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:none;transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
   .mermaid-film-copy{position:relative;z-index:2;align-self:center}
-  .mermaid-film-copy .kick{color:#86C4BD;margin-bottom:22px}
+  .mermaid-film-copy .kick{color:var(--accent);margin-bottom:22px}
   .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
   .mermaid-film-copy h3 em{color:#D6AD6A;font-weight:300}
-  .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#D7E5E2;font-size:clamp(15px,1.35vw,18px)}
+  .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#315B57;font-size:clamp(15px,1.35vw,18px)}
   .mermaid-film-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .mermaid-film-button{border:1px solid rgba(245,240,228,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
-  .mermaid-film-button:hover{background:#F5F0E4;color:#173B3A;transform:translateY(-2px)}
-  .mermaid-film-quality{display:flex;align-items:center;gap:9px;color:#B9D6D2;font:600 10px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}
-  .mermaid-film-quality select{appearance:none;border:1px solid rgba(245,240,228,.42);border-radius:40px;padding:12px 32px 12px 14px;background:linear-gradient(45deg,transparent 50%,#F5F0E4 50%) calc(100% - 15px) 50%/6px 6px no-repeat,linear-gradient(135deg,#F5F0E4 50%,transparent 50%) calc(100% - 11px) 50%/6px 6px no-repeat,rgba(8,19,18,.34);color:#F5F0E4;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.08em;color-scheme:dark}
+  .mermaid-film-button{border:1px solid rgba(23,59,58,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#173B3A;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+  .mermaid-film-button:hover{background:#173B3A;color:#F5F0E4;transform:translateY(-2px)}
+  .mermaid-film-quality{display:flex;align-items:center;gap:9px;color:var(--accent);font:600 10px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .mermaid-film-quality select{appearance:none;border:1px solid rgba(23,59,58,.42);border-radius:40px;padding:12px 32px 12px 14px;background:linear-gradient(45deg,transparent 50%,#173B3A 50%) calc(100% - 15px) 50%/6px 6px no-repeat,linear-gradient(135deg,#173B3A 50%,transparent 50%) calc(100% - 11px) 50%/6px 6px no-repeat,rgba(255,255,255,.22);color:#173B3A;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.08em;color-scheme:light}
   .mermaid-film-stage{position:relative;z-index:1;height:min(74vh,720px);aspect-ratio:9/16;justify-self:end;overflow:hidden;background:#081312;box-shadow:0 28px 64px rgba(0,0,0,.34)}
   .mermaid-film-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#081312}
   .mermaid-film:not(.is-playing) .mermaid-film-stage video{pointer-events:none}
