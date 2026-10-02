@@ -1,4 +1,5 @@
 // Only the new independent film uses this handler; other assets stay static.
+export const FILM_BYTES = 25121797;
 export default {
   async fetch(request, env) {
     if (new URL(request.url).pathname !== '/assets/ai-content-film.mp4' ||
@@ -9,7 +10,9 @@ export default {
     headers.set('Accept-Ranges', 'bytes');
     headers.set('Cache-Control', 'public, max-age=3600');
     const range = request.headers.get('Range');
-    const size = Number(headers.get('Content-Length'));
+    // The ASSETS binding may omit Content-Length; the build verifies this size.
+    const size = Number(headers.get('Content-Length')) || FILM_BYTES;
+    headers.set('Content-Length', String(size));
     if (!range || request.method === 'HEAD' || !size ||
         (request.headers.has('If-Range') && request.headers.get('If-Range') !== headers.get('ETag'))) {
       return new Response(source.body, {status: 200, headers});

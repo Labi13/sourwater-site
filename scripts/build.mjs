@@ -1,10 +1,14 @@
-import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
+import { FILM_BYTES } from "./video-delivery.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
 const dist = new URL("../dist/", import.meta.url);
 const distAssets = fileURLToPath(new URL("assets/", dist));
+if ((await stat(new URL("media/ai-content-film.mp4", root))).size !== FILM_BYTES) {
+  throw new Error("Update the independent film byte size before publishing its replacement.");
+}
 const localAssets = [
   ["media/ai-content-film.mp4", "ai-content-film.mp4"],
   ["media/ai-content-film-poster.jpg", "ai-content-film-poster.jpg"],
