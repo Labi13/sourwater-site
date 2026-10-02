@@ -5,6 +5,12 @@ import { fileURLToPath } from "node:url";
 const root = new URL("../", import.meta.url);
 const dist = new URL("../dist/", import.meta.url);
 const distAssets = fileURLToPath(new URL("assets/", dist));
+const localAssets = [
+  ["media/ai-content-film.mp4", "ai-content-film.mp4"],
+  ["media/ai-content-film-poster.jpg", "ai-content-film-poster.jpg"],
+  ["scripts/ai-film-player.js", "ai-film-player.js"],
+  ["styles/ai-films.css", "ai-films.css"]
+];
 
 const sourceAssets = [
   "ata-gap-cream.png",
@@ -69,6 +75,9 @@ await mkdir(new URL("el/", dist), { recursive: true });
 
 await copyFile(new URL("index.html", root), new URL("index.html", dist));
 await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+await Promise.all(localAssets.map(([source, filename]) =>
+  copyFile(new URL(source, root), join(distAssets, filename))
+));
 await Promise.all(
   authoredAssets.map(([prefix, filename]) => decodeAuthoredAsset(prefix, filename))
 );
@@ -90,4 +99,4 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + 1} local assets.`);
+console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + 1} local assets.`);

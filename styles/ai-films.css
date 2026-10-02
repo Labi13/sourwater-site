@@ -1,0 +1,32 @@
+.ai-films{padding:100px 0;background:var(--paper);color:var(--ink);scroll-margin-top:80px}
+.ai-films-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:50px;align-items:end;margin-bottom:40px}
+.ai-films .kick{color:var(--terra)}
+.ai-films h2.disp{margin:18px 0 0;font-size:clamp(42px,6vw,82px);line-height:1}
+.ai-films-intro p{margin:0 0 20px;font-size:18px;max-width:43ch}
+.ai-films-cta{display:inline-block;color:var(--ink);font-size:16px;text-underline-offset:6px}
+.ai-film-player{background:var(--ink);color:var(--paper);border:1px solid rgba(36,31,26,.18);overflow:hidden}
+.ai-film-player video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#171513;cursor:pointer}
+.ai-film-controls{display:flex;align-items:center;flex-wrap:wrap;gap:16px;padding:14px 20px}
+.ai-film-controls button{border:1px solid rgba(245,240,228,.45);background:transparent;color:inherit;border-radius:24px;padding:10px 16px;min-height:44px;font:500 14px/1.2 'Space Grotesk',sans-serif;cursor:pointer}
+.ai-film-controls button:hover{background:var(--paper);color:var(--ink)}
+.ai-film-controls button:focus-visible,.ai-film-controls input:focus-visible{outline:2px solid #D6AD6A;outline-offset:4px}
+.ai-film-controls input{flex:1;min-width:80px;accent-color:#D6AD6A;cursor:pointer;min-height:28px}
+.ai-film-controls output{font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ai-film-status{margin:0;padding:0 20px 14px;font-size:14px}
+.ai-film-status:empty{display:none}
+.ai-film-caption{display:flex;justify-content:space-between;gap:16px;padding-top:18px;font-size:14px;color:var(--soft)}
+.ai-film-caption strong{color:var(--ink);font-weight:500}
+.ai-film-player:fullscreen{display:flex;flex-direction:column;justify-content:center;background:#171513}
+.ai-film-player:fullscreen video{min-height:0;flex:1;aspect-ratio:auto}
+.ai-film-player:fullscreen .ai-film-controls{flex-shrink:0}
+@media(max-width:700px){
+  .ai-films{padding:64px 0}
+  .ai-films-intro{grid-template-columns:1fr;gap:24px;margin-bottom:28px}
+  .ai-films h2.disp{font-size:clamp(40px,12vw,64px)}
+  .ai-films-intro p{font-size:16px}
+  .ai-film-controls{gap:10px;padding:12px}
+  .ai-film-controls input{order:5;flex-basis:100%}
+  .ai-film-controls button{padding:10px 12px}
+  .ai-film-controls output{margin-left:auto}
+  .ai-film-caption{flex-direction:column;gap:4px}
+}
