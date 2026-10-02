@@ -1,6 +1,9 @@
 name = "sourwater"
+main = "scripts/video-delivery.mjs"
 compatibility_date = "2026-07-29"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+run_worker_first = ["/assets/ai-content-film.mp4"]
 not_found_handling = "404-page"

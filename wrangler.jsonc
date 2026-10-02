@@ -1,8 +1,11 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "sourwater",
+  "main": "scripts/video-delivery.mjs",
   "compatibility_date": "2026-08-01",
   "assets": {
-    "directory": "./dist"
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/assets/ai-content-film.mp4"]
   }
 }
