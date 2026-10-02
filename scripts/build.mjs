@@ -1,5 +1,5 @@
 import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
-import { FILM_BYTES } from "./video-delivery.mjs";
+import { FILM_BYTES } from "./film-metadata.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 

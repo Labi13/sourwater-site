@@ -1,5 +1,5 @@
 // Only the new independent film uses this handler; other assets stay static.
-export const FILM_BYTES = 25121797;
+import { FILM_BYTES } from './film-metadata.mjs';
 export default {
   async fetch(request, env) {
     if (new URL(request.url).pathname !== '/assets/ai-content-film.mp4' ||
