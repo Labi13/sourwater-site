@@ -29,14 +29,11 @@ const sourceAssets = [
   "logo_flaouer.png",
   "logo_mermaid.jpg",
   "logo_wdv.png",
-  "logo_zeibekiko.png",
-  "logo_zeibekiko_white.png",
   "mermaid-photo.jpg",
   "mermaid3.jpeg",
   "og-cover.png",
   "wdv-card-course.png",
-  "wdv-ig-post.png",
-  "zeibekiko-music.png"
+  "wdv-ig-post.png"
 ];
 
 const authoredAssets = [
@@ -79,6 +76,12 @@ await mkdir(new URL("el/", dist), { recursive: true });
 
 await copyFile(new URL("index.html", root), new URL("index.html", dist));
 await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+const rulesDirectory = new URL("assets/rules/", root);
+const ruleAssets = (await readdir(rulesDirectory)).filter((name) => /^house-rule-.*\.webp$/.test(name));
+await mkdir(new URL("assets/rules/", dist), { recursive: true });
+await Promise.all(ruleAssets.map((name) =>
+  copyFile(new URL(name, rulesDirectory), new URL(`assets/rules/${name}`, dist))
+));
 await Promise.all(localAssets.map(([source, filename]) =>
   copyFile(new URL(source, root), join(distAssets, filename))
 ));
@@ -103,4 +106,4 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + 1} local assets.`);
+console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + 1} local assets.`);

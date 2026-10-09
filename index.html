@@ -363,6 +363,24 @@
     transform-origin:top left;border:0;pointer-events:none}
   .btn{display:inline-block;margin-top:22px;text-decoration:none;font-size:12px;letter-spacing:.14em;
     text-transform:uppercase;font-weight:600;color:var(--bg);background:var(--accent);padding:13px 24px;border-radius:40px}
+
+  /* HOUSE RULES */
+  .house-rules{padding:112px 0;background:var(--paper);color:var(--ink)}
+  .house-rules .kick{color:var(--terra)}
+  .house-rules h2{margin:14px 0 16px}
+  .house-rules .lead{max-width:56ch}
+  .house-rules .rules-follow{margin-top:18px;font-size:14px;letter-spacing:.04em}
+  .house-rules .rules-follow a{color:var(--terra);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px}
+  .house-rules .rules-follow a:hover{color:var(--ink)}
+  .rules-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .rules-grid li{margin:0;padding:0}
+  .rules-grid img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 18px 44px rgba(36,31,26,.16)}
+  @media(max-width:900px){
+    .house-rules{padding:74px 0}
+    .rules-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+      margin:36px -44px 0;padding:6px 44px 22px}
+    .rules-grid li{flex:0 0 78%;scroll-snap-align:center}
+  }
 </style>
 </head>
 <body>
@@ -417,6 +435,25 @@
   <p style="margin-top:42px;color:#c8bda9;font-size:14.5px;max-width:62ch">Every asset carries one line built to be screenshotted with the logo cropped off, because the quote travels further than the post.</p>
 </div></section>
 
+<!-- HOUSE RULES -->
+<section class="house-rules" id="house-rules" aria-labelledby="house-rules-title"><div class="wrap">
+  <div class="kick">House Rules</div>
+  <h2 class="disp" id="house-rules-title">Nine rules we work by.</h2>
+  <p class="lead">Short positions the studio holds on brands, search, copy and film. They are the work before the work.</p>
+  <p class="rules-follow">Follow the work on <a href="https://www.instagram.com/sourwater.space/" target="_blank" rel="noopener">Instagram @sourwater.space</a></p>
+  <ul class="rules-grid">
+      <li><img src="/assets/rules/house-rule-brand-system.webp" alt="A logo is one piece. The system is the brand." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-be-the-source.webp" alt="Be the source the answer quotes." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-ai-video-director.webp" alt="AI video needs a director." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-no.webp" alt="NO. We say it to briefs that ask for everything." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-say-one-true-thing.webp" alt="Elevate your brand, struck out. Say one true thing." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-less.webp" alt="Less. Fewer words, colours, channels and promises." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-culture-not-content.webp" alt="Culture is not content." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-404.webp" alt="404. A dead page is a lost customer." width="900" height="900" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-el-en.webp" alt="EL / EN. Two languages, two voices." width="900" height="900" loading="lazy" decoding="async"></li>
+  </ul>
+</div></section>
+
 <!-- ESCAPE SHOP, lake-green palette, website design case -->
 <section class="band" id="work" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <aside class="project-offer" style="--drawer-line:#CBA24B;--drawer-tab:#CBA24B;--drawer-tab-ink:#17352F;--drawer-shadow:#EDE7D6" data-no-wet>
@@ -433,7 +470,7 @@
   </aside>
   <div class="head">
     <div class="mark">ES</div>
-    <div class="meta"><div class="kick">01 · Karditsa, Greece</div><h2 class="disp">Escape Shop</h2></div>
+    <div class="meta"><div class="kick">01 · Karditsa, Greece · In progress</div><h2 class="disp">Escape Shop</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
@@ -453,7 +490,7 @@
 </div></section>
 
 <!-- WDV, orange, its own palette -->
-<section class="band" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
+<section class="band flip" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
   <aside class="project-offer" style="--drawer-line:#6E3A10;--drawer-tab:#6E3A10;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#FFBE1B" data-no-wet>
     <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
     <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">The case plan behind this project</span>
@@ -483,36 +520,6 @@
   </div>
 </div></section>
 
-<!-- ZEIBEKIKO, logo colors: royal blue on off-white -->
-<section class="band flip" style="--bg:#E7EAF1;--fg:#1C2740;--accent:#284A9C"><div class="wrap">
-  <aside class="project-offer" style="--drawer-line:#284A9C;--drawer-tab:#284A9C;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#FFFFFF" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="zeibekiko-offer" aria-label="Open service details"><span>Service</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="zeibekiko-offer"><span class="offer-label">The case plan behind this project</span>
-      <div class="offer-plan-intro"><h3>Cultural growth system</h3><p>A two-platform publishing rhythm built on research, direct voice and a booking path that protects the form from cliché.</p></div>
-      <div class="offer-plan-stack offer-plan-stack--two">
-        <div class="offer-plan-card"><small>Ongoing growth</small><strong>Growth</strong><span>Original posts, reels, stories, community and platform-aware production.</span></div>
-        <div class="offer-plan-card"><small>Strategic layer</small><strong>Strategy sprint / content audit</strong><span>Cultural pillars, event promotion, private-class offers and a booking funnel.</span></div>
-      </div>
-      <a href="mailto:sourwater.space@gmail.com?subject=Zeibekiko%20NYC%20case%20plan%20enquiry">Discuss this case plan →</a>
-    </div>
-  </aside>
-  <div class="head">
-    <img src="/assets/logo_zeibekiko.png" alt="Zeibekiko NYC">
-    <div class="meta"><div class="kick">03 · New York, U.S.</div><h2 class="disp">Zeibekiko NYC</h2></div>
-  </div>
-  <div class="grid">
-    <div class="col">
-      <img src="/assets/zeibekiko-music.png" style="width:66%;top:0;left:8%;transform:rotate(3deg)">
-      <img src="/assets/logo_zeibekiko_white.png" style="width:44%;top:45%;left:48%;transform:rotate(-5deg)">
-    </div>
-    <div class="txt">
-      <p class="lead">Direct, grounded, culturally intelligent. The dance is not taught, it is transmitted. A forbidden-word list keeps every asset clean of "dance journey," "Greek vibes," and every tourist cliché.</p>
-      <blockquote>The circle around the dancer is not an audience. It is a form of respect, the room kneels so one person can speak without words.<span class="a">Caption, published package</span></blockquote>
-      <div class="tags"><span class="tag">Rebetiko research &amp; blogging</span><span class="tag">Reel scripts &amp; direction</span><span class="tag">IG</span><span class="tag">TikTok</span><span class="tag">Cultural content series</span><span class="tag">Private-class cards</span><span class="tag">Event promotion</span><span class="tag">Booking funnel</span><span class="tag">Community management</span><span class="tag">Short-doc edits</span><span class="tag">Voice discipline</span></div>
-    </div>
-  </div>
-</div></section>
-
 <!-- FLAOUER, warm ochre/maroon palette -->
 <section class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
   <aside class="project-offer" style="--drawer-line:#58303E;--drawer-tab:#58303E;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#DAA55C" data-no-wet>
@@ -529,7 +536,7 @@
   </aside>
   <div class="head">
     <img src="/assets/logo_flaouer.png" alt="Flaouer Hub">
-    <div class="meta"><div class="kick">04 · Athens, GR</div><h2 class="disp">Flaouer Hub</h2></div>
+    <div class="meta"><div class="kick">03 · Athens, GR</div><h2 class="disp">Flaouer Hub</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
@@ -568,7 +575,7 @@
   </aside>
   <div class="head">
     <img src="/assets/logo_mermaid.jpg" alt="Become a Mermaid" style="border-radius:4px;height:96px">
-    <div class="meta"><div class="kick">05 · Athens, GR</div><h2 class="disp">Mermaid Experience</h2></div>
+    <div class="meta"><div class="kick">04 · Athens, GR</div><h2 class="disp">Mermaid Experience</h2></div>
   </div>
   <div class="grid">
     <div class="col">
@@ -630,7 +637,7 @@
   </aside>
   <div class="head">
     <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy">
-    <div class="meta"><div class="kick">06 · Flagship · Publishing &amp; Pedagogy</div><h2 class="disp">Acting Truth Academy</h2></div>
+    <div class="meta"><div class="kick">05 · Flagship · Publishing &amp; Pedagogy</div><h2 class="disp">Acting Truth Academy</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
