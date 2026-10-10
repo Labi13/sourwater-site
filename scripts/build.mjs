@@ -82,6 +82,12 @@ await mkdir(new URL("assets/rules/", dist), { recursive: true });
 await Promise.all(ruleAssets.map((name) =>
   copyFile(new URL(name, rulesDirectory), new URL(`assets/rules/${name}`, dist))
 ));
+const katopsiDirectory = new URL("assets/katopsi/", root);
+const katopsiAssets = (await readdir(katopsiDirectory)).filter((name) => /^katopsi-.*\.webp$/.test(name));
+await mkdir(new URL("assets/katopsi/", dist), { recursive: true });
+await Promise.all(katopsiAssets.map((name) =>
+  copyFile(new URL(name, katopsiDirectory), new URL(`assets/katopsi/${name}`, dist))
+));
 await Promise.all(localAssets.map(([source, filename]) =>
   copyFile(new URL(source, root), join(distAssets, filename))
 ));
@@ -106,4 +112,4 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + 1} local assets.`);
+console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + 1} local assets.`);

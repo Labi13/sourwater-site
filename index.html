@@ -482,6 +482,7 @@
     .house-rules.is-bucket .rules-bucket{width:100vw;margin-left:calc(50% - 50vw);height:clamp(520px,72vh,600px)}
     .rules-hint{left:22px;right:22px;letter-spacing:.16em}
   }
+  .katopsi-note{margin-top:22px;font-size:14px;color:#5A5044;max-width:52ch}
 </style>
 </head>
 <body>
@@ -794,6 +795,27 @@
     <p class="ai-film-status" data-film-status role="status"></p>
   </div>
   <div class="ai-film-caption"><strong>Independent AI film study</strong><span>40 seconds · Original 720p · Sound on</span></div>
+</div></section>
+
+<!-- KATOPSI, studio product -->
+<section class="band flip katopsi" id="katopsi" style="--bg:#D9D3C7;--fg:#241F1A;--accent:#C15C34"><div class="wrap">
+  <div class="head">
+    <div class="meta"><div class="kick">Studio product · In development</div><h2 class="disp">Katopsi</h2></div>
+  </div>
+  <div class="grid">
+    <div class="col">
+      <img src="/assets/katopsi/katopsi-card.webp" alt="Katopsi, in development, Greece first" style="width:64%;top:0;left:2%;transform:rotate(-4deg);z-index:2" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-early.webp" alt="Preliminary studies, answered early" style="width:52%;top:16%;left:46%;transform:rotate(5deg);z-index:1" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-soon.webp" alt="Katopsi: soon" style="width:40%;top:52%;left:22%;transform:rotate(-10deg);z-index:3" loading="lazy" decoding="async">
+    </div>
+    <div class="txt">
+      <p class="lead">Our own product. A bilingual Greek and English decision-support app for the preliminary study of a building plot: what can be built, on what evidence, and who vouches for it.</p>
+      <blockquote>It never claims a plot is buildable. It says exactly what was checked, by whom, and what remains open.<span class="a">Product principle</span></blockquote>
+      <div class="tags"><span class="tag">Greek-first</span><span class="tag">Bilingual EL / EN</span><span class="tag">Sealed, verifiable reports</span><span class="tag">Engineer attestation</span><span class="tag">Evidence-graded inputs</span><span class="tag">Country law packs</span><span class="tag">Working pilot</span></div>
+      <p class="katopsi-note">Working pilot on synthetic data. Engineers and partners who want to test it can write to us.</p>
+      <a class="btn" href="mailto:sourwater.space@gmail.com?subject=Katopsi%20pilot">Ask about the pilot →</a>
+    </div>
+  </div>
 </div></section>
 
 <!-- SERVICES -->
@@ -2261,13 +2283,13 @@
     c.x+=c.vx*dt;c.y+=c.vy*dt;
   }
   function step(dt){
-    if(!CALM)T+=dt;
+    T+=CALM?dt*0.4:dt;
     cards.forEach(function(c){
       if(CALM){
         if(!c.ready||c.state==='kept')return;
         c.melt=c.wet=c.lift=0;c.pull[0]=c.pull[1]=c.vel[0]=c.vel[1]=0;
         if(c.state==='water'){
-          c.x=c.hx;c.y=c.hy;c.size=L.sW;c.flat=L.flatW;c.rot=c.hr;
+          c.x=c.hx+Math.sin(T*0.55+c.ph)*2.5;c.y=c.hy+Math.cos(T*0.47+c.ph*1.3)*1.8;c.size=L.sW;c.flat=L.flatW;c.rot=c.hr+Math.sin(T*0.4+c.ph)*0.012;
         }else if(c.state==='held'){
           c.x=c.hx+(drag?drag.px-drag.sx:0)*0.26;c.y=c.hy+(drag?drag.py-drag.sy:0)*0.26;
           c.size=L.sW;c.flat=L.flatW;c.rot=c.hr;
@@ -2401,8 +2423,8 @@
     var dt=Math.min(0.05,(now-last)/1000||0.016);last=now;
     slow=slow*0.95+(dt>0.034?1:0)*0.05;
     if(slow>0.6&&dprCap>1){dprCap=1;slow=0;layout();}
-    step(CALM?0:dt);render();
-    if(CALM){running=false;raf=0;}else raf=requestAnimationFrame(frame);
+    step(dt);render();
+    raf=requestAnimationFrame(frame);
   }
   function start(){if(running)return;running=true;last=performance.now();if(!raf)raf=requestAnimationFrame(frame);}
   function stop(){running=false;}
