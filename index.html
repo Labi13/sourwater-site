@@ -448,6 +448,21 @@
   .rules-overview{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:28px;margin:0}
   .rules-overview img{display:block;width:100%;height:auto}
   @media(max-width:700px){.rules-dialog-head{padding:18px 16px;gap:12px}.rules-overview{grid-template-columns:1fr;padding:16px;gap:16px}}
+  .rules-drying{margin-top:20px;padding-top:20px;border-top:1px solid var(--ink)}
+  .rules-drying[hidden],.rules-set-aside[hidden],.rules-empty[hidden]{display:none}
+  .rules-drying-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .rules-drying-title{margin:0;font:500 12px/1.4 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase}
+  .rules-count{margin-left:12px;color:var(--terra)}
+  .rules-drying-actions{display:flex;gap:10px;flex-wrap:wrap}
+  .rules-drying-actions button{padding:9px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 11px/1.3 'Space Grotesk',sans-serif;cursor:pointer}
+  .rules-drying-actions button:hover{background:var(--ink);color:var(--paper)}
+  .rules-dried{display:flex;gap:14px;list-style:none;overflow-x:auto;margin:18px 0 0;padding:4px 4px 16px;scroll-snap-type:x proximity}
+  .rules-dried li{flex:0 0 124px;scroll-snap-align:start}
+  .rules-dried button{display:block;width:100%;padding:0;border:0;background:transparent;cursor:pointer}
+  .rules-dried img{display:block;width:100%;height:auto;box-shadow:3px 5px 0 rgba(36,31,26,.13)}
+  .rules-drying button:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+  .rules-empty{margin:16px 0 0;font-family:'Fraunces',Georgia,serif;font-size:22px}
+  @media(max-width:700px){.rules-dried li{flex-basis:104px}.rules-drying-head{align-items:flex-start}.rules-drying-title{width:100%}}
   .rules-bucket{display:none}
   .house-rules.is-bucket .rules-bucket{display:block;position:relative;height:clamp(620px,84vh,780px);margin-top:18px}
   .house-rules.is-bucket .rules-grid{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%)}
@@ -532,10 +547,18 @@
     <div class="rules-dialog-head"><h2 id="rules-dialog-title">All nine rules.</h2><button class="rules-dialog-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button></div>
     <ol class="rules-overview"></ol>
   </dialog>
-  <div class="rules-bucket" data-no-wet data-hint="Pull a rule out of the water to read it." data-hint-touch="Tap a rule, or drag it out of the water." data-back="Click the card to drop it back in." data-back-touch="Tap the card to drop it back in." data-read="Read rule">
+  <div class="rules-bucket" data-no-wet data-hint="Pull a rule out of the water to read it." data-hint-touch="Tap a rule, or drag it out of the water." data-back="Swipe left or set the card aside. Pull another rule." data-back-touch="Swipe left or set the card aside. Pull another rule." data-read="Read rule">
     <p class="rules-hint" aria-hidden="true"></p>
     <div class="rules-keys"></div>
     <p class="rules-live" aria-live="polite"></p>
+  </div>
+  <div class="rules-drying" data-no-wet hidden>
+    <div class="rules-drying-head">
+      <p class="rules-drying-title">Out of the water<span class="rules-count" aria-live="polite" aria-atomic="true">0 / 9</span></p>
+      <div class="rules-drying-actions"><button class="rules-set-aside" type="button" hidden>Set aside ←</button><button class="rules-refill" type="button">Refill the bucket ↻</button></div>
+    </div>
+    <ol class="rules-dried"></ol>
+    <p class="rules-empty" hidden>Clear water. Nine rules to keep.</p>
   </div>
   <ul class="rules-grid">
       <li><img src="/assets/rules/house-rule-brand-system.webp?v=2" alt="A logo is one piece. The system is the brand." width="1440" height="1440" loading="lazy" decoding="async"></li>
@@ -1793,8 +1816,8 @@
 
 <script src="/assets/ai-film-player.js" defer></script>
 <script>
-/* HOUSE RULES — bucket of water. Cards float in the water; drag one out and it
-   comes out sticky, sags like a melted clock, then dries flat and readable.
+/* HOUSE RULES — bucket of water. Cards leave the water, drip and dry.
+   Each extracted rule stays in the drying pile until the bucket is refilled.
    WebGL only; without it (or with reduced motion) the plain grid stays. */
 (function(){
   'use strict';
@@ -1987,7 +2010,41 @@
   var hintEl=stage.querySelector('.rules-hint'),liveEl=stage.querySelector('.rules-live'),keysEl=stage.querySelector('.rules-keys');
   var TOUCH=matchMedia('(hover: none)').matches;
   var TXT={pull:stage.getAttribute('data-hint')||'',touch:stage.getAttribute('data-hint-touch')||'',back:(TOUCH?stage.getAttribute('data-back-touch'):stage.getAttribute('data-back'))||'',read:stage.getAttribute('data-read')||''};
+  var drying=sec.querySelector('.rules-drying'),dried=sec.querySelector('.rules-dried'),countEl=sec.querySelector('.rules-count');
+  var asideBtn=sec.querySelector('.rules-set-aside'),refillBtn=sec.querySelector('.rules-refill'),emptyEl=sec.querySelector('.rules-empty');
+  var takenCount=0;
   function hint(t){if(hintEl)hintEl.textContent=t;}
+  function updateDrying(){
+    drying.hidden=!takenCount;countEl.textContent=takenCount+' / '+imgEls.length;
+    asideBtn.hidden=!outCard;emptyEl.hidden=takenCount!==imgEls.length;
+    hint(outCard?TXT.back:(takenCount===imgEls.length?emptyEl.textContent:(TOUCH?TXT.touch:TXT.pull)));
+  }
+  function markTaken(c){
+    if(c.taken)return;c.taken=true;takenCount++;if(c.key)c.key.disabled=true;
+    var li=document.createElement('li'),b=document.createElement('button'),im=imgEls[c.i].cloneNode(true);
+    b.type='button';b.setAttribute('aria-label',TXT.read+': '+c.alt);im.loading='eager';b.appendChild(im);li.appendChild(b);dried.appendChild(li);
+    b.addEventListener('click',function(){
+      if(!dialog||!viewAll)return;
+      viewAll.click();dialog.querySelector('.rules-overview').children[c.i].scrollIntoView({block:'center'});
+    });
+    updateDrying();
+  }
+  function keep(c){
+    c.state='kept';c.vx=c.vy=0;if(outCard===c)outCard=null;
+    updateDrying();announce(c);
+  }
+  function refill(){
+    drag=null;touchId=null;hoverCard=null;outCard=null;window.swDirectDragging=false;canvas.style.cursor='';
+    takenCount=0;dried.textContent='';drops.length=0;rip.fill(0);
+    cards.forEach(function(c){
+      c.taken=false;if(c.key)c.key.disabled=false;c.state=c.ready?'water':'wait';
+      c.x=c.hx;c.y=c.hy;c.vx=c.vy=0;c.size=L.sW;c.flat=L.flatW;c.rot=c.hr;
+      c.melt=c.wet=c.lift=c.age=0;c.pull=[0,0];c.vel=[0,0];
+    });
+    updateDrying();announce(null);render();
+  }
+  asideBtn.addEventListener('click',function(){if(outCard)keep(outCard);});
+  refillBtn.addEventListener('click',refill);
   hint(TOUCH?TXT.touch:TXT.pull);
 
   /* mesh */
@@ -2041,7 +2098,7 @@
   /* keyboard / screen reader access */
   cards.forEach(function(c){
     var b=document.createElement('button');b.type='button';b.textContent=TXT.read+': '+c.alt;
-    b.addEventListener('click',function(){if(c.ready){if(outCard===c)returnCard(c);else pullOut(c);}});
+    c.key=b;b.addEventListener('click',function(){if(c.ready&&!c.taken)pullOut(c);});
     if(keysEl)keysEl.appendChild(b);
   });
 
@@ -2066,7 +2123,7 @@
       var hx=L.wcx+c.nx*(L.wrx-L.sW*0.40),hy=L.wcy+c.ny*(L.wry-L.sW*L.flatW*0.40);
       c.hx=hx;c.hy=hy;
       if(c.state==='water'){c.x=hx;c.y=hy;c.size=L.sW;c.flat=L.flatW;}
-      if(c.state==='out'){c.size=L.readS;c.tx=clampX(c.tx);c.ty=clampY(c.ty);}
+      if(c.state==='out'){c.size=L.readS;c.tx=clampX(c.tx);c.ty=Math.min(clampY(c.ty),L.readY);}
     });
   }
   function clampX(x){var h=L.readS/2+10;return Math.max(h,Math.min(L.W-h,x));}
@@ -2088,20 +2145,21 @@
   function toTop(c){cards.splice(cards.indexOf(c),1);cards.push(c);}
   function announce(c){if(liveEl)liveEl.textContent=c?c.alt:'';}
   function free(c){
-    if(outCard&&outCard!==c)returnCard(outCard);
-    c.state='free';c.melt=1;c.wet=1;c.age=0;outCard=c;toTop(c);
+    if(outCard&&outCard!==c)keep(outCard);
+    c.state='free';c.melt=1;c.wet=1;c.age=0;outCard=c;markTaken(c);toTop(c);
     splash(c.x,c.y,1.0,18);hint(TXT.back);announce(c);
   }
   function pullOut(c){
-    if(outCard&&outCard!==c)returnCard(outCard);
+    if(c.taken)return;
+    if(outCard&&outCard!==c)keep(outCard);
     if(c.state==='water'||c.state==='held'){splash(c.x,c.y,1.0,18);}
     c.state='out';c.melt=1;c.wet=1;c.age=0;c.tx=L.W/2;c.ty=L.readY;c.grab=[0.5,0.15];
-    outCard=c;toTop(c);hint(TXT.back);announce(c);
+    outCard=c;markTaken(c);toTop(c);hint(TXT.back);announce(c);
   }
-  function returnCard(c){c.state='ret';c.age=0;if(outCard===c){outCard=null;hint(TOUCH?TXT.touch:TXT.pull);announce(null);}}
 
   /* ---------- hit testing ---------- */
   function hit(c,px,py){
+    if(!Number.isFinite(c.x)||!Number.isFinite(c.y)||!(c.flat>0)||!(c.size>0))return null;
     var dx=px-c.x,dy=py-c.y,co=Math.cos(-c.rot),si=Math.sin(-c.rot);
     var lx=co*dx-si*dy,ly=(si*dx+co*dy)/c.flat;
     var h=c.size/2;if(Math.abs(lx)>h||Math.abs(ly)>h*(1+c.melt*0.3))return null;
@@ -2119,7 +2177,7 @@
   function down(p){
     if(outCard&&(outCard.state==='out'||outCard.state==='free')){
       var uv=hit(outCard,p[0],p[1]);
-      if(uv){drag={mode:'move',c:outCard,ox:outCard.x-p[0],oy:outCard.y-p[1],sx:p[0],sy:p[1],t:performance.now(),moved:0};outCard.state='free';return true;}
+      if(uv){drag={mode:'move',c:outCard,ox:outCard.x-p[0],oy:outCard.y-p[1],sx:p[0],sy:p[1],px:p[0],py:p[1],t:performance.now(),moved:0};outCard.state='free';return true;}
     }
     var h=topWaterCard(p[0],p[1]);
     if(h){h.c.state='held';h.c.grab=h.uv;toTop(h.c);drag={mode:'pull',c:h.c,sx:p[0],sy:p[1],px:p[0],py:p[1],t:performance.now(),moved:0};
@@ -2152,16 +2210,16 @@
       var gx=(c.grab[0]-0.5)*c.size,gy=(c.grab[1]-0.5)*c.size*c.flat,co=Math.cos(c.rot),si=Math.sin(c.rot);
       releaseX-=co*gx-si*gy;releaseY-=si*gx+co*gy;
     }else{releaseX+=drag.ox;releaseY+=drag.oy;}
+    var swipeLeft=p[0]-drag.sx<-Math.min(90,L.W*0.2)&&p[0]<L.W*0.28;
     if(drag.mode==='pull'){
       if(c.state==='held'){if(tap)pullOut(c);else{c.state='water';ripple(c.x,c.y,0.5);}}
       else if(c.state==='free'){
-        if(inWater(releaseX,releaseY)&&releaseY>L.cy-L.ry*0.2)returnCard(c);
-        else{c.state='out';c.age=0;c.tx=clampX(releaseX);c.ty=clampY(releaseY);}
+        if(swipeLeft)keep(c);
+        else{c.state='out';c.age=0;c.tx=clampX(releaseX);c.ty=Math.min(clampY(releaseY),L.readY);}
       }
     }else{
-      if(tap)returnCard(c);
-      else if(inWater(releaseX,releaseY)&&releaseY>L.cy)returnCard(c);
-      else{c.state='out';c.tx=clampX(releaseX);c.ty=clampY(releaseY);}
+      if(tap||swipeLeft)keep(c);
+      else{c.state='out';c.tx=clampX(releaseX);c.ty=Math.min(clampY(releaseY),L.readY);}
     }
     drag=null;canvas.style.cursor='';window.swDirectDragging=false;
   }
@@ -2172,7 +2230,10 @@
   });
   canvas.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;move(local(e.clientX,e.clientY));});
   canvas.addEventListener('pointerup',function(e){if(e.pointerType==='touch')return;up(local(e.clientX,e.clientY));});
-  canvas.addEventListener('pointercancel',function(e){if(e.pointerType==='touch')return;up([drag?drag.px||0:0,drag?drag.py||0:0]);});
+  function finishDrag(){if(drag)up([drag.px,drag.py]);touchId=null;}
+  canvas.addEventListener('pointercancel',finishDrag);
+  canvas.addEventListener('lostpointercapture',finishDrag);
+  addEventListener('blur',finishDrag);
   canvas.addEventListener('pointerleave',function(){if(!drag){hoverCard=null;canvas.style.cursor='';}});
   var touchId=null;
   canvas.addEventListener('touchstart',function(e){
@@ -2188,7 +2249,7 @@
     for(var k=0;k<e.changedTouches.length;k++){var t=e.changedTouches[k];if(t.identifier===touchId){touchId=null;up(local(t.clientX,t.clientY));}}
   }
   canvas.addEventListener('touchend',tend);canvas.addEventListener('touchcancel',tend);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&outCard)returnCard(outCard);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&outCard&&!(dialog&&dialog.open))keep(outCard);});
 
   /* ---------- simulation ---------- */
   function ease(cur,target,rate,dt){return cur+(target-cur)*(1-Math.exp(-rate*dt));}
@@ -2248,11 +2309,7 @@
           var bx=(Math.random()-0.5)*c.size*0.84,by=c.size*0.5*c.flat+c.melt*c.size*0.22,cr=Math.cos(c.rot),sr=Math.sin(c.rot);
           drops.push({x:c.x+cr*bx-sr*by,y:c.y+sr*bx+cr*by,vx:c.vx*0.15,vy:30+Math.random()*60,r:1.8+Math.random()*2.8*c.wet,wet:true});
         }
-      }else if(c.state==='ret'){
-        spring(c,c.hx,c.hy,120,13,dt);
-        c.size=ease(c.size,L.sW,5,dt);c.flat=ease(c.flat,L.flatW,5,dt);c.rot=ease(c.rot,c.hr,5,dt);
-        c.melt=ease(c.melt,0.3,4,dt);c.vel[0]=ease(c.vel[0],0,6,dt);c.vel[1]=ease(c.vel[1],0,6,dt);
-        if(Math.hypot(c.x-c.hx,c.y-c.hy)<10&&Math.abs(c.size-L.sW)<10){c.state='water';c.wet=1;splash(c.x,c.y,0.85,12);}
+
       }
     });
     for(var k=drops.length-1;k>=0;k--){
@@ -2304,7 +2361,7 @@
     gl.enable(gl.BLEND);
     gl.useProgram(P.card.p);bindMesh(P.card);
     gl.uniform2f(u.uRes,W,H);gl.uniform1f(u.uTime,T);gl.uniform1i(u.uTex,0);gl.uniform1f(u.uAlpha,1);
-    var air=cards.filter(function(c){return c.tex&&(c.state==='drop'||c.state==='held'||c.state==='free'||c.state==='out'||c.state==='ret');});
+    var air=cards.filter(function(c){return c.tex&&(c.state==='drop'||c.state==='held'||c.state==='free'||c.state==='out');});
     air.forEach(function(c){if(c.state!=='held'&&c.state!=='drop')drawCard(c,0,true);});
     air.forEach(function(c){drawCard(c,c.state==='held'?0.16:0,false);});
     /* 4. drops */
@@ -2338,9 +2395,9 @@
       if(e.isIntersecting){if(introAt===null)introAt=T+0.15;start();}else stop();
     });},{threshold:0.05}).observe(stage);
   }else{startLoad();introAt=0;start();}
-  document.addEventListener('visibilitychange',function(){if(document.hidden)stop();else if(stage.getBoundingClientRect().bottom>0&&stage.getBoundingClientRect().top<innerHeight)start();});
+  document.addEventListener('visibilitychange',function(){if(document.hidden){finishDrag();stop();}else if(stage.getBoundingClientRect().bottom>0&&stage.getBoundingClientRect().top<innerHeight)start();});
   canvas.addEventListener('webglcontextlost',function(e){e.preventDefault();stop();sec.classList.remove('is-bucket');grid.removeAttribute('aria-hidden');});
-  window.swRulesBucket={cards:cards,pullOut:function(i){var c=cards.filter(function(x){return x.i===i;})[0];if(c&&c.ready)pullOut(c);},returnAll:function(){if(outCard)returnCard(outCard);},layout:function(){return L;},tick:function(sec){for(var k=0;k<sec*60;k++)step(1/60);render();}};
+  window.swRulesBucket={cards:cards,pullOut:function(i){var c=cards.filter(function(x){return x.i===i;})[0];if(c&&c.ready)pullOut(c);},returnAll:refill,layout:function(){return L;},tick:function(sec){for(var k=0;k<sec*60;k++)step(1/60);render();}};
 })();
 </script>
 </body>
