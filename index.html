@@ -222,7 +222,7 @@
   }
 
   /* SERVICES */
-  .services{padding:112px 0;background:var(--paper)}
+  .services{padding:112px 0;background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
   .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
     background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
   .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14);box-shadow:inset 0 3px 0 var(--terra)}
@@ -435,6 +435,19 @@
   .rules-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
   .rules-grid li{margin:0;padding:0}
   .rules-grid img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 18px 44px rgba(36,31,26,.16)}
+  .rules-view-all{display:inline-flex;align-items:center;gap:20px;margin-top:24px;padding:13px 18px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 12px/1.3 'Space Grotesk',sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+  .rules-view-all[hidden]{display:none}
+  .rules-view-all:hover{background:var(--ink);color:var(--paper)}
+  .rules-view-all:focus-visible,.rules-dialog-close:focus-visible{outline:2px solid var(--terra);outline-offset:4px}
+  .rules-dialog{width:min(1180px,calc(100vw - 32px));max-height:calc(100dvh - 40px);margin:auto;padding:0;border:2px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:0 24px 80px rgba(36,31,26,.3);overscroll-behavior:contain}
+  .rules-dialog::backdrop{background:rgba(36,31,26,.7)}
+  body:has(.rules-dialog[open]){overflow:hidden}
+  .rules-dialog-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 28px;background:var(--paper);border-bottom:1px solid var(--ink)}
+  .rules-dialog-head h2{margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(25px,3vw,38px);line-height:1.1}
+  .rules-dialog-close{flex:none;padding:10px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 12px/1.3 'Space Grotesk',sans-serif;cursor:pointer}
+  .rules-overview{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:28px;margin:0}
+  .rules-overview img{display:block;width:100%;height:auto}
+  @media(max-width:700px){.rules-dialog-head{padding:18px 16px;gap:12px}.rules-overview{grid-template-columns:1fr;padding:16px;gap:16px}}
   .rules-bucket{display:none}
   .house-rules.is-bucket .rules-bucket{display:block;position:relative;height:clamp(620px,84vh,780px);margin-top:18px}
   .house-rules.is-bucket .rules-grid{position:absolute;width:1px;height:1px;margin:0;padding:0;overflow:hidden;clip-path:inset(50%)}
@@ -514,6 +527,11 @@
   <h2 class="disp" id="house-rules-title">Nine rules we work by.</h2>
   <p class="lead">Short positions the studio holds on brands, search, copy and film. They are the work before the work.</p>
   <p class="rules-follow">Follow the work on <a href="https://www.instagram.com/sourwater.space/" target="_blank" rel="noopener">Instagram @sourwater.space</a></p>
+  <button class="rules-view-all" type="button" aria-haspopup="dialog" aria-controls="rules-dialog" aria-expanded="false" data-no-wet hidden>View all nine rules <span aria-hidden="true">↗</span></button>
+  <dialog class="rules-dialog" id="rules-dialog" aria-labelledby="rules-dialog-title" data-no-wet>
+    <div class="rules-dialog-head"><h2 id="rules-dialog-title">All nine rules.</h2><button class="rules-dialog-close" type="button" autofocus>Close <span aria-hidden="true">×</span></button></div>
+    <ol class="rules-overview"></ol>
+  </dialog>
   <div class="rules-bucket" data-no-wet data-hint="Pull a rule out of the water to read it." data-hint-touch="Tap a rule, or drag it out of the water." data-back="Click the card to drop it back in." data-back-touch="Tap the card to drop it back in." data-read="Read rule">
     <p class="rules-hint" aria-hidden="true"></p>
     <div class="rules-keys"></div>
@@ -1783,6 +1801,24 @@
   var sec=document.querySelector('.house-rules');if(!sec)return;
   var stage=sec.querySelector('.rules-bucket'),grid=sec.querySelector('.rules-grid');
   if(!stage||!grid)return;
+  var viewAll=sec.querySelector('.rules-view-all'),dialog=sec.querySelector('.rules-dialog');
+  if(viewAll&&dialog&&typeof dialog.showModal==='function'){
+    viewAll.hidden=false;
+    viewAll.addEventListener('click',function(){
+      var overview=dialog.querySelector('.rules-overview');
+      if(!overview.children.length){
+        [].forEach.call(grid.children,function(item){overview.appendChild(item.cloneNode(true));});
+      }
+      dialog.showModal();viewAll.setAttribute('aria-expanded','true');
+    });
+    dialog.querySelector('.rules-dialog-close').addEventListener('click',function(){dialog.close();});
+    dialog.addEventListener('close',function(){viewAll.setAttribute('aria-expanded','false');});
+    dialog.addEventListener('click',function(e){
+      if(e.target!==dialog)return;
+      var r=dialog.getBoundingClientRect();
+      if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();
+    });
+  }
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var imgEls=[].slice.call(grid.querySelectorAll('img'));if(!imgEls.length)return;
   var canvas=document.createElement('canvas');
