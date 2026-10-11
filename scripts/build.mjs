@@ -26,9 +26,6 @@ const localAssets = [
 ];
 
 const sourceAssets = [
-  "ata-gap-cream.png",
-  "ata-gap-pink.png",
-  "banner-wim-clean.png",
   "favicon.png",
   "flaouer-couples-bonding.png",
   "flaouer-dance-story.png",
@@ -97,6 +94,12 @@ await mkdir(new URL("assets/katopsi/", dist), { recursive: true });
 await Promise.all(katopsiAssets.map((name) =>
   copyFile(new URL(name, katopsiDirectory), new URL(`assets/katopsi/${name}`, dist))
 ));
+const ataDirectory = new URL("assets/ata/", root);
+const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$/.test(name));
+await mkdir(new URL("assets/ata/", dist), { recursive: true });
+await Promise.all(ataAssets.map((name) =>
+  copyFile(new URL(name, ataDirectory), new URL(`assets/ata/${name}`, dist))
+));
 await Promise.all(localAssets.map(([source, filename]) =>
   copyFile(new URL(source, root), join(distAssets, filename))
 ));
@@ -126,4 +129,4 @@ await buildDiscovery([
   { language: "el", html: await readFile(new URL("el/index.html", dist), "utf8") }
 ], dist);
 
-console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + 1} local assets.`);
+console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + ataAssets.length + 1} local assets.`);
