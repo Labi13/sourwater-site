@@ -1,12 +1,10 @@
-.ai-films{--films-accent:#813820;padding:100px 0;background:#B4C9BF;color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);scroll-margin-top:80px}
-.ai-films-intro{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;margin-bottom:40px}
-.films-wordmark{display:inline-block;text-align:center;font-family:'Fraunces',Georgia,serif;line-height:1;letter-spacing:-.04em}
-.films-wordmark>span{display:block;font-size:clamp(41.4px,4.6vw,62.1px);font-weight:600;white-space:nowrap}
-.films-wordmark em{font-weight:400;color:var(--films-accent)}
-.films-wordmark small{display:block;margin-top:7px;font-size:27.6px;font-weight:400;letter-spacing:0;color:var(--films-accent)}
+.ai-films{--films-accent:#C15C34;padding:100px 0;background:#E7DCC7;color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);scroll-margin-top:80px}
+.ai-films-intro{margin-bottom:40px;max-width:860px}
 .ai-films h2.disp{margin:0 0 20px;font-size:clamp(29.4px,4.2vw,57.4px);line-height:1;white-space:nowrap}
 .ai-films-intro p{margin:0 0 20px;font-size:18px;max-width:43ch}
-.ai-films-cta{display:inline-block;color:var(--ink);font-size:16px;text-underline-offset:6px}
+.ai-films-cta{display:inline-block;color:var(--films-accent);font-size:16px;text-underline-offset:6px}
+.ai-film-study{margin-top:64px}
+.ai-film-label{color:var(--films-accent);margin-bottom:22px}
 .ai-film-player{background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
 .ai-film-player video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#171513;cursor:pointer}
 .ai-film-controls{display:flex;align-items:center;flex-wrap:wrap;gap:16px;padding:14px 20px}
@@ -24,7 +22,7 @@
 .ai-film-player:fullscreen .ai-film-controls{flex-shrink:0}
 @media(max-width:700px){
   .ai-films{padding:64px 0}
-  .ai-films-intro{grid-template-columns:1fr;gap:24px;margin-bottom:28px}
+  .ai-films-intro{margin-bottom:28px}
   .ai-films h2.disp{font-size:clamp(28px,8.4vw,44.8px)}
   .ai-films-intro p{font-size:16px}
   .ai-film-controls{gap:10px;padding:12px}

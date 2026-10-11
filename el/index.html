@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://sourwater.space/">
 <link rel="alternate" hreflang="el" href="https://sourwater.space/el/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-layout">
+<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-declutter">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sourwater">
 <meta property="og:title" content="Sourwater · Ιδέες για Πολιτισμό &amp; Εμπόριο">
@@ -59,7 +59,6 @@
   body{background:var(--sand);color:var(--ink);
     font-family:'Space Grotesk','Sora','Helvetica Neue',Arial,sans-serif;line-height:1.55;overflow-x:hidden;overscroll-behavior-x:none;max-width:100%}
   @supports(overflow:clip){html,body{overflow-x:clip}}
-  body.drawer-open{touch-action:pan-y}
   .serif{font-family:'Fraunces','Spectral',Georgia,serif}
   .wrap{max-width:1200px;margin:0 auto;padding:0 44px}
   .disp{font-family:'Fraunces','Spectral',Georgia,serif;font-weight:600;line-height:.94;letter-spacing:-.015em}
@@ -83,10 +82,8 @@
       radial-gradient(1000px 700px at 88% 12%, rgba(218,154,40,.55), transparent 62%),
       radial-gradient(900px 700px at 6% 96%, rgba(193,92,52,.45), transparent 60%),
       linear-gradient(160deg,#F5EEDF 0%,#EBDFC8 100%);}
-  .hero .studioline{letter-spacing:.4em;font-size:13px;text-transform:uppercase;color:#B9781F}
   .hero h1{font-size:clamp(60px,15vw,220px);font-weight:700;letter-spacing:-.03em;line-height:.86;margin-top:18px}
   .hero h1 em{font-style:italic;font-weight:300;color:var(--terra)}
-  .hero .tag{margin-top:30px;font-size:clamp(13px,1.5vw,17px);letter-spacing:.18em;text-transform:uppercase;color:#5a5044;font-weight:500}
   .hero h1{font-family:'Fraunces',Georgia,serif}
   .hero .pos{margin-top:38px;max-width:30ch;font-size:clamp(20px,2.4vw,34px)}
   .hero .pos b{color:var(--terra);font-weight:600}
@@ -94,8 +91,6 @@
   .hero-cta a{display:inline-block;text-decoration:none;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:14px 26px;border-radius:40px}
   .hero-cta a.solid{background:var(--terra);color:#F5F0E4}
   .hero-cta a.ghost{background:transparent;color:var(--ink);border:1px solid rgba(36,31,26,.35)}
-  .hero-note{margin-top:24px;font-style:italic;font-size:15.5px;color:#5a5044;max-width:38ch}
-  @media(max-width:620px){.hero-note{display:none}}
 
   /* COMPACT ΠΡΟΣΦΟΡΑ E-COMMERCE */
   .commerce-offer{padding:22px 0;background:#EFE6D5;color:var(--ink);border-top:1px solid rgba(36,31,26,.16);border-bottom:1px solid rgba(36,31,26,.16)}
@@ -131,8 +126,12 @@
 
 
 
+  .escape-shop .tag{color:var(--fg)}
+  .escape-shop .btn{color:var(--ink)}
+
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
-  .mermaid-film{--film-progress:0;height:260vh;margin-top:82px;position:relative;color:var(--fg)}
+  .mermaid-film{--film-progress:0;height:260vh;margin-top:0;position:relative;color:var(--fg);scroll-margin-top:80px}
+  .case-film-link{display:inline-block;margin-top:28px;color:inherit;font-size:14px;text-underline-offset:5px}
   .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#C2D7CF;border:1px solid rgba(23,59,58,.32);box-shadow:0 34px 80px rgba(23,59,58,.12)}
   .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:none;transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
   .mermaid-film-copy{position:relative;z-index:2;align-self:center}
@@ -153,7 +152,7 @@
   .mermaid-film-status{position:absolute;left:16px;right:16px;bottom:17px;z-index:3;display:flex;justify-content:space-between;gap:14px;color:#F5F0E4;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 8px #000}
   .mermaid-film.is-playing .mermaid-film-progress,.mermaid-film.is-playing .mermaid-film-status{opacity:0}
   @media(max-width:760px){
-    .mermaid-film{height:230vh;margin:60px -20px 0}
+    .mermaid-film{height:230vh;margin:36px -20px 0}
     .mermaid-film-sticky{top:0;height:100svh;min-height:600px;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:20px;padding:76px 20px 18px}
     .mermaid-film-copy h3{font-size:clamp(48px,14vw,72px);max-width:none}
     .mermaid-film-copy p{font-size:14px;margin-top:16px;max-width:42ch}
@@ -215,67 +214,18 @@
 
   /* ΥΠΗΡΕΣΙΕΣ */
   .services{--service-accent:#9A4225;padding:112px 0;background:var(--paper);color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
-  .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;background:var(--paper);
+  .services .pricegrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;background:var(--paper);
     border-top:1px solid rgba(36,31,26,.22);border-left:1px solid rgba(36,31,26,.22);margin-top:44px}
-  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(36,31,26,.22);border-bottom:1px solid rgba(36,31,26,.22);box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard{grid-column:span 2;min-width:0;background:var(--paper);padding:32px 30px;border-right:1px solid rgba(36,31,26,.22);border-bottom:1px solid rgba(36,31,26,.22);box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard:nth-last-child(-n+2){grid-column:span 3}
   .pcard h3{font-family:'Fraunces','Spectral';font-weight:600;font-size:23px;color:var(--ink)}
-  .pcard-premium li em{font-size:14px;line-height:1.55}
   .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5A5044;margin-top:4px}
   .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(36,31,26,.14)}
   .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
   .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
   .pcard li .row b{font-family:'Fraunces','Spectral';font-weight:600;color:var(--service-accent);white-space:nowrap;font-size:15px}
   .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#5A5044;margin-top:5px;line-height:1.45}
-  .pcard li[data-badge]{position:relative;padding-top:34px}
-  .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
-    background:rgba(193,92,52,.18);color:var(--service-accent);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-  .pcard li[data-badge="Premium"]::before{background:var(--ink);color:var(--paper)}
-  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(36,31,26,.4);background:transparent;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
-  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:rgba(36,31,26,.06);outline:none}
-  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--service-accent);color:var(--paper);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-  @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
-
-  /* PROJECT SERVICE DRAWERS */
-  .project-offer{--drawer-line:#145CFF;--drawer-tab:#145CFF;--drawer-tab-ink:#fff;--drawer-shadow:#111;position:absolute;top:72px;right:0;z-index:8;display:flex;align-items:stretch;max-width:100vw;touch-action:pan-y;transform:translateX(calc(100% - 46px));transition:transform .38s cubic-bezier(.2,.7,.2,1)}
-  .project-offer.is-open{transform:translateX(0)}
-  .project-offer-tab{width:46px;min-height:152px;border:2px solid var(--drawer-line);background:var(--drawer-tab);color:var(--drawer-tab-ink);cursor:pointer;
-    display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 11px;font:600 10px/1 'Space Grotesk',sans-serif;
-    letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
-  .project-offer-tab b{font:500 19px/1 'Space Grotesk',sans-serif;transition:transform .28s ease}
-  .project-offer.is-open .project-offer-tab b{transform:rotate(45deg)}
-  .project-offer-panel{width:min(560px,calc(100vw - 46px));max-height:calc(100dvh - 110px);padding:24px 25px;background:rgba(247,243,234,.988);color:var(--ink);
-    border:2px solid var(--drawer-line);box-shadow:-14px 16px 0 var(--drawer-shadow);overflow-y:auto;overscroll-behavior:contain}
-  .project-offer-panel .offer-label{display:block;margin:-24px -25px 20px;padding:14px 20px;border-bottom:2px solid var(--drawer-line);background:#FFFAF0;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--drawer-line)}
-  .project-offer-panel h3{font-family:'Fraunces','Spectral';font-size:24px;line-height:1.08;margin:8px 0 2px}
-  .project-offer-panel .offer-price{font-family:'Fraunces','Spectral';font-size:20px;color:var(--terra);margin-bottom:10px}
-  .project-offer-panel p{font-size:13px;line-height:1.5;color:#51483f}.project-offer-panel ul{list-style:none;margin:13px 0 17px}
-  .project-offer-panel li{font-size:12px;padding:6px 0;border-top:1px solid rgba(36,31,26,.1)}.project-offer-panel li::before{content:"— ";color:var(--terra)}
-  .project-offer-panel a{display:inline-block;color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;border-bottom:2px solid var(--drawer-line);padding-bottom:3px}
-  .offer-plan-intro h3{font-size:28px;margin:0 0 9px}.offer-plan-intro p{max-width:48ch}
-  .offer-plan-stack,.offer-plan-stack--two{display:block;margin:18px 0;border-top:2px solid var(--drawer-line);border-bottom:2px solid var(--drawer-line)}
-  .offer-plan-card{position:relative;padding:15px 12px 16px 31px;min-width:0}.offer-plan-card+.offer-plan-card{border-top:1px solid rgba(36,31,26,.22)}
-  .offer-plan-card::before{content:"";position:absolute;left:9px;top:21px;width:8px;height:8px;background:var(--drawer-line);transform:rotate(45deg)}
-  .offer-plan-card small{display:block;color:var(--drawer-line);font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
-  .offer-plan-card strong{display:block;font-family:'Fraunces','Spectral';font-size:17px;line-height:1.08;margin:5px 0}
-  .offer-plan-card span{display:block;color:#51483f;font-size:11px;line-height:1.45}
-  .project-offer--ata .project-offer-tab{background:var(--drawer-tab);color:var(--drawer-tab-ink);border-color:var(--drawer-line)}
-  .project-offer--ata .project-offer-panel{width:min(560px,calc(100vw - 46px));padding:0;background:#F6EEDC;color:#142330;border:2px solid var(--drawer-line);box-shadow:-14px 16px 0 var(--drawer-shadow)}
-  .ata-offer-head{display:flex;justify-content:space-between;gap:20px;padding:14px 20px;border-bottom:2px solid var(--drawer-line);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-  .ata-offer-body{padding:22px 22px 20px}.project-offer--ata .ata-offer-body h3{font-size:30px;max-width:12ch;margin:0 0 14px}.project-offer--ata .ata-offer-body h3 em{color:#D52F7A;font-weight:500}
-  .project-offer--ata .ata-offer-body>p{max-width:48ch;color:#33434e}.ata-offer-modules{display:block;margin:18px 0;border-top:2px solid var(--drawer-line);border-bottom:2px solid var(--drawer-line)}
-  .ata-offer-module{position:relative;padding:14px 15px 15px 31px}.ata-offer-module+.ata-offer-module{border-top:1px solid rgba(20,35,48,.25)}.ata-offer-module::before{content:"";position:absolute;left:10px;top:21px;width:8px;height:8px;background:var(--drawer-line);transform:rotate(45deg)}.ata-offer-module small{display:block;color:var(--drawer-line);font-weight:700;letter-spacing:.14em}
-  .ata-offer-module strong{display:block;font-family:'Fraunces','Spectral';font-size:17px;margin:4px 0}.ata-offer-module span{font-size:12px;color:#33434e}
-  .project-offer--ata .ata-offer-body a{border-color:var(--drawer-line)}.project-offer--ata .ata-offer-body a::after{content:"  ↗";color:var(--drawer-line)}
-  @media(max-width:700px){
-    .project-offer{top:22px;right:0}.project-offer,.project-offer.is-open{position:absolute;display:flex;width:auto;max-width:none;margin:0;transform:translateX(calc(100% - 44px))}
-    .project-offer.is-open{transform:translateX(0)}.project-offer-tab{width:44px;min-height:132px;padding:12px 10px;writing-mode:vertical-rl;flex-direction:row;border-color:var(--drawer-line)}
-    .project-offer-panel{width:calc(100dvw - 52px);max-height:min(76dvh,620px);padding:20px;box-shadow:-7px 10px 0 var(--drawer-shadow)}
-    .project-offer-panel .offer-label{margin:-20px -20px 18px;padding:13px 17px}
-    .project-offer--ata .project-offer-panel{width:calc(100dvw - 52px);padding:0;box-shadow:-7px 10px 0 var(--drawer-shadow)}
-    .offer-plan-intro h3{font-size:24px}
-    .ata-offer-body{padding:19px 18px}.project-offer--ata .ata-offer-body h3{font-size:25px}
-  }
+  @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard,.pcard:nth-last-child(-n+2){grid-column:auto;padding:28px 22px}}
 
   /* MAKE YOUR PLAN */
   /* MAKE YOUR PLAN — deli register from the future */
@@ -355,7 +305,7 @@
     .reg-keys{grid-template-columns:1fr 1fr;gap:9px}.reg-key span{min-height:70px}}
   @media(prefers-reduced-motion:reduce){.tape-lines li.is-new{animation:none}}
 
-  .services-note{margin-top:30px;padding:18px 20px;border:2px solid var(--ink);background:#F4DD63;color:var(--ink)!important;font-size:14px;font-weight:650;line-height:1.45;max-width:82ch;box-shadow:7px 7px 0 var(--terra)}
+  .services-note{margin-top:30px;font-size:14px;line-height:1.55;max-width:82ch}
   .sw-reactive{will-change:transform,translate;transform:translate3d(calc(var(--sw-rx,0px) + var(--sw-sx,0px) + var(--sw-tx,0px)),calc(var(--sw-ry,0px) + var(--sw-sy,0px) + var(--sw-ty,0px)),0);
     animation:swBuoyancy var(--sw-float-duration,8s) linear infinite;animation-delay:var(--sw-float-delay,0s);transition:transform 1.05s cubic-bezier(.2,.7,.2,1)}
   .sw-reactive.sw-contact{transition-duration:.34s}
@@ -497,15 +447,12 @@
 
 <!-- HERO -->
 <section class="hero"><div class="wrap">
-  <div class="studioline">Concepts for Culture &amp; Commerce</div>
   <h1 class="serif">SOUR<em>water</em></h1>
-  <div class="tag">Social Media Concepts · Brand Systems · Content Engines · Creative Direction</div>
   <div class="pos serif">Βρίσκουμε αυτό που <b>δεν πρέπει να αλλάξει</b>.<br>Αλλάζουμε <b>όλα τα υπόλοιπα</b>.</div>
   <div class="hero-cta">
     <a class="solid" href="#work">Δείτε επιλεγμένες δουλειές</a>
     <a class="ghost" href="#contact">Ξεκινήστε ένα project</a>
   </div>
-  <p class="hero-note serif">Κάποιος από την ομάδα μας ακούει το όραμα και τους στόχους σας, αξιολογεί το project σας, και φτιάχνει το πλάνο.</p>
 </div></section>
 
 <!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ξεχωριστή λεπτή ζώνη ανάμεσα στο hero και τους κανόνες -->
@@ -563,18 +510,7 @@
 </div></section>
 
 <!-- ESCAPE SHOP -->
-<section class="band" style="--bg:#244A42;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
-  <aside class="project-offer" style="--drawer-line:#CBA24B;--drawer-tab:#CBA24B;--drawer-tab-ink:#17352F;--drawer-shadow:#EDE7D6" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="escape-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="escape-offer"><span class="offer-label">Το case plan πίσω από το project</span>
-      <div class="offer-plan-intro"><h3>Σύστημα commerce &amp; discovery</h3><p>Το e-shop, η εμπορική στρατηγική και η εκδοτική μηχανή λειτουργούν ως ένα σύστημα που μετατρέπει την αναζήτηση σε αγορά.</p></div>
-      <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Βασική κατασκευή</small><strong>Σχεδιασμός ιστοσελίδας + SEO + GEO</strong><span>Custom design, πλοήγηση προϊόντων, structured data και περιεχόμενο έτοιμο για αναζήτηση.</span></div>
-        <div class="offer-plan-card"><small>Στρατηγικό επίπεδο</small><strong>Sprint στρατηγικής / audit περιεχομένου</strong><span>Αρχιτεκτονική προσφοράς, bundles, τοπική αναζήτηση και εποχικό πλάνο.</span></div>
-        <div class="offer-plan-card"><small>Μηχανή περιεχομένου</small><strong>Managed Content Engine</strong><span>Δίγλωσσοι οδηγοί, blogging και επαναλαμβανόμενη παραγωγή καμπανιών.</span></div>
-      </div>
-      <a href="mailto:hello@sourwater.space?subject=Escape%20Shop%20case%20plan">Συζητήστε αυτό το case plan →</a></div>
-  </aside>
+<section class="band escape-shop" style="--bg:#2F4A5A;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <div class="head">
     <div class="mark">ES</div>
     <div class="meta"><div class="kick">01 · Καρδίτσα, Ελλάδα · Σε εξέλιξη</div><h2 class="disp">Escape Shop</h2></div>
@@ -582,9 +518,7 @@
   <div class="grid">
     <div class="txt">
       <p class="lead">Ένα μαγαζί για ψάρεμα κυπρίνου και γλυκών νερών, με ολόκληρο e-shop... που όμως κανείς δεν έβρισκε. Οπότε φτιάξαμε τον λόγο να το βρουν: έναν οδηγό λιμνών που κερδίζει την αναζήτηση, και μετά δίνει στον αναγνώστη τον ακριβή εξοπλισμό για αγορά.</p>
-      <blockquote>Μιλάς σε ψαράδες, όχι σε πωλητές.<span class="a">Η υπόσχεση του μαγαζιού, ζωντανή σε κάθε σελίδα</span></blockquote>
-      <p class="lead" style="font-size:16px;margin-top:20px">Το site είναι πλαίσιο, όχι κατάλογος: διάβασε το νερό, διάλεξε τη λίμνη, αγόρασε μόνο ό,τι χρειάζεσαι. Τοπικοί οδηγοί για Πλαστήρα, Κρεμαστών και Κερκίνη τροφοδοτούν τρία πακέτα εξοπλισμού που οδηγούν κατευθείαν στο escapeshop.gr.</p>
-      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">SEO</span><span class="tag">GEO</span><span class="tag">Συγγραφή περιεχομένου (οδηγοί λιμνών)</span><span class="tag">Πακέτα προϊόντων</span><span class="tag">Δίγλωσσο EN/EL</span><span class="tag">Funnel e-shop</span><span class="tag">Blogging</span><span class="tag">Τοπικό SEO</span><span class="tag">Εποχιακές καμπάνιες</span></div>
+      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">SEO / GEO</span><span class="tag">Οδηγοί λιμνών</span></div>
       <a class="btn" href="https://escapeshop-gr.labrakex.workers.dev/" target="_blank" rel="noopener">Δείτε το live e-shop</a>
     </div>
     <div class="col" style="aspect-ratio:auto">
@@ -598,17 +532,6 @@
 
 <!-- WDV -->
 <section class="band flip" style="--bg:#D9892F;--fg:#2B1B0A;--accent:#6E3A10"><div class="wrap">
-  <aside class="project-offer" style="--drawer-line:#6E3A10;--drawer-tab:#6E3A10;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#FFBE1B" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="wdv-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="wdv-offer"><span class="offer-label">Το case plan πίσω από το project</span>
-      <div class="offer-plan-intro"><h3>Always-on growth system</h3><p>Premium social παραγωγή, funnel strategy και μετρημένη έρευνα κοινού για μια wedding υπηρεσία υψηλής απόφασης.</p></div>
-      <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Πλήρες retainer</small><strong>Full Engine</strong><span>Πρωτότυπο multi-platform content, reels, editing, community και μηνιαία στρατηγική.</span></div>
-        <div class="offer-plan-card"><small>Στρατηγικό επίπεδο</small><strong>Sprint στρατηγικής / audit περιεχομένου</strong><span>Course launch, σύστημα testimonials και καθαρός χάρτης booking funnel.</span></div>
-        <div class="offer-plan-card"><small>Μετρημένη ανάπτυξη</small><strong>Δοκιμές διαφημίσεων &amp; έρευνα κοινού</strong><span>Στοχευμένες δοκιμές, ειλικρινής μέτρηση και μεθοδικό scaling.</span></div>
-      </div>
-      <a href="mailto:hello@sourwater.space?subject=Wedding%20Dance%20Vows%20case%20plan">Συζητήστε αυτό το case plan →</a></div>
-  </aside>
   <div class="head">
     <img src="/assets/logo_wdv.png" alt="Wedding Dance Vows">
     <div class="meta"><div class="kick">02 · Νέα Υόρκη, Η.Π.Α.</div><h2 class="disp">Wedding Dance Vows</h2></div>
@@ -616,8 +539,8 @@
   <div class="grid">
     <div class="txt">
       <p class="lead">Ρομαντικό, κινηματογραφικό, συναισθηματικά έξυπνο, ποτέ φτηνιάρικο. Κάθε post παραδίδεται ως πλήρες πακέτο παραγωγής: caption, media direction, κείμενο εξωφύλλου, και πλάνο επανασχεδιασμού για κάθε πλατφόρμα.</p>
-      <blockquote>Δύο άνθρωποι που δεν έχουν χορέψει ποτέ μαζί, ετοιμάζονται για την πιο viral συνομιλία της ζωής τους. Γι' αυτό κάνουμε τη χορογραφία.<span class="a">Απόσπασμα από δημοσιευμένο caption</span></blockquote>
-      <div class="tags"><span class="tag">Reels</span><span class="tag">Carousels</span><span class="tag">Μοντάζ βίντεο</span><span class="tag">TikTok</span><span class="tag">Concept &amp; στρατηγική περιεχομένου</span><span class="tag">Αξιολόγηση ιστοσελίδας</span><span class="tag">Launch online μαθήματος &amp; funnel</span><span class="tag">Διαφημιστικές καμπάνιες</span><span class="tag">Συλλογή μαρτυριών</span><span class="tag">Επιλογή trend/ήχου</span></div>
+      <blockquote>Δύο άνθρωποι που δεν έχουν χορέψει ποτέ μαζί, ετοιμάζονται για την πιο viral συνομιλία της ζωής τους. Γι' αυτό κάνουμε τη χορογραφία.</blockquote>
+      <div class="tags"><span class="tag">Reels</span><span class="tag">Στρατηγική περιεχομένου</span><span class="tag">Funnel online μαθήματος</span></div>
     </div>
     <div class="col">
       <img src="/assets/wdv-ig-post.png" style="width:54%;top:0;left:0%;transform:rotate(-3deg);z-index:2">
@@ -628,17 +551,6 @@
 
 <!-- FLAOUER -->
 <section class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
-  <aside class="project-offer" style="--drawer-line:#58303E;--drawer-tab:#58303E;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#DAA55C" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="flaouer-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="flaouer-offer"><span class="offer-label">Το case plan πίσω από το project</span>
-      <div class="offer-plan-intro"><h3>Σύστημα launch για studio</h3><p>Η ιστοσελίδα, η αρχιτεκτονική προσφορών και η συνεχής γλώσσα καμπανιών λειτουργούν ως ένα launch-ready σύστημα.</p></div>
-      <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Ψηφιακό θεμέλιο</small><strong>Σχεδιασμός ιστοσελίδας + SEO + GEO</strong><span>Mobile-first site, δίγλωσση δομή, search, πρόγραμμα και booking.</span></div>
-        <div class="offer-plan-card"><small>Στρατηγικό επίπεδο</small><strong>Sprint στρατηγικής / audit περιεχομένου</strong><span>Offer architecture, class spotlights, launch calendar και art direction.</span></div>
-        <div class="offer-plan-card"><small>Συνεχής ανάπτυξη</small><strong>Growth</strong><span>Καμπάνιες workshops και πρωτότυπο IG/TikTok publishing.</span></div>
-      </div>
-      <a href="mailto:hello@sourwater.space?subject=Flaouer%20case%20plan">Συζητήστε αυτό το case plan →</a></div>
-  </aside>
   <div class="head">
     <img src="/assets/logo_flaouer.png" alt="Flaouer Hub">
     <div class="meta"><div class="kick">03 · Αθήνα, Ελλάδα</div><h2 class="disp">Flaouer Hub</h2></div>
@@ -646,8 +558,7 @@
   <div class="grid">
     <div class="txt">
       <p class="lead">Ένα studio που χωράει να φιλοξενήσει κάθε πρακτική. Εξολοκλήρου κατασκευή brand για ένα studio κίνησης πολλαπλών πρακτικών στο κέντρο της Αθήνας: σχεδιασμός ιστοσελίδας, αρχιτεκτονική προσφορών με επικεφαλής τα Movement Bonding Workshops, και αισθητική print-shop poster, έντονη τυπογραφία, πραγματικά περιθώρια, καμία διακόσμηση.</p>
-      <blockquote>Το μαζί δεν φαίνεται όταν κρατάμε και οι δύο το ίδιο βήμα. Φαίνεται όταν ο ένας το χάσει.<span class="a">Κείμενο καμπάνιας συνεργασίας</span></blockquote>
-      <div class="tags"><span class="tag">Σχεδιασμός &amp; ανάπτυξη ιστοσελίδας</span><span class="tag">SEO</span><span class="tag">GEO</span><span class="tag">Αρχιτεκτονική προσφορών</span><span class="tag">Προβολή μαθημάτων</span><span class="tag">Σχεδιασμός προγράμματος</span><span class="tag">Καλλιτεχνική διεύθυνση</span><span class="tag">Ενσωμάτωση κρατήσεων</span><span class="tag">Δίγλωσσο περιεχόμενο</span><span class="tag">Launch εργαστηρίων/καμπανιών</span><span class="tag">Περιεχόμενο IG/TikTok</span></div>
+      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">Αρχιτεκτονική προσφορών</span><span class="tag">Δίγλωσσο περιεχόμενο</span></div>
     </div>
     <div class="col">
       <img src="/assets/flaouer-couples-bonding.png" style="width:50%;top:2%;left:0%;transform:rotate(-8deg);z-index:2">
@@ -666,17 +577,6 @@
 
 <!-- MERMAID -->
 <section id="mermaid" class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
-  <aside class="project-offer" style="--drawer-line:#2E7C77;--drawer-tab:#2E7C77;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#D6AD6A" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="mermaid-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="mermaid-offer"><span class="offer-label">Το case plan πίσω από το project</span>
-      <div class="offer-plan-intro"><h3>Σύστημα brand εμπειρίας</h3><p>Premium doctrine, εμπορική στρατηγική και συνεπής οπτικός κόσμος για μια εμπειρία που πρέπει να μεταμορφώνει πριν ακόμη γίνει η κράτηση.</p></div>
-      <div class="offer-plan-stack">
-        <div class="offer-plan-card"><small>Θεμέλιο του brand</small><strong>Brand doctrine / brand book</strong><span>Φωνή, visual law, content pillars και dual-audience growth ladder.</span></div>
-        <div class="offer-plan-card"><small>Στρατηγικό επίπεδο</small><strong>Sprint στρατηγικής / audit περιεχομένου</strong><span>Rate card, launch calendar, testimonial system και booking funnel.</span></div>
-        <div class="offer-plan-card"><small>Κόσμος κινούμενης εικόνας</small><strong>AI Brand Film — Short</strong><span>Σύλληψη, καλλιτεχνική διεύθυνση, AI παραγωγή βίντεο, color, sound design και τελικά vertical masters.</span></div>
-      </div>
-      <a href="mailto:hello@sourwater.space?subject=Mermaid%20Experience%20case%20plan">Συζητήστε αυτό το case plan →</a></div>
-  </aside>
   <div class="head">
     <img src="/assets/logo_mermaid.jpg" alt="Become a Mermaid" style="border-radius:4px;height:96px">
     <div class="meta"><div class="kick">04 · Αθήνα, Ελλάδα</div><h2 class="disp">Mermaid Experience</h2></div>
@@ -689,12 +589,39 @@
     </div>
     <div class="txt">
       <p class="lead">Πολυτελές, βιωματικό προϊόν, ύφος Aman Resorts. Brand book σε τέσσερις τόμους, έξι θεματικοί άξονες content, δύο διαφορετικά κοινά, και ένα πλάνο launch χτισμένο μέρα με τη μέρα.</p>
-      <blockquote>Το πρώτο πράγμα που κάνει ο καθένας μέσα στην ουρά είναι να πανικοβληθεί λίγο. Το δεύτερο είναι να γελάσει. Το τρίτο είναι να σωπάσει. Γιατί το σώμα καταλαβαίνει το κύμα πριν το καταλάβει το μυαλό.<span class="a">Απόσπασμα από το ημερολόγιο launch</span></blockquote>
-      <div class="tags"><span class="tag">Brand book</span><span class="tag">Στρατηγική θεματικών αξόνων</span><span class="tag">Ημερολόγιο launch</span><span class="tag">Στρατηγική τιμολόγησης</span><span class="tag">Φωτογραφική art direction</span><span class="tag">AI Brand Film</span><span class="tag">Καλλιτεχνική διεύθυνση</span><span class="tag">AI παραγωγή βίντεο</span><span class="tag">Reels/short-form</span><span class="tag">Σύστημα μαρτυριών</span><span class="tag">Στρατηγική διπλού κοινού</span><span class="tag">Funnel κρατήσεων</span></div>
+      <blockquote>Το πρώτο πράγμα που κάνει ο καθένας μέσα στην ουρά είναι να πανικοβληθεί λίγο. Το δεύτερο είναι να γελάσει. Το τρίτο είναι να σωπάσει. Γιατί το σώμα καταλαβαίνει το κύμα πριν το καταλάβει το μυαλό.</blockquote>
+      <div class="tags"><span class="tag">Brand book</span><span class="tag">AI brand film</span><span class="tag">Ημερολόγιο launch</span></div>
     </div>
   </div>
 
-  <div class="mermaid-film" data-mermaid-film data-no-wet aria-label="Διαδραστική ταινία Mermaids Need Space">
+  <a class="case-film-link" href="#mermaids-film">Δείτε την ταινία</a>
+</div></section>
+
+<!-- ATA -->
+<section class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
+  <div class="head">
+    <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy">
+    <div class="meta"><div class="kick">05 · Ναυαρχίδα · Εκδόσεις &amp; Παιδαγωγική</div><h2 class="disp">Acting Truth Academy</h2></div>
+  </div>
+  <div class="grid">
+    <div class="txt">
+      <p class="lead">Ένα πλήρες εκδοτικό οικοσύστημα, χτισμένο από την αρχή ως το τέλος: δύο βιβλία, μια τράπεζα 22 δοκιμίων για το Substack χωρισμένη σε δύο χρωματικά κωδικοποιημένες θεματικές, μια καθημερινή σχεδιαστική γλώσσα για το Instagram, και ένα funnel από το δωρεάν δοκίμιο έως τη signature υπηρεσία.</p>
+      <div class="tags"><span class="tag">Σύστημα Substack</span><span class="tag">Καθημερινή μηχανή περιεχομένου</span><span class="tag">Σχεδιασμός funnel</span></div>
+    </div>
+    <div class="col">
+      <img src="/assets/banner-wim-clean.png" style="width:98%;top:0;left:1%;transform:rotate(-1deg)">
+      <img src="/assets/ata-gap-pink.png" style="width:45%;top:26%;left:3%;transform:rotate(-3deg)">
+      <img src="/assets/ata-gap-cream.png" style="width:45%;top:34%;left:50%;transform:rotate(3deg)">
+    </div>
+  </div>
+</div></section>
+
+<!-- SOURwater FILMS -->
+<section class="ai-films" id="ai-films" aria-labelledby="ai-films-title"><div class="wrap">
+  <div class="ai-films-intro">
+    <div><h2 class="disp" id="ai-films-title">AI Content &amp; Films.</h2><p>Ιδέες που αποκτούν κίνηση. Ταινίες με AI, εικόνες για καμπάνιες και περιεχόμενο μικρής διάρκειας, με δημιουργική σύλληψη, καλλιτεχνική διεύθυνση και μοντάζ.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Ας δημιουργήσουμε την επόμενη ταινία σας</a></div>
+  </div>
+  <div class="mermaid-film" id="mermaids-film" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77" data-mermaid-film data-no-wet aria-label="Διαδραστική ταινία Mermaids Need Space">
     <div class="mermaid-film-sticky">
       <div class="mermaid-film-copy">
         <div class="kick">SOURwater Films · 001</div>
@@ -718,50 +645,8 @@
       </div>
     </div>
   </div>
-</div></section>
-
-<!-- ATA -->
-<section class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
-  <aside class="project-offer project-offer--ata" style="--drawer-line:#C1336D;--drawer-tab:#C1336D;--drawer-tab-ink:#FFFFFF;--drawer-shadow:#142330" data-no-wet>
-    <button class="project-offer-tab" type="button" aria-expanded="false" aria-controls="ata-offer" aria-label="Άνοιγμα πληροφοριών υπηρεσίας"><span>Υπηρεσία</span><b aria-hidden="true">+</b></button>
-    <div class="project-offer-panel" id="ata-offer">
-      <div class="ata-offer-head"><span>Acting Truth Academy</span><span>Flagship publishing system</span></div>
-      <div class="ata-offer-body">
-        <h3>Χτίστε το doctrine. <em>Δώστε του φωνή.</em></h3>
-        <p>Πλήρης πνευματική αρχιτεκτονική brand, συνεχής εκδοτική μηχανή και AI παρουσία που μπορεί να μιλά, να διδάσκει και να δημοσιεύει με σταθερό χαρακτήρα.</p>
-        <div class="ata-offer-modules">
-          <div class="ata-offer-module"><small>Θεμέλιο</small><strong>Brand doctrine / brand book</strong><span>Φωνή, φιλοσοφία, visual law και brand architecture.</span></div>
-          <div class="ata-offer-module"><small>Εκδοτική μηχανή</small><strong>Managed Content Engine</strong><span>Substack, καθημερινό content, funnels, email και release flow.</span></div>
-          <div class="ata-offer-module"><small>AI επέκταση</small><strong>AI publishing persona</strong><span>Οδηγός φωνής, επαναχρησιμοποιήσιμο prompt system και έτοιμα sample posts.</span></div>
-        </div>
-        <a href="mailto:hello@sourwater.space?subject=Ενδιαφέρομαι%20για%20Brand%20system%20και%20AI%20publishing">Σχεδιάστε αυτό το σύστημα</a>
-      </div>
-    </div>
-  </aside>
-  <div class="head">
-    <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy">
-    <div class="meta"><div class="kick">05 · Ναυαρχίδα · Εκδόσεις &amp; Παιδαγωγική</div><h2 class="disp">Acting Truth Academy</h2></div>
-  </div>
-  <div class="grid">
-    <div class="txt">
-      <p class="lead">Ένα πλήρες εκδοτικό οικοσύστημα, χτισμένο από την αρχή ως το τέλος: δύο βιβλία, μια τράπεζα 22 δοκιμίων για το Substack χωρισμένη σε δύο χρωματικά κωδικοποιημένες θεματικές, μια καθημερινή σχεδιαστική γλώσσα για το Instagram, και ένα funnel από το δωρεάν δοκίμιο έως τη signature υπηρεσία.</p>
-      <blockquote>Η μίμηση παίζει από τη μνήμη· η παρουσία παίζει από το τώρα.<span class="a">Φωνή brand, αφοριστικό ύφος</span></blockquote>
-      <div class="tags"><span class="tag">Σύστημα Substack</span><span class="tag">Μορφή IG "The Gap"</span><span class="tag">Σχεδιασμός funnel</span><span class="tag">Καθημερινή μηχανή περιεχομένου</span><span class="tag">Faceless short-form</span><span class="tag">AI publishing persona</span><span class="tag">Launch βιβλίου</span><span class="tag">Ακολουθίες email</span><span class="tag">Στρατηγική paid-tier</span><span class="tag">Αφήγηση AI audiobook</span></div>
-    </div>
-    <div class="col">
-      <img src="/assets/banner-wim-clean.png" style="width:98%;top:0;left:1%;transform:rotate(-1deg)">
-      <img src="/assets/ata-gap-pink.png" style="width:45%;top:26%;left:3%;transform:rotate(-3deg)">
-      <img src="/assets/ata-gap-cream.png" style="width:45%;top:34%;left:50%;transform:rotate(3deg)">
-    </div>
-  </div>
-</div></section>
-
-<!-- SOURwater FILMS -->
-<section class="ai-films" id="ai-films" aria-labelledby="ai-films-title"><div class="wrap">
-  <div class="ai-films-intro">
-    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div></div>
-    <div><h2 class="disp" id="ai-films-title">AI Content &amp; Films.</h2><p>Ιδέες που αποκτούν κίνηση. Ταινίες με AI, εικόνες για καμπάνιες και περιεχόμενο μικρής διάρκειας, με δημιουργική σύλληψη, καλλιτεχνική διεύθυνση και μοντάζ.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Ας δημιουργήσουμε την επόμενη ταινία σας</a></div>
-  </div>
+  <div class="ai-film-study">
+    <div class="kick ai-film-label">SOURwater Films · 002</div>
   <div class="ai-film-player" data-ai-film data-no-wet>
     <video playsinline preload="none" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback poster="/assets/ai-content-film-poster.jpg" src="/assets/ai-content-film.mp4" aria-label="Ταινία AI από τη SOURwater Films"></video>
     <div class="ai-film-controls">
@@ -774,6 +659,7 @@
     <p class="ai-film-status" data-film-status role="status"></p>
   </div>
   <div class="ai-film-caption"><strong>Κινηματογραφική μελέτη με AI</strong><span>40 δευτερόλεπτα · Πρωτότυπο 720p · Με ήχο</span></div>
+  </div>
 </div></section>
 
 <!-- KATOPSI, studio product -->
@@ -804,47 +690,27 @@
   <p class="lead" style="max-width:60ch">Διαλέξτε μία κατεύθυνση ή χτίστε ένα πλήρες σύστημα. Κάθε υπηρεσία προσαρμόζεται στο δικό σας brand, από ένα reel μέχρι μια ολοκληρωμένη λειτουργία content και e-commerce.</p>
   <div class="pricegrid">
     <div class="pcard"><h3>Συστήματα Brand</h3><span class="sub">Εφάπαξ</span><ul>
-      <li data-badge="Premium"><div class="row"><span>Brand doctrine / brand book</span></div><em>Φωνή, παλέτα, απαγορευμένες λέξεις, θεματικοί άξονες και σκάλα ανάπτυξης</em></li>
+      <li><div class="row"><span>Brand doctrine / brand book</span></div><em>Φωνή, παλέτα, απαγορευμένες λέξεις, θεματικοί άξονες και σκάλα ανάπτυξης</em></li>
       <li><div class="row"><span>Οπτική ταυτότητα &amp; σύστημα καρτών</span></div><em>Logo lockups, templates και επαναχρησιμοποιήσιμο σύστημα σχεδιασμού posts</em></li>
-    </ul></div>
-    <div class="pcard"><h3>Σκηνοθεσία &amp; Παραγωγή Βίντεο</h3><span class="sub">Σύλληψη, δημιουργική σκηνοθεσία και παραγωγή — με AI ή με μοντάζ υπάρχοντος υλικού.</span><ul>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>AI Brand Film — Short</span></div><em>Έως 60 δευτ. Σύλληψη + σκηνοθεσία + AI παραγωγή.</em></li>
-      <li data-badge="Premium"><div class="row"><span>AI Brand Film — Full</span></div><em>Έως 3 λεπτά. Σύλληψη + σκηνοθεσία + AI παραγωγή.</em></li>
-      <li><div class="row"><span>Μοντάζ Reel / TikTok</span></div><em>Αυτόνομο social video από υλικό που μας δίνετε ή από νέο γύρισμα.</em></li>
-      <li><div class="row"><span>Campaign Cutdown</span></div><em>Έως 20 δευτ., προσαρμογή από μεγαλύτερο film ή από το ίδιο γύρισμα για Reels/TikTok/Stories.</em></li>
     </ul></div>
     <div class="pcard"><h3>Ιστοσελίδες</h3><span class="sub">Εφάπαξ</span><ul>
       <li><div class="row"><span>Landing page / microsite + SEO</span></div><em>Μονοσέλιδο funnel ή campaign site</em></li>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
+      <li><div class="row"><span>Σχεδιασμός ιστοσελίδας + SEO + GEO</span></div><em>Custom design, structured data, llms.txt, sitemap και mobile-first κατασκευή</em></li>
+      <li><div class="row"><span>Interactive site + SEO + GEO</span></div><em>Εικόνες και βίντεο που δημιουργούνται με AI και ζωντανεύουν με scroll, κέρσορα και αφή. Custom design, κινηματογραφική κίνηση και mobile-first κατασκευή, με τεχνικό SEO, structured data και σαφές περιεχόμενο για μηχανές αναζήτησης και AI αναζήτηση.</em><em>Η ζωντανή παραγωγή με AI και η συνεχιζόμενη χρήση API ορίζονται ως ξεχωριστή υπηρεσία.</em></li>
     </ul></div>
-    <div class="pcard pcard-premium"><h3>Premium Διαδραστικές Ιστοσελίδες</h3><span class="sub">Εφάπαξ · AI visuals &amp; δημιουργική σκηνοθεσία</span><ul>
-      <li data-badge="Premium"><div class="row"><span>Interactive Site + SEO + GEO</span></div><em>Εικόνες και βίντεο που δημιουργούνται με AI και ζωντανεύουν με scroll, κέρσορα και αφή. Custom design, κινηματογραφική κίνηση και mobile-first κατασκευή, με τεχνικό SEO, structured data και σαφές περιεχόμενο για μηχανές αναζήτησης και AI αναζήτηση.</em><em>Η ζωντανή παραγωγή με AI και η συνεχιζόμενη χρήση API ορίζονται ως ξεχωριστή υπηρεσία.</em></li>
+    <div class="pcard"><h3>Social &amp; Περιεχόμενο</h3><span class="sub">Μηνιαία / ρύθμιση + συνδρομή</span><ul>
+      <li><div class="row"><span>Διαχείριση Social Media</span></div><em>Από 1 λογαριασμό (~12 posts) έως ανάπτυξη σε δύο πλατφόρμες και πλήρη multi-platform μηχανή, με captions, σχεδιασμό, μοντάζ, community και στρατηγική.</em></li>
+      <li><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span></div><em>Ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
+      <li><div class="row"><span>Managed Content Engine</span></div><em>Στρατηγική, intake πηγών, προσαρμογή ανά πλατφόρμα, approvals, scheduling, asset library, analytics και μηνιαία βελτιστοποίηση</em></li>
     </ul></div>
-    <div class="pcard"><h3>Διαχείριση Social Media</h3><span class="sub">Μηνιαία συνεργασία</span><ul>
-      <li><div class="row"><span>Essentials</span></div><em>1 λογαριασμός · ~12 posts · captions · σχεδιασμός</em></li>
-      <li><div class="row"><span>Two Accounts</span></div><em>2 λογαριασμοί · κοινή κατεύθυνση · προσαρμογή του ίδιου βασικού content ανά πλατφόρμα</em></li>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>Growth</span></div><em>2 πλατφόρμες · ~20 μοναδικά posts + reels · stories · ημερολόγιο · ελαφριά στρατηγική</em></li>
-      <li data-badge="Premium"><div class="row"><span>Full Engine</span></div><em>Πολλαπλές πλατφόρμες · καθημερινή μηχανή περιεχομένου · editing · community management · μηνιαία στρατηγική</em></li>
-    </ul></div>
-    <div class="pcard"><h3>Synthetic Media · AI Publishing</h3><span class="sub">On-brand εικόνες, publishing personas, φωνή και ρετούς.</span><ul>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>Synthetic Campaign</span></div><em>Σετ 10–15 εικόνων, σύλληψη + σκηνοθεσία + generation, στο ύφος του brand.</em></li>
-      <li><div class="row"><span>AI publishing persona</span></div><em>Οδηγός φωνής, επαναχρησιμοποιήσιμο prompt system και 5 έτοιμα sample posts.</em></li>
-      <li><div class="row"><span>Σειρά faceless short-form</span></div><em>Σταθερός επαναλαμβανόμενος χαρακτήρας, πλήρες AI pipeline, χωρίς φυσικό γύρισμα.</em></li>
-      <li><div class="row"><span>AI voice setup + narration</span></div><em>Consent-verified voice setup + έως 5 τελικά λεπτά αφήγησης.</em></li>
-      <li><div class="row"><span>Photo editing / retouching</span></div><em>Έως 10 εικόνες · αφαίρεση φόντου, καθαρισμός και ρετούς με βοήθεια AI.</em></li>
-    </ul></div>
-    <div class="pcard"><h3>Μηχανή Περιεχομένου</h3><span class="sub">Ρύθμιση + συνδρομή</span><ul>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>Αυτοματοποιημένο καθημερινό pipeline</span></div><em>Ένα brief μπαίνει, ένα πλήρες πακέτο έτοιμου υλικού βγαίνει</em></li>
-      <li data-badge="Premium"><div class="row"><span>Managed Content Engine</span></div><em>Στρατηγική, intake πηγών, προσαρμογή ανά πλατφόρμα, approvals, scheduling, asset library, analytics και μηνιαία βελτιστοποίηση</em></li>
+    <div class="pcard"><h3>Film &amp; AI</h3><span class="sub">Ανά project</span><ul>
+      <li><div class="row"><span>AI brand film</span></div><em>Έως 60 δευτ. ή έως 3 λεπτά. Σύλληψη, δημιουργική σκηνοθεσία και AI παραγωγή.</em></li>
+      <li><div class="row"><span>Μοντάζ Reel / TikTok &amp; campaign cutdowns</span></div><em>Αυτόνομα edits από υπάρχον υλικό ή νέο γύρισμα, και cutdowns έως 20 δευτ. για Reels, TikTok και Stories.</em></li>
+      <li><div class="row"><span>Synthetic καμπάνιες &amp; AI personas</span></div><em>Καμπάνιες εικόνων, publishing personas, αφήγηση με επαληθευμένη συναίνεση, faceless σειρές και ρετούς στο ύφος του brand.</em></li>
     </ul></div>
     <div class="pcard"><h3>Στρατηγική</h3><span class="sub">Sprints &amp; δοκιμές</span><ul>
-      <li data-badge="Προτεινόμενο"><div class="row"><span>Sprint στρατηγικής / audit περιεχομένου</span></div><em>Αρχιτεκτονική προσφοράς, κοινό, funnel, launch και πλάνο 90 ημερών</em></li>
+      <li><div class="row"><span>Sprint στρατηγικής / audit περιεχομένου</span></div><em>Αρχιτεκτονική προσφοράς, κοινό, funnel, launch και πλάνο 90 ημερών</em></li>
       <li><div class="row"><span>Δοκιμές διαφημίσεων &amp; έρευνα κοινού</span></div><em>Μικρές δοκιμές, μέτρηση και κλιμάκωση μόνο του νικητή</em></li>
-    </ul></div>
-    <div class="pcard"><h3>1:1 Διάγνωση Brand</h3><span class="sub">Απευθείας κράτηση στο Cal.com</span><ul>
-      <li><a class="book-line" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><div class="row"><span>30 λεπτά · focused diagnosis</span></div><em>Συγκεκριμένος έλεγχος και καθαρό επόμενο βήμα</em><span class="book-now">Κράτηση</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><div class="row"><span>60 λεπτά · deeper diagnosis</span></div><em>Βαθύτερος έλεγχος brand, προσφοράς ή project</em><span class="book-now">Κράτηση</span></a></li>
-      <li><a class="book-line" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><div class="row"><span>90 λεπτά + γραπτό πλάνο</span></div><em>Action plan που αποστέλλεται μέσα σε 48 ώρες</em><span class="book-now">Κράτηση</span></a></li>
     </ul></div>
   </div>
   <p class="services-note">Κάθε συνεργασία ορίζεται με σαφές scope. Τα συνδυαστικά πακέτα και οι ongoing συνεργασίες διαμορφώνονται ανάλογα με το έργο.</p>
@@ -917,29 +783,6 @@
 
 <script>
 (function(){
-  function syncDrawerLock(){
-    document.body.classList.toggle('drawer-open',!!document.querySelector('.project-offer.is-open'));
-  }
-  function closeDrawer(box){
-    box.classList.remove('is-open');
-    var tab=box.querySelector('.project-offer-tab');
-    if(tab)tab.setAttribute('aria-expanded','false');
-  }
-  document.querySelectorAll('.project-offer-tab').forEach(function(button){
-    button.addEventListener('click',function(){
-      var box=button.closest('.project-offer'),open=!box.classList.contains('is-open');
-      document.querySelectorAll('.project-offer.is-open').forEach(function(other){
-        if(other!==box)closeDrawer(other);
-      });
-      box.classList.toggle('is-open',open);button.setAttribute('aria-expanded',String(open));
-      syncDrawerLock();
-    });
-  });
-  document.addEventListener('click',function(event){
-    if(event.target.closest('.project-offer'))return;
-    document.querySelectorAll('.project-offer.is-open').forEach(function(box){closeDrawer(box);});
-    syncDrawerLock();
-  });
   document.querySelectorAll('.register').forEach(function(form){
     var groups=['build','brand','content','production'];
     var vfd=form.querySelector('[data-vfd]'),count=form.querySelector('[data-count]'),copy=form.querySelector('.plan-copy'),email=form.querySelector('.plan-email');
