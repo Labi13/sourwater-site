@@ -1,8 +1,16 @@
-// Only the new independent film uses this handler; other assets stay static.
+// Film files use byte-range delivery for playback and scroll seeking; other assets stay static.
 import { FILM_BYTES } from './film-metadata.mjs';
+// Exact sizes of the existing encoded Mermaid assets, verified against dist.
+const VIDEO_BYTES = {
+  '/assets/ai-content-film.mp4': FILM_BYTES,
+  '/assets/mermaids-need-space-720.mp4': 14344809,
+  '/assets/mermaids-need-space-1080.mp4': 25582422,
+  '/assets/mermaids-need-space-2k.mp4': 24697919
+};
 export default {
   async fetch(request, env) {
-    if (new URL(request.url).pathname !== '/assets/ai-content-film.mp4' ||
+    const videoSize = VIDEO_BYTES[new URL(request.url).pathname];
+    if (!videoSize ||
         !['GET', 'HEAD'].includes(request.method)) return env.ASSETS.fetch(request);
     const source = await env.ASSETS.fetch(new Request(request.url, {method: request.method}));
     if (source.status !== 200) return source;
@@ -11,7 +19,7 @@ export default {
     headers.set('Cache-Control', 'public, max-age=3600');
     const range = request.headers.get('Range');
     // The ASSETS binding may omit Content-Length; the build verifies this size.
-    const size = Number(headers.get('Content-Length')) || FILM_BYTES;
+    const size = Number(headers.get('Content-Length')) || videoSize;
     headers.set('Content-Length', String(size));
     if (!range || request.method === 'HEAD' || !size ||
         (request.headers.has('If-Range') && request.headers.get('If-Range') !== headers.get('ETag'))) {
