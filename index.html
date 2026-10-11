@@ -434,7 +434,7 @@
         "Daily content engine",
         "Funnel design"
       ],
-      "image": "https://sourwater.space/assets/ata/ata-substack-caricature-trap.webp"
+      "image": "https://sourwater.space/assets/ata/ata-banner-technique-as-a-refuge.webp"
     },
     {
       "@type": "VideoObject",
@@ -605,16 +605,10 @@
   .escape-shop .tag{color:var(--fg)}
   .escape-shop .btn{color:var(--ink)}
 
-  /* ATA: three editorial cards, staggered to expose every headline. */
-  #acting-truth-academy .ata-collage .ata-dark{outline:1px solid rgba(239,233,220,.18)}
-  .ata-collage .ata-ecru{width:34%;top:37%;left:2%;transform:rotate(-6deg);z-index:2}
-  .ata-collage .ata-announcement{width:42%;top:12%;left:29%;transform:rotate(-1deg);z-index:3}
-  .ata-collage .ata-fuchsia{width:34%;top:37%;left:64%;transform:rotate(6deg);z-index:1}
-  @media(max-width:600px){
-    .ata-collage .ata-ecru{width:38%;top:47%;left:1%}
-    .ata-collage .ata-announcement{width:46%;top:10%;left:27%}
-    .ata-collage .ata-fuchsia{width:38%;top:47%;left:61%}
-  }
+  /* ATA: essay banner above two slightly overlapping portrait posts. */
+  #acting-truth-academy .ata-collage .ata-banner{width:100%;top:0;left:0;transform:none;outline:1px solid rgba(239,233,220,.18);z-index:3}
+  .ata-collage .ata-ecru{width:50%;top:29%;left:3%;transform:rotate(-4deg);z-index:1}
+  .ata-collage .ata-fuchsia{width:50%;top:34%;left:47%;transform:rotate(4deg);z-index:2}
 
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
   .mermaid-film{--film-progress:0;height:260vh;margin-top:0;position:relative;color:var(--fg);scroll-margin-top:80px}
@@ -1102,9 +1096,9 @@
       <div class="tags"><span class="tag">Substack system</span><span class="tag">Daily content engine</span><span class="tag">Funnel design</span></div>
     </div>
     <div class="col ata-collage">
+      <img class="ata-banner" src="/assets/ata/ata-banner-technique-as-a-refuge.webp" alt="Acting Truth Academy banner for the essay Technique as a Refuge" width="1100" height="220" loading="lazy" decoding="async">
       <img class="ata-ecru" src="/assets/ata/ata-ig-dont-close-the-gap-ecru.webp" alt="Deep-Truth Method Instagram post: Don't close the gap. Let it move you." width="1080" height="1350" loading="lazy" decoding="async">
-      <img class="ata-announcement ata-dark" src="/assets/ata/ata-substack-caricature-trap.webp" alt="Acting Truth Academy Instagram announcement: new Substack essay, The Caricature Trap" width="1080" height="1350" loading="lazy" decoding="async">
-      <img class="ata-fuchsia" src="/assets/ata/ata-ig-story-designed-never-to-resolve-fuchsia.webp" alt="Acting Truth Academy Instagram post: A story designed never to resolve." width="1080" height="1350" loading="lazy" decoding="async">
+      <img class="ata-fuchsia" src="/assets/ata/ata-ig-story-never-resolve-fuchsia.webp" alt="What Is Missing? Instagram post: A story designed never to resolve." width="1080" height="1350" loading="lazy" decoding="async">
     </div>
   </div>
 </div></section>
