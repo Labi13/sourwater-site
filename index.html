@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://sourwater.space/">
 <link rel="alternate" hreflang="el" href="https://sourwater.space/el/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="stylesheet" href="/assets/ai-films.css">
+<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-films">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sourwater">
 <meta property="og:title" content="Sourwater · Concepts for Culture &amp; Commerce">
@@ -214,25 +214,25 @@
   }
 
   /* SERVICES */
-  .services{padding:112px 0;background:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .services{--service-accent:#E39368;padding:112px 0;background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
   .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
-    background:var(--paper);border-top:1px solid rgba(40,32,26,.14);border-left:1px solid rgba(40,32,26,.14);margin-top:44px}
-  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(40,32,26,.14);border-bottom:1px solid rgba(40,32,26,.14);box-shadow:inset 0 3px 0 var(--terra)}
-  .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--ink)}
+    background:var(--ink);border-top:1px solid rgba(245,240,228,.22);border-left:1px solid rgba(245,240,228,.22);margin-top:44px}
+  .pcard{background:var(--ink);padding:32px 30px;border-right:1px solid rgba(245,240,228,.22);border-bottom:1px solid rgba(245,240,228,.22);box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--paper)}
   .pcard-premium li em{font-size:14px;line-height:1.55}
-  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-top:4px}
-  .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(40,32,26,.1)}
+  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C8BDA9;margin-top:4px}
+  .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(245,240,228,.14)}
   .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
-  .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
-  .pcard li .row b{font-family:'Fraunces';font-weight:600;color:var(--terra);white-space:nowrap;font-size:15px}
-  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#6b6155;margin-top:5px;line-height:1.45}
+  .pcard li .row span{font-weight:600;font-size:15px;color:var(--paper)}
+  .pcard li .row b{font-family:'Fraunces';font-weight:600;color:var(--service-accent);white-space:nowrap;font-size:15px}
+  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#C8BDA9;margin-top:5px;line-height:1.45}
   .pcard li[data-badge]{position:relative;padding-top:34px}
   .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
-    background:rgba(193,92,52,.1);color:var(--terra);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-  .pcard li[data-badge="Premium"]::before{background:var(--ink);color:#F5F0E4}
-  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(36,31,26,.48);background:#FAF6EC;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
-  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:#fff;outline:none}
-  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--terra);color:#fff;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    background:rgba(193,92,52,.18);color:var(--service-accent);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+  .pcard li[data-badge="Premium"]::before{background:var(--paper);color:var(--ink)}
+  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(245,240,228,.4);background:transparent;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:rgba(245,240,228,.06);outline:none}
+  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--service-accent);color:var(--ink);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* PROJECT SERVICE DRAWERS */
@@ -414,7 +414,7 @@
     text-transform:uppercase;font-weight:600;color:var(--bg);background:var(--accent);padding:13px 24px;border-radius:40px}
 
   /* WORK INTRO */
-  .work-intro{padding:clamp(36px,5vw,64px) 0;background:var(--paper);color:var(--ink);border-top:1px solid rgba(36,31,26,.16);scroll-margin-top:72px}
+  .work-intro{padding:clamp(36px,5vw,64px) 0;background:var(--ink);color:var(--paper);border-top:1px solid rgba(245,240,228,.16);scroll-margin-top:72px}
 
   /* HOUSE RULES */
   .house-rules{padding:112px 0 96px;background:var(--paper);color:var(--ink);overflow:hidden}
@@ -549,7 +549,7 @@
       <li><img src="/assets/rules/house-rule-ai-video-director.webp?v=2" alt="AI video needs a director." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-no.webp?v=2" alt="NO. We say it to briefs that ask for everything." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-say-one-true-thing.webp?v=2" alt="Elevate your brand, struck out. Say one true thing." width="1440" height="1440" loading="lazy" decoding="async"></li>
-      <li><img src="/assets/rules/house-rule-less.webp?v=2" alt="Less. Fewer words, colours, channels and promises." width="1440" height="1440" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-bleed.webp?v=3" alt="CONTENT ENGINE. BLEED. Stop polishing the brief until it says nothing; say one thing and stop." data-kicker="CONTENT ENGINE" data-title="BLEED." data-body="Stop polishing the brief until it says nothing; say one thing and stop." data-texture-size="2048" width="1440" height="1440" loading="lazy" decoding="async"><div class="rules-copy"><span class="kick">CONTENT ENGINE</span><h3>BLEED.</h3><p>Stop polishing the brief until it says nothing; say one thing and stop.</p></div></li>
       <li><img src="/assets/rules/house-rule-culture-not-content.webp?v=2" alt="Culture is not content." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-404.webp?v=2" alt="404. A dead page is a lost customer." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-el-en.webp?v=2" alt="EL / EN. Two languages, two voices." width="1440" height="1440" loading="lazy" decoding="async"></li>
@@ -759,14 +759,14 @@
   </div>
 </div></section>
 
-<!-- INDEPENDENT AI CONTENT & FILMS — separate from client projects -->
+<!-- SOURwater FILMS -->
 <section class="ai-films" id="ai-films" aria-labelledby="ai-films-title"><div class="wrap">
   <div class="ai-films-intro">
-    <div><div class="kick">SOURwater · Independent films</div><h2 class="disp" id="ai-films-title">AI Content<br>&amp; Films.</h2></div>
+    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div><h2 class="disp" id="ai-films-title">AI Content<br>&amp; Films.</h2></div>
     <div><p>Ideas made moving. AI-driven films, campaign visuals and short-form content, shaped through concept, art direction and editing.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Let’s make your next film</a></div>
   </div>
   <div class="ai-film-player" data-ai-film data-no-wet>
-    <video playsinline preload="none" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback poster="/assets/ai-content-film-poster.jpg" src="/assets/ai-content-film.mp4" aria-label="Independent AI film"></video>
+    <video playsinline preload="none" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback poster="/assets/ai-content-film-poster.jpg" src="/assets/ai-content-film.mp4" aria-label="AI film by SOURwater Films"></video>
     <div class="ai-film-controls">
       <button type="button" data-film-play aria-pressed="false">Play film</button>
       <input type="range" min="0" max="40" value="0" step="0.1" aria-label="Film position" disabled>
@@ -776,7 +776,7 @@
     </div>
     <p class="ai-film-status" data-film-status role="status"></p>
   </div>
-  <div class="ai-film-caption"><strong>Independent AI film study</strong><span>40 seconds · Original 720p · Sound on</span></div>
+  <div class="ai-film-caption"><strong>AI film study</strong><span>40 seconds · Original 720p · Sound on</span></div>
 </div></section>
 
 <!-- KATOPSI, studio product -->
@@ -802,7 +802,7 @@
 
 <!-- SERVICES -->
 <section class="services"><div class="wrap">
-  <div class="kick serif" style="color:var(--terra);letter-spacing:.24em">Services</div>
+  <div class="kick serif" style="color:var(--service-accent);letter-spacing:.24em">Services</div>
   <h2 class="disp" style="margin:14px 0 16px">What we can do for you.</h2>
   <p class="lead" style="max-width:60ch">Pick one lane or build a full engine. Everything is productized and scoped to your brand, from a single reel to a complete content and commerce operation.</p>
   <div class="pricegrid">
