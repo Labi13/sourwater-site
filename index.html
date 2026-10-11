@@ -433,7 +433,8 @@
         "Substack system",
         "Daily content engine",
         "Funnel design"
-      ]
+      ],
+      "image": "https://sourwater.space/assets/ata/ata-substack-caricature-trap.webp"
     },
     {
       "@type": "VideoObject",
@@ -604,44 +605,40 @@
   .escape-shop .tag{color:var(--fg)}
   .escape-shop .btn{color:var(--ink)}
 
-  /* ATA editorial cards: banner above a compact, staggered fan. */
+  /* ATA: three editorial cards, staggered to expose every headline. */
   #acting-truth-academy .ata-collage .ata-dark{outline:1px solid rgba(239,233,220,.18)}
-  .ata-collage .ata-banner{width:98%;top:0;left:1%;transform:rotate(-1deg);z-index:5}
-  .ata-collage .ata-ecru{width:30%;top:48%;left:3%;transform:rotate(-6deg);z-index:2}
-  .ata-collage .ata-announcement{width:36%;top:25%;left:24%;transform:rotate(-1deg);z-index:4}
-  .ata-collage .ata-black{width:30%;top:22%;left:57%;transform:rotate(4deg);z-index:3}
-  .ata-collage .ata-fuchsia{width:27%;top:49%;left:70%;transform:rotate(8deg);z-index:1}
+  .ata-collage .ata-ecru{width:34%;top:37%;left:2%;transform:rotate(-6deg);z-index:2}
+  .ata-collage .ata-announcement{width:42%;top:12%;left:29%;transform:rotate(-1deg);z-index:3}
+  .ata-collage .ata-fuchsia{width:34%;top:37%;left:64%;transform:rotate(6deg);z-index:1}
   @media(max-width:600px){
-    #acting-truth-academy .ata-collage{aspect-ratio:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 0;padding:8px}
-    #acting-truth-academy .ata-collage img{position:relative;width:100%;top:auto;left:auto}
-    .ata-collage .ata-banner{grid-column:1/-1;order:0;margin-bottom:8px}
-    .ata-collage .ata-announcement{order:1;transform:rotate(-2deg)}
-    .ata-collage .ata-ecru{order:2;transform:rotate(-3deg)}
-    .ata-collage .ata-black{order:3;transform:rotate(2deg)}
-    .ata-collage .ata-fuchsia{order:4;transform:rotate(3deg)}
+    .ata-collage .ata-ecru{width:38%;top:47%;left:1%}
+    .ata-collage .ata-announcement{width:46%;top:10%;left:27%}
+    .ata-collage .ata-fuchsia{width:38%;top:47%;left:61%}
   }
 
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
   .mermaid-film{--film-progress:0;height:260vh;margin-top:0;position:relative;color:var(--fg);scroll-margin-top:80px}
   .case-film-link{display:inline-block;margin-top:28px;color:inherit;font-size:14px;text-underline-offset:5px}
-  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#C2D7CF;border:1px solid rgba(23,59,58,.32);box-shadow:0 34px 80px rgba(23,59,58,.12)}
+  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#241F1A;border:0;box-shadow:0 34px 80px rgba(0,0,0,.12)}
   .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:none;transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
   .mermaid-film-copy{position:relative;z-index:2;align-self:center}
-  .mermaid-film-copy .kick{color:#245D58;margin-bottom:22px}
+  .mermaid-film-copy .kick{color:var(--fg);margin-bottom:22px}
   .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
-  .mermaid-film-copy h3 em{color:#8C622C;font-weight:300}
-  .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#315B57;font-size:clamp(15px,1.35vw,18px)}
+  .mermaid-film-copy h3 em{color:var(--accent);font-weight:300}
+  .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:var(--fg);opacity:.7;font-size:clamp(15px,1.35vw,18px)}
   .mermaid-film-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
-  .mermaid-film-button{border:1px solid rgba(23,59,58,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#173B3A;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
-  .mermaid-film-button:hover{background:#173B3A;color:#F5F0E4;transform:translateY(-2px)}
-  .mermaid-film-quality{display:flex;align-items:center;gap:9px;color:var(--accent);font:600 10px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}
-  .mermaid-film-quality select{appearance:none;border:1px solid rgba(23,59,58,.42);border-radius:40px;padding:12px 32px 12px 14px;background:linear-gradient(45deg,transparent 50%,#173B3A 50%) calc(100% - 15px) 50%/6px 6px no-repeat,linear-gradient(135deg,#173B3A 50%,transparent 50%) calc(100% - 11px) 50%/6px 6px no-repeat,rgba(255,255,255,.22);color:#173B3A;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.08em;color-scheme:light}
-  .mermaid-film-stage{position:relative;z-index:1;height:min(74vh,720px);aspect-ratio:9/16;justify-self:end;overflow:hidden;background:#081312;box-shadow:0 28px 64px rgba(0,0,0,.34)}
-  .mermaid-film-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#081312}
+  .mermaid-film-button{border:1px solid rgba(239,230,213,.7);border-radius:40px;padding:13px 21px;background:transparent;color:var(--fg);font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
+  .mermaid-film-button:hover{background:var(--fg);color:var(--bg);transform:translateY(-2px)}
+  .mermaid-film-quality{display:flex;align-items:center;gap:9px;color:var(--fg);font:600 10px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+  .mermaid-film-quality select{appearance:none;border:1px solid rgba(239,230,213,.7);border-radius:40px;padding:12px 32px 12px 14px;background:linear-gradient(45deg,transparent 50%,#EFE6D5 50%) calc(100% - 15px) 50%/6px 6px no-repeat,linear-gradient(135deg,#EFE6D5 50%,transparent 50%) calc(100% - 11px) 50%/6px 6px no-repeat,#241F1A;color:var(--fg);font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.08em;color-scheme:dark}
+  .mermaid-film-stage{position:relative;z-index:1;height:min(74vh,720px);aspect-ratio:9/16;justify-self:end;overflow:hidden;background:#241F1A;box-shadow:0 28px 64px rgba(0,0,0,.34)}
+  .mermaid-film-stage video{display:block;width:100%;height:100%;object-fit:cover;background:#241F1A}
   .mermaid-film:not(.is-playing) .mermaid-film-stage video{pointer-events:none}
-  .mermaid-film-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(245,240,228,.22);z-index:3}
-  .mermaid-film-progress span{display:block;width:100%;height:100%;background:#D6AD6A;transform:scaleX(var(--film-progress));transform-origin:left center}
-  .mermaid-film-status{position:absolute;left:16px;right:16px;bottom:17px;z-index:3;display:flex;justify-content:space-between;gap:14px;color:#F5F0E4;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 8px #000}
+  .mermaid-film-progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:#241F1A;z-index:3}
+  .mermaid-film-progress span{display:block;width:100%;height:100%;background:var(--accent);transform:scaleX(var(--film-progress));transform-origin:left center}
+  .mermaid-film-status{position:absolute;left:16px;right:16px;bottom:17px;z-index:3;display:flex;justify-content:space-between;gap:14px;color:var(--fg);font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 8px #000}
+  .mermaid-film-status span{background:#241F1A;color:rgba(239,230,213,.7);padding:4px 6px}
+  .mermaid-film-button:focus-visible,.mermaid-film-quality select:focus-visible{outline:2px solid #EFE6D5;outline-offset:4px}
   .mermaid-film.is-playing .mermaid-film-progress,.mermaid-film.is-playing .mermaid-film-status{opacity:0}
   @media(max-width:760px){
     .mermaid-film{height:230vh;margin:36px -20px 0}
@@ -839,7 +836,7 @@
     text-transform:uppercase;font-weight:600;color:var(--bg);background:var(--accent);padding:13px 24px;border-radius:40px}
 
   /* WORK INTRO */
-  .work-intro{padding:26px 0;background:var(--paper);color:var(--ink);border-top:1px solid rgba(36,31,26,.2);scroll-margin-top:72px}
+  .work-intro{padding:26px 0;background:var(--paper);color:var(--ink);border-top:1.5px solid rgba(36,31,26,.2);scroll-margin-top:72px}
   .work-intro .wrap{display:flex;align-items:center;gap:24px}
   .work-intro .wrap:after{content:"";flex:1;border-top:1px solid rgba(36,31,26,.25)}
   .work-intro h2.disp{margin:0;font-size:clamp(24px,2.4vw,34px);line-height:1.1}
@@ -1105,10 +1102,8 @@
       <div class="tags"><span class="tag">Substack system</span><span class="tag">Daily content engine</span><span class="tag">Funnel design</span></div>
     </div>
     <div class="col ata-collage">
-      <img class="ata-banner ata-dark" src="/assets/ata/ata-substack-banner-technique-as-a-refuge.webp" alt="Acting Truth Academy Substack banner for the essay Technique as a Refuge" width="1100" height="220" loading="lazy" decoding="async">
       <img class="ata-ecru" src="/assets/ata/ata-ig-dont-close-the-gap-ecru.webp" alt="Deep-Truth Method Instagram post: Don't close the gap. Let it move you." width="1080" height="1350" loading="lazy" decoding="async">
       <img class="ata-announcement ata-dark" src="/assets/ata/ata-substack-caricature-trap.webp" alt="Acting Truth Academy Instagram announcement: new Substack essay, The Caricature Trap" width="1080" height="1350" loading="lazy" decoding="async">
-      <img class="ata-black ata-dark" src="/assets/ata/ata-ig-breathe-one-word-later-black.webp" alt="Deep-Truth Method Instagram post: Breathe one word later." width="1080" height="1350" loading="lazy" decoding="async">
       <img class="ata-fuchsia" src="/assets/ata/ata-ig-willingness-fuchsia.webp" alt="Deep-Truth Method Instagram post: It is the willingness to be caught without a prepared response." width="1080" height="1350" loading="lazy" decoding="async">
     </div>
   </div>
@@ -1134,7 +1129,7 @@
   </div>
   <div class="ai-film-caption"><strong>AI film study</strong><span>40 seconds · Original 720p · Sound on</span></div>
   </div>
-  <div class="mermaid-film" id="mermaids-film" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77" data-mermaid-film data-no-wet aria-label="Interactive Mermaids Need Space film">
+  <div class="mermaid-film" id="mermaids-film" style="--bg:#241F1A;--fg:#EFE6D5;--accent:#C9974F" data-mermaid-film data-no-wet aria-label="Interactive Mermaids Need Space film">
     <div class="mermaid-film-sticky">
       <div class="mermaid-film-copy">
         <div class="kick">SOURwater Films · 001</div>
@@ -1305,6 +1300,6 @@
 <script src="/assets/mermaid-film.js?v=20261011-services" defer></script>
 
 <script src="/assets/ai-film-player.js" defer></script>
-<script src="/assets/rules-bucket.js?v=20261011-services" defer></script>
+<script src="/assets/rules-bucket.js?v=20261011-calm" defer></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 
 /* HOUSE RULES — bucket of water. Cards leave the water, drip and dry.
    Each extracted rule stays in the drying pile until the bucket is refilled.
-   Reduced motion keeps a still, interactive bucket. Without WebGL the grid stays. */
+   Reduced motion quiets ambient motion and keeps user interactions fully wet. Without WebGL the grid stays. */
 (function(){
   'use strict';
   var sec=document.querySelector('.house-rules');if(!sec)return;
@@ -29,6 +29,7 @@
   function initBucket(){
   if(bucketStarted)return;bucketStarted=true;
   var CALM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var AMBIENT=CALM?0.4:1;
   var imgEls=[].slice.call(grid.querySelectorAll('img'));if(!imgEls.length)return;
   var canvas=document.createElement('canvas');
   canvas.className='rules-canvas';canvas.setAttribute('aria-hidden','true');
@@ -87,14 +88,14 @@
   var COMP_FS=[
     'precision highp float;',
     'uniform sampler2D uInner;',
-    'uniform vec2 uRes;uniform float uDpr,uTime;',
+    'uniform vec2 uRes;uniform float uDpr,uTime,uAmbient;',
     'uniform vec4 uRim,uWater,uBody,uBox;',
     'uniform vec4 uRip[8];',
     'float sdE(vec2 p,vec2 c,vec2 r){vec2 q=(p-c)/r;float k=length(q);vec2 g=q/(r*max(k,1e-4));return (k-1.0)/max(length(g),1e-4);}',
     'vec4 over(vec4 d,vec4 s){return s+d*(1.0-s.a);}',
     'float hgt(vec2 p){',
     '  vec2 q=vec2(p.x,(p.y-uWater.y)*uWater.z/uWater.w);',
-    '  float h=sin(q.x*0.019+uTime*1.10)*0.55+sin(q.y*0.023-uTime*0.90+q.x*0.007)*0.45+sin((q.x-q.y*1.3)*0.031+uTime*1.55)*0.28;',
+    '  float h=(sin(q.x*0.019+uTime*1.10)*0.55+sin(q.y*0.023-uTime*0.90+q.x*0.007)*0.45+sin((q.x-q.y*1.3)*0.031+uTime*1.55)*0.28)*uAmbient;',
     '  for(int i=0;i<8;i++){',
     '    vec4 r=uRip[i];float age=uTime-r.z;',
     '    if(r.w<=0.0||age<0.0||age>3.5)continue;',
@@ -155,7 +156,7 @@
     '        float spec=pow(max(dot(n,normalize(vec3(-0.30,-0.50,0.81))),0.0),140.0);',
     '        c+=vec3(1.0,0.97,0.90)*spec*0.75;',
     '        c=mix(c,vec3(0.92,0.89,0.82),0.17*(1.0-dn)*clamp(0.5+n.x*2.0-n.y,0.0,1.0)*smoothstep(0.25,1.0,wr));',
-    '        c+=vec3(0.55,0.85,0.80)*0.06*smoothstep(0.55,1.0,sin(p.x*0.055+h*1.8)*sin((p.y-uWater.y)*0.11-h*1.6+uTime*0.7));',
+    '        c+=vec3(0.55,0.85,0.80)*0.06*uAmbient*smoothstep(0.55,1.0,sin(p.x*0.055+h*1.8)*sin((p.y-uWater.y)*0.11-h*1.6+uTime*0.7));',
     '        c+=vec3(0.95,0.93,0.86)*0.32*exp(-pow(sw/1.6,2.0));',
     '        float wa=clamp(0.5-sw,0.0,1.0);',
     '        ic=mix(wall,c,wa);',
@@ -278,7 +279,7 @@
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       if(aniso)gl.texParameterf(gl.TEXTURE_2D,aniso.TEXTURE_MAX_ANISOTROPY_EXT,Math.min(8,gl.getParameter(aniso.MAX_TEXTURE_MAX_ANISOTROPY_EXT)));
       c.tex=t;c.ready=true;
-      if(CALM){c.state='water';start();}
+      if(CALM){c.state='water';c.x=c.hx;c.y=c.hy;c.size=L.sW;c.flat=L.flatW;c.rot=c.hr;start();}
     };
     c.img=im;
   });
@@ -325,7 +326,6 @@
   var rip=new Float32Array(32),ripN=0,T=0,drops=[];
   function ripple(x,y,amp){var k=(ripN++%8)*4;rip[k]=x;rip[k+1]=y;rip[k+2]=T;rip[k+3]=amp;}
   function splash(x,y,power,n){
-    if(CALM)return;
     ripple(x,y,power);
     for(var k=0;k<(n||16);k++){var an=-Math.PI*(0.1+0.8*Math.random()),sp=180+Math.random()*420*power;
       drops.push({x:x+(Math.random()-0.5)*L.sW*0.5,y:y,vx:Math.cos(an)*sp,vy:Math.sin(an)*sp,r:1.6+Math.random()*3.2,wet:true});}
@@ -373,7 +373,7 @@
     }
     var h=topWaterCard(p[0],p[1]);
     if(h){h.c.state='held';h.c.grab=h.uv;toTop(h.c);drag={mode:'pull',c:h.c,sx:p[0],sy:p[1],px:p[0],py:p[1],t:performance.now(),moved:0};
-      if(!CALM)ripple(p[0],p[1],0.35);else start();return true;}
+      ripple(p[0],p[1],0.35);if(CALM)start();return true;}
     return false;
   }
   function move(p){
@@ -381,7 +381,7 @@
       var h=topWaterCard(p[0],p[1]),oc=outCard&&hit(outCard,p[0],p[1]);
       hoverCard=h?h.c:null;canvas.style.cursor=(h||oc)?'grab':'';
       var now=performance.now(),sp=Math.hypot(p[0]-lastPX,p[1]-lastPY);
-      if(!CALM&&inWater(p[0],p[1])&&now-lastRip>110&&sp>4){ripple(p[0],p[1],Math.min(0.45,0.10+sp*0.012));lastRip=now;}
+      if(inWater(p[0],p[1])&&now-lastRip>110&&sp>4){ripple(p[0],p[1],Math.min(0.45,0.10+sp*0.012));lastRip=now;}
       lastPX=p[0];lastPY=p[1];return;
     }
     canvas.style.cursor='grabbing';if(CALM)start();
@@ -450,31 +450,14 @@
     c.x+=c.vx*dt;c.y+=c.vy*dt;
   }
   function step(dt){
-    T+=CALM?dt*0.4:dt;
+    T+=dt;
     cards.forEach(function(c){
-      if(CALM){
-        if(!c.ready||c.state==='kept')return;
-        c.melt=c.wet=c.lift=0;c.pull[0]=c.pull[1]=c.vel[0]=c.vel[1]=0;
-        if(c.state==='water'){
-          c.x=c.hx+Math.sin(T*0.55+c.ph)*2.5;c.y=c.hy+Math.cos(T*0.47+c.ph*1.3)*1.8;c.size=L.sW;c.flat=L.flatW;c.rot=c.hr+Math.sin(T*0.4+c.ph)*0.012;
-        }else if(c.state==='held'){
-          c.x=c.hx+(drag?drag.px-drag.sx:0)*0.26;c.y=c.hy+(drag?drag.py-drag.sy:0)*0.26;
-          c.size=L.sW;c.flat=L.flatW;c.rot=c.hr;
-        }else if(c.state==='free'||c.state==='out'){
-          c.size=L.readS;c.flat=1;c.rot=0;
-          if(drag&&drag.c===c){
-            c.x=drag.px+(drag.mode==='move'?drag.ox:-(c.grab[0]-0.5)*c.size);
-            c.y=drag.py+(drag.mode==='move'?drag.oy:-(c.grab[1]-0.5)*c.size);
-          }else{c.x=c.tx;c.y=c.ty;}
-        }
-        return;
-      }
       c.age+=dt;
       if(c.state==='wait'){
         if(c.ready&&introAt!==null&&T>introAt+c.delay){c.state='drop';c.x=c.hx;c.y=-L.sW;c.vy=0;c.vx=0;c.size=L.sW;c.flat=1;c.rot=c.hr*2;c.melt=0.35;c.wet=1;}
         return;
       }
-      var bobx=Math.sin(T*0.55+c.ph)*5,boby=Math.cos(T*0.47+c.ph*1.3)*3.5,bobr=Math.sin(T*0.4+c.ph)*0.03;
+      var bobx=Math.sin(T*0.55+c.ph)*5*AMBIENT,boby=Math.cos(T*0.47+c.ph*1.3)*3.5*AMBIENT,bobr=Math.sin(T*0.4+c.ph)*0.03*AMBIENT;
       if(c.state==='drop'){
         c.vy+=2600*dt;c.y+=c.vy*dt;c.x=ease(c.x,c.hx,6,dt);c.flat=ease(c.flat,L.flatW,5,dt);c.rot=ease(c.rot,c.hr,4,dt);
         if(c.y>=c.hy){c.y=c.hy;c.state='water';c.vy=0;splash(c.x,c.y,0.9,10);}
@@ -560,7 +543,7 @@
     gl.useProgram(P.comp.p);var cu=P.comp.u;
     var la=gl.getAttribLocation(P.comp.p,'aP');gl.bindBuffer(gl.ARRAY_BUFFER,fullVB);gl.enableVertexAttribArray(la);gl.vertexAttribPointer(la,2,gl.FLOAT,false,0,0);
     gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,fboTex);gl.uniform1i(cu.uInner,0);
-    gl.uniform2f(cu.uRes,W,H);gl.uniform1f(cu.uDpr,dpr);gl.uniform1f(cu.uTime,T);
+    gl.uniform2f(cu.uRes,W,H);gl.uniform1f(cu.uDpr,dpr);gl.uniform1f(cu.uTime,T);gl.uniform1f(cu.uAmbient,AMBIENT);
     gl.uniform4f(cu.uRim,L.cx,L.cy,L.rx,L.ry);gl.uniform4f(cu.uWater,L.wcx,L.wcy,L.wrx,L.wry);
     gl.uniform4f(cu.uBody,L.bodyH,L.bs,L.rimW,0);
     gl.uniform4f(cu.uBox,L.cx-L.rx*1.25-40,L.cy-L.ry-L.rx*0.2-12,L.cx+L.rx*1.25+40,L.H);
