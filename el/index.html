@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://sourwater.space/">
 <link rel="alternate" hreflang="el" href="https://sourwater.space/el/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-films">
+<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-heading">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sourwater">
 <meta property="og:title" content="Sourwater · Ιδέες για Πολιτισμό &amp; Εμπόριο">
@@ -476,6 +476,25 @@
     .rules-hint{left:22px;right:22px;letter-spacing:.16em}
   }
   .katopsi-note{margin-top:22px;font-size:14px;color:#5A5044;max-width:52ch}
+
+  .katopsi-showcase{margin-top:72px;padding-top:36px;border-top:1px solid rgba(36,31,26,.3)}
+  .katopsi-showcase-head{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:30px}
+  .katopsi-showcase-head .kick{color:#794024;font-size:10px;letter-spacing:.2em}
+  .katopsi-showcase-head h3{font-family:'Fraunces',Georgia,serif;font-size:clamp(28px,3vw,44px);line-height:1.08;margin-top:12px;max-width:22ch}
+  .katopsi-showcase-head>p{font-size:14px;line-height:1.6;max-width:39ch;color:#5A5044}
+  .katopsi-previews{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
+  .katopsi-preview{min-width:0;margin:0}
+  .katopsi-preview-label{font:500 10px/1.4 'Fira Code',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;color:#5A5044}
+  .katopsi-preview-image{display:block;border:1px solid rgba(36,31,26,.26);background:#fff;box-shadow:0 12px 28px rgba(36,31,26,.1)}
+  .katopsi-preview-image img{display:block;width:100%;height:auto}
+  .katopsi-preview figcaption{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-top:18px}
+  .katopsi-preview figcaption strong{display:block;font:600 15px/1.4 'Space Grotesk',sans-serif}
+  .katopsi-preview figcaption p{font-size:12px;line-height:1.55;color:#5A5044;margin-top:5px;max-width:34ch}
+  .katopsi-preview-open{flex:none;display:inline-block;font-size:11px;color:var(--fg);text-underline-offset:4px;line-height:1.6}
+  .katopsi-preview a:focus-visible{outline:2px solid var(--fg);outline-offset:5px}
+  .katopsi-preview-open:hover{text-decoration-thickness:2px}
+  @media(max-width:700px){.katopsi-showcase{margin-top:46px;padding-top:28px}.katopsi-showcase-head{display:block;margin-bottom:26px}.katopsi-showcase-head>p{margin-top:16px;max-width:38ch}.katopsi-previews{grid-template-columns:1fr;gap:34px}.katopsi-preview figcaption{gap:12px}}
+
 </style>
 </head>
 <body>
@@ -540,12 +559,12 @@
     <p class="rules-empty" hidden>Καθαρό νερό. Εννέα κανόνες να κρατήσετε.</p>
   </div>
   <ul class="rules-grid">
-      <li><img src="/assets/rules/house-rule-less-brand-system.webp?v=3" alt="ΣΥΣΤΗΜΑΤΑ BRAND. Λιγότερο. Σταματήστε να παραδίδετε οδηγούς brand που κανείς δεν μπορεί να απαγγείλει. Κόψτε το σύστημα μέχρι να χωράει σε ένα κεφάλι." data-kicker="ΣΥΣΤΗΜΑΤΑ BRAND" data-title="Λιγότερο." data-body="Σταματήστε να παραδίδετε οδηγούς brand που κανείς δεν μπορεί να απαγγείλει. Κόψτε το σύστημα μέχρι να χωράει σε ένα κεφάλι." data-texture-size="2048" width="1440" height="1440" loading="lazy" decoding="async"><div class="rules-copy"><span class="kick">ΣΥΣΤΗΜΑΤΑ BRAND</span><h3>Λιγότερο.</h3><p>Σταματήστε να παραδίδετε οδηγούς brand που κανείς δεν μπορεί να απαγγείλει. Κόψτε το σύστημα μέχρι να χωράει σε ένα κεφάλι.</p></div></li>
+      <li><img src="/assets/rules/house-rule-bleed.webp?v=3" alt="ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ. BLEED. Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε." data-kicker="ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ" data-title="BLEED." data-body="Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε." data-texture-size="2048" width="1440" height="1440" loading="lazy" decoding="async"><div class="rules-copy"><span class="kick">ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ</span><h3>BLEED.</h3><p>Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε.</p></div></li>
       <li><img src="/assets/rules/house-rule-be-the-source.webp?v=2" alt="Γίνε η πηγή που παραθέτει η απάντηση." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-ai-video-director.webp?v=2" alt="Το AI video θέλει σκηνοθέτη." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-no.webp?v=2" alt="ΟΧΙ. Το λέμε σε briefs που ζητούν τα πάντα." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-say-one-true-thing.webp?v=2" alt="Elevate your brand, διαγραμμένο. Πες ένα αληθινό πράγμα." width="1440" height="1440" loading="lazy" decoding="async"></li>
-      <li><img src="/assets/rules/house-rule-bleed.webp?v=3" alt="ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ. BLEED. Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε." data-kicker="ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ" data-title="BLEED." data-body="Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε." data-texture-size="2048" width="1440" height="1440" loading="lazy" decoding="async"><div class="rules-copy"><span class="kick">ΜΗΧΑΝΗ ΠΕΡΙΕΧΟΜΕΝΟΥ</span><h3>BLEED.</h3><p>Σταματήστε να γυαλίζετε το brief μέχρι να μη λέει τίποτα· πείτε ένα πράγμα και σταματήστε.</p></div></li>
+      <li><img src="/assets/rules/house-rule-less.webp?v=2" alt="Λιγότερα. Λιγότερες λέξεις, χρώματα, κανάλια και υποσχέσεις." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-culture-not-content.webp?v=2" alt="Ο πολιτισμός δεν είναι content." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-404.webp?v=2" alt="404. Μια νεκρή σελίδα είναι χαμένος πελάτης." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-el-en.webp?v=2" alt="EL / EN. Δύο γλώσσες, δύο φωνές." width="1440" height="1440" loading="lazy" decoding="async"></li>
@@ -754,7 +773,7 @@
 <!-- SOURwater FILMS -->
 <section class="ai-films" id="ai-films" aria-labelledby="ai-films-title"><div class="wrap">
   <div class="ai-films-intro">
-    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div><h2 class="disp" id="ai-films-title">AI Content<br>&amp; Films.</h2></div>
+    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div><h2 class="disp" id="ai-films-title">AI Content &amp; Films.</h2></div>
     <div><p>Ιδέες που αποκτούν κίνηση. Ταινίες με AI, εικόνες για καμπάνιες και περιεχόμενο μικρής διάρκειας, με δημιουργική σύλληψη, καλλιτεχνική διεύθυνση και μοντάζ.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Ας δημιουργήσουμε την επόμενη ταινία σας</a></div>
   </div>
   <div class="ai-film-player" data-ai-film data-no-wet>
@@ -788,6 +807,24 @@
       <div class="tags"><span class="tag">Πρώτα στα ελληνικά</span><span class="tag">Δίγλωσσο EL / EN</span><span class="tag">Σφραγισμένες, επαληθεύσιμες αναφορές</span><span class="tag">Βεβαίωση από μηχανικό</span><span class="tag">Τεκμηριωμένα δεδομένα</span><span class="tag">Πακέτα νομοθεσίας ανά χώρα</span><span class="tag">Πιλοτική έκδοση</span></div>
       <p class="katopsi-note">Πιλοτική έκδοση με συνθετικά δεδομένα. Μηχανικοί και συνεργάτες που θέλουν να τη δοκιμάσουν μπορούν να μας γράψουν.</p>
       <a class="btn" href="mailto:hello@sourwater.space?subject=Katopsi%20pilot">Ρωτήστε για το πιλοτικό →</a>
+    </div>
+  </div>
+  <div class="katopsi-showcase" data-no-wet aria-labelledby="katopsi-preview-title">
+    <div class="katopsi-showcase-head">
+      <div><div class="kick">Μέσα στην Katopsi</div><h3 id="katopsi-preview-title">Η εφαρμογή. Η τεκμηρίωση.</h3></div>
+      <p>Μια πρώτη ματιά στο προϊόν και σε ένα ενδεικτικό report από το πιλοτικό πρόγραμμα με συνθετικά δεδομένα.</p>
+    </div>
+    <div class="katopsi-previews">
+      <figure class="katopsi-preview">
+        <div class="katopsi-preview-label">01 / Εφαρμογή</div>
+        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener" aria-label="Δείτε την προεπισκόπηση της Katopsi σε πλήρες μέγεθος"><img src="/assets/katopsi/katopsi-app-preview.webp" alt="Προεπισκόπηση της Katopsi με πράσινο περιβάλλον, σύμβολο επιπέδων και εισαγωγή στις προκαταρκτικές μελέτες." width="1525" height="780" loading="lazy" decoding="async"></a>
+        <figcaption><div><strong>Η εφαρμογή Katopsi</strong><p>Μια πρώτη ματιά στην οπτική γλώσσα του προϊόντος.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener">Πλήρες μέγεθος <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      <figure class="katopsi-preview">
+        <div class="katopsi-preview-label">02 / Προεπισκόπηση report</div>
+        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener" aria-label="Δείτε το ενδεικτικό report με συνθετικά δεδομένα σε πλήρες μέγεθος"><img src="/assets/katopsi/katopsi-report-preview.webp" alt="Ενδεικτικό report της Katopsi με συνθετικά δεδομένα, αναθεώρηση, έγκριση μηχανικού και checksum· δεν αφορά πραγματικό ακίνητο." width="1164" height="945" loading="lazy" decoding="async"></a>
+        <figcaption><div><strong>Ενδεικτικό report μελέτης</strong><p>Demo με συνθετικά δεδομένα · Όχι πραγματικό ακίνητο.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener">Πλήρες μέγεθος <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
     </div>
   </div>
 </div></section>

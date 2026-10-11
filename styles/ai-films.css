@@ -4,7 +4,7 @@
 .films-wordmark>span{display:block;font-size:clamp(36px,4vw,54px);font-weight:600;white-space:nowrap}
 .films-wordmark em{font-weight:400;color:var(--films-accent)}
 .films-wordmark small{display:block;margin-top:7px;font-size:24px;font-weight:400;letter-spacing:0;color:var(--films-accent)}
-.ai-films h2.disp{margin:18px 0 0;font-size:clamp(42px,6vw,82px);line-height:1}
+.ai-films h2.disp{margin:18px 0 0;font-size:clamp(29.4px,4.2vw,57.4px);line-height:1;white-space:nowrap}
 .ai-films-intro p{margin:0 0 20px;font-size:18px;max-width:43ch}
 .ai-films-cta{display:inline-block;color:var(--ink);font-size:16px;text-underline-offset:6px}
 .ai-film-player{background:var(--ink);color:var(--paper);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
@@ -25,7 +25,7 @@
 @media(max-width:700px){
   .ai-films{padding:64px 0}
   .ai-films-intro{grid-template-columns:1fr;gap:24px;margin-bottom:28px}
-  .ai-films h2.disp{font-size:clamp(40px,12vw,64px)}
+  .ai-films h2.disp{font-size:clamp(28px,8.4vw,44.8px)}
   .ai-films-intro p{font-size:16px}
   .ai-film-controls{gap:10px;padding:12px}
   .ai-film-controls input{order:5;flex-basis:100%}
