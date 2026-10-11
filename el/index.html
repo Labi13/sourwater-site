@@ -477,23 +477,6 @@
   }
   .katopsi-note{margin-top:22px;font-size:14px;color:#5A5044;max-width:52ch}
 
-  .katopsi-showcase{margin-top:72px;padding-top:36px;border-top:1px solid rgba(36,31,26,.3)}
-  .katopsi-showcase-head{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:30px}
-  .katopsi-showcase-head .kick{color:#794024;font-size:10px;letter-spacing:.2em}
-  .katopsi-showcase-head h3{font-family:'Fraunces',Georgia,serif;font-size:clamp(28px,3vw,44px);line-height:1.08;margin-top:12px;max-width:22ch}
-  .katopsi-showcase-head>p{font-size:14px;line-height:1.6;max-width:39ch;color:#5A5044}
-  .katopsi-previews{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
-  .katopsi-preview{min-width:0;margin:0}
-  .katopsi-preview-label{font:500 10px/1.4 'Fira Code',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;color:#5A5044}
-  .katopsi-preview-image{display:block;border:1px solid rgba(36,31,26,.26);background:#fff;box-shadow:0 12px 28px rgba(36,31,26,.1)}
-  .katopsi-preview-image img{display:block;width:100%;height:auto}
-  .katopsi-preview figcaption{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-top:18px}
-  .katopsi-preview figcaption strong{display:block;font:600 15px/1.4 'Space Grotesk',sans-serif}
-  .katopsi-preview figcaption p{font-size:12px;line-height:1.55;color:#5A5044;margin-top:5px;max-width:34ch}
-  .katopsi-preview-open{flex:none;display:inline-block;font-size:11px;color:var(--fg);text-underline-offset:4px;line-height:1.6}
-  .katopsi-preview a:focus-visible{outline:2px solid var(--fg);outline-offset:5px}
-  .katopsi-preview-open:hover{text-decoration-thickness:2px}
-  @media(max-width:700px){.katopsi-showcase{margin-top:46px;padding-top:28px}.katopsi-showcase-head{display:block;margin-bottom:26px}.katopsi-showcase-head>p{margin-top:16px;max-width:38ch}.katopsi-previews{grid-template-columns:1fr;gap:34px}.katopsi-preview figcaption{gap:12px}}
 
 </style>
 </head>
@@ -798,8 +781,8 @@
   <div class="grid">
     <div class="col">
       <img src="/assets/katopsi/katopsi-card.webp" alt="Katopsi, σε εξέλιξη, πρώτα στην Ελλάδα" style="width:64%;top:0;left:2%;transform:rotate(-4deg);z-index:2" loading="lazy" decoding="async">
-      <img src="/assets/katopsi/katopsi-early.webp" alt="Προκαταρκτικές μελέτες, απαντημένες νωρίς" style="width:52%;top:16%;left:46%;transform:rotate(5deg);z-index:1" loading="lazy" decoding="async">
-      <img src="/assets/katopsi/katopsi-soon.webp" alt="Katopsi: σύντομα" style="width:40%;top:52%;left:22%;transform:rotate(-10deg);z-index:3" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-product-collage.webp" alt="Η εφαρμογή Katopsi και ενδεικτικό report προκαταρκτικής μελέτης κατοικίας με συνθετικά δεδομένα, όχι πραγματικό ακίνητο." width="2172" height="2896" style="width:52%;height:auto;top:16%;left:46%;transform:rotate(5deg);z-index:3" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-soon.webp" alt="Katopsi: σύντομα" style="width:40%;top:52%;left:22%;transform:rotate(-10deg);z-index:4" loading="lazy" decoding="async">
     </div>
     <div class="txt">
       <p class="lead">Το δικό μας προϊόν. Μια δίγλωσση εφαρμογή, στα ελληνικά και στα αγγλικά, που υποστηρίζει τις αποφάσεις στην προκαταρκτική μελέτη ενός οικοπέδου: τι μπορεί να χτιστεί, με ποια τεκμήρια και ποιος το βεβαιώνει.</p>
@@ -807,24 +790,6 @@
       <div class="tags"><span class="tag">Πρώτα στα ελληνικά</span><span class="tag">Δίγλωσσο EL / EN</span><span class="tag">Σφραγισμένες, επαληθεύσιμες αναφορές</span><span class="tag">Βεβαίωση από μηχανικό</span><span class="tag">Τεκμηριωμένα δεδομένα</span><span class="tag">Πακέτα νομοθεσίας ανά χώρα</span><span class="tag">Πιλοτική έκδοση</span></div>
       <p class="katopsi-note">Πιλοτική έκδοση με συνθετικά δεδομένα. Μηχανικοί και συνεργάτες που θέλουν να τη δοκιμάσουν μπορούν να μας γράψουν.</p>
       <a class="btn" href="mailto:hello@sourwater.space?subject=Katopsi%20pilot">Ρωτήστε για το πιλοτικό →</a>
-    </div>
-  </div>
-  <div class="katopsi-showcase" data-no-wet aria-labelledby="katopsi-preview-title">
-    <div class="katopsi-showcase-head">
-      <div><div class="kick">Μέσα στην Katopsi</div><h3 id="katopsi-preview-title">Η εφαρμογή. Η τεκμηρίωση.</h3></div>
-      <p>Μια πρώτη ματιά στο προϊόν και σε ένα ενδεικτικό report από το πιλοτικό πρόγραμμα με συνθετικά δεδομένα.</p>
-    </div>
-    <div class="katopsi-previews">
-      <figure class="katopsi-preview">
-        <div class="katopsi-preview-label">01 / Εφαρμογή</div>
-        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener" aria-label="Δείτε την προεπισκόπηση της Katopsi σε πλήρες μέγεθος"><img src="/assets/katopsi/katopsi-app-preview.webp" alt="Προεπισκόπηση της Katopsi με πράσινο περιβάλλον, σύμβολο επιπέδων και εισαγωγή στις προκαταρκτικές μελέτες." width="1525" height="780" loading="lazy" decoding="async"></a>
-        <figcaption><div><strong>Η εφαρμογή Katopsi</strong><p>Μια πρώτη ματιά στην οπτική γλώσσα του προϊόντος.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener">Πλήρες μέγεθος <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
-      <figure class="katopsi-preview">
-        <div class="katopsi-preview-label">02 / Προεπισκόπηση report</div>
-        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener" aria-label="Δείτε το ενδεικτικό report με συνθετικά δεδομένα σε πλήρες μέγεθος"><img src="/assets/katopsi/katopsi-report-preview.webp" alt="Ενδεικτικό report της Katopsi με συνθετικά δεδομένα, αναθεώρηση, έγκριση μηχανικού και checksum· δεν αφορά πραγματικό ακίνητο." width="1164" height="945" loading="lazy" decoding="async"></a>
-        <figcaption><div><strong>Ενδεικτικό report μελέτης</strong><p>Demo με συνθετικά δεδομένα · Όχι πραγματικό ακίνητο.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener">Πλήρες μέγεθος <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
     </div>
   </div>
 </div></section>

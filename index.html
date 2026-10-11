@@ -481,23 +481,6 @@
   }
   .katopsi-note{margin-top:22px;font-size:14px;color:#5A5044;max-width:52ch}
 
-  .katopsi-showcase{margin-top:72px;padding-top:36px;border-top:1px solid rgba(36,31,26,.3)}
-  .katopsi-showcase-head{display:flex;justify-content:space-between;align-items:end;gap:36px;margin-bottom:30px}
-  .katopsi-showcase-head .kick{color:#794024;font-size:10px;letter-spacing:.2em}
-  .katopsi-showcase-head h3{font-family:'Fraunces',Georgia,serif;font-size:clamp(28px,3vw,44px);line-height:1.08;margin-top:12px;max-width:22ch}
-  .katopsi-showcase-head>p{font-size:14px;line-height:1.6;max-width:39ch;color:#5A5044}
-  .katopsi-previews{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:start}
-  .katopsi-preview{min-width:0;margin:0}
-  .katopsi-preview-label{font:500 10px/1.4 'Fira Code',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;color:#5A5044}
-  .katopsi-preview-image{display:block;border:1px solid rgba(36,31,26,.26);background:#fff;box-shadow:0 12px 28px rgba(36,31,26,.1)}
-  .katopsi-preview-image img{display:block;width:100%;height:auto}
-  .katopsi-preview figcaption{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-top:18px}
-  .katopsi-preview figcaption strong{display:block;font:600 15px/1.4 'Space Grotesk',sans-serif}
-  .katopsi-preview figcaption p{font-size:12px;line-height:1.55;color:#5A5044;margin-top:5px;max-width:34ch}
-  .katopsi-preview-open{flex:none;display:inline-block;font-size:11px;color:var(--fg);text-underline-offset:4px;line-height:1.6}
-  .katopsi-preview a:focus-visible{outline:2px solid var(--fg);outline-offset:5px}
-  .katopsi-preview-open:hover{text-decoration-thickness:2px}
-  @media(max-width:700px){.katopsi-showcase{margin-top:46px;padding-top:28px}.katopsi-showcase-head{display:block;margin-bottom:26px}.katopsi-showcase-head>p{margin-top:16px;max-width:38ch}.katopsi-previews{grid-template-columns:1fr;gap:34px}.katopsi-preview figcaption{gap:12px}}
 
 </style>
 </head>
@@ -806,8 +789,8 @@
   <div class="grid">
     <div class="col">
       <img src="/assets/katopsi/katopsi-card.webp" alt="Katopsi, in development, Greece first" style="width:64%;top:0;left:2%;transform:rotate(-4deg);z-index:2" loading="lazy" decoding="async">
-      <img src="/assets/katopsi/katopsi-early.webp" alt="Preliminary studies, answered early" style="width:52%;top:16%;left:46%;transform:rotate(5deg);z-index:1" loading="lazy" decoding="async">
-      <img src="/assets/katopsi/katopsi-soon.webp" alt="Katopsi: soon" style="width:40%;top:52%;left:22%;transform:rotate(-10deg);z-index:3" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-product-collage.webp" alt="Katopsi app screen and preliminary residence study report, a synthetic demo, not a real property." width="2172" height="2896" style="width:52%;height:auto;top:16%;left:46%;transform:rotate(5deg);z-index:3" loading="lazy" decoding="async">
+      <img src="/assets/katopsi/katopsi-soon.webp" alt="Katopsi: soon" style="width:40%;top:52%;left:22%;transform:rotate(-10deg);z-index:4" loading="lazy" decoding="async">
     </div>
     <div class="txt">
       <p class="lead">Our own product. A bilingual Greek and English decision-support app for the preliminary study of a building plot: what can be built, on what evidence, and who vouches for it.</p>
@@ -815,24 +798,6 @@
       <div class="tags"><span class="tag">Greek-first</span><span class="tag">Bilingual EL / EN</span><span class="tag">Sealed, verifiable reports</span><span class="tag">Engineer attestation</span><span class="tag">Evidence-graded inputs</span><span class="tag">Country law packs</span><span class="tag">Working pilot</span></div>
       <p class="katopsi-note">Working pilot on synthetic data. Engineers and partners who want to test it can write to us.</p>
       <a class="btn" href="mailto:hello@sourwater.space?subject=Katopsi%20pilot">Ask about the pilot →</a>
-    </div>
-  </div>
-  <div class="katopsi-showcase" data-no-wet aria-labelledby="katopsi-preview-title">
-    <div class="katopsi-showcase-head">
-      <div><div class="kick">Inside Katopsi</div><h3 id="katopsi-preview-title">The interface. The evidence.</h3></div>
-      <p>An early look at the product and a sample report from the synthetic pilot.</p>
-    </div>
-    <div class="katopsi-previews">
-      <figure class="katopsi-preview">
-        <div class="katopsi-preview-label">01 / Product interface</div>
-        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener" aria-label="View the Katopsi app preview at full size"><img src="/assets/katopsi/katopsi-app-preview.webp" alt="Katopsi product preview with its green interface, layered symbol and preliminary building studies introduction." width="1525" height="780" loading="lazy" decoding="async"></a>
-        <figcaption><div><strong>The Katopsi app</strong><p>A first look at the product’s visual language.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-app-preview.webp" target="_blank" rel="noopener">View full size <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
-      <figure class="katopsi-preview">
-        <div class="katopsi-preview-label">02 / Report preview</div>
-        <a class="katopsi-preview-image" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener" aria-label="View the synthetic Katopsi report preview at full size"><img src="/assets/katopsi/katopsi-report-preview.webp" alt="Katopsi synthetic demo report with revision, engineer approval and checksum fields; not a real property study." width="1164" height="945" loading="lazy" decoding="async"></a>
-        <figcaption><div><strong>A sample study report</strong><p>Synthetic demo study · No real property.</p></div><a class="katopsi-preview-open" href="/assets/katopsi/katopsi-report-preview.webp" target="_blank" rel="noopener">View full size <span aria-hidden="true">↗</span></a></figcaption>
-      </figure>
     </div>
   </div>
 </div></section>
