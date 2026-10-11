@@ -30,7 +30,7 @@ export async function buildDiscovery(pages, dist) {
     const faq = graph.find(node => node['@type'] === 'FAQPage');
     const section = html.match(/<section class="site-faq"[\s\S]*?<\/section>/)[0];
     const questions = [...section.matchAll(/<details><summary>([\s\S]*?)<\/summary><p>([\s\S]*?)<\/p><\/details>/g)];
-    if (questions.length !== 5 || faq.mainEntity.length !== 5) throw new Error('FAQ must have 5 questions.');
+    if (questions.length !== 4 || faq.mainEntity.length !== 4) throw new Error('FAQ must have 4 questions.');
     questions.forEach((q, i) => {
       if (visible(q[1]) !== faq.mainEntity[i].name || visible(q[2]) !== faq.mainEntity[i].acceptedAnswer.text) throw new Error('Visible FAQ/schema differs.');
     });
