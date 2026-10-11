@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="en" href="https://sourwater.space/">
 <link rel="alternate" hreflang="el" href="https://sourwater.space/el/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-heading">
+<link rel="stylesheet" href="/assets/ai-films.css?v=20261011-layout">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sourwater">
 <meta property="og:title" content="Sourwater · Concepts for Culture &amp; Commerce">
@@ -132,12 +132,12 @@
 
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
   .mermaid-film{--film-progress:0;height:260vh;margin-top:82px;position:relative;color:var(--fg)}
-  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:var(--bg);border:1px solid rgba(23,59,58,.18);box-shadow:0 34px 80px rgba(23,59,58,.12)}
+  .mermaid-film-sticky{position:sticky;top:72px;height:calc(100svh - 92px);min-height:590px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:clamp(24px,5vw,72px);align-items:center;overflow:hidden;padding:clamp(28px,5vw,72px);background:#C2D7CF;border:1px solid rgba(23,59,58,.32);box-shadow:0 34px 80px rgba(23,59,58,.12)}
   .mermaid-film-sticky:before{content:"";position:absolute;inset:-30%;background:none;transform:translateY(calc((var(--film-progress) - .5) * 9%));pointer-events:none}
   .mermaid-film-copy{position:relative;z-index:2;align-self:center}
-  .mermaid-film-copy .kick{color:var(--accent);margin-bottom:22px}
+  .mermaid-film-copy .kick{color:#245D58;margin-bottom:22px}
   .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
-  .mermaid-film-copy h3 em{color:#D6AD6A;font-weight:300}
+  .mermaid-film-copy h3 em{color:#8C622C;font-weight:300}
   .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:#315B57;font-size:clamp(15px,1.35vw,18px)}
   .mermaid-film-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
   .mermaid-film-button{border:1px solid rgba(23,59,58,.65);border-radius:40px;padding:13px 21px;background:transparent;color:#173B3A;font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
@@ -214,25 +214,25 @@
   }
 
   /* SERVICES */
-  .services{--service-accent:#E39368;padding:112px 0;background:var(--ink);color:var(--paper);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+  .services{--service-accent:#9A4225;padding:112px 0;background:var(--paper);color:var(--ink);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
   .services .pricegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;
-    background:var(--ink);border-top:1px solid rgba(245,240,228,.22);border-left:1px solid rgba(245,240,228,.22);margin-top:44px}
-  .pcard{background:var(--ink);padding:32px 30px;border-right:1px solid rgba(245,240,228,.22);border-bottom:1px solid rgba(245,240,228,.22);box-shadow:inset 0 3px 0 var(--terra)}
-  .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--paper)}
+    background:var(--paper);border-top:1px solid rgba(36,31,26,.22);border-left:1px solid rgba(36,31,26,.22);margin-top:44px}
+  .pcard{background:var(--paper);padding:32px 30px;border-right:1px solid rgba(36,31,26,.22);border-bottom:1px solid rgba(36,31,26,.22);box-shadow:inset 0 3px 0 var(--terra)}
+  .pcard h3{font-family:'Fraunces';font-weight:600;font-size:23px;color:var(--ink)}
   .pcard-premium li em{font-size:14px;line-height:1.55}
-  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C8BDA9;margin-top:4px}
-  .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(245,240,228,.14)}
+  .pcard .sub{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#5A5044;margin-top:4px}
+  .pcard ul{list-style:none;margin-top:16px}.pcard li{padding:14px 0;border-top:1px solid rgba(36,31,26,.14)}
   .pcard li:first-child{border-top:none}.pcard li .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
-  .pcard li .row span{font-weight:600;font-size:15px;color:var(--paper)}
+  .pcard li .row span{font-weight:600;font-size:15px;color:var(--ink)}
   .pcard li .row b{font-family:'Fraunces';font-weight:600;color:var(--service-accent);white-space:nowrap;font-size:15px}
-  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#C8BDA9;margin-top:5px;line-height:1.45}
+  .pcard li em{display:block;font-style:normal;font-size:12.5px;color:#5A5044;margin-top:5px;line-height:1.45}
   .pcard li[data-badge]{position:relative;padding-top:34px}
   .pcard li[data-badge]::before{content:attr(data-badge);position:absolute;top:10px;left:0;padding:3px 8px;border-radius:30px;
     background:rgba(193,92,52,.18);color:var(--service-accent);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-  .pcard li[data-badge="Premium"]::before{background:var(--paper);color:var(--ink)}
-  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(245,240,228,.4);background:transparent;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
-  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:rgba(245,240,228,.06);outline:none}
-  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--service-accent);color:var(--ink);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+  .pcard li[data-badge="Premium"]::before{background:var(--ink);color:var(--paper)}
+  .pcard .book-line{position:relative;display:block;padding:14px 102px 14px 14px;border:1.5px solid rgba(36,31,26,.4);background:transparent;text-decoration:none;color:inherit;transition:transform .22s ease,box-shadow .22s ease,background .22s ease}
+  .pcard .book-line:hover,.pcard .book-line:focus-visible{transform:translateY(-2px);box-shadow:5px 5px 0 var(--terra);background:rgba(36,31,26,.06);outline:none}
+  .pcard .book-now{position:absolute;right:12px;top:50%;transform:translateY(-50%);padding:6px 11px;border-radius:30px;background:var(--service-accent);color:var(--paper);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
   @media(max-width:700px){.services{padding:78px 0}.services .pricegrid{grid-template-columns:1fr}.pcard{padding:28px 22px}}
 
   /* PROJECT SERVICE DRAWERS */
@@ -414,7 +414,10 @@
     text-transform:uppercase;font-weight:600;color:var(--bg);background:var(--accent);padding:13px 24px;border-radius:40px}
 
   /* WORK INTRO */
-  .work-intro{padding:clamp(36px,5vw,64px) 0;background:var(--ink);color:var(--paper);border-top:1px solid rgba(245,240,228,.16);scroll-margin-top:72px}
+  .work-intro{padding:26px 0;background:var(--paper);color:var(--ink);border-top:1px solid rgba(36,31,26,.2);scroll-margin-top:72px}
+  .work-intro .wrap{display:flex;align-items:center;gap:24px}
+  .work-intro .wrap:after{content:"";flex:1;border-top:1px solid rgba(36,31,26,.25)}
+  .work-intro h2.disp{margin:0;font-size:clamp(24px,2.4vw,34px);line-height:1.1}
 
   /* HOUSE RULES */
   .house-rules{padding:112px 0 96px;background:var(--paper);color:var(--ink);overflow:hidden}
@@ -479,7 +482,7 @@
     .house-rules.is-bucket .rules-bucket{width:100vw;margin-left:calc(50% - 50vw);height:clamp(520px,72vh,600px)}
     .rules-hint{left:22px;right:22px;letter-spacing:.16em}
   }
-  .katopsi-note{margin-top:22px;font-size:14px;color:#5A5044;max-width:52ch}
+  .katopsi-note{margin-top:22px;font-size:14px;color:#D6DFCF;max-width:52ch}
 
 
 </style>
@@ -764,8 +767,8 @@
 <!-- SOURwater FILMS -->
 <section class="ai-films" id="ai-films" aria-labelledby="ai-films-title"><div class="wrap">
   <div class="ai-films-intro">
-    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div><h2 class="disp" id="ai-films-title">AI Content &amp; Films.</h2></div>
-    <div><p>Ideas made moving. AI-driven films, campaign visuals and short-form content, shaped through concept, art direction and editing.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Let’s make your next film</a></div>
+    <div><div class="films-wordmark" role="img" aria-label="SOURwater Films" data-no-wet><span>SOUR<em>water</em></span><small>Films</small></div></div>
+    <div><h2 class="disp" id="ai-films-title">AI Content &amp; Films.</h2><p>Ideas made moving. AI-driven films, campaign visuals and short-form content, shaped through concept, art direction and editing.</p><a class="ai-films-cta" href="mailto:hello@sourwater.space?subject=AI%20Content%20%26%20Films%20enquiry">Let’s make your next film</a></div>
   </div>
   <div class="ai-film-player" data-ai-film data-no-wet>
     <video playsinline preload="none" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremoteplayback poster="/assets/ai-content-film-poster.jpg" src="/assets/ai-content-film.mp4" aria-label="AI film by SOURwater Films"></video>
@@ -782,7 +785,7 @@
 </div></section>
 
 <!-- KATOPSI, studio product -->
-<section class="band flip katopsi" id="katopsi" style="--bg:#D9D3C7;--fg:#241F1A;--accent:#C15C34"><div class="wrap">
+<section class="band flip katopsi" id="katopsi" style="--bg:#223F35;--fg:#F5F0E4;--accent:#D6AD6A"><div class="wrap">
   <div class="head">
     <div class="meta"><div class="kick">Studio product · In development</div><h2 class="disp">Katopsi</h2></div>
   </div>
