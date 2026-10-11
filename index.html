@@ -96,14 +96,6 @@
   .hero-note{margin-top:24px;font-style:italic;font-size:15.5px;color:#5a5044;max-width:36ch}
   @media(max-width:620px){.hero-note{display:none}}
 
-  /* APPROACH */
-  .approach{padding:78px 0;background:var(--ink);color:#EFE6D5}
-  .approach .row{display:flex;gap:56px;flex-wrap:wrap}
-  .approach .item{flex:1;min-width:220px}
-  .approach .n{font-size:12px;letter-spacing:.28em;color:#DA9A28;text-transform:uppercase}
-  .approach h3{font-family:'Fraunces';font-weight:600;font-size:clamp(24px,3vw,36px);margin:12px 0 8px}
-  .approach p{color:#c8bda9;font-size:14.5px}
-
   /* COMPACT E-COMMERCE OFFER */
   .commerce-offer{padding:22px 0;background:#EFE6D5;color:var(--ink);border-top:1px solid rgba(36,31,26,.16);border-bottom:1px solid rgba(36,31,26,.16)}
   .commerce-offer .inner{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(320px,1.4fr) auto;gap:34px;align-items:center}
@@ -199,7 +191,7 @@
   .strategy .c p{font-size:14.5px;color:#4a423a}
 
   /* COMPACT FIRST-SCROLL BRAND DIAGNOSIS CTA */
-  .diagnosis-band{padding:24px 0 26px;background:linear-gradient(90deg,#F5EEDF 0%,#EFE3CF 50%,#F5EEDF 100%)}
+  .diagnosis-band{padding:24px 0 26px;background:var(--ink)}
   .diagnosis-strip{display:grid;grid-template-columns:minmax(230px,1.35fr) repeat(3,minmax(140px,.65fr));
     max-width:900px;margin-top:28px;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--terra);background:#F5F0E4}
   .diagnosis-band .diagnosis-strip{max-width:none;margin-top:0}
@@ -210,7 +202,7 @@
     border-left:2px solid var(--ink);color:var(--ink);text-decoration:none;font-size:12px;letter-spacing:.08em;text-transform:uppercase;transition:background .25s ease,transform .25s ease}
   .diagnosis-strip a:hover{background:rgba(193,92,52,.1);transform:translateY(-2px)}
   .diagnosis-strip a b{font-family:'Fraunces';font-size:17px;color:var(--terra);white-space:nowrap}
-  .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:var(--terra);color:#fff;
+  .diagnosis-strip .book{display:inline-block;margin-top:4px;padding:4px 10px;border-radius:30px;background:#B75430;color:#fff;
     font-size:9px;font-weight:700;letter-spacing:.14em;line-height:1.2}
   @media(max-width:700px){
     .diagnosis-strip{grid-template-columns:repeat(3,1fr);margin-top:22px}
@@ -447,6 +439,11 @@
   .rules-dialog-close{flex:none;padding:10px 12px;border:1px solid var(--ink);background:transparent;color:var(--ink);font:600 12px/1.3 'Space Grotesk',sans-serif;cursor:pointer}
   .rules-overview{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;padding:28px;margin:0}
   .rules-overview img{display:block;width:100%;height:auto}
+  .rules-copy{padding:16px 0 4px}
+  .rules-copy .kick{font-size:10px;letter-spacing:.12em}
+  .rules-copy h3{font-family:'Fraunces',Georgia,serif;font-size:28px;line-height:1.1;margin:8px 0}
+  .rules-copy p{font-size:14px;line-height:1.5}
+  .rules-dried-label{display:block;margin-top:7px;font:600 12px/1.3 'Space Grotesk',sans-serif;color:var(--ink)}
   @media(max-width:700px){.rules-dialog-head{padding:18px 16px;gap:12px}.rules-overview{grid-template-columns:1fr;padding:16px;gap:16px}}
   .rules-drying{margin-top:20px;padding-top:20px;border-top:1px solid var(--ink)}
   .rules-drying[hidden],.rules-set-aside[hidden],.rules-empty[hidden]{display:none}
@@ -510,7 +507,7 @@
   <p class="hero-note serif">One person listens to your vision, reviews your project, and builds your plan.</p>
 </div></section>
 
-<!-- IMMEDIATE DIAGNOSIS CTA: its own thin band between hero and philosophy -->
+<!-- IMMEDIATE DIAGNOSIS CTA: its own thin band between hero and House Rules -->
 <aside class="diagnosis-band">
   <div class="wrap">
   <div class="diagnosis-strip" aria-label="Book a one-to-one Brand Diagnosis">
@@ -521,21 +518,6 @@
   </div>
   </div>
 </aside>
-
-<!-- PHILOSOPHY -->
-<section class="approach"><div class="wrap">
-  <div class="n" style="color:#DA9A28">How we think</div>
-  <p class="serif" style="font-size:clamp(26px,3.6vw,52px);line-height:1.12;max-width:22ch;margin:16px 0 6px;color:#fff">A brand is one true story, told until the room leans in.</p>
-  <div class="row" style="margin-top:48px">
-    <div class="item"><div class="n">Recognition first</div><h3>Find what people recognise before they understand it.</h3>
-      <p>Nobody shares a feature. They share something they recognised. Every brand opens on one true scene, then earns the sell.</p></div>
-    <div class="item"><div class="n">Test, don't guess</div><h3>Small bets, measured honestly.</h3>
-      <p>We do not perform certainty in public. We run the experiment, read the numbers without flinching, and give budget only to what already worked.</p></div>
-    <div class="item"><div class="n">Every piece, one job</div><h3>Name the outcome, or it stays home.</h3>
-      <p>Every piece has a job: a booking, a sale, a subscriber. We decide which before it ships.</p></div>
-  </div>
-  <p style="margin-top:42px;color:#c8bda9;font-size:14.5px;max-width:62ch">Every asset carries one line built to be screenshotted with the logo cropped off, because the quote travels further than the post.</p>
-</div></section>
 
 <!-- HOUSE RULES -->
 <section class="house-rules" id="house-rules" aria-labelledby="house-rules-title"><div class="wrap">
@@ -562,7 +544,7 @@
     <p class="rules-empty" hidden>Clear water. Nine rules to keep.</p>
   </div>
   <ul class="rules-grid">
-      <li><img src="/assets/rules/house-rule-brand-system.webp?v=2" alt="A logo is one piece. The system is the brand." width="1440" height="1440" loading="lazy" decoding="async"></li>
+      <li><img src="/assets/rules/house-rule-less-brand-system.webp?v=3" alt="BRAND SYSTEMS. Less. Stop shipping brand guidelines nobody can recite. Cut the system until it fits in a head." data-kicker="BRAND SYSTEMS" data-title="Less." data-body="Stop shipping brand guidelines nobody can recite. Cut the system until it fits in a head." data-texture-size="2048" width="1440" height="1440" loading="lazy" decoding="async"><div class="rules-copy"><span class="kick">BRAND SYSTEMS</span><h3>Less.</h3><p>Stop shipping brand guidelines nobody can recite. Cut the system until it fits in a head.</p></div></li>
       <li><img src="/assets/rules/house-rule-be-the-source.webp?v=2" alt="Be the source the answer quotes." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-ai-video-director.webp?v=2" alt="AI video needs a director." width="1440" height="1440" loading="lazy" decoding="async"></li>
       <li><img src="/assets/rules/house-rule-no.webp?v=2" alt="NO. We say it to briefs that ask for everything." width="1440" height="1440" loading="lazy" decoding="async"></li>
@@ -1017,7 +999,7 @@
 <script>
 (function(){
   var wordRoots=document.querySelectorAll(
-    '.hero h1,.hero .tag,.hero .pos,.hero .hero-note,.diagnosis-strip .label,.approach .wrap>.n,.approach .wrap>p,.approach .item h3,.approach .item p,.commerce-offer h2,.commerce-offer p,.band .head,.band .lead,.band blockquote,.band .tag,.strategy .c,.plan-builder .intro,.plan-question legend,.plan-result h3,.plan-result p,.services .wrap>.kick,.services .wrap>h2,.services .wrap>.lead,.pcard h3,.pcard p,.services-note,footer .footer-kick,footer h2,footer .studioline'
+    '.hero h1,.hero .tag,.hero .pos,.hero .hero-note,.diagnosis-strip .label,.commerce-offer h2,.commerce-offer p,.band .head,.band .lead,.band blockquote,.band .tag,.strategy .c,.plan-builder .intro,.plan-question legend,.plan-result h3,.plan-result p,.services .wrap>.kick,.services .wrap>h2,.services .wrap>.lead,.pcard h3,.pcard p,.services-note,footer .footer-kick,footer h2,footer .studioline'
   );
   Array.prototype.forEach.call(wordRoots,function(root){
     if(root.closest('[data-no-wet]'))return;
@@ -1041,7 +1023,7 @@
     });
   });
   var nodes=Array.prototype.slice.call(document.querySelectorAll(
-    'nav .brand,nav .links a,.hero .studioline,.hero h1,.hero>.wrap>.tag,.hero .pos,.hero .hero-cta,.hero .hero-note,.diagnosis-strip .label,.diagnosis-strip a,.approach .wrap>.n,.approach .wrap>p,.approach .item,.commerce-offer .inner,.band .head,.band .lead,.band blockquote,.band .tags,.band .col,.band .wrap>div[style*="margin-top:60px"],.strategy .c,.plan-builder .intro>*,.plan-builder .plan-question,.plan-builder .plan-result,.services .wrap>.kick,.services .wrap>h2,.services .wrap>.lead,.services .pcard,.services-note,footer .footer-kick,footer h2,footer .contact,footer .studioline'
+    'nav .brand,nav .links a,.hero .studioline,.hero h1,.hero>.wrap>.tag,.hero .pos,.hero .hero-cta,.hero .hero-note,.diagnosis-strip .label,.diagnosis-strip a,.commerce-offer .inner,.band .head,.band .lead,.band blockquote,.band .tags,.band .col,.band .wrap>div[style*="margin-top:60px"],.strategy .c,.plan-builder .intro>*,.plan-builder .plan-question,.plan-builder .plan-result,.services .wrap>.kick,.services .wrap>h2,.services .wrap>.lead,.services .pcard,.services-note,footer .footer-kick,footer h2,footer .contact,footer .studioline'
   ));
   var localTargets=Array.prototype.slice.call(document.querySelectorAll(
     '.sw-word-reactive,.band .col img,.band .browser,.band .tag,.diagnosis-strip a,.pcard li:not(:has(.book-line)),.pcard .book-line,.hero-cta a,.btn,.plan-option span,.plan-email,footer .contact a'
@@ -2044,7 +2026,9 @@
   function markTaken(c){
     if(c.taken)return;c.taken=true;takenCount++;if(c.key)c.key.disabled=true;
     var li=document.createElement('li'),b=document.createElement('button'),im=imgEls[c.i].cloneNode(true);
-    b.type='button';b.setAttribute('aria-label',TXT.read+': '+c.alt);im.loading='eager';b.appendChild(im);li.appendChild(b);dried.appendChild(li);
+    b.type='button';b.setAttribute('aria-label',TXT.read+': '+c.alt);im.loading='eager';b.appendChild(im);
+    if(im.dataset.title){var label=document.createElement('span');label.className='rules-dried-label';label.textContent=im.dataset.title;b.appendChild(label);}
+    li.appendChild(b);dried.appendChild(li);
     b.addEventListener('click',function(){
       if(!dialog||!viewAll)return;
       viewAll.click();dialog.querySelector('.rules-overview').children[c.i].scrollIntoView({block:'center'});
@@ -2100,8 +2084,9 @@
   cards.forEach(function(c){
     var im=new Image();im.decoding='async';
     im.onload=function(){
-      var cv=document.createElement('canvas');cv.width=cv.height=1024;
-      cv.getContext('2d').drawImage(im,0,0,1024,1024);
+      var cv=document.createElement('canvas'),textureSize=Math.min(Number(imgEls[c.i].getAttribute('data-texture-size'))||1024,gl.getParameter(gl.MAX_TEXTURE_SIZE));
+      cv.width=cv.height=textureSize;
+      cv.getContext('2d').drawImage(im,0,0,textureSize,textureSize);
       var t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
       gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL,true);
       gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,cv);
