@@ -10,8 +10,16 @@ const VIDEO_BYTES = {
 export default {
   async fetch(request, env) {
     const videoSize = VIDEO_BYTES[new URL(request.url).pathname];
-    if (!videoSize ||
-        !['GET', 'HEAD'].includes(request.method)) return env.ASSETS.fetch(request);
+    if (!videoSize || !['GET', 'HEAD'].includes(request.method)) {
+      const asset = await env.ASSETS.fetch(request);
+      if (['GET', 'HEAD'].includes(request.method) && asset.ok &&
+          /\.(?:png|jpe?g|webp|gif|avif|svg|ico|css|js)$/.test(new URL(request.url).pathname)) {
+        const headers = new Headers(asset.headers);
+        headers.set('Cache-Control', 'public, max-age=604800');
+        return new Response(asset.body, {status: asset.status, statusText: asset.statusText, headers});
+      }
+      return asset;
+    }
     const source = await env.ASSETS.fetch(new Request(request.url, {method: request.method}));
     if (source.status !== 200) return source;
     const headers = new Headers(source.headers);

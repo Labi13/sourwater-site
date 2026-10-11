@@ -1,4 +1,5 @@
 import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
+import { buildDiscovery } from "./site-discovery.mjs";
 import { FILM_BYTES } from "./film-metadata.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +14,15 @@ const localAssets = [
   ["media/ai-content-film.mp4", "ai-content-film.mp4"],
   ["media/ai-content-film-poster.jpg", "ai-content-film-poster.jpg"],
   ["scripts/ai-film-player.js", "ai-film-player.js"],
-  ["styles/ai-films.css", "ai-films.css"]
+  ["styles/ai-films.css", "ai-films.css"],
+  ["scripts/plan-register-en.js", "plan-register-en.js"],
+  ["scripts/plan-register-el.js", "plan-register-el.js"],
+  ["scripts/site-motion-en.js", "site-motion-en.js"],
+  ["scripts/site-motion-el.js", "site-motion-el.js"],
+  ["scripts/mellow-motion-en.js", "mellow-motion-en.js"],
+  ["scripts/mellow-motion-el.js", "mellow-motion-el.js"],
+  ["scripts/mermaid-film.js", "mermaid-film.js"],
+  ["scripts/rules-bucket.js", "rules-bucket.js"]
 ];
 
 const sourceAssets = [
@@ -112,4 +121,9 @@ if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
   throw new Error("Escape Shop portfolio link is missing from the production build.");
 }
 
-console.log(`Built Sourwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + 1} local assets.`);
+await buildDiscovery([
+  { language: "en", html },
+  { language: "el", html: await readFile(new URL("el/index.html", dist), "utf8") }
+], dist);
+
+console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + 1} local assets.`);

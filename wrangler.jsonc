@@ -6,6 +6,6 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    "run_worker_first": ["/assets/ai-content-film.mp4", "/assets/mermaids-need-space-720.mp4", "/assets/mermaids-need-space-1080.mp4", "/assets/mermaids-need-space-2k.mp4"]
+    "run_worker_first": ["/assets/*"]
   }
 }
