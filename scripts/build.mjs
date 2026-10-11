@@ -26,7 +26,6 @@ const localAssets = [
 ];
 
 const sourceAssets = [
-  "favicon.png",
   "flaouer-couples-bonding.png",
   "flaouer-dance-story.png",
   "flaouer-performances-story.png",
@@ -82,6 +81,29 @@ await mkdir(new URL("el/", dist), { recursive: true });
 
 await copyFile(new URL("index.html", root), new URL("index.html", dist));
 await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+const brandDirectory = new URL("assets/brand/", root);
+const brandAssets = (await readdir(brandDirectory, { withFileTypes: true }))
+  .filter((entry) => entry.isFile()).map((entry) => entry.name);
+await mkdir(new URL("assets/brand/", dist), { recursive: true });
+await Promise.all(brandAssets.map((name) =>
+  copyFile(new URL(name, brandDirectory), new URL(`assets/brand/${name}`, dist))
+));
+await Promise.all(["favicon.ico", "apple-touch-icon.png"].map((name) =>
+  copyFile(new URL(name, brandDirectory), new URL(name, dist))
+));
+await writeFile(new URL("site.webmanifest", dist), JSON.stringify({
+  name: "SOURwater",
+  short_name: "SOURwater",
+  start_url: "/",
+  display: "browser",
+  background_color: "#241F1A",
+  theme_color: "#241F1A",
+  icons: [
+    { src: "/assets/brand/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+    { src: "/assets/brand/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+    { src: "/assets/brand/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
+  ]
+}, null, 2) + "\n");
 const rulesDirectory = new URL("assets/rules/", root);
 const ruleAssets = (await readdir(rulesDirectory)).filter((name) => /^house-rule-.*\.webp$/.test(name));
 await mkdir(new URL("assets/rules/", dist), { recursive: true });
@@ -129,4 +151,4 @@ await buildDiscovery([
   { language: "el", html: await readFile(new URL("el/index.html", dist), "utf8") }
 ], dist);
 
-console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + ataAssets.length + 1} local assets.`);
+console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + ataAssets.length + brandAssets.length + 3} local assets.`);
