@@ -3,6 +3,9 @@
   var wordRoots=document.querySelectorAll(
     '.hero h1,.hero .tag,.hero .pos,.hero .hero-note,.diagnosis-strip .label,.commerce-offer h2,.commerce-offer p,.band .head,.band .lead,.band blockquote,.band .tag,.strategy .c,.plan-builder .intro,.plan-question legend,.plan-result h3,.plan-result p,footer .footer-kick,footer h2,footer .studioline'
   );
+  wordRoots=Array.prototype.slice.call(wordRoots).concat(Array.prototype.slice.call(document.querySelectorAll(
+    '.diagnosis-heading .kick,.diagnosis-heading p,.diagnosis-main h2,.diagnosis-main p'
+  )));
   Array.prototype.forEach.call(wordRoots,function(root){
     if(root.closest('[data-no-wet]'))return;
     var walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(textNode){
@@ -30,6 +33,14 @@
   var localTargets=Array.prototype.slice.call(document.querySelectorAll(
     '.sw-word-reactive,.band .col img,.band .browser,.band .tag,.diagnosis-strip a,.hero-cta a,.btn,.plan-option span,.plan-email,footer .contact a'
   ));
+  /* Register the expanded first-scroll section with the existing mellow
+     engine. Append targets so earlier sections retain their float phases. */
+  nodes=nodes.concat(Array.prototype.slice.call(document.querySelectorAll(
+    '.diagnosis-heading,.service-start,.diagnosis-main>div:first-child,.diagnosis-session'
+  )));
+  localTargets=localTargets.concat(Array.prototype.slice.call(document.querySelectorAll(
+    '.service-start,.diagnosis-session,.diagnosis-project'
+  )));
   if(!nodes.length&&!localTargets.length)return;
   nodes.forEach(function(node,index){
     node.classList.add('sw-reactive');
