@@ -919,6 +919,16 @@
   .site-faq summary:focus-visible{outline:2px solid var(--terra);outline-offset:5px}
   .site-faq details p{font-size:14px;line-height:1.65;max-width:74ch;margin:14px 20px 0}
   @media(max-width:760px){.reg-key span{min-height:132px}.site-faq{padding-bottom:64px}}
+
+/* EXPANDED SERVICES & DIAGNOSIS — 2026-10-17 */
+.diagnosis-expanded{padding:48px 0 58px;background:var(--ink);color:var(--paper)}
+.diagnosis-heading{display:flex;justify-content:space-between;gap:28px;align-items:baseline;margin-bottom:24px}.diagnosis-heading .kick{font-size:10px;color:#e2a17e;letter-spacing:.17em}.diagnosis-heading p{font-size:12px;color:#c4b9a9;max-width:46ch}
+.service-starts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border-top:1px solid #f5f0e450;border-bottom:1px solid #f5f0e450}
+.service-start{position:relative;display:flex;flex-direction:column;gap:10px;padding:22px 17px 24px 0;color:var(--paper);text-decoration:none;min-height:162px}.service-start+.service-start{border-left:1px solid #f5f0e42b;padding-left:20px}.service-start .service-number{font-size:10px;letter-spacing:.1em;color:#d8a081}.service-start strong{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:22px;line-height:1.12}.service-start>span:not(.service-number){font-size:12px;line-height:1.5;color:#c4b9a9}.service-start>b{position:absolute;right:14px;top:18px;color:#e2a17e;font-size:16px}.service-start:hover strong{color:#e2a17e}.service-start:focus-visible,.diagnosis-session:focus-visible,.diagnosis-project:focus-visible{outline:3px solid #e2a17e;outline-offset:4px}
+.diagnosis-main{display:grid;grid-template-columns:1.05fr 1fr;gap:65px;margin-top:40px;align-items:center}.diagnosis-main h2.disp{font-size:clamp(36px,4.4vw,60px);font-weight:500;line-height:1.03}.diagnosis-main p{max-width:48ch;font-size:14px;color:#c4b9a9;margin:20px 0 17px}.diagnosis-project{font-size:12px;color:#f5f0e4;text-underline-offset:5px}.diagnosis-sessions{display:grid;gap:10px}.diagnosis-session{display:grid;grid-template-columns:62px 1fr auto;gap:14px;align-items:center;background:var(--paper);color:var(--ink);padding:16px 18px;text-decoration:none;border:1px solid var(--paper);transition:background .2s}.diagnosis-session:hover{background:#efd6bf}.session-time{font-family:'Fraunces',Georgia,serif;font-size:30px;line-height:1}.session-time small{display:block;font-family:'Space Grotesk',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-top:5px}.diagnosis-session strong{display:block;font-size:13px;line-height:1.3}.diagnosis-session>span>span{display:block;font-size:11px;line-height:1.4;margin-top:4px;color:#665c50}.diagnosis-session>b{font-size:11px;color:#9f4022;white-space:nowrap}
+@media(max-width:900px){.service-starts{grid-template-columns:repeat(3,minmax(0,1fr))}.service-start:nth-child(4){border-left:0;padding-left:0}.service-start:nth-child(n+4){border-top:1px solid #f5f0e42b}.diagnosis-main{gap:30px}}
+@media(max-width:650px){.diagnosis-expanded{padding:34px 0 38px}.diagnosis-heading{display:block}.diagnosis-heading p{margin-top:10px}.service-starts{grid-template-columns:1fr}.service-start,.service-start+.service-start,.service-start:nth-child(4){padding:15px 26px 15px 30px;min-height:0;border-left:0;border-top:1px solid #f5f0e42b;gap:4px}.service-start:first-child{border-top:0}.service-start .service-number{position:absolute;left:0;top:20px}.service-start strong{font-size:23px}.service-start>span:not(.service-number){font-size:12px;max-width:40ch}.service-start>b{right:0;top:19px}.diagnosis-main{grid-template-columns:1fr;margin-top:30px;gap:26px}.diagnosis-main h2.disp{font-size:42px}.diagnosis-session{padding:15px 12px;grid-template-columns:48px 1fr auto;gap:10px}.diagnosis-main p{font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -944,16 +954,7 @@
 </div></section>
 
 <!-- ΑΜΕΣΟ CTA ΔΙΑΓΝΩΣΗΣ: ξεχωριστή λεπτή ζώνη ανάμεσα στο hero και τους κανόνες -->
-<aside class="diagnosis-band">
-  <div class="wrap">
-  <div class="diagnosis-strip" aria-label="Κλείστε ατομική Διάγνωση Brand">
-    <div class="label"><strong>1:1 Διάγνωση Brand</strong><span>Διαλέξτε συνεδρία εργασίας</span></div>
-    <a href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span>30 λεπτά</span><span class="book">Κράτηση →</span></a>
-    <a href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span>60 λεπτά</span><span class="book">Κράτηση →</span></a>
-    <a href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span>90 λεπτά</span><span class="book">Κράτηση →</span></a>
-  </div>
-  </div>
-</aside>
+<section class="diagnosis-band diagnosis-expanded" aria-labelledby="diagnosis-title"><div class="wrap"><div class="diagnosis-heading"><span class="kick">Υπηρεσίες & 1:1 Διάγνωση Brand</span><p>Μία κατεύθυνση ή ένα ολοκληρωμένο σύστημα. Ξεκινάμε από αυτό που χρειάζεστε.</p></div><div class="service-starts"><a class="service-start" href="#services"><span class="service-number">01</span><strong>Συστήματα Brand</strong><span>Τοποθέτηση, φωνή και οπτική ταυτότητα που μπορεί να χρησιμοποιεί η ομάδα σας.</span><b aria-hidden="true">↗</b></a><a class="service-start" href="#services"><span class="service-number">02</span><strong>Creative AI</strong><span>Ταινίες, εικόνες καμπάνιας και δημιουργική διεύθυνση με αφετηρία την ιδέα.</span><b aria-hidden="true">↗</b></a><a class="service-start" href="#services"><span class="service-number">03</span><strong>Ιστοσελίδες</strong><span>Ξεχωριστά sites με σαφές περιεχόμενο και εύκολη επικοινωνία.</span><b aria-hidden="true">↗</b></a><a class="service-start" href="#services"><span class="service-number">04</span><strong>Social media</strong><span>Σταθερή εκδοτική φωνή, καμπάνιες και δημοσιεύσεις.</span><b aria-hidden="true">↗</b></a><a class="service-start" href="#services"><span class="service-number">05</span><strong>Synthetics / Video engine</strong><span>Σύστημα παραγωγής εικόνας, φωνής και βίντεο για το brand σας.</span><b aria-hidden="true">↗</b></a></div><div class="diagnosis-main"><div><h2 class="disp" id="diagnosis-title">Βρείτε από πού<br>να ξεκινήσετε.</h2><p>Διαλέξτε κατεύθυνση ή φέρτε ολόκληρο το ερώτημα. Σε μια 1:1 Διάγνωση Brand εξετάζουμε το brand, την προσφορά ή το project σας και εντοπίζουμε το επόμενο βήμα.</p><a class="diagnosis-project" href="mailto:hello@sourwater.space">Έχετε ήδη brief; Πείτε μας για αυτό ↗</a></div><div class="diagnosis-sessions" aria-label="Επιλέξτε συνεδρία"><a class="diagnosis-session" href="https://cal.eu/sourwater/30min" target="_blank" rel="noopener"><span class="session-time">30 <small>λεπτά</small></span><span><strong>Συγκεκριμένο ερώτημα</strong><span>Στοχευμένη διάγνωση.</span></span><b>Κράτηση ↗</b></a><a class="diagnosis-session" href="https://cal.eu/sourwater/60min" target="_blank" rel="noopener"><span class="session-time">60 <small>λεπτά</small></span><span><strong>Βαθύτερη διάγνωση</strong><span>Εξετάζουμε το brand, την προσφορά ή το project.</span></span><b>Κράτηση ↗</b></a><a class="diagnosis-session" href="https://cal.eu/sourwater/90min" target="_blank" rel="noopener"><span class="session-time">90 <small>λεπτά</small></span><span><strong>Διάγνωση + γραπτό πλάνο</strong><span>Πλάνο δράσης μέσα σε 48 ώρες.</span></span><b>Κράτηση ↗</b></a></div></div></div></section>
 
 <!-- HOUSE RULES -->
 <section class="house-rules" id="house-rules" aria-labelledby="house-rules-title"><div class="wrap">
@@ -1299,3 +1300,4 @@
 <script src="/assets/rules-bucket.js?v=20261011-calm" defer></script>
 </body>
 </html>
+
