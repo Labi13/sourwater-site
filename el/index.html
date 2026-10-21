@@ -872,7 +872,13 @@
   .work-intro .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px}
   .work-intro .wi-mark{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.03em;font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--ink)}
   .work-intro .wi-mark em{font-style:italic;font-weight:300;color:var(--terra)}
-  .work-intro h2.disp{margin:0;font-size:clamp(28px,2.9vw,42px);font-weight:500;line-height:1;color:var(--ink);border:1.5px solid var(--ink);padding:.22em .42em .28em}
+  /* Section titles as plan-register keys: same key the visitor presses further down. */
+  .work-intro h2.wi-key{position:relative;margin:0;display:inline-flex;flex-direction:column;gap:7px;padding:10px 34px 12px 15px;border-radius:10px;
+    background:linear-gradient(180deg,#FBF6EA,#E9DFCB);color:#241F1A;transform:translateY(-3px);
+    box-shadow:0 5px 0 #A99B82,0 6px 0 #1B1713,0 10px 14px rgba(36,31,26,.28)}
+  .work-intro h2.wi-key small{font-family:'Fira Code',ui-monospace,Menlo,Consolas,monospace;font-size:10px;letter-spacing:.14em;color:#C15C34;font-weight:500;line-height:1}
+  .work-intro h2.wi-key b{font-family:'Fraunces',Georgia,serif;font-size:clamp(22px,2.3vw,32px);font-weight:600;line-height:1;letter-spacing:-.01em}
+  .work-intro h2.wi-key:after{content:"";position:absolute;top:11px;right:12px;width:7px;height:7px;border-radius:50%;background:#CBBFA8;box-shadow:inset 0 1px 1px rgba(0,0,0,.25)}
   .work-intro + .plan-builder{padding-top:72px}
   .work-intro + .plan-builder .intro{align-items:start}
   .work-intro + .plan-builder .intro .reg-subline{margin-top:0}
@@ -1037,7 +1043,7 @@
 
 <!-- SELECTED WORK -->
 <section class="work-intro" id="work" aria-labelledby="work-title"><div class="wrap">
-  <span class="wi-mark" aria-hidden="true">SOUR<em>water</em></span><h2 class="disp" id="work-title">Επιλεγμένες δουλειές</h2>
+  <span class="wi-mark" aria-hidden="true">SOUR<em>water</em></span><h2 class="wi-key" id="work-title"><small aria-hidden="true">WRK · 06</small><b>Επιλεγμένες δουλειές</b></h2>
 </div></section>
 
 <!-- ESCAPE SHOP -->
@@ -1255,7 +1261,7 @@
 
 <!-- MAKE YOUR PLAN -->
 <section class="work-intro" id="services" aria-labelledby="services-title"><div class="wrap">
-  <span class="wi-mark" aria-hidden="true">SOUR<em>water</em></span><h2 class="disp" id="services-title">Τι κάνουμε</h2>
+  <span class="wi-mark" aria-hidden="true">SOUR<em>water</em></span><h2 class="wi-key" id="services-title"><small aria-hidden="true">SRV · 05</small><b>Τι κάνουμε</b></h2>
 </div></section>
 <section class="plan-builder" id="services-register" aria-labelledby="services-title"><div class="wrap"><span class="legacy-anchor" id="build-your-plan" aria-hidden="true"></span>
   <div class="intro">
