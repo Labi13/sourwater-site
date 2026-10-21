@@ -1,12 +1,19 @@
 
 (function(){
   var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Phones: no pinned scroll-scrub. The film loops muted while in view; scrubbing stays on desktop.
+  var phone=window.matchMedia?window.matchMedia('(max-width: 760px)'):{matches:false};
   document.querySelectorAll('[data-mermaid-film]').forEach(function(box){
     var sticky=box.querySelector('.mermaid-film-sticky');
     var video=box.querySelector('video');
     var button=box.querySelector('.mermaid-film-button');
     var quality=box.querySelector('.mermaid-film-quality select');
-    var playing=false,queued=false,duration=44;
+    var playing=false,queued=false,duration=44,inView=false;
+    function loopMuted(){
+      if(playing||reduced||!phone.matches)return;
+      video.muted=true;video.loop=true;
+      if(inView){video.play().catch(function(){});}else{video.pause();}
+    }
     function clamp(value){return Math.max(0,Math.min(1,value));}
     function progress(){
       var rect=box.getBoundingClientRect();
@@ -14,7 +21,7 @@
     }
     function update(){
       queued=false;
-      if(playing||reduced)return;
+      if(playing||reduced||phone.matches)return;
       var p=progress();
       box.style.setProperty('--film-progress',p.toFixed(4));
       if(video.readyState>=1&&isFinite(video.duration)){
@@ -31,6 +38,7 @@
         video.removeEventListener('loadedmetadata',ready);
         video.currentTime=Math.min(target,Math.max(0,video.duration-.08));
         if(shouldPlay)video.play().catch(function(){button.textContent=button.getAttribute('data-resume');});
+        else loopMuted();
       });
     }
     video.addEventListener('loadedmetadata',function(){duration=video.duration||44;update();});
@@ -41,12 +49,12 @@
     });
     button.addEventListener('click',function(){
       if(!playing){
-        playing=true;box.classList.add('is-playing');video.muted=false;video.controls=true;
+        playing=true;box.classList.add('is-playing');video.loop=false;video.muted=false;video.controls=true;
         button.textContent=button.getAttribute('data-pause');
         video.currentTime=0;
         video.play().catch(function(){
           playing=false;box.classList.remove('is-playing');video.controls=false;video.muted=true;
-          button.textContent=button.getAttribute('data-play');
+          button.textContent=button.getAttribute('data-play');loopMuted();
         });
       }else if(video.paused){video.play();button.textContent=button.getAttribute('data-pause');}
       else{video.pause();button.textContent=button.getAttribute('data-resume');}
@@ -54,11 +62,21 @@
     video.addEventListener('play',function(){if(playing)button.textContent=button.getAttribute('data-pause');});
     video.addEventListener('pause',function(){if(playing&&!video.ended)button.textContent=button.getAttribute('data-resume');});
     video.addEventListener('ended',function(){
-      playing=false;box.classList.remove('is-playing');video.controls=false;video.muted=true;button.textContent=button.getAttribute('data-play');update();
+      playing=false;box.classList.remove('is-playing');video.controls=false;video.muted=true;button.textContent=button.getAttribute('data-play');update();loopMuted();
     });
     addEventListener('scroll',requestUpdate,{passive:true});
     addEventListener('resize',requestUpdate,{passive:true});
     document.addEventListener('visibilitychange',function(){if(document.hidden&&playing)video.pause();});
+    if(phone.matches&&quality.value==='1080'){
+      for(var i=0;i<quality.options.length;i++){if(quality.options[i].value==='720'){quality.selectedIndex=i;break;}}
+      video.src=chosenSource();video.load();
+    }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){inView=entries[0].isIntersecting;loopMuted();},{threshold:.35}).observe(video);
+    }
+    if(phone.addEventListener)phone.addEventListener('change',function(){
+      if(phone.matches){loopMuted();}else if(!playing){video.loop=false;video.pause();requestUpdate();}
+    });
     if(!reduced)requestUpdate();
   });
 })();

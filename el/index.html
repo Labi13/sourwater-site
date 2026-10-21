@@ -655,6 +655,8 @@
   .mermaid-film-copy .kick{color:var(--fg);margin-bottom:22px}
   .mermaid-film-copy h3{max-width:7ch;margin:0;font-family:'Fraunces',Georgia,serif;font-size:clamp(52px,7.1vw,104px);font-weight:500;line-height:.88;letter-spacing:-.035em}
   .mermaid-film-copy h3 em{color:var(--accent);font-weight:300}
+  .film-hint-mobile{display:none}
+  @media(max-width:760px){.film-hint-mobile{display:inline}}
   .mermaid-film-copy p{max-width:34ch;margin:28px 0 0;color:var(--fg);opacity:.7;font-size:clamp(15px,1.35vw,18px)}
   .mermaid-film-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:30px}
   .mermaid-film-button{border:1px solid rgba(239,230,213,.7);border-radius:40px;padding:13px 21px;background:transparent;color:var(--fg);font:600 11px/1.2 'Space Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;transition:background .25s,color .25s,transform .25s}
@@ -671,12 +673,14 @@
   .mermaid-film-button:focus-visible,.mermaid-film-quality select:focus-visible{outline:2px solid #EFE6D5;outline-offset:4px}
   .mermaid-film.is-playing .mermaid-film-progress,.mermaid-film.is-playing .mermaid-film-status{opacity:0}
   @media(max-width:760px){
-    .mermaid-film{height:230vh;margin:36px -20px 0}
-    .mermaid-film-sticky{top:0;height:100svh;min-height:600px;grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:20px;padding:76px 20px 18px}
+    .mermaid-film{height:auto;margin:36px -20px 0}
+    .mermaid-film-sticky{position:relative;top:auto;height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:auto auto;gap:22px;padding:44px 20px 24px}
     .mermaid-film-copy h3{font-size:clamp(48px,14vw,72px);max-width:none}
     .mermaid-film-copy p{font-size:14px;margin-top:16px;max-width:42ch}
     .mermaid-film-actions{margin-top:18px;gap:9px}.mermaid-film-button{padding:11px 16px}.mermaid-film-quality select{padding-top:10px;padding-bottom:10px}
-    .mermaid-film-stage{width:min(100%,360px);height:auto;min-height:0;align-self:stretch;justify-self:center;aspect-ratio:auto}
+    .mermaid-film-stage{width:min(100%,360px);height:auto;min-height:0;justify-self:center;aspect-ratio:9/16}
+    .mermaid-film-status,.mermaid-film-progress{display:none}
+    .film-hint-desktop{display:none}
     .mermaid-film-stage video{object-fit:cover;object-position:center 52%}
   }
   @media(prefers-reduced-motion:reduce){
@@ -1201,7 +1205,7 @@
       <div class="mermaid-film-copy">
         <div class="kick">SOURwater Films · 001</div>
         <h3>Mermaids<br>need <em>space.</em></h3>
-        <p>Κάντε scroll για να κινηθείτε μέσα στην ταινία. Πατήστε play για να δείτε ολόκληρο το film των 44 δευτερολέπτων με ήχο.</p>
+        <p><span class="film-hint-desktop">Κάντε scroll για να κινηθείτε μέσα στην ταινία. Πατήστε play για να δείτε ολόκληρο το film των 44 δευτερολέπτων με ήχο.</span><span class="film-hint-mobile">Η ταινία παίζει χωρίς ήχο καθώς περνάτε. Πατήστε play για ολόκληρο το film των 44 δευτερολέπτων με ήχο.</span></p>
         <div class="mermaid-film-actions">
           <button class="mermaid-film-button" type="button" data-play="Δείτε ολόκληρη την ταινία με ήχο" data-pause="Παύση ταινίας" data-resume="Συνέχεια ταινίας">Δείτε ολόκληρη την ταινία με ήχο</button>
           <label class="mermaid-film-quality">Ποιότητα
@@ -1367,7 +1371,7 @@
 <canvas id="sw-water" aria-hidden="true"></canvas>
 <script src="/assets/mellow-motion-el.js?v=20261011-services" defer></script>
 
-<script src="/assets/mermaid-film.js?v=20261011-services" defer></script>
+<script src="/assets/mermaid-film.js?v=20261021-mobile-loop" defer></script>
 
 <script src="/assets/ai-film-player.js" defer></script>
 <script src="/assets/rules-bucket.js?v=20261011-calm" defer></script>
