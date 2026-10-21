@@ -116,6 +116,12 @@ await mkdir(new URL("assets/katopsi/", dist), { recursive: true });
 await Promise.all(katopsiAssets.map((name) =>
   copyFile(new URL(name, katopsiDirectory), new URL(`assets/katopsi/${name}`, dist))
 ));
+const casesDirectory = new URL("assets/cases/", root);
+const caseAssets = (await readdir(casesDirectory)).filter((name) => /\.webp$/.test(name));
+await mkdir(new URL("assets/cases/", dist), { recursive: true });
+await Promise.all(caseAssets.map((name) =>
+  copyFile(new URL(name, casesDirectory), new URL(`assets/cases/${name}`, dist))
+));
 const ataDirectory = new URL("assets/ata/", root);
 const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$/.test(name));
 await mkdir(new URL("assets/ata/", dist), { recursive: true });
