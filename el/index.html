@@ -316,9 +316,9 @@
     },
     {
       "@type": "CreativeWork",
-      "@id": "https://sourwater.space/el/#shelter-concept-store",
-      "name": "Shelter Concept Store",
-      "description": "Ένα concept store επιλεγμένης μόδας χωρίς e-shop, και χωρίς σκοπό να φτιάξει. Γι' αυτό χτίσαμε το site γύρω από την ιδιοκτήτρια: η Μερόπη δοκιμάζει τα ρούχα, το site σε στέλνει στα DM της και το Instagram κάνει το ταμείο.",
+      "@id": "https://sourwater.space/el/#escape-shop",
+      "name": "Escape Shop",
+      "description": "Ένα μαγαζί για ψάρεμα κυπρίνου και γλυκών νερών, με ολόκληρο e-shop... που όμως κανείς δεν έβρισκε. Οπότε φτιάξαμε τον λόγο να το βρουν: έναν οδηγό λιμνών που κερδίζει την αναζήτηση, και μετά δίνει στον αναγνώστη τον ακριβή εξοπλισμό για αγορά.",
       "inLanguage": "el",
       "creator": {
         "@id": "https://sourwater.space/#org"
@@ -332,12 +332,11 @@
           "addressCountry": "GR"
         }
       },
-      "url": "https://sourwater.space/el/#shelter-concept-store",
-      "sameAs": "https://shelterconceptstore.gr/",
+      "url": "https://sourwater.space/el/#escape-shop",
       "keywords": [
         "Σχεδιασμός ιστοσελίδας",
         "SEO / GEO",
-        "Πωλήσεις μέσω Instagram"
+        "Οδηγοί λιμνών"
       ]
     },
     {
@@ -363,6 +362,32 @@
         "Reels",
         "Στρατηγική περιεχομένου",
         "Funnel online μαθήματος"
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://sourwater.space/el/#shelter-concept-store",
+      "name": "Shelter Concept Store",
+      "description": "Ένα concept store επιλεγμένης μόδας χωρίς e-shop, και χωρίς σκοπό να φτιάξει. Γι' αυτό χτίσαμε το site γύρω από την ιδιοκτήτρια: η Μερόπη δοκιμάζει τα ρούχα, το site σε στέλνει στα DM της και το Instagram κάνει το ταμείο.",
+      "inLanguage": "el",
+      "creator": {
+        "@id": "https://sourwater.space/#org"
+      },
+      "locationCreated": {
+        "@type": "Place",
+        "name": "Karditsa",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Karditsa",
+          "addressCountry": "GR"
+        }
+      },
+      "url": "https://sourwater.space/el/#shelter-concept-store",
+      "sameAs": "https://shelterconceptstore.gr/",
+      "keywords": [
+        "Σχεδιασμός ιστοσελίδας",
+        "SEO / GEO",
+        "Πωλήσεις μέσω Instagram"
       ]
     },
     {
@@ -594,6 +619,8 @@
   .grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
   .band.flip .txt{order:2}
   @media(max-width:920px){.grid{grid-template-columns:1fr}.band.flip .txt{order:0}}
+  /* Mermaid's images come first in the markup; keep its text on the left so the six cases alternate. */
+  @media(min-width:921px){#mermaid-experience .txt{order:-1}}
   .band p.lead{color:var(--fg);opacity:.92}
   .band blockquote{margin:26px 0 0;padding-left:22px;border-left:2px solid var(--accent);
     font-family:'Fraunces','Spectral';font-style:italic;font-size:clamp(18px,1.9vw,25px)}
@@ -608,8 +635,10 @@
 
 
 
+  .escape-shop .tag{color:var(--fg)}
+  .escape-shop .btn{color:var(--ink)}
   .shelter .tag{color:var(--fg)}
-  .shelter .btn{color:var(--ink)}
+  .shelter .btn{color:#0B0B0A}
 
   /* ATA: essay banner above two slightly overlapping portrait posts. */
   #acting-truth-academy .ata-collage .ata-banner{width:100%;top:0;left:0;transform:none;outline:1px solid rgba(239,233,220,.18);z-index:3}
@@ -1001,22 +1030,22 @@
   <h2 class="disp" id="work-title">Επιλεγμένες δουλειές</h2>
 </div></section>
 
-<!-- SHELTER CONCEPT STORE -->
-<section id="shelter-concept-store" aria-labelledby="shelter-concept-store-title" class="band shelter" style="--bg:#3A2A35;--fg:#F1E8DF;--accent:#C9A3C4"><div class="wrap">
+<!-- ESCAPE SHOP -->
+<section id="escape-shop" aria-labelledby="escape-shop-title" class="band escape-shop" style="--bg:#2F4A5A;--fg:#EDE7D6;--accent:#CBA24B"><div class="wrap">
   <div class="head">
-    <div class="mark">SC</div>
-    <div class="meta"><div class="kick">01 · Καρδίτσα, Ελλάδα · Σε εξέλιξη</div><h2 class="disp" id="shelter-concept-store-title">Shelter Concept Store</h2></div>
+    <div class="mark">ES</div>
+    <div class="meta"><div class="kick">01 · Καρδίτσα, Ελλάδα · Σε εξέλιξη</div><h2 class="disp" id="escape-shop-title">Escape Shop</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
-      <p class="lead">Ένα concept store επιλεγμένης μόδας χωρίς e-shop, και χωρίς σκοπό να φτιάξει. Γι' αυτό χτίσαμε το site γύρω από την ιδιοκτήτρια: η Μερόπη δοκιμάζει τα ρούχα, το site σε στέλνει στα DM της και το Instagram κάνει το ταμείο.</p>
-      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">SEO / GEO</span><span class="tag">Πωλήσεις μέσω Instagram</span></div>
-      <a class="btn" href="https://shelterconceptstore.gr/gr" target="_blank" rel="noopener">Δείτε το live site</a>
+      <p class="lead">Ένα μαγαζί για ψάρεμα κυπρίνου και γλυκών νερών, με ολόκληρο e-shop... που όμως κανείς δεν έβρισκε. Οπότε φτιάξαμε τον λόγο να το βρουν: έναν οδηγό λιμνών που κερδίζει την αναζήτηση, και μετά δίνει στον αναγνώστη τον ακριβή εξοπλισμό για αγορά.</p>
+      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">SEO / GEO</span><span class="tag">Οδηγοί λιμνών</span></div>
+      <a class="btn" href="https://escapeshop-gr.labrakex.workers.dev/" target="_blank" rel="noopener">Δείτε το live e-shop</a>
     </div>
     <div class="col" style="aspect-ratio:auto">
       <div class="browser">
         <div class="bar"><i></i><i></i><i></i></div>
-        <div class="frame"><iframe src="https://shelterconceptstore.gr/gr" title="Ζωντανή προεπισκόπηση του site του Shelter Concept Store" loading="lazy"></iframe></div>
+        <div class="frame"><iframe src="https://escapeshop-gr.labrakex.workers.dev/" title="Ζωντανή προεπισκόπηση του e-shop ψαρέματος Escape Shop" loading="lazy"></iframe></div>
       </div>
     </div>
   </div>
@@ -1041,11 +1070,32 @@
   </div>
 </div></section>
 
+<!-- SHELTER CONCEPT STORE -->
+<section id="shelter-concept-store" aria-labelledby="shelter-concept-store-title" class="band shelter" style="--bg:#0B0B0A;--fg:#F1EFE8;--accent:#F23A25"><div class="wrap">
+  <div class="head">
+    <div class="mark">SC</div>
+    <div class="meta"><div class="kick">03 · Καρδίτσα, Ελλάδα · Σε εξέλιξη</div><h2 class="disp" id="shelter-concept-store-title">Shelter Concept Store</h2></div>
+  </div>
+  <div class="grid">
+    <div class="txt">
+      <p class="lead">Ένα concept store επιλεγμένης μόδας χωρίς e-shop, και χωρίς σκοπό να φτιάξει. Γι' αυτό χτίσαμε το site γύρω από την ιδιοκτήτρια: η Μερόπη δοκιμάζει τα ρούχα, το site σε στέλνει στα DM της και το Instagram κάνει το ταμείο.</p>
+      <div class="tags"><span class="tag">Σχεδιασμός ιστοσελίδας</span><span class="tag">SEO / GEO</span><span class="tag">Πωλήσεις μέσω Instagram</span></div>
+      <a class="btn" href="https://shelterconceptstore.gr/gr" target="_blank" rel="noopener">Δείτε το live site</a>
+    </div>
+    <div class="col" style="aspect-ratio:auto">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="frame"><iframe src="https://shelterconceptstore.gr/gr" title="Ζωντανή προεπισκόπηση του site του Shelter Concept Store" loading="lazy" tabindex="-1"></iframe></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
 <!-- FLAOUER -->
-<section id="flaouer-hub" aria-labelledby="flaouer-hub-title" class="band" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
+<section id="flaouer-hub" aria-labelledby="flaouer-hub-title" class="band flip" style="--bg:#E3B23E;--fg:#3A1C1E;--accent:#7A2230"><div class="wrap">
   <div class="head">
     <img src="/assets/logo_flaouer.png" alt="Flaouer Hub" width="1056" height="960" loading="lazy" decoding="async">
-    <div class="meta"><div class="kick">03 · Αθήνα, Ελλάδα</div><h2 class="disp" id="flaouer-hub-title">Flaouer Hub</h2></div>
+    <div class="meta"><div class="kick">04 · Αθήνα, Ελλάδα</div><h2 class="disp" id="flaouer-hub-title">Flaouer Hub</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
@@ -1069,10 +1119,10 @@
 
 <!-- MERMAID -->
 <span class="legacy-anchor" id="mermaid" aria-hidden="true"></span>
-<section id="mermaid-experience" aria-labelledby="mermaid-experience-title" class="band flip" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
+<section id="mermaid-experience" aria-labelledby="mermaid-experience-title" class="band" style="--bg:#DCE7DE;--fg:#173B3A;--accent:#2E7C77"><div class="wrap">
   <div class="head">
     <img src="/assets/logo_mermaid.jpg" alt="Become a Mermaid" style="border-radius:4px;height:96px" width="1080" height="1350" loading="lazy" decoding="async">
-    <div class="meta"><div class="kick">04 · Αθήνα, Ελλάδα</div><h2 class="disp" id="mermaid-experience-title">Mermaid Experience</h2></div>
+    <div class="meta"><div class="kick">05 · Αθήνα, Ελλάδα</div><h2 class="disp" id="mermaid-experience-title">Mermaid Experience</h2></div>
   </div>
   <div class="grid">
     <div class="col">
@@ -1099,10 +1149,10 @@
 </div></section>
 
 <!-- ATA -->
-<section id="acting-truth-academy" aria-labelledby="acting-truth-academy-title" class="band" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
+<section id="acting-truth-academy" aria-labelledby="acting-truth-academy-title" class="band flip" style="--bg:#162938;--fg:#EDE7DA;--accent:#E0902E"><div class="wrap">
   <div class="head">
     <img src="/assets/logo_aca-lockup-transparent.png" alt="Acting Truth Academy" width="1800" height="1012" loading="lazy" decoding="async">
-    <div class="meta"><div class="kick">05 · Ναυαρχίδα · Εκδόσεις &amp; Παιδαγωγική</div><h2 class="disp" id="acting-truth-academy-title">Acting Truth Academy</h2></div>
+    <div class="meta"><div class="kick">06 · Ναυαρχίδα · Εκδόσεις &amp; Παιδαγωγική</div><h2 class="disp" id="acting-truth-academy-title">Acting Truth Academy</h2></div>
   </div>
   <div class="grid">
     <div class="txt">
@@ -1118,7 +1168,7 @@
   <div style="margin-top:60px">
     <a class="browser" href="https://actingtruthacademy.com/" target="_blank" rel="noopener" aria-label="Επισκεφθείτε το site της Acting Truth Academy" style="display:block;text-decoration:none">
       <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px;color:#51483f;font-size:11px">actingtruthacademy.com ↗</span></div>
-      <img src="/assets/ata/ata-site-thumb.webp" alt="Κάρτα της Acting Truth Academy στο ύφος του Substack της Deep-Truth Method: Until freedom becomes the only comfort zone." style="display:block;width:100%;height:auto" width="1200" height="630" loading="lazy" decoding="async">
+      <img src="/assets/ata/ata-site-thumb.webp" alt="Κάρτα της Acting Truth Academy στο ύφος της Deep-Truth Method: Until freedom becomes the only comfort zone." style="display:block;width:100%;height:auto" width="1200" height="630" loading="lazy" decoding="async">
     </a>
     <div style="text-align:center;margin-top:22px"><a class="btn" href="https://actingtruthacademy.com/" target="_blank" rel="noopener">Δείτε το live site</a></div>
   </div>
