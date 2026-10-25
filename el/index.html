@@ -642,9 +642,12 @@
   .shelter .btn{color:#0B0B0A}
 
   /* ATA: essay banner above two slightly overlapping portrait posts. */
-  #acting-truth-academy .ata-collage .ata-banner{width:100%;top:0;left:0;transform:none;outline:1px solid rgba(239,233,220,.18);z-index:3}
-  .ata-collage .ata-ecru{width:50%;top:29%;left:3%;transform:rotate(-4deg);z-index:1}
-  .ata-collage .ata-fuchsia{width:50%;top:34%;left:47%;transform:rotate(4deg);z-index:2}
+  #acting-truth-academy .txt .ata-banner{display:block;width:100%;height:auto;margin:0 0 24px;border-radius:3px;outline:1px solid rgba(239,233,220,.18)}
+  #acting-truth-academy .ata-collage{aspect-ratio:1/.82}
+  #acting-truth-academy .ata-collage img:nth-child(1){animation-duration:10.5s;animation-delay:-3.2s;animation-direction:reverse}
+  #acting-truth-academy .ata-collage img:nth-child(2){animation-duration:12s;animation-delay:-6.1s;animation-direction:normal}
+  .ata-collage .ata-ecru{width:50%;top:9%;left:3%;transform:rotate(-4deg);z-index:1}
+  .ata-collage .ata-fuchsia{width:50%;top:14%;left:47%;transform:rotate(4deg);z-index:2}
 
   /* MERMAIDS NEED SPACE — scroll-led film inside the existing case study */
   .mermaid-film{--film-progress:0;height:260vh;margin-top:0;position:relative;color:var(--fg);scroll-margin-top:80px}
@@ -1270,11 +1273,11 @@
   </div>
   <div class="grid">
     <div class="txt">
+      <img class="ata-banner" src="/assets/ata/ata-banner-technique-as-a-refuge-v2.png" alt="Μπάνερ της Acting Truth Academy για το δοκίμιο Technique as a Refuge" width="1100" height="220" loading="lazy" decoding="async">
       <p class="lead">Ένα πλήρες εκδοτικό οικοσύστημα, χτισμένο από την αρχή ως το τέλος: δύο βιβλία, μια τράπεζα 22 δοκιμίων για το Substack χωρισμένη σε δύο χρωματικά κωδικοποιημένες θεματικές, μια καθημερινή σχεδιαστική γλώσσα για το Instagram, και ένα funnel από το δωρεάν δοκίμιο έως τη signature υπηρεσία.</p>
       <div class="tags"><span class="tag">Σύστημα Substack</span><span class="tag">Καθημερινή μηχανή περιεχομένου</span><span class="tag">Σχεδιασμός funnel</span></div>
     </div>
     <div class="col ata-collage">
-      <img class="ata-banner" src="/assets/ata/ata-banner-technique-as-a-refuge-v2.png" alt="Μπάνερ της Acting Truth Academy για το δοκίμιο Technique as a Refuge" width="1100" height="220" loading="lazy" decoding="async">
       <img class="ata-ecru" src="/assets/ata/ata-ig-dont-close-the-gap-ecru.webp" alt="Ανάρτηση της Deep-Truth Method στο Instagram: Μην κλείνεις το κενό. Άφησέ το να σε κινήσει." width="1080" height="1350" loading="lazy" decoding="async">
       <img class="ata-fuchsia" src="/assets/ata/ata-ig-story-never-resolve-fuchsia.webp" alt="Ανάρτηση του What Is Missing? στο Instagram: Μια ιστορία σχεδιασμένη να μη βρίσκει ποτέ λύση." width="1080" height="1350" loading="lazy" decoding="async">
     </div>
