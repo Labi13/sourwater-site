@@ -11,6 +11,7 @@ if ((await stat(new URL("media/ai-content-film.mp4", root))).size !== FILM_BYTES
   throw new Error("Update the independent film byte size before publishing its replacement.");
 }
 const localAssets = [
+  ["assets/ata/ata-site-preview.png", "ata-site-preview.png"],
   ["media/ai-content-film.mp4", "ai-content-film.mp4"],
   ["media/ai-content-film-poster.jpg", "ai-content-film-poster.jpg"],
   ["scripts/ai-film-player.js", "ai-film-player.js"],
@@ -115,6 +116,12 @@ const katopsiAssets = (await readdir(katopsiDirectory)).filter((name) => /^katop
 await mkdir(new URL("assets/katopsi/", dist), { recursive: true });
 await Promise.all(katopsiAssets.map((name) =>
   copyFile(new URL(name, katopsiDirectory), new URL(`assets/katopsi/${name}`, dist))
+));
+const casesDirectory = new URL("assets/cases/", root);
+const caseAssets = (await readdir(casesDirectory)).filter((name) => /\.webp$/.test(name));
+await mkdir(new URL("assets/cases/", dist), { recursive: true });
+await Promise.all(caseAssets.map((name) =>
+  copyFile(new URL(name, casesDirectory), new URL(`assets/cases/${name}`, dist))
 ));
 const ataDirectory = new URL("assets/ata/", root);
 const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$/.test(name));

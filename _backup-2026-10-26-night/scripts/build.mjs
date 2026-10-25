@@ -1,0 +1,155 @@
+import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
+import { buildDiscovery } from "./site-discovery.mjs";
+import { FILM_BYTES } from "./film-metadata.mjs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = new URL("../", import.meta.url);
+const dist = new URL("../dist/", import.meta.url);
+const distAssets = fileURLToPath(new URL("assets/", dist));
+if ((await stat(new URL("media/ai-content-film.mp4", root))).size !== FILM_BYTES) {
+  throw new Error("Update the independent film byte size before publishing its replacement.");
+}
+const localAssets = [
+  ["assets/ata/ata-site-preview.png", "ata-site-preview.png"],
+  ["media/ai-content-film.mp4", "ai-content-film.mp4"],
+  ["media/ai-content-film-poster.jpg", "ai-content-film-poster.jpg"],
+  ["scripts/ai-film-player.js", "ai-film-player.js"],
+  ["styles/ai-films.css", "ai-films.css"],
+  ["scripts/plan-register-en.js", "plan-register-en.js"],
+  ["scripts/plan-register-el.js", "plan-register-el.js"],
+  ["scripts/site-motion-en.js", "site-motion-en.js"],
+  ["scripts/site-motion-el.js", "site-motion-el.js"],
+  ["scripts/mellow-motion-en.js", "mellow-motion-en.js"],
+  ["scripts/mellow-motion-el.js", "mellow-motion-el.js"],
+  ["scripts/mermaid-film.js", "mermaid-film.js"],
+  ["scripts/rules-bucket.js", "rules-bucket.js"]
+];
+
+const sourceAssets = [
+  "flaouer-couples-bonding.png",
+  "flaouer-dance-story.png",
+  "flaouer-performances-story.png",
+  "flaouer-site-preview.png",
+  "logo_aca-lockup-transparent.png",
+  "logo_flaouer.png",
+  "logo_mermaid.jpg",
+  "logo_wdv.png",
+  "mermaid-photo.jpg",
+  "mermaid3.jpeg",
+  "og-cover.png",
+  "wdv-card-course.png",
+  "wdv-ig-post.png"
+];
+
+const authoredAssets = [
+  ["mermaids-need-space-poster-jpg-", "mermaids-need-space-poster.jpg"],
+  ["mermaids-need-space-web-mp4-", "mermaids-need-space-web.mp4"],
+  ["mermaids-need-space-720-mp4-", "mermaids-need-space-720.mp4"],
+  ["mermaids-need-space-1080-mp4-", "mermaids-need-space-1080.mp4"],
+  ["mermaids-need-space-2k-mp4-", "mermaids-need-space-2k.mp4"]
+];
+
+async function download(url, destination) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Unable to download ${url}: ${response.status}`);
+  }
+  await mkdir(dirname(destination), { recursive: true });
+  await writeFile(destination, Buffer.from(await response.arrayBuffer()));
+}
+
+async function decodeAuthoredAsset(prefix, filename) {
+  const partsDirectory = new URL("../asset-parts/", import.meta.url);
+  const partNames = (await readdir(partsDirectory))
+    .filter((name) => name.startsWith(prefix) && name.endsWith(".b64"))
+    .sort();
+  if (!partNames.length) {
+    throw new Error(`Missing encoded source for ${filename}`);
+  }
+  const encodedParts = await Promise.all(
+    partNames.map((name) => readFile(new URL(name, partsDirectory), "utf8"))
+  );
+  await writeFile(
+    join(distAssets, filename),
+    Buffer.from(encodedParts.join(""), "base64")
+  );
+}
+
+await rm(dist, { recursive: true, force: true });
+await mkdir(new URL("assets/", dist), { recursive: true });
+await mkdir(new URL("el/", dist), { recursive: true });
+
+await copyFile(new URL("index.html", root), new URL("index.html", dist));
+await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+const brandDirectory = new URL("assets/brand/", root);
+const brandAssets = (await readdir(brandDirectory, { withFileTypes: true }))
+  .filter((entry) => entry.isFile()).map((entry) => entry.name);
+await mkdir(new URL("assets/brand/", dist), { recursive: true });
+await Promise.all(brandAssets.map((name) =>
+  copyFile(new URL(name, brandDirectory), new URL(`assets/brand/${name}`, dist))
+));
+await Promise.all(["favicon.ico", "apple-touch-icon.png"].map((name) =>
+  copyFile(new URL(name, brandDirectory), new URL(name, dist))
+));
+await writeFile(new URL("site.webmanifest", dist), JSON.stringify({
+  name: "SOURwater",
+  short_name: "SOURwater",
+  start_url: "/",
+  display: "browser",
+  background_color: "#241F1A",
+  theme_color: "#241F1A",
+  icons: [
+    { src: "/assets/brand/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+    { src: "/assets/brand/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+    { src: "/assets/brand/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" }
+  ]
+}, null, 2) + "\n");
+const rulesDirectory = new URL("assets/rules/", root);
+const ruleAssets = (await readdir(rulesDirectory)).filter((name) => /^house-rule-.*\.webp$/.test(name));
+await mkdir(new URL("assets/rules/", dist), { recursive: true });
+await Promise.all(ruleAssets.map((name) =>
+  copyFile(new URL(name, rulesDirectory), new URL(`assets/rules/${name}`, dist))
+));
+const katopsiDirectory = new URL("assets/katopsi/", root);
+const katopsiAssets = (await readdir(katopsiDirectory)).filter((name) => /^katopsi-.*\.webp$/.test(name));
+await mkdir(new URL("assets/katopsi/", dist), { recursive: true });
+await Promise.all(katopsiAssets.map((name) =>
+  copyFile(new URL(name, katopsiDirectory), new URL(`assets/katopsi/${name}`, dist))
+));
+const ataDirectory = new URL("assets/ata/", root);
+const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$/.test(name));
+await mkdir(new URL("assets/ata/", dist), { recursive: true });
+await Promise.all(ataAssets.map((name) =>
+  copyFile(new URL(name, ataDirectory), new URL(`assets/ata/${name}`, dist))
+));
+await Promise.all(localAssets.map(([source, filename]) =>
+  copyFile(new URL(source, root), join(distAssets, filename))
+));
+await Promise.all(
+  authoredAssets.map(([prefix, filename]) => decodeAuthoredAsset(prefix, filename))
+);
+await Promise.all([
+  ...sourceAssets.map((asset) =>
+    download(
+      `https://sourwater.space/assets/${asset}`,
+      join(distAssets, asset)
+    )
+  ),
+  download(
+    "https://sourwater.space/assets/escape-shop-social.jpg",
+    join(distAssets, "escape-shop-social.jpg")
+  )
+]);
+
+const html = await readFile(new URL("index.html", dist), "utf8");
+if (!html.includes("https://escapeshop-gr.labrakex.workers.dev/")) {
+  throw new Error("Escape Shop portfolio link is missing from the production build.");
+}
+
+await buildDiscovery([
+  { language: "en", html },
+  { language: "el", html: await readFile(new URL("el/index.html", dist), "utf8") }
+], dist);
+
+console.log(`Built SOURwater with ${sourceAssets.length + authoredAssets.length + localAssets.length + ruleAssets.length + katopsiAssets.length + ataAssets.length + brandAssets.length + 3} local assets.`);
