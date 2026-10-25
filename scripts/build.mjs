@@ -124,7 +124,7 @@ await Promise.all(caseAssets.map((name) =>
   copyFile(new URL(name, casesDirectory), new URL(`assets/cases/${name}`, dist))
 ));
 const ataDirectory = new URL("assets/ata/", root);
-const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$/.test(name));
+const ataAssets = (await readdir(ataDirectory)).filter((name) => /\.webp$|-v2\.png$/.test(name));
 await mkdir(new URL("assets/ata/", dist), { recursive: true });
 await Promise.all(ataAssets.map((name) =>
   copyFile(new URL(name, ataDirectory), new URL(`assets/ata/${name}`, dist))
