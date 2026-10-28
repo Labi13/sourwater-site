@@ -1,5 +1,6 @@
 import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import { buildDiscovery } from "./site-discovery.mjs";
+import { loadPosts, injectHome, essaysPage } from "./essays-build.mjs";
 import { FILM_BYTES } from "./film-metadata.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -23,6 +24,8 @@ const localAssets = [
   ["scripts/mellow-motion-en.js", "mellow-motion-en.js"],
   ["scripts/mellow-motion-el.js", "mellow-motion-el.js"],
   ["scripts/mermaid-film.js", "mermaid-film.js"],
+  ["styles/substack.css", "substack.css"],
+  ["scripts/substack-ui.js", "substack-ui.js"],
   ["scripts/rules-bucket.js", "rules-bucket.js"]
 ];
 
@@ -82,6 +85,12 @@ await mkdir(new URL("el/", dist), { recursive: true });
 
 await copyFile(new URL("index.html", root), new URL("index.html", dist));
 await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
+// Substack presence: homepage carousel and /essays are rendered into the static HTML (feed, else essays.json).
+const { posts: essayPosts, source: essaySource } = await loadPosts(root);
+await writeFile(new URL("index.html", dist), injectHome(await readFile(new URL("index.html", root), "utf8"), essayPosts));
+await writeFile(new URL("essays.html", dist), essaysPage(essayPosts));
+await writeFile(new URL("el/index.html", dist), injectHome(await readFile(new URL("el/index.html", root), "utf8"), essayPosts, "el"));
+console.log(`Essays: ${essayPosts.length} post(s) from ${essaySource}.`);
 const brandDirectory = new URL("assets/brand/", root);
 const brandAssets = (await readdir(brandDirectory, { withFileTypes: true }))
   .filter((entry) => entry.isFile()).map((entry) => entry.name);

@@ -51,6 +51,7 @@ export async function buildDiscovery(pages, dist) {
     }
     sitemap += '  </url>\n';
   }
+  sitemap += `  <url>\n    <loc>${origin}/essays</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>\n`;
   sitemap += '</urlset>\n';
   const en = graphs.find(page => page.language === 'en').graph;
   const org = en.find(node => node['@type'] === 'ProfessionalService');
@@ -72,6 +73,7 @@ export async function buildDiscovery(pages, dist) {
   const app = en.find(node => node['@type'] === 'SoftwareApplication');
   llms += `\n## Katopsi (in development)\n\n- [Katopsi](${origin}/#katopsi): ${app.description} Working pilot on synthetic data.\n`;
   llms += `\n## Contact\n\n- [Email](mailto:${org.email}): ${org.email}\n- [Greece telephone](tel:+306971779530): +30 697 177 9530\n- [United States telephone](tel:+14243351142): +1 424 335 1142\n- [LinkedIn](${org.sameAs[0]})\n- [Instagram](${org.sameAs[1]})\n`;
+  llms += `\n## Essays\n\n- [Essays](${origin}/essays): Previews of the SOURwater essays on marketing, crowd psychology and AI, read through dramaturgy. Full essays on [Substack](https://sourwaterspace.substack.com).\n`;
   llms += `\n## Languages\n\n- [English](${origin}/)\n- [Ελληνικά](${origin}/el/)\n`;
   if (llms.split(/\s+/).length >= 2500) throw new Error('llms.txt exceeds requested word limit.');
   await Promise.all([writeFile(new URL('robots.txt', dist), robots), writeFile(new URL('sitemap.xml', dist), sitemap), writeFile(new URL('llms.txt', dist), llms)]);

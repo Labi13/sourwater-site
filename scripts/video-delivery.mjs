@@ -1,5 +1,6 @@
 // Film files use byte-range delivery for playback and scroll seeking; other assets stay static.
 import { FILM_BYTES } from './film-metadata.mjs';
+import { FEED_URL, parseFeed, renderCarousel, renderList, itemListLd } from './essays-render.mjs';
 // Exact sizes of the existing encoded Mermaid assets, verified against dist.
 const VIDEO_BYTES = {
   '/assets/ai-content-film.mp4': FILM_BYTES,
@@ -7,9 +8,33 @@ const VIDEO_BYTES = {
   '/assets/mermaids-need-space-1080.mp4': 25582422,
   '/assets/mermaids-need-space-2k.mp4': 24697919
 };
+
+// Substack feed, cached at the edge for one hour so new posts appear without a redeploy. Any failure or an empty feed
+// returns [] and the page keeps the content baked in at build time (feed or essays.json); with none, the section stays hidden.
+async function freshPosts() {
+  try {
+    const response = await fetch(FEED_URL, {cf: {cacheTtl: 3600, cacheEverything: true}, signal: AbortSignal.timeout(5000)});
+    return response.ok ? parseFeed(await response.text()) : [];
+  } catch { return []; }
+}
+async function withFeed(response) {
+  if (!response.ok || !(response.headers.get('Content-Type') || '').includes('text/html')) return response;
+  const posts = await freshPosts();
+  if (!posts.length) return response;
+  return new HTMLRewriter()
+    .on('section[data-sw-feed="carousel"]', {element(el) {
+      el.removeAttribute('hidden');
+      el.setInnerContent(renderCarousel(posts, Number(el.getAttribute('data-count')) || 6, 'carousel', el.getAttribute('data-heading') || undefined, el.getAttribute('data-lang') || 'en'), {html: true});
+    }})
+    .on('div[data-sw-feed="list"]', {element(el) { el.setInnerContent(renderList(posts), {html: true}); }})
+    .on('script#sw-essays-ld', {element(el) { el.setInnerContent(itemListLd(posts), {html: true}); }})
+    .transform(response);
+}
 export default {
   async fetch(request, env) {
-    const videoSize = VIDEO_BYTES[new URL(request.url).pathname];
+    const {pathname} = new URL(request.url);
+    if (request.method === 'GET' && (pathname === '/' || pathname === '/essays' || pathname === '/el/' || pathname === '/el')) return withFeed(await env.ASSETS.fetch(request));
+    const videoSize = VIDEO_BYTES[pathname];
     if (!videoSize || !['GET', 'HEAD'].includes(request.method)) {
       const asset = await env.ASSETS.fetch(request);
       if (['GET', 'HEAD'].includes(request.method) && asset.ok &&
