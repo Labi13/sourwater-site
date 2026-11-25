@@ -1,0 +1,30 @@
+{
+  "source": "https://sourwaterspace.substack.com/feed",
+  "fetched": "2026-11-25",
+  "posts": [
+    {
+      "title": "Surgical Dramaturgy: The Most Important Tool Is the Cut",
+      "url": "https://sourwaterspace.substack.com/p/surgical-dramaturgy-the-most-important",
+      "date": "2026-11-16",
+      "image": "https://substack-post-media.s3.amazonaws.com/public/images/57f121a7-092a-4135-a496-a8e38af1e07e_1200x800.png",
+      "excerpt": "Two Greek words stand at the door of this essay, and they have been arguing for two and a half thousand years. Surgery comes from kheirourgia: kheir, the hand, and ergon, work. Hand-work.",
+      "paid": false
+    },
+    {
+      "title": "Algorithmic Dramaturgy: Who Directs the Brand Now",
+      "url": "https://sourwaterspace.substack.com/p/algorithmic-dramaturgy-who-directs",
+      "date": "2026-11-04",
+      "image": "https://substack-post-media.s3.amazonaws.com/public/images/96de479e-bc9d-49a9-8139-377d9ee848c3_1200x800.png",
+      "excerpt": "The word algorithm is a man. Muhammad ibn Musa al-Khwarizmi, a mathematician working in ninth-century Baghdad, wrote the books through which Europe learned to calculate, and his name, passing through Latin hands that could not quite…",
+      "paid": false
+    },
+    {
+      "title": "Cut The Bullshit.",
+      "url": "https://sourwaterspace.substack.com/p/cut-the-bullshit",
+      "date": "2026-10-27",
+      "image": "https://substack-post-media.s3.amazonaws.com/public/images/84d702c4-ad30-40bb-b3d7-fc885f4a371e_1200x800.png",
+      "excerpt": "Let’s be clear — we use AI. Text, images, video. All of it. And we’re not against shortcuts. Here’s the thing: a shortcut only works if you know where you’re going.",
+      "paid": false
+    }
+  ]
+}
