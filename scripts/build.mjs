@@ -1,6 +1,6 @@
 import { copyFile, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import { buildDiscovery } from "./site-discovery.mjs";
-import { loadPosts, injectHome } from "./essays-build.mjs";
+import { loadPosts, injectHome, essaysPage } from "./essays-build.mjs";
 import { FILM_BYTES } from "./film-metadata.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -87,6 +87,7 @@ await copyFile(new URL("el/index.html", root), new URL("el/index.html", dist));
 // Substack section: the 6 newest posts from the RSS feed are baked into #latest on every build.
 const { posts: essayPosts, source: essaySource } = await loadPosts(root);
 await writeFile(new URL("index.html", dist), injectHome(await readFile(new URL("index.html", root), "utf8"), essayPosts));
+await writeFile(new URL("essays.html", dist), essaysPage(essayPosts));
 await writeFile(new URL("el/index.html", dist), injectHome(await readFile(new URL("el/index.html", root), "utf8"), essayPosts, "el"));
 console.log(`Substack: ${Math.min(essayPosts.length, 6)} post(s) from ${essaySource}.`);
 const brandDirectory = new URL("assets/brand/", root);

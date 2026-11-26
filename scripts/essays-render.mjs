@@ -68,3 +68,19 @@ export function renderCarousel(posts, count, campaign = 'carousel', heading, lan
     `<button type="button" class="sw-car-btn" data-dir="1" aria-label="${L.next}">→</button></div>` +
     `<ul class="sw-car-track">${list.map((p, i) => card(p, campaign, i < 3, L, L.locale)).join('')}</ul></div>${L.note ? `<p class="sw-car-note">${esc(L.note)}</p>` : ''}</div>`;
 }
+
+export function renderList(posts) {
+  if (!posts.length) return '';
+  return `<ul class="sw-list">${posts.map(p => `<li class="sw-entry"><time datetime="${p.date}">${fmt(p.date)}</time>` +
+    `<h2 class="serif"><a href="${esc(utm('essays', p.url))}" target="_blank" rel="noopener">${esc(p.title)}</a>${p.paid ? ' <b class="sw-paid">Paid</b>' : ''}</h2>` +
+    `<p>${esc(p.excerpt)}</p><a class="sw-card-link" href="${esc(utm('essays', p.url))}" target="_blank" rel="noopener">Read on Substack ↗</a></li>`).join('')}</ul>`;
+}
+
+export function itemListLd(posts) {
+  const graph = {'@context': 'https://schema.org', '@type': 'CollectionPage', '@id': 'https://sourwater.space/essays#page', url: 'https://sourwater.space/essays',
+    name: 'Essays | SOURwater', isPartOf: {'@id': 'https://sourwater.space/#website'}, publisher: {'@id': 'https://sourwater.space/#org'},
+    mainEntity: {'@type': 'ItemList', itemListElement: posts.map((p, i) => ({'@type': 'ListItem', position: i + 1, url: p.url,
+      item: {'@type': 'Article', headline: p.title, datePublished: p.date, url: p.url, mainEntityOfPage: p.url, description: p.excerpt,
+        ...(p.image ? {image: p.image} : {}), author: {'@type': 'Person', name: 'Lampros Filippou'}, publisher: {'@id': 'https://sourwater.space/#org'}}}))}};
+  return JSON.stringify(graph).replace(/</g, '\\u003c');
+}

@@ -22,4 +22,6 @@
     window.addEventListener('resize', sync);
     sync();
   });
+  var more = document.querySelector('.sw-more');
+  if (more) document.addEventListener('keydown', function (e) { if (e.key === 'Escape') more.removeAttribute('open'); });
 })();
