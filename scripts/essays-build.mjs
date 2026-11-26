@@ -56,10 +56,9 @@ export const NAV = (esc_, lang = 'en') => `<nav>
 </nav>`;
 
 export const FOLLOW = `<div class="sw-follow">
-    <p class="sw-follow-line">Essays on marketing, crowd psychology and AI, read through dramaturgy. <a href="${esc(utm('footer'))}" target="_blank" rel="noopener">Read on the SOURwater Substack</a></p>
+    <p class="sw-follow-line">Essays on marketing, crowd psychology and AI, read through dramaturgy.</p>
     <div class="sw-follow-label">Follow SOURwater</div>
     <ul>
-      <li><a href="https://www.linkedin.com/company/sourwater-space/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
       <li><a href="https://www.instagram.com/sourwater.space/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
       <li><a href="${esc(utm('footer'))}" target="_blank" rel="noopener noreferrer">Subscribe on Substack</a></li>
     </ul>
