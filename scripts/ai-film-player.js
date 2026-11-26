@@ -23,7 +23,7 @@ document.querySelectorAll('[data-ai-film]').forEach(function(player){
     if(!video.paused){video.pause();return;}
     status.textContent='';
     // Keep play inside the click gesture so mobile browsers allow sound.
-    video.play().catch(function(){status.textContent=greek?'Η αναπαραγωγή δεν ξεκίνησε. Δοκιμάστε ξανά.':'Playback could not start. Please try again.';});
+    video.play().catch(function(){status.textContent=greek?'Η αναπαραγωγή δεν ξεκίνησε. Δοκίμασε ξανά.':'Playback could not start. Please try again.';});
   }
   play.addEventListener('click',toggle);
   video.addEventListener('click',toggle);
@@ -38,6 +38,6 @@ document.querySelectorAll('[data-ai-film]').forEach(function(player){
   video.addEventListener('waiting',function(){status.textContent=greek?'Φόρτωση ταινίας…':'Loading film…';});
   video.addEventListener('seeked',function(){status.textContent='';});
   video.addEventListener('playing',function(){status.textContent='';});
-  video.addEventListener('error',function(){status.textContent=greek?'Δεν ήταν δυνατή η φόρτωση της ταινίας. Ανανεώστε τη σελίδα και δοκιμάστε ξανά.':'The film could not load. Refresh the page and try again.';});
+  video.addEventListener('error',function(){status.textContent=greek?'Δεν ήταν δυνατή η φόρτωση της ταινίας. Ανανέωσε τη σελίδα και δοκίμασε ξανά.':'The film could not load. Refresh the page and try again.';});
   update();
 });

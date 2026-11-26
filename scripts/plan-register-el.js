@@ -3,7 +3,7 @@
   document.querySelectorAll('.register').forEach(function(form){
     var groups=['build','brand','content','production','strategy'];
     var vfd=form.querySelector('[data-vfd]'),count=form.querySelector('[data-count]'),copy=form.querySelector('.plan-copy'),email=form.querySelector('.plan-email');
-    var S={idle:'Ένα πλήκτρο ανά σειρά',ready:'Το πλάνο τυπώθηκε · έτοιμο email',next:'Επόμενη σειρά',note:'Διαλέξτε μία απάντηση σε κάθε σειρά για να δημιουργηθεί η πρόταση.',rec:'Πρόταση: ',hello:'Γεια σας,\n\nΘα ήθελα να συζητήσουμε το παρακάτω πλάνο:\n- ',subject:'Το πλάνο μου στη SOURwater'};
+    var S={idle:'Ένα πλήκτρο ανά σειρά',ready:'Το πλάνο τυπώθηκε · έτοιμο email',next:'Επόμενη σειρά',note:'Διάλεξε μία απάντηση σε κάθε σειρά για να δημιουργηθεί η πρόταση.',rec:'Πρόταση: ',hello:'Γεια σας,\n\nΘα ήθελα να συζητήσουμε το παρακάτω πλάνο:\n- ',subject:'Το πλάνο μου στη SOURwater'};
     var dateEl=form.querySelector('[data-date]'),ticketEl=form.querySelector('[data-ticket]'),timer=0;
     try{dateEl.textContent=new Date().toLocaleDateString('el-GR',{day:'2-digit',month:'2-digit',year:'2-digit'});}catch(e){}
     var tk;try{tk=sessionStorage.getItem('swTicket');}catch(e){}
