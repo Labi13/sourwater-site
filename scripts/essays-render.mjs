@@ -41,7 +41,7 @@ export function parseFeed(xml) {
 
 export const LABELS = {
   en: {heading: 'Latest from the SOURwater Substack', read: 'Read on Substack ↗', prev: 'Previous posts', next: 'Next posts', locale: 'en-US', note: ''},
-  el: {heading: 'Τελευταία από το SOURwater Substack', read: 'Διαβάστε στο Substack ↗', prev: 'Προηγούμενα', next: 'Επόμενα', locale: 'el-GR', note: 'Τα άρθρα δημοσιεύονται στα αγγλικά.'}
+  el: {heading: 'Τελευταία από το SOURwater Substack', read: 'Διάβασε στο Substack ↗', prev: 'Προηγούμενα', next: 'Επόμενα', locale: 'el-GR', note: 'Τα άρθρα δημοσιεύονται στα αγγλικά.'}
 };
 const fmt = (iso, locale = 'en-US') => iso ? new Date(iso + 'T12:00:00Z').toLocaleDateString(locale, {day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'}) : '';
 
